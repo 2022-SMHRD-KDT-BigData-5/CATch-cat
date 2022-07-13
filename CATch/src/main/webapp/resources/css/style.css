@@ -414,24 +414,25 @@ h3 {
 
 /* line 49, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_btn.scss */
 .boxed-btn4 {
-  background: #fff;
+  background: #FDF8F2;
   font-size: 16px;
   font-weight: 500;
   border: 1px solid transparent;
-  color: #ff3500;
+  color: #5EBC88;
   padding: 17px 50px;
   font-family: "Poppins", sans-serif;
   display: inline-block;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
+  border-color: #5EBC88;
 }
 
 /* line 59, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_btn.scss */
 .boxed-btn4:hover {
-  background: #ff3500;
+  background: #5EBC88;
   color: #fff;
-  border: 1px solid #ff3500;
+  border: 1px solid #5EBC88;
 }
 
 /* line 64, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_btn.scss */
@@ -913,7 +914,7 @@ h3 {
 
 /* line 15, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_header.scss */
 .header-area .main-header-area {
-  background: #fff;
+  background: #FDF8F2;
 }
 
 @media (max-width: 767px) {
@@ -1140,7 +1141,7 @@ h3 {
 
 /* line 170, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_header.scss */
 .header-area .main-header-area .main-menu ul li:hover > a {
-  color: #eb592d !important;
+  color: #5EBC88 !important;
 }
 
 /* line 173, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_header.scss */
@@ -1325,10 +1326,11 @@ h3 {
 }
 
 /* line 1, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_slider.scss */
+/*
 .slider_bg_1 {
-  background-image: url(../img/banner/banner.png);
+  background-image: url(../img/banner/banner2.png);
 }
-
+*/
 /* line 4, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_slider.scss */
 .slider_area {
   position: relative;
@@ -1385,7 +1387,7 @@ h3 {
 
 /* line 30, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_slider.scss */
 .slider_area .single_slider .slider_text h3 {
-  color: #ffffff;
+  color: #5EBC88;
   font-family: "Poppins", sans-serif;
   font-size: 75px;
   font-weight: 200;
@@ -1426,7 +1428,7 @@ h3 {
 .slider_area .single_slider .slider_text p {
   font-size: 16px;
   font-weight: 400;
-  color: #ffffff;
+  color: #5EBC88;
   margin-bottom: 0;
   margin-top: 0;
   line-height: 32px;
@@ -1665,8 +1667,10 @@ h3 {
     position: absolute;
     right: 0;
     bottom: 0;
-    border-top: 15px solid #ffffff;
-    border-left: 15px solid #ffffff;
+    border-top: 15px solid
+ #ffffff;
+    border-left: 15px solid
+ #ffffff;
     top: auto;
     width: 50%;
     height: 60%;
