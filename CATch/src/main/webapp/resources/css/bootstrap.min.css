@@ -1778,12 +1778,14 @@ pre code {
 .table th {
     padding: .75rem;
     vertical-align: top;
-    border-top: 1px solid #dee2e6
+    border-top: 1px solid #dee2e6;
+    font-size : 18px;
 }
 
 .table thead th {
     vertical-align: bottom;
-    border-bottom: 2px solid #dee2e6
+    border-bottom: 2px solid #dee2e6;
+    font-size : 25px;
 }
 
 .table tbody+tbody {
