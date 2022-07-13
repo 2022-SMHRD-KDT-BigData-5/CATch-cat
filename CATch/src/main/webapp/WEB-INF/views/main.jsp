@@ -65,7 +65,7 @@
                         <div class="col-xl-3 col-lg-3">
                             <div class="logo">
                                 <a href="main.jsp">
-                                    <h2>CATch</h2>
+                                    <img src="img/catch-removebg.png" alt="">
                                 </a>
                             </div>
                         </div>
