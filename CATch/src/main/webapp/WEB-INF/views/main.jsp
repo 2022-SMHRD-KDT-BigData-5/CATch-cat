@@ -84,8 +84,8 @@
                                         <li><a href="#">게시판 <i class="ti-angle-down"></i></a>
                                         <ul class="submenu">
                                                 <li><a href="comm.do">소통게시판</a></li>
-                                                <li><a href="single-blog.html">입양게시판</a></li>
-                                                <li><a href="single-blog.html">후원게시판</a></li>
+                                                <li><a href="adopt.do">입양게시판</a></li>
+                                                <li><a href="spon.do">후원게시판</a></li>
                                             </ul>
                                             </li>
                                         <li><a href="contact.html">고양터</a></li>
