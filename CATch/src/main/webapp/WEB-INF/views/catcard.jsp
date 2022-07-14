@@ -31,84 +31,10 @@
  
  <body>
 
-    <header>
-        <div class="header-area ">
-            <div class="header-top_area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-8">
-                            <div class="short_contact_list">
-                                <ul>
-                                    <li><a href="#">+880 4664 216</a></li>
-                                    <li><a href="#">Mon - Sat 10:00 - 7:00</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-4 ">
-                            <div class="social_media_links">
-                                <a href="#">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-pinterest-p"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="sticky-header" class="main-header-area">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-3 col-lg-3">
-                            <div class="logo">
-                                <a href="index.html">
-                                    <img src="img/catch-removebg.png" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-xl-9 col-lg-9">
-                            <div class="main-menu  d-none d-lg-block">
-                                <nav>
-                                    <ul id="navigation">
-                                        <li><a  href="index.html">home</a></li>
-                                        <li><a href="about.html">about</a></li>
-                                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="single-blog.html">single-blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="elements.html">elements</a></li>
-                                                
-                                            </ul>
-                                        </li>
-                                        <li><a href="service.html">services</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+   <jsp:include page="header.jsp"></jsp:include>
 
 
-
- <!-- testmonial_area_start  -->
+<!-- testmonial_area_start  -->
  <div class="testmonial_area">
     <div class="container">
         <div class="row justify-content-center">
@@ -140,6 +66,8 @@
                                      <p>보호자 : 집사조</p>
                                        <p>거주지 : 제주도(자세한 주소는 제주살앙 이용 바람)</p>
                                       <p>중성화 : 고양이가 싫어하여 안함</p> 
+                                      <p>특이사항</p>
+                                      <p>특이사항 없음 </p>
                                  </div>
                             </div>
                             
@@ -150,13 +78,66 @@
                     </div>
                     <div class="testmonial_wrap">
                         <div class="single_testmonial d-flex align-items-center">
+                            <h7>진료 내역</h7>
                             <div class="medical_thumb">
-                                <img src="img/testmonial/1.png" alt="">
+                               <table class = "table table-border table-hover">
+                                <tr>
+                                    <td>진료병원</td>
+                                    <td>진료내역</td>
+                                    <td>진료일</td>
+                                </tr>
+                                <tr>
+                                    <td>미래아동병원</td>
+                                    <td>고양이가 엄청 아파하여 주사를 맞추려다가 개고생을 하였다</td>
+                                    <td>1995년 15월 36일</td>
+                                </tr>
+                                <tr>
+                                    <td>미래아동병원</td>
+                                    <td>고양이가 엄청 아파하여 주사를 맞추려다가 개고생을 하였다</td>
+                                    <td>1995년 15월 36일</td>
+                                </tr>
+                                <tr>
+                                    <td>미래아동병원</td>
+                                    <td>고양이가 엄청 아파하여 주사를 맞추려다가 개고생을 하였다</td>
+                                    <td>1995년 15월 36일</td>
+                                </tr>
+                                <tr>
+                                    <td>미래아동병원</td>
+                                    <td>고양이가 엄청 아파하여 주사를 맞추려다가 개고생을 하였다</td>
+                                    <td>1995년 15월 36일</td>
+                                </tr> <tr>
+                                    <td>미래아동병원</td>
+                                    <td>고양이가 엄청 아파하여 주사를 맞추려다가 개고생을 하였다</td>
+                                    <td>1995년 15월 36일</td>
+                                </tr> <tr>
+                                    <td>미래아동병원</td>
+                                    <td>고양이가 엄청 아파하여 주사를 맞추려다가 개고생을 하였다</td>
+                                    <td>1995년 15월 36일</td>
+                                </tr>
+                                <tr>
+                                    <td>미래아동병원</td>
+                                    <td>고양이가 엄청 아파하여 주사를 맞추려다가 개고생을 하였다</td>
+                                    <td>1995년 15월 36일</td>
+                                </tr>
+                               </table>
                             </div>
+                            <h7>접종 내역</h7>
                             <div class="vacc_content">
-                                <h4>Jhon Walker</h4>
-                                <span>Head of web design</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exerci.</p>
+                                <table class = "table table-border table-hover">
+                                    <tr>
+                                        <td>백신</td>
+                                        <td>접종여부</td>
+                                        <td>접종병원</td>
+                                        <td>접종일자</td>
+                                    </tr>
+                                    <tr>
+                                        <td>종합백신</td>
+                                        <td>접</td>
+                                        <td>미래아동병원</td>
+                                        <td>1994년 2월 38일</td>
+                                    </tr>
+
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -169,7 +150,6 @@
 </div>
 <!-- testmonial_area_end  -->
 
-    <!-- testmonial_area_end  -->
 
     <!-- JS here -->
      <script src="js/vendor/modernizr-3.5.0.min.js"></script>
