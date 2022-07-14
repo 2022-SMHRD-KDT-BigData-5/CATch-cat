@@ -14,5 +14,5 @@ public class CareController {
 	BoardMapper mapper;
 	
 	@RequestMapping("/careList.do")
-	public String careList( Model model) {}
+	public void careList( Model model) {}
 }

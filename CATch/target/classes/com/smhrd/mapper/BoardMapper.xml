@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<<<<<<< HEAD
-<mapper namespace="com.smhrd.mapper.BoardMapper"></mapper>
-
- 
-  <select 
-       id="careList" 
-       resultType="com.smhrd.domain.t_carezone">
-       select * from t_carezone
-   </select>
-=======
 <mapper namespace="com.smhrd.mapper.BoardMapper">
     
     <!-- 게시글의 전체정보 가져오는 sql문  -->
@@ -26,4 +16,4 @@
     </select>
     
 </mapper>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
+
