@@ -64,13 +64,14 @@
     <tbody>
       
       <% for(AdoptBoard adoptBoard : adoptList){ %>
-      <tr>
+       <tr>
         <td><%=adoptList.indexOf(adoptBoard)+1 %></td>
         <td><%=adoptBoard.getAdt_id() %></td>
-        <td><%=adoptBoard.getAdt_title() %></td>
+        <td><a href="/web/boardinfo.do/<%=adoptBoard.getAdt_seq()%>"><%=adoptBoard.getAdt_title() %></a></td>
         <td><%=adoptBoard.getAdt_date() %></td>
         <td><%=adoptBoard.getAdt_cnt() %></td>
       </tr>
+      
       <%} %>
     
     </tbody>
