@@ -44,5 +44,29 @@ public class BoardController {
 	
 	
 	
+	// ---------------------- 게시글 상세페이지로 이동하는 메서드(board_seq 받아서 댓글 + 게시글 전체정보 출력)
+	
+	@RequestMapping("boardinfo.do")
+	public void boardinfo(Model model) {
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
