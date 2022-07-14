@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.domain.AdoptBoard"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -120,7 +122,8 @@
     </div>
     <div class="col-sm-8 text-left"> 
 
-  <div class="table-responsive">          
+  <div class="table-responsive">  
+  <% List<AdoptBoard> adoptList = (List<AdoptBoard>)request.getAttribute("adoptList"); %>        
   <table class="table">
     <thead>
       <tr>
@@ -132,20 +135,16 @@
       </tr>
     </thead>
     <tbody>
+      
+      <% for(AdoptBoard adoptBoard : adoptList){ %>
       <tr>
-        <td>1</td>
-        <td>Anna</td>
-        <td>Pitt</td>
-        <td>35</td>
-        <td>New York</td>
+        <td><%=adoptList.indexOf(adoptBoard)+1 %></td>
+        <td><%=adoptBoard.getAdt_id() %></td>
+        <td><%=adoptBoard.getAdt_title() %></td>
+        <td><%=adoptBoard.getAdt_date() %></td>
+        <td><%=adoptBoard.getAdt_cnt() %></td>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>Anna</td>
-        <td>Pitt</td>
-        <td>35</td>
-        <td>New York</td>
-      </tr>
+      <%} %>
     
     </tbody>
     
