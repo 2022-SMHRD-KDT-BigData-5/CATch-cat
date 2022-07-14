@@ -15,5 +15,17 @@
         select * from t_sponsorship
     </select>
     
+    <!-- 상호명과 도로명주소를 조회하고 조건절에 검색어를 조회할 수 있는 sql문 -->
+    <select id="careList" parameterType="com.smhrd.domain.CareBoard" resultType="com.smhrd.domain.CareBoard">
+		select care_latitude,care_longitude  from t_carezone 
+		where  	   
+        <if list="searchWrd != null and searchWrd !=''">
+   		(care_latitude LIKE CONCAT('%', #{searchWrd},'%') or  
+    	 care_longitude LIKE CONCAT('%', #{searchWrd},'%'))
+		</if>
+	</select>
+    
+    
+    
 </mapper>
 

@@ -24,9 +24,11 @@ public interface BoardMapper {
 	
 	
 	
+
 	
+	public List<CareBoard> careList();
 	
-	
+
 	
 	
 	
