@@ -8,8 +8,11 @@ import com.smhrd.domain.CareBoard;
 
 
 import com.smhrd.domain.AdoptBoard;
+import com.smhrd.domain.AdoptComment;
 import com.smhrd.domain.CommBoard;
+import com.smhrd.domain.CommComment;
 import com.smhrd.domain.SponBoard;
+import com.smhrd.domain.SponComment;
 
 public interface BoardMapper {
 	
@@ -23,7 +26,15 @@ public interface BoardMapper {
 	public abstract List<SponBoard> sponBoardList();
 	
 	
+	//게시글 상세정보 가져오는 추상메서드
+	public abstract AdoptBoard adoptBoardInfo(int adt_seq);
 	
+	//게시글의 댓글을 가져오는 추상메서드
+	public abstract List<AdoptComment> adoptCommentList(int adt_seq);
+	
+	public abstract List<CommComment> commCommentList(int comm_seq);
+	
+	public abstract List<SponComment> sponCommentList(int spon_seq);
 	
 	
 	
