@@ -37,7 +37,13 @@
 <jsp:include page="header.jsp"></jsp:include>
 
 	<!--------------------------  게시판 시작 ---------------------------------->
-
+<section class="notice">
+	<div class="page-title">
+		<div class="container">
+			<h3>후원게시판</h3>
+		</div>
+	</div>
+</section>
 
   
 <div class="container-fluid text-center">    

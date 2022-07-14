@@ -68,6 +68,18 @@ nav,
 section {
     display: block
 }
+section.notice{
+	padding: 80px 0;
+}
+
+.page-title{
+	margin-bottom:60px;
+}
+.page-title h3 {
+	font-size: 28px;
+	font-weight: 400;
+  	text-align: center;
+}
 
 body {
     margin: 0;
