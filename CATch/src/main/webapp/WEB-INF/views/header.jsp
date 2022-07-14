@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,12 +24,15 @@
                         </div>
                         <div class="col-lg-6 col-md-4 ">
                             <div class="social_media_links">
-                                <a href="#">
-                                    <span>login</span>
+                                <a href="login.do">
+                                    		<span>login</span>
                                 </a>
-                                <a href="#">
-                                    <span>join</span>
+                                <a href="join.do">
+                                    		<span>join</span>
                                 </a>
+                                
+                            
+                                
                             </div>
                         </div>
                     </div>
