@@ -311,7 +311,7 @@
             </div>
         </div>
     </div>
-
+<jsp:include page="footer.jsp"></jsp:include>
 
     <!-- JS here -->
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
