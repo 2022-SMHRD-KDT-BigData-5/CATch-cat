@@ -15,10 +15,36 @@
         select * from t_sponsorship
     </select>
     
+<<<<<<< HEAD
     <!-- 급식소 위도 경도 가져오는 sql문 -->
     <select id="careList" parameterType="com.smhrd.domain.CareBoard" resultType="com.smhrd.domain.CareBoard">
 		select care_latitude,care_longitude  from t_carezone 
 	</select>
+=======
+    
+    <!-- 게시글의 상세정보 가져오는 sql문 -->
+    <select id="adoptBoardInfo" resultType="com.smhrd.domain.AdoptBoard">
+        select * from t_adoption
+        where adt_seq=#{adt_seq};
+    </select>
+    
+    
+    <!-- 댓글의 전체정보 가져오는 sql문 -->
+    <select id="adoptCommentList" resultType="com.smhrd.domain.AdoptComment">
+        select * from t_adoption_cmt
+        where adt_seq = #{adt_seq};
+    </select>
+    
+    <select id="commCommentList" resultType="com.smhrd.domain.CommComment">
+        select * from t_community_cmt
+        where article_seq = #{comm_seq};
+    </select>
+    
+    <select id="sponCommentList" resultType="com.smhrd.domain.SponComment">
+        select * from t_sponsorship_cmt
+        where spon_seq = #{spon_seq};
+    </select>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
     
     
     
