@@ -2,11 +2,11 @@ package com.smhrd.mapper;
 
 import java.util.List;
 
-<<<<<<< HEAD
+
 import com.smhrd.domain.CareBoard;
 
-public class BoardMapper {
-=======
+
+
 import com.smhrd.domain.AdoptBoard;
 import com.smhrd.domain.CommBoard;
 import com.smhrd.domain.SponBoard;
@@ -31,7 +31,7 @@ public interface BoardMapper {
 	
 	
 	
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
 
-	public List<t_carezone> careList();
+
+
 }
