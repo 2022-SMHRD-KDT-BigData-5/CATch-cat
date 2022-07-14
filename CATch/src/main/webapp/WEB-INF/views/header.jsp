@@ -49,7 +49,7 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a  href="main.do">home</a></li>
-                                        <li><a href="#">캣카드 <i class="ti-angle-down"></i></a>
+                                        <li><a href="catcard.do">캣카드 <i class="ti-angle-down"></i></a>
                                         <ul class="submenu">
                                                 <li><a href="blog.html">생성</a></li>
                                                 <li><a href="single-blog.html">조회</a></li>

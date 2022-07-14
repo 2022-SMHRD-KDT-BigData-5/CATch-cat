@@ -29,6 +29,12 @@ public class HomeController {
 		return "main";
 	}
 	
+	@RequestMapping(value = "catcard.do", method = RequestMethod.GET)
+	public String catcard() {
+
+		return "catcard";
+	}
+	
 	
 	
 }
