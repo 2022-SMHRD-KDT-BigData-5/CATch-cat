@@ -45,6 +45,7 @@ public class BoardController {
 	
 	
 	
+<<<<<<< HEAD
 	
 	
 	
@@ -53,5 +54,7 @@ public class BoardController {
 	// ---------------------- 
 	
 	
+=======
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
 
 }
