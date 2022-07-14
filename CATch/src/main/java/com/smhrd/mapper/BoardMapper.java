@@ -2,6 +2,11 @@ package com.smhrd.mapper;
 
 import java.util.List;
 
+
+import com.smhrd.domain.CareBoard;
+
+
+
 import com.smhrd.domain.AdoptBoard;
 import com.smhrd.domain.CommBoard;
 import com.smhrd.domain.SponBoard;
@@ -26,5 +31,7 @@ public interface BoardMapper {
 	
 	
 	
+
+
 
 }
