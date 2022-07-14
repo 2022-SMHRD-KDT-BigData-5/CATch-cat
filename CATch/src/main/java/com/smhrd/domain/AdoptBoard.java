@@ -2,13 +2,20 @@ package com.smhrd.domain;
 
 import java.sql.Timestamp;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class AdoptBoard {
 	
-	private int adopt_num;
-	private String adopt_title;
-	private String adopt_content;
-	private Timestamp adopt_date;
-	private int adopt_view;
-	private String mem_id;
+	private int adt_seq;
+	private String adt_title;
+	private String adt_content;
+	private Timestamp adt_date;
+	private int adt_cnt;
+	private String adt_id;
 
 }
