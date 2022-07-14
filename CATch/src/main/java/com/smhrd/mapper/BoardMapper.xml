@@ -15,5 +15,31 @@
         select * from t_sponsorship
     </select>
     
+    
+    <!-- 게시글의 상세정보 가져오는 sql문 -->
+    <select id="adoptBoardInfo" resultType="com.smhrd.domain.AdoptBoard">
+        select * from t_adoption
+        where adt_seq=#{adt_seq};
+    </select>
+    
+    
+    <!-- 댓글의 전체정보 가져오는 sql문 -->
+    <select id="adoptCommentList" resultType="com.smhrd.domain.AdoptComment">
+        select * from t_adoption_cmt
+        where adt_seq = #{adt_seq};
+    </select>
+    
+    <select id="commCommentList" resultType="com.smhrd.domain.CommComment">
+        select * from t_community_cmt
+        where article_seq = #{comm_seq};
+    </select>
+    
+    <select id="sponCommentList" resultType="com.smhrd.domain.SponComment">
+        select * from t_sponsorship_cmt
+        where spon_seq = #{spon_seq};
+    </select>
+    
+    
+    
 </mapper>
 

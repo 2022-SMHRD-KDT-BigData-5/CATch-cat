@@ -12,13 +12,13 @@
 
 
 <% 
-	List<AdoptBoard> adoptList = (List<AdoptBoard>)request.getAttribute("adoptList");
-	int adopt_seq = (Integer)request.getAttribute("adopt_seq");
+	AdoptBoard adoptBoardInfo = (AdoptBoard)request.getAttribute("adoptInfo");
+	int adt_seq = (Integer)request.getAttribute("adt_seq");
 %>
-<h1><%=adopt_seq %>제목 출력</h1>
-<h5>작성자</h5>
-<h5>작성일</h5>
-<h3>내용 출력</h3>
+<h1>글제목 : <%=adoptBoardInfo.getAdt_title() %></h1>
+<h5>작성자 : <%=adoptBoardInfo.getAdt_id() %></h5>
+<h5>작성일 : <%=adoptBoardInfo.getAdt_date()%></h5>
+<h3>작성내용 : <%=adoptBoardInfo.getAdt_content() %></h3>
 
 
 
