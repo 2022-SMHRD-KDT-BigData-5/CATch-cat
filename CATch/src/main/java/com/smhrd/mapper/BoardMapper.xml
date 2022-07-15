@@ -14,7 +14,11 @@
     <select id="sponBoardList" resultType="com.smhrd.domain.SponBoard">
         select * from t_sponsorship
     </select>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
     
     <!-- 게시글의 상세정보 가져오는 sql문 -->
     <select id="adoptBoardInfo" resultType="com.smhrd.domain.AdoptBoard">
@@ -40,6 +44,10 @@
     </select>
 
     
+    
+    <!-- 작성한 댓글을 db에 추가하는 sql문  -->
+    <!-- 이건 로그인 완성하고 해야할것 같다. -->
+
     
     
 </mapper>
