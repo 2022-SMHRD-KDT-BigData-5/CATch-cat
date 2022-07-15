@@ -67,9 +67,10 @@
        <tr>
         <td><%=adoptList.indexOf(adoptBoard)+1 %></td>
         <td><%=adoptBoard.getAdt_id() %></td>
-        <td><a href="boardinfo.do?adt_seq=<%=adoptBoard.getAdt_seq()%>"><%=adoptBoard.getAdt_title() %></a></td>
+        <td><a href="adtinfo.do?adt_seq=<%=adoptBoard.getAdt_seq()%>"><%=adoptBoard.getAdt_title() %></a></td>
         <td><%=adoptBoard.getAdt_date() %></td>
         <td><%=adoptBoard.getAdt_cnt() %></td>
+        <td><a href="adtDelete.do?adt_seq=">삭제</a>
       </tr>
       
       <%} %>
