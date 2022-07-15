@@ -1,4 +1,4 @@
-<%@page import="com.smhrd.domain.SponBoard"%>
+<%@page import="com.smhrd.domain.AdoptBoard"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -29,7 +29,8 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style.css">
-
+    
+    
 <!-- 글꼴 -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,34 +39,29 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="../header.jsp"></jsp:include>
 
-	<!--------------------------  게시판 시작 ---------------------------------->
+   <!--------------------------  게시판 시작 ---------------------------------->
 <section class="notice">
-	<div class="page-title">
-		<div class="container">
-<<<<<<< HEAD
-			<h3 class="heading-primary elementor-heading-title">
-				<b>캣치</b>
-				에서
-				<b>게시판에</b>
-				글을 남겨보자
-			</h3>?
-		</div>
-		<div class="heading-description-wrap">
-			<div class="heading-description">
-				후원게시판
-				<br>
-				오직..
-				<b>캣치에서만</b>
-			</div>
-=======
-			<h3>무엇을 채울까요🐱🐹🐈🐱🐹</h3>?
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
-		</div>
-	</div>
+   <div class="page-title">
+      <div class="container">
+         <h3 class="heading-primary elementor-heading-title">
+            <b>캣치</b>
+            에서
+            <b>게시판에</b>
+            글을 남겨보자
+         </h3>?
+      </div>
+      <div class="heading-description-wrap">
+         <div class="heading-description">
+            후원게시판
+            <br>
+            오직..
+            <b>캣치에서만</b>
+         </div>
+      </div>
+   </div>
 </section>
-
 
 <!-- 검색 -->
 <div id="board-search">
@@ -82,18 +78,19 @@
 		</div>
 	</div>
 </div>
+
   
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="comm.do">소통게시판</a></p>
-      <p><a href="adopt.do">입양게시판</a></p>
-      <p><a href="spon.do">후원게시판</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
     </div>
     <div class="col-sm-8 text-left"> 
 
   <div class="table-responsive">  
-  <% List<SponBoard> sponList = (List<SponBoard>)request.getAttribute("sponList"); %>        
+  <% List<AdoptBoard> adoptList = (List<AdoptBoard>)request.getAttribute("adoptList"); %>        
   <table class="table">
     <thead>
       <tr>
@@ -105,15 +102,17 @@
       </tr>
     </thead>
     <tbody>
-     
-      <% for(SponBoard sponBoard : sponList){ %>
-      <tr>
-        <td><%=sponList.indexOf(sponBoard)+1 %></td>
-        <td><%=sponBoard.getSpon_id() %></td>
-        <td><%=sponBoard.getSpon_title() %></td>
-        <td><%=sponBoard.getSpon_date() %></td>
-        <td><%=sponBoard.getSpon_cnt() %></td>
+      
+      <% for(AdoptBoard adoptBoard : adoptList){ %>
+       <tr>
+        <td><%=adoptList.indexOf(adoptBoard)+1 %></td>
+        <td><%=adoptBoard.getAdt_id() %></td>
+        <td><a href="adtinfo.do?adt_seq=<%=adoptBoard.getAdt_seq()%>"><%=adoptBoard.getAdt_title() %></a></td>
+        <td><%=adoptBoard.getAdt_date() %></td>
+        <td><%=adoptBoard.getAdt_cnt() %></td>
+        <td><a href="adtDelete.do?adt_seq=">삭제</a>
       </tr>
+      
       <%} %>
     
     </tbody>
