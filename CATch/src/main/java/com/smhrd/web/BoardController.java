@@ -48,8 +48,8 @@ public class BoardController {
 	
 	// ---------------------- 게시글 상세페이지로 이동하는 메서드(board_seq 받아서 댓글 + 게시글 전체정보 출력)
 	
-	@RequestMapping("boardinfo.do") 
-	public String boardinfo(Model model, int adt_seq) {
+	@RequestMapping("adtinfo.do") 
+	public String adoptBoardInfo(Model model, int adt_seq) {
 		
 		model.addAttribute("adt_seq", adt_seq);
 		
@@ -64,8 +64,12 @@ public class BoardController {
 	
 	
 	
+	//게시글과 댓글을 입력하는 메서드
 	
-	
+	@RequestMapping("commentInsert.do")
+	public void commentInsert() {
+		//로그인 완성 후 세션의 사용자아이디 받아올 수 있음
+	}
 	
 	
 	

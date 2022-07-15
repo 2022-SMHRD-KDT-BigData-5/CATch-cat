@@ -1,9 +1,11 @@
 package com.smhrd.web;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +27,31 @@ public class MemberController {
 		return "joinForm";
 	}
 	
+	// 아이디중복체크
+	@GetMapping("/idCheck.do")
+	public int idCheck(String userid) {
+		int check =0;
+		
+		System.out.println("들어가긴함?");
+		String id = mapper.selectId(userid);
+		
+		if(id!=null) {
+			System.out.println("ID중복O");
+			check = 0;
+		}else {
+			System.out.println("ID중복X");
+			check = 1;
+		}
+		
+		System.out.println(check);
+		return check;
+		
+	}
+	
+	
+	
+	
+	
 	// 회원가입
 	@PostMapping("/join.do")
 	public String join(Member vo) {
@@ -43,21 +70,30 @@ public class MemberController {
 	
 	// 로그인하기
 	@PostMapping("/login.do")
-	public String login(Member vo) {
+	public String login(HttpServletRequest request, HttpSession session) {
 		
-		Member loginMember = mapper.selectMember(vo);
+		String mem_id = request.getParameter("mem_id");
+		String mem_pw = request.getParameter("mem_pw");
+		System.out.println(mem_id + mem_pw);
 		
-		if(loginMember != null) {
-			System.out.println("로그인 성공");
+		Member loginMember = new Member(mem_id, mem_pw); 
+		Member member = mapper.selectMember(loginMember);
+		session.setAttribute("member", member);
+		
+			return "redirect:/main.do";
+	
 		}
-		else {
-			System.out.println("로그인 실패");
-		}
 		
+	
+	@RequestMapping("/mypage.do")
+	public String mypage() {
 		
-		
-		
-		return "redirect:/main.do";
+		return "myCat";
+	}
+	
+	
+	
+	
 	}
 	
 	
@@ -65,4 +101,3 @@ public class MemberController {
 	
 	
 	
-}

@@ -38,7 +38,12 @@
         select * from t_sponsorship_cmt
         where spon_seq = #{spon_seq};
     </select>
+
     
+    
+    <!-- 작성한 댓글을 db에 추가하는 sql문  -->
+    <!-- 이건 로그인 완성하고 해야할것 같다. -->
+
     
     
 </mapper>

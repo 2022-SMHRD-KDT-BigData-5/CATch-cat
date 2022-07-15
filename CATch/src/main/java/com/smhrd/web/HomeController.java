@@ -29,12 +29,10 @@ public class HomeController {
 		return "main";
 	}
 	
-	@RequestMapping(value = "catcard.do", method = RequestMethod.GET)
-	public String catcard() {
-
-		return "catcard";
+	@RequestMapping("/map.do")
+	public String goMap() {
+		return "map";
 	}
-	
 	
 	
 }

@@ -68,7 +68,7 @@
                                             </ul>
                                             </li>
                                         <li><a href="contact.html">고양터</a></li>
-                                        <li><a href="#">마이페이지 <i class="ti-angle-down"></i></a>
+                                        <li><a href="mypage.do">마이페이지 <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">캣카드 조회</a></li>
                                                 <li><a href="single-blog.html">회원정보 수정</a></li>

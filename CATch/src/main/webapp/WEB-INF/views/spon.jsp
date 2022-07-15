@@ -44,6 +44,7 @@
 <section class="notice">
 	<div class="page-title">
 		<div class="container">
+<<<<<<< HEAD
 			<h3 class="heading-primary elementor-heading-title">
 				<b>캣치</b>
 				에서
@@ -58,6 +59,9 @@
 				오직..
 				<b>캣치에서만</b>
 			</div>
+=======
+			<h3>무엇을 채울까요🐱🐹🐈🐱🐹</h3>?
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
 		</div>
 	</div>
 </section>
