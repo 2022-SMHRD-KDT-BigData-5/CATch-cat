@@ -27,43 +27,56 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/myCat.css">
+    <link rel="stylesheet" href="css/jointest.css">
     
 </head>
 <body>
 	
-<jsp:include page="header.jsp"></jsp:include>	
+
 	
 	<!-- 회원가입 -->
 	
-	<form action="join.do" method="post" name="joinform" onsubmit="return checkJoin()">
-		
-		<h2>회원가입</h2>
-		
-		<h5>아이디</h5>
-		<input name="mem_id" type="text" id="userid" placeholder="ID를 입력">
-		
-		<button class="btn" onclick="idCheck()" type="button">중복체크</button>
-		
-		<h5>비밀번호</h5>
-		<input name="mem_pw" type="password" placeholder="비밀번호 입력">
-		
-		<h5>비밀번호확인</h5>
-		<input name="checkpw" type="password" placeholder="비밀번호와 동일하게 입력">
-		
-		<h5>이름</h5>
-		<input name="mem_name" type="text" placeholder="이름을 입력">
-		
-		<h5>전화번호</h5>
-		<input name="mem_phone" type="text" placeholder="전화번호를 입력">
-		
-		<h5>병원관계자유무</h5>
-		<label><input type="radio" name="mem_hospital" value="N" checked>보호자</label>
-		<label><input type="radio" name="mem_hospital" value="T">병원관계자</label>
-		
-		<input type="submit" class="btn" value="J O I N" />
-		
-		
-	</form>
+	<h1 class = "h_title"><img src="img/catch-removebg.png" ></h1>
+  
+        <div class="joinform">
+
+            <form action="join.do" method="post" name="joinform" onsubmit="return checkJoin()">
+                
+                <h2>회원가입</h2>
+                
+                <h5>아이디</h5>
+            <input name="mem_id" type="text" id="userid" placeholder="ID를 입력">
+            
+            <button class="btn" onclick="idCheck()" type="button">중복체크</button>
+            
+            <h5>비밀번호</h5>
+            <input name="mem_pw" type="password" placeholder="비밀번호 입력">
+            
+            <h5>비밀번호확인</h5>
+            <input name="checkpw" type="password" placeholder="비밀번호와 동일하게 입력">
+            
+            <h5>이름</h5>
+            <input name="mem_name" type="text" placeholder="이름을 입력">
+            
+            <h5>전화번호</h5>
+            <input name="mem_phone" type="text" placeholder="전화번호를 입력">
+            
+            <h5>병원관계자유무</h5>
+            
+            <label><input class="joincheck" type="checkbox" name="mem_hospital" value="T">병원관계자</label>
+            
+            <input type="submit" class="btn" value="J O I N" />
+            
+            
+        </form>
+    </div>
+        
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript"></script>
+   
+    
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
