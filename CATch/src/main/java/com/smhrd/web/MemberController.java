@@ -84,7 +84,16 @@ public class MemberController {
 	
 		}
 		
-
+	
+	@RequestMapping("/mypage.do")
+	public String mypage() {
+		
+		return "myCat";
+	}
+	
+	
+	
+	
 	}
 	
 	
