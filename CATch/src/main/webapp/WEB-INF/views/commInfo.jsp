@@ -1,0 +1,55 @@
+<%@page import="com.smhrd.domain.CommComment"%>
+<%@page import="com.smhrd.domain.CommBoard"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<% 
+	CommBoard commBoardInfo = (CommBoard)request.getAttribute("commInfo");
+
+	List<CommComment> commCommentList = (List<CommComment>)request.getAttribute("commCommentList");
+	int article_seq = (Integer)request.getAttribute("article_seq");
+	
+%>
+<h1>게시글 출력란</h1>
+<table>
+<tr><td>글제목</td> <td><%=commBoardInfo.getArticle_title() %></td></tr>
+<tr><td>작성자</td> <td><%=commBoardInfo.getArticle_id() %></td></tr>
+<tr><td>작성일</td> <td><%=commBoardInfo.getArticle_date()%></td></tr>
+<tr><td>작성내용</td> <td><%=commBoardInfo.getArticle_content() %></td></tr>
+
+	<tr>
+		<td colspan="2" align="center">
+		<button>수정</button>
+		<!-- 자신이 작성한 글에만 삭제버튼 출력 -->
+		<button>삭제</button>
+		<button>목록</button>
+		</td>
+	</tr>
+</table>
+
+<h1>댓글작성란</h1>
+<form action="commentInsert.do">
+	<input type="text" name="cmt_id" value="cmt_id"><br>
+	<input type="text" name="comment">
+	<input type="submit" value="등록">
+</form>
+<h1>댓글출력란</h1>
+<%for (CommComment commComment : commCommentList){ %>
+<table border="1px solid black" >
+<tr><td>댓글작성자</td> <td><%=commComment.getCmt_id() %></td></tr>
+<tr><td>댓글작성일</td> <td><%=commComment.getCmt_date() %></td></tr>
+<tr><td>댓글 내용</td> <td><%=commComment.getCmt_content() %></td></tr>
+</table>
+<%} %>
+
+</body>
+</html>

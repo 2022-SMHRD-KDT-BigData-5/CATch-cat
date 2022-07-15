@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.smhrd.domain.AdoptBoard;
 import com.smhrd.domain.AdoptComment;
 import com.smhrd.domain.CommBoard;
+import com.smhrd.domain.CommComment;
 import com.smhrd.domain.SponBoard;
+import com.smhrd.domain.SponComment;
 import com.smhrd.mapper.BoardMapper;
 
 
@@ -59,7 +61,35 @@ public class BoardController {
 		List<AdoptComment> adoptCommentList = (List<AdoptComment>)mapper.adoptCommentList(adt_seq);
 		model.addAttribute("adoptCommentList", adoptCommentList);
 		
-		return "boardinfo";
+		return "adoptInfo";
+	}
+	
+	@RequestMapping("comminfo.do") 
+	public String commBoardInfo(Model model, int article_seq) {
+		
+		model.addAttribute("article_seq", article_seq);
+		
+		CommBoard commInfo = mapper.commBoardInfo(article_seq);
+		model.addAttribute("commInfo", commInfo);
+		
+		List<CommComment> commCommentList = (List<CommComment>)mapper.commCommentList(article_seq);
+		model.addAttribute("commCommentList", commCommentList);
+		
+		return "commInfo";
+	}
+	
+	@RequestMapping("sponinfo.do") 
+	public String sponBoardInfo(Model model, int spon_seq) {
+		
+		model.addAttribute("spon_seq", spon_seq);
+		
+		SponBoard sponInfo = mapper.sponBoardInfo(spon_seq);
+		model.addAttribute("sponInfo", sponInfo);
+		
+		List<SponComment> sponCommentList = (List<SponComment>)mapper.sponCommentList(spon_seq);
+		model.addAttribute("sponCommentList", sponCommentList);
+		
+		return "sponInfo";
 	}
 	
 	

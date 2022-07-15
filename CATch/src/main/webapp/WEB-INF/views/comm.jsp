@@ -30,6 +30,10 @@
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style.css">
     
+    <!-- 글꼴 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
     
 </head>
 <body>
@@ -38,7 +42,42 @@
 
 	<!--------------------------  게시판 시작 ---------------------------------->
 
+<section class="notice">
+   <div class="page-title">
+      <div class="container">
+         <h3 class="heading-primary elementor-heading-title">
+            <b>캣치</b>
+            에서
+            <b>게시판에</b>
+            글을 남겨보자
+         </h3>?
+      </div>
+      <div class="heading-description-wrap">
+         <div class="heading-description">
+            후원게시판
+            <br>
+            오직..
+            <b>캣치에서만</b>
+         </div>
+      </div>
+   </div>
+</section>
 
+<!-- 검색 -->
+<div id="board-search">
+	<div class="container">
+		<div class="search-window">
+			<form action="">
+				<div class="search-wrap">
+					<label for="search" class="blind"></label>
+					<input id="search" type="search" name=""
+					placeholder="search" value="">
+					<button type="submit" class="btn btn-dark">검색</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
   
 <div class="container-fluid text-center">    
   <div class="row content">
@@ -49,6 +88,7 @@
     </div>
     <div class="col-sm-8 text-left"> 
 
+ 
   <div class="table-responsive">  
   <% List<CommBoard> commList = (List<CommBoard>)request.getAttribute("commList"); %>        
   <table class="table">
@@ -62,15 +102,17 @@
       </tr>
     </thead>
     <tbody>
-     
+      
       <% for(CommBoard commBoard : commList){ %>
-      <tr>
+       <tr>
         <td><%=commList.indexOf(commBoard)+1 %></td>
         <td><%=commBoard.getArticle_id() %></td>
-        <td><%=commBoard.getArticle_title() %></td>
+        <td><a href="comminfo.do?article_seq=<%=commBoard.getArticle_seq()%>"><%=commBoard.getArticle_title() %></a></td>
         <td><%=commBoard.getArticle_date() %></td>
         <td><%=commBoard.getArticle_cnt() %></td>
+        <td><a href="commDelete.do?article_seq=">삭제</a>
       </tr>
+      
       <%} %>
     
     </tbody>

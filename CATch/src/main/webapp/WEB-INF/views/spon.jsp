@@ -42,30 +42,25 @@
 
 	<!--------------------------  게시판 시작 ---------------------------------->
 <section class="notice">
-	<div class="page-title">
-		<div class="container">
-<<<<<<< HEAD
-			<h3 class="heading-primary elementor-heading-title">
-				<b>캣치</b>
-				에서
-				<b>게시판에</b>
-				글을 남겨보자
-			</h3>?
-		</div>
-		<div class="heading-description-wrap">
-			<div class="heading-description">
-				후원게시판
-				<br>
-				오직..
-				<b>캣치에서만</b>
-			</div>
-=======
-			<h3>무엇을 채울까요🐱🐹🐈🐱🐹</h3>?
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
-		</div>
-	</div>
+   <div class="page-title">
+      <div class="container">
+         <h3 class="heading-primary elementor-heading-title">
+            <b>캣치</b>
+            에서
+            <b>게시판에</b>
+            글을 남겨보자
+         </h3>?
+      </div>
+      <div class="heading-description-wrap">
+         <div class="heading-description">
+            후원게시판
+            <br>
+            오직..
+            <b>캣치에서만</b>
+         </div>
+      </div>
+   </div>
 </section>
-
 
 <!-- 검색 -->
 <div id="board-search">
@@ -92,6 +87,7 @@
     </div>
     <div class="col-sm-8 text-left"> 
 
+ 
   <div class="table-responsive">  
   <% List<SponBoard> sponList = (List<SponBoard>)request.getAttribute("sponList"); %>        
   <table class="table">
@@ -105,24 +101,23 @@
       </tr>
     </thead>
     <tbody>
-     
+      
       <% for(SponBoard sponBoard : sponList){ %>
-      <tr>
+       <tr>
         <td><%=sponList.indexOf(sponBoard)+1 %></td>
         <td><%=sponBoard.getSpon_id() %></td>
-        <td><%=sponBoard.getSpon_title() %></td>
+        <td><a href="sponinfo.do?spon_seq=<%=sponBoard.getSpon_seq()%>"><%=sponBoard.getSpon_title() %></a></td>
         <td><%=sponBoard.getSpon_date() %></td>
         <td><%=sponBoard.getSpon_cnt() %></td>
+        <td><a href="sponDelete.do?spon_seq=">삭제</a>
       </tr>
+      
       <%} %>
     
     </tbody>
-    
   </table>
   </div>
 </div>
-
-
 
 
     <div class="col-sm-2 sidenav">
