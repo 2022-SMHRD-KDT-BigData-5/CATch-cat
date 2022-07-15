@@ -29,7 +29,11 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style.css">
-    
+
+<!-- 글꼴 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
     
 </head>
 <body>
@@ -40,7 +44,24 @@
 <section class="notice">
 	<div class="page-title">
 		<div class="container">
+<<<<<<< HEAD
+			<h3 class="heading-primary elementor-heading-title">
+				<b>캣치</b>
+				에서
+				<b>게시판에</b>
+				글을 남겨보자
+			</h3>?
+		</div>
+		<div class="heading-description-wrap">
+			<div class="heading-description">
+				후원게시판
+				<br>
+				오직..
+				<b>캣치에서만</b>
+			</div>
+=======
 			<h3>무엇을 채울까요🐱🐹🐈🐱🐹</h3>?
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
 		</div>
 	</div>
 </section>
