@@ -57,8 +57,8 @@
 		<input name="mem_phone" type="text" placeholder="전화번호를 입력">
 		
 		<h5>병원관계자유무</h5>
-		<label><input type="radio" name="mem_hospital" value="T">병원관계자</label>
 		<label><input type="radio" name="mem_hospital" value="N" checked>보호자</label>
+		<label><input type="radio" name="mem_hospital" value="T">병원관계자</label>
 		
 		<input type="submit" class="btn" value="J O I N" />
 		
