@@ -63,6 +63,7 @@
     </div>
 </div>
 
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId= 인증키값"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0a2cd6f2777e0f89378c802f40822eb3&libraries=services"></script>
 <script>
 // 마커를 담을 배열입니다
