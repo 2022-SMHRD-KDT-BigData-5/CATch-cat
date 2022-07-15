@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.mapper.MemberMapper">
+    
+    <!-- 급식소 정보 가져오는 sql문 -->
+    <select id="careList" parameterType="com.smhrd.domain.CareBoard" resultType="com.smhrd.domain.CareBoard">
+		select *  from t_carezone 
+		where care_seq = #{care_seq};
+	</select>
+	
+    
+    
+    
+</mapper>

@@ -20,7 +20,7 @@ public class CareController {
 	BoardMapper mapper;
 	
 	@RequestMapping("/careList.do")
-	public String carelist(@ModelAttribute("care") CareBoard care,  ModelMap model) throws Exception {
+	public String carelist( CareBoard care,  ModelMap model)  {
   
 	    List<CareBoard> list = mapper.careList();
 	    model.addAttribute("list", list);
