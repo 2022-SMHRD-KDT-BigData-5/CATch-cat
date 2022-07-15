@@ -5,11 +5,11 @@ import com.smhrd.domain.Member;
 // 추상메서드 interface
 public interface MemberMapper {
 	
-	public int insertMember(Member vo);
+	public abstract int insertMember(Member vo);
 	
-	public Member selectMember(Member vo); 
+	public abstract Member selectMember(Member loginMember); 
 	
-	public String selectId(String userid);
+	public abstract String selectId(String userid);
 	
 	
 	
