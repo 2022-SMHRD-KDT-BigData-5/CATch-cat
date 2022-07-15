@@ -37,15 +37,37 @@
 <jsp:include page="header.jsp"></jsp:include>
 
 	<!--------------------------  게시판 시작 ---------------------------------->
+<section class="notice">
+	<div class="page-title">
+		<div class="container">
+			<h3>무엇을 채울까요🐱🐹🐈🐱🐹</h3>?
+		</div>
+	</div>
+</section>
 
 
+<!-- 검색 -->
+<div id="board-search">
+	<div class="container">
+		<div class="search-window">
+			<form action="">
+				<div class="search-wrap">
+					<label for="search" class="blind"></label>
+					<input id="search" type="search" name=""
+					placeholder="search" value="">
+					<button type="submit" class="btn btn-dark">검색</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
   
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
+      <p><a href="comm.do">소통게시판</a></p>
+      <p><a href="adopt.do">입양게시판</a></p>
+      <p><a href="spon.do">후원게시판</a></p>
     </div>
     <div class="col-sm-8 text-left"> 
 
