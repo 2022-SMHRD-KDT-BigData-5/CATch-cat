@@ -1,4 +1,4 @@
-<%@page import="com.smhrd.domain.CommBoard"%>
+<%@page import="com.smhrd.domain.SponBoard"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -29,8 +29,8 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style.css">
-    
-    <!-- 글꼴 -->
+
+<!-- 글꼴 -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
@@ -38,10 +38,9 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="../header.jsp"></jsp:include>
 
 	<!--------------------------  게시판 시작 ---------------------------------->
-
 <section class="notice">
    <div class="page-title">
       <div class="container">
@@ -82,15 +81,15 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
+      <p><a href="comm.do">소통게시판</a></p>
+      <p><a href="adopt.do">입양게시판</a></p>
+      <p><a href="spon.do">후원게시판</a></p>
     </div>
     <div class="col-sm-8 text-left"> 
 
  
   <div class="table-responsive">  
-  <% List<CommBoard> commList = (List<CommBoard>)request.getAttribute("commList"); %>        
+  <% List<SponBoard> sponList = (List<SponBoard>)request.getAttribute("sponList"); %>        
   <table class="table">
     <thead>
       <tr>
@@ -103,25 +102,22 @@
     </thead>
     <tbody>
       
-      <% for(CommBoard commBoard : commList){ %>
+      <% for(SponBoard sponBoard : sponList){ %>
        <tr>
-        <td><%=commList.indexOf(commBoard)+1 %></td>
-        <td><%=commBoard.getArticle_id() %></td>
-        <td><a href="comminfo.do?article_seq=<%=commBoard.getArticle_seq()%>"><%=commBoard.getArticle_title() %></a></td>
-        <td><%=commBoard.getArticle_date() %></td>
-        <td><%=commBoard.getArticle_cnt() %></td>
-        <td><a href="commDelete.do?article_seq=">삭제</a>
+        <td><%=sponList.indexOf(sponBoard)+1 %></td>
+        <td><%=sponBoard.getSpon_id() %></td>
+        <td><a href="sponinfo.do?spon_seq=<%=sponBoard.getSpon_seq()%>"><%=sponBoard.getSpon_title() %></a></td>
+        <td><%=sponBoard.getSpon_date() %></td>
+        <td><%=sponBoard.getSpon_cnt() %></td>
+        <td><a href="sponDelete.do?spon_seq=">삭제</a>
       </tr>
       
       <%} %>
     
     </tbody>
-    
   </table>
   </div>
 </div>
-
-
 
 
     <div class="col-sm-2 sidenav">

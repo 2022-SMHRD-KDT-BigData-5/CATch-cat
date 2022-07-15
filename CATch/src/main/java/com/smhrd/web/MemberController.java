@@ -92,6 +92,7 @@ public class MemberController {
 		}
 		
 	
+	//마이페이지의 캣카드로 이동
 	@RequestMapping("/mypage.do")
 	public String mypage() {
 		

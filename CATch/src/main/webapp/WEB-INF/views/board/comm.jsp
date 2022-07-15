@@ -1,4 +1,4 @@
-<%@page import="com.smhrd.domain.AdoptBoard"%>
+<%@page import="com.smhrd.domain.CommBoard"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -30,8 +30,7 @@
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style.css">
     
-    
-<!-- 글꼴 -->
+    <!-- 글꼴 -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
@@ -39,9 +38,10 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="../header.jsp"></jsp:include>
 
-   <!--------------------------  게시판 시작 ---------------------------------->
+	<!--------------------------  게시판 시작 ---------------------------------->
+
 <section class="notice">
    <div class="page-title">
       <div class="container">
@@ -78,7 +78,6 @@
 		</div>
 	</div>
 </div>
-
   
 <div class="container-fluid text-center">    
   <div class="row content">
@@ -89,8 +88,9 @@
     </div>
     <div class="col-sm-8 text-left"> 
 
+ 
   <div class="table-responsive">  
-  <% List<AdoptBoard> adoptList = (List<AdoptBoard>)request.getAttribute("adoptList"); %>        
+  <% List<CommBoard> commList = (List<CommBoard>)request.getAttribute("commList"); %>        
   <table class="table">
     <thead>
       <tr>
@@ -103,14 +103,14 @@
     </thead>
     <tbody>
       
-      <% for(AdoptBoard adoptBoard : adoptList){ %>
+      <% for(CommBoard commBoard : commList){ %>
        <tr>
-        <td><%=adoptList.indexOf(adoptBoard)+1 %></td>
-        <td><%=adoptBoard.getAdt_id() %></td>
-        <td><a href="adtinfo.do?adt_seq=<%=adoptBoard.getAdt_seq()%>"><%=adoptBoard.getAdt_title() %></a></td>
-        <td><%=adoptBoard.getAdt_date() %></td>
-        <td><%=adoptBoard.getAdt_cnt() %></td>
-        <td><a href="adtDelete.do?adt_seq=">삭제</a>
+        <td><%=commList.indexOf(commBoard)+1 %></td>
+        <td><%=commBoard.getArticle_id() %></td>
+        <td><a href="comminfo.do?article_seq=<%=commBoard.getArticle_seq()%>"><%=commBoard.getArticle_title() %></a></td>
+        <td><%=commBoard.getArticle_date() %></td>
+        <td><%=commBoard.getArticle_cnt() %></td>
+        <td><a href="commDelete.do?article_seq=">삭제</a>
       </tr>
       
       <%} %>

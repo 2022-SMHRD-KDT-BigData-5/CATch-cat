@@ -29,21 +29,21 @@ public class BoardController {
 	public String adoptboard(Model model) {
 		List<AdoptBoard> adoptList = mapper.adoptBoardList();
 		model.addAttribute("adoptList", adoptList);
-		return "adopt";
+		return "board/adopt";
 	}
 	
 	@RequestMapping("/comm.do")
 	public String commboard(Model model) {
 		List<CommBoard> commList = mapper.commBoardList();
 		model.addAttribute("commList", commList);
-		return "comm";
+		return "board/comm";
 	}
 	
 	@RequestMapping("/spon.do")
 	public String sponboard(Model model) { 
 		List<SponBoard> sponList = mapper.sponBoardList();
 		model.addAttribute("sponList", sponList);
-		return "spon";
+		return "board/spon";
 	}
 	
 	
@@ -61,7 +61,7 @@ public class BoardController {
 		List<AdoptComment> adoptCommentList = (List<AdoptComment>)mapper.adoptCommentList(adt_seq);
 		model.addAttribute("adoptCommentList", adoptCommentList);
 		
-		return "adoptInfo";
+		return "board/adoptInfo";
 	}
 	
 	@RequestMapping("comminfo.do") 
@@ -75,7 +75,7 @@ public class BoardController {
 		List<CommComment> commCommentList = (List<CommComment>)mapper.commCommentList(article_seq);
 		model.addAttribute("commCommentList", commCommentList);
 		
-		return "commInfo";
+		return "board/commInfo";
 	}
 	
 	@RequestMapping("sponinfo.do") 
@@ -89,7 +89,7 @@ public class BoardController {
 		List<SponComment> sponCommentList = (List<SponComment>)mapper.sponCommentList(spon_seq);
 		model.addAttribute("sponCommentList", sponCommentList);
 		
-		return "sponInfo";
+		return "board/sponInfo";
 	}
 	
 	
