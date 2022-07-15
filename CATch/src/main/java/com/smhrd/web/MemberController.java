@@ -90,6 +90,13 @@ public class MemberController {
 			return "redirect:/main.do";
 	
 		}
+	
+	// 로그아웃하기
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) {
+		session.removeAttribute("member");
+		return "redirect:/main.do";
+	}
 		
 	
 	//마이페이지의 캣카드로 이동
