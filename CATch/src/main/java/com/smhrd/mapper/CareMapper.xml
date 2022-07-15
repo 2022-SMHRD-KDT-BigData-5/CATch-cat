@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<<<<<<< HEAD
-<mapper namespace="com.smhrd.mapper.MemberMapper">
-    
+
+<mapper namespace="com.smhrd.mapper.CareMapper">
     <!-- 급식소 정보 가져오는 sql문 -->
     <select id="careList" parameterType="com.smhrd.domain.CareBoard" resultType="com.smhrd.domain.CareBoard">
 		select *  from t_carezone 
 		where care_seq = #{care_seq};
 	</select>
 	
-    
-=======
-<mapper namespace="com.smhrd.mapper.CareMapper">
-    
-    
-        <!-- 급식소 위도 경도 가져오는 sql문 -->
+    <!-- 급식소 위도 경도 가져오는 sql문 -->
     <select id="careList" parameterType="com.smhrd.domain.CareBoard" resultType="com.smhrd.domain.CareBoard">
 		select care_latitude,care_longitude  from t_carezone 
 	</select>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
+
     
     
 </mapper>

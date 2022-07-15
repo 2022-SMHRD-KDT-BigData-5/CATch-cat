@@ -1,17 +1,4 @@
-<<<<<<< HEAD
-package com.smhrd.mapper;
 
-import java.util.List;
-
-import com.smhrd.domain.CareBoard;
-
-public  interface CareMapper {
-
-	
-	//
-	public List<CareBoard> careList();
-}
-=======
 package com.smhrd.mapper;
 
 import java.util.List;
@@ -26,4 +13,4 @@ public interface CareMapper {
 	public List<CareBoard> careList();
 
 }
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
+

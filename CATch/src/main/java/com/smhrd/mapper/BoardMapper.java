@@ -28,10 +28,6 @@ public interface BoardMapper {
 	public abstract AdoptBoard adoptBoardInfo(int adt_seq);
 	
 
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
 	//게시글의 댓글을 가져오는 추상메서드
 	public abstract List<AdoptComment> adoptCommentList(int adt_seq);
 	
