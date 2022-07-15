@@ -14,6 +14,7 @@
 
 <% 
 	AdoptBoard adoptBoardInfo = (AdoptBoard)request.getAttribute("adoptInfo");
+
 	List<AdoptComment> adoptCommentList = (List<AdoptComment>)request.getAttribute("adoptCommentList");
 	int adt_seq = (Integer)request.getAttribute("adt_seq");
 	

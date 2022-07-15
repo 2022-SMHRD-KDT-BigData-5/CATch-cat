@@ -22,6 +22,19 @@
         where adt_seq=#{adt_seq};
     </select>
     
+    <select id="commBoardInfo" resultType="com.smhrd.domain.CommBoard">
+        select * from t_community
+        where article_seq=#{article_seq};
+    </select>
+    
+    <select id="sponBoardInfo" resultType="com.smhrd.domain.SponBoard">
+        select * from t_sponsorship
+        where spon_seq=#{spon_seq};
+    </select>    
+    
+    
+    
+    
     
     <!-- 댓글의 전체정보 가져오는 sql문 -->
     <select id="adoptCommentList" resultType="com.smhrd.domain.AdoptComment">
@@ -31,7 +44,7 @@
     
     <select id="commCommentList" resultType="com.smhrd.domain.CommComment">
         select * from t_community_cmt
-        where article_seq = #{comm_seq};
+        where article_seq = #{article_seq};
     </select>
     
     <select id="sponCommentList" resultType="com.smhrd.domain.SponComment">
@@ -39,6 +52,9 @@
         where spon_seq = #{spon_seq};
     </select>
 
+    
+    
+    
     
     
     <!-- 작성한 댓글을 db에 추가하는 sql문  -->

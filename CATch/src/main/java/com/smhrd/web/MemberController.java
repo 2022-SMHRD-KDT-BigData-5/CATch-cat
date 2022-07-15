@@ -70,21 +70,29 @@ public class MemberController {
 	
 	// 로그인하기
 	@PostMapping("/login.do")
-	public String login(HttpServletRequest request, HttpSession session) {
+	public String login(HttpServletRequest request) {
 		
+		HttpSession session = request.getSession();
 		String mem_id = request.getParameter("mem_id");
 		String mem_pw = request.getParameter("mem_pw");
+		//로그인아이디 콘솔창 출력
 		System.out.println(mem_id + mem_pw);
 		
 		Member loginMember = new Member(mem_id, mem_pw); 
 		Member member = mapper.selectMember(loginMember);
 		session.setAttribute("member", member);
+		if(member != null) {
+			System.out.println("로그인 성공");
+		}else {
+			System.out.println("로그인 실패");
+		}
 		
 			return "redirect:/main.do";
 	
 		}
 		
 	
+	//마이페이지의 캣카드로 이동
 	@RequestMapping("/mypage.do")
 	public String mypage() {
 		

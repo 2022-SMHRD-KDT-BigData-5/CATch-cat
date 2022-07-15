@@ -27,6 +27,10 @@ public interface BoardMapper {
 	//게시글 상세정보 가져오는 추상메서드
 	public abstract AdoptBoard adoptBoardInfo(int adt_seq);
 	
+	public abstract CommBoard commBoardInfo(int article_seq);
+	
+	public abstract SponBoard sponBoardInfo(int spon_seq);
+	
 
 	//게시글의 댓글을 가져오는 추상메서드
 	public abstract List<AdoptComment> adoptCommentList(int adt_seq);

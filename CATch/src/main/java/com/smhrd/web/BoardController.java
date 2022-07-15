@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.smhrd.domain.AdoptBoard;
 import com.smhrd.domain.AdoptComment;
 import com.smhrd.domain.CommBoard;
+import com.smhrd.domain.CommComment;
 import com.smhrd.domain.SponBoard;
+import com.smhrd.domain.SponComment;
 import com.smhrd.mapper.BoardMapper;
 
 
@@ -27,21 +29,21 @@ public class BoardController {
 	public String adoptboard(Model model) {
 		List<AdoptBoard> adoptList = mapper.adoptBoardList();
 		model.addAttribute("adoptList", adoptList);
-		return "adopt";
+		return "board/adopt";
 	}
 	
 	@RequestMapping("/comm.do")
 	public String commboard(Model model) {
 		List<CommBoard> commList = mapper.commBoardList();
 		model.addAttribute("commList", commList);
-		return "comm";
+		return "board/comm";
 	}
 	
 	@RequestMapping("/spon.do")
 	public String sponboard(Model model) { 
 		List<SponBoard> sponList = mapper.sponBoardList();
 		model.addAttribute("sponList", sponList);
-		return "spon";
+		return "board/spon";
 	}
 	
 	
@@ -59,7 +61,35 @@ public class BoardController {
 		List<AdoptComment> adoptCommentList = (List<AdoptComment>)mapper.adoptCommentList(adt_seq);
 		model.addAttribute("adoptCommentList", adoptCommentList);
 		
-		return "boardinfo";
+		return "board/adoptInfo";
+	}
+	
+	@RequestMapping("comminfo.do") 
+	public String commBoardInfo(Model model, int article_seq) {
+		
+		model.addAttribute("article_seq", article_seq);
+		
+		CommBoard commInfo = mapper.commBoardInfo(article_seq);
+		model.addAttribute("commInfo", commInfo);
+		
+		List<CommComment> commCommentList = (List<CommComment>)mapper.commCommentList(article_seq);
+		model.addAttribute("commCommentList", commCommentList);
+		
+		return "board/commInfo";
+	}
+	
+	@RequestMapping("sponinfo.do") 
+	public String sponBoardInfo(Model model, int spon_seq) {
+		
+		model.addAttribute("spon_seq", spon_seq);
+		
+		SponBoard sponInfo = mapper.sponBoardInfo(spon_seq);
+		model.addAttribute("sponInfo", sponInfo);
+		
+		List<SponComment> sponCommentList = (List<SponComment>)mapper.sponCommentList(spon_seq);
+		model.addAttribute("sponCommentList", sponCommentList);
+		
+		return "board/sponInfo";
 	}
 	
 	
