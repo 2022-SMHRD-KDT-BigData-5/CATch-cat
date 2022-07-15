@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.smhrd.domain.CareBoard;
 import com.smhrd.mapper.BoardMapper;
+import com.smhrd.mapper.CareMapper;
 
 @Controller	
 public class CareController {
 
 	@Autowired
-	BoardMapper mapper;
+	CareMapper mapper;
 	
 	@RequestMapping("/careList.do")
 	public String carelist(@ModelAttribute("care") CareBoard care,  ModelMap model) throws Exception {
