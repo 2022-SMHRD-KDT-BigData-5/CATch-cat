@@ -9,6 +9,7 @@ public interface MemberMapper {
 	
 	public Member selectMember(Member vo); 
 	
+	public String selectId(String userid);
 	
 	
 	

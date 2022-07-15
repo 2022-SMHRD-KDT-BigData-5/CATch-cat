@@ -25,6 +25,31 @@ public class MemberController {
 		return "joinForm";
 	}
 	
+	// 아이디중복체크
+	@GetMapping("/idCheck.do")
+	public int idCheck(String userid) {
+		int check =0;
+		
+		System.out.println("들어가긴함?");
+		String id = mapper.selectId(userid);
+		
+		if(id!=null) {
+			System.out.println("ID중복O");
+			check = 0;
+		}else {
+			System.out.println("ID중복X");
+			check = 1;
+		}
+		
+		System.out.println(check);
+		return check;
+		
+	}
+	
+	
+	
+	
+	
 	// 회원가입
 	@PostMapping("/join.do")
 	public String join(Member vo) {
