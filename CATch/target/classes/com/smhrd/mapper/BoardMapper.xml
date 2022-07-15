@@ -14,7 +14,7 @@
     <select id="sponBoardList" resultType="com.smhrd.domain.SponBoard">
         select * from t_sponsorship
     </select>
-    
+
     
     <!-- 게시글의 상세정보 가져오는 sql문 -->
     <select id="adoptBoardInfo" resultType="com.smhrd.domain.AdoptBoard">

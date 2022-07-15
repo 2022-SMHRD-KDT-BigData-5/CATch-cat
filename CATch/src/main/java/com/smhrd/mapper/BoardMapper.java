@@ -3,8 +3,6 @@ package com.smhrd.mapper;
 import java.util.List;
 
 
-import com.smhrd.domain.CareBoard;
-
 
 
 import com.smhrd.domain.AdoptBoard;
@@ -33,7 +31,6 @@ public interface BoardMapper {
 	
 	public abstract SponBoard sponBoardInfo(int spon_seq);
 	
-
 
 	//게시글의 댓글을 가져오는 추상메서드
 	public abstract List<AdoptComment> adoptCommentList(int adt_seq);

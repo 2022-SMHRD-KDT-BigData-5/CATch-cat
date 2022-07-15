@@ -1,0 +1,29 @@
+@charset "UTF-8";
+.joinform{
+    text-align: center;
+    
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+.joinform h5{
+    margin-top: 3%;
+    text-align: left;
+}
+
+.joinform input{
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
+}
+
+.joinform button{
+    margin: 3%;
+   font-size: 15px;
+}
+
+.joinform .joincheck{
+    height: 20px;
+}
+
+
