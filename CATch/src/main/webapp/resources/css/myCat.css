@@ -10,6 +10,12 @@
     margin-top: 70px;
   }
 
+.h_title img{
+    height: 30%;
+    width: 30%;
+}
+
+
 #myCat_body{
     
     display: flex;
