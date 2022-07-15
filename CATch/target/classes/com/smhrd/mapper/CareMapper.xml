@@ -5,7 +5,7 @@
     <!-- 급식소 주소,위도,경도 가져오는 sql문 -->
     <select id="caremapList" parameterType="com.smhrd.domain.CareBoard" resultType="com.smhrd.domain.CareBoard">
 		select *  from t_carezone 
-		where care_addr = #{care_addr}, care_latitude ={care_latitude}, care_longitude ={care_longitude};
+		
 	</select>
 	
    

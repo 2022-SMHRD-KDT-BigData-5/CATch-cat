@@ -62,7 +62,9 @@
         <div id="pagination"></div>
     </div>
 </div>
+<!-- 좌표 -->
 <p id="result"></p>
+<!-- 주소 -->
 <span id="centerAddr"></span>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0a2cd6f2777e0f89378c802f40822eb3&libraries=services"></script>

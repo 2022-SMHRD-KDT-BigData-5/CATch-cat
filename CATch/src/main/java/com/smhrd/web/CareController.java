@@ -20,6 +20,7 @@ public class CareController {
 	@Autowired
 	CareMapper mapper;
 	
+	//
 	@RequestMapping("/caremap.do")
 	public String carelist( CareBoard care,  ModelMap model)  {
   
@@ -27,6 +28,7 @@ public class CareController {
 	    model.addAttribute("list", list);
 	        
 	    return "map";
-	
 	}
+	
+	
 }
