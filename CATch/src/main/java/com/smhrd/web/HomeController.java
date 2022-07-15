@@ -29,14 +29,10 @@ public class HomeController {
 		return "main";
 	}
 	
-	
-	//마이페이지-캣카드로 이동하는 메서드
-	@RequestMapping(value = "catcard.do", method = RequestMethod.GET)
-	public String catcard() {
-
-		return "catcard";
+	@RequestMapping("/map.do")
+	public String goMap() {
+		return "map";
 	}
-	
 	
 	
 }
