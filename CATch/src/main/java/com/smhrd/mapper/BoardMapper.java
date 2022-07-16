@@ -41,7 +41,12 @@ public interface BoardMapper {
 
 	
 
+	// 게시글 작성하는 추상메서드
+	public int adoptBoardInsert(AdoptBoard vo);
 	
+	public int commBoardInsert(CommBoard vo);
+	
+	public int sponBoardInsert(SponBoard vo);
 	
 	
 	

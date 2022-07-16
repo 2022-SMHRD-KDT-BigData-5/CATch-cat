@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 public class CatCardController {
 	
-	
+
 	@RequestMapping("/catcard.do")
 	public String catcard() {
 		return "catcard";

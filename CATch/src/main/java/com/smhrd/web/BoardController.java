@@ -2,10 +2,14 @@ package com.smhrd.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.smhrd.domain.AdoptBoard;
@@ -101,7 +105,42 @@ public class BoardController {
 	}
 	
 	
+	//---------- 게시글 작성페이지 이동하는 메서드
 	
+	@GetMapping("/adoptBoardInsert.do")
+	public String adoptBoardForm() {
+		return "board/adoptBoardForm";
+	}
+	
+	@GetMapping("/commBoardInsert.do")
+	public String commBoardForm() {
+		return "board/commBoardForm";
+	}
+	
+	@GetMapping("/sponBoardInsert.do")
+	public String sponBoardForm() {
+		return "board/sponBoardForm";
+	}
+	
+	
+	//----------- 게시글 등록하는 메서드
+	@PostMapping("/adoptBoardInsert.do")
+	public String adoptInsert(AdoptBoard vo) {
+		mapper.adoptBoardInsert(vo);
+		return "redirect:/adopt.do";
+	}
+	
+	@PostMapping("/commBoardInsert.do")
+	public String commInsert(CommBoard vo) {
+		mapper.commBoardInsert(vo);
+		return "redirect:/comm.do";
+	}
+	
+	@PostMapping("/sponBoardInsert.do")
+	public String boardForm(SponBoard vo) {
+		mapper.sponBoardInsert(vo);
+		return "redirect:/spon.do";
+	}
 	
 	
 	
