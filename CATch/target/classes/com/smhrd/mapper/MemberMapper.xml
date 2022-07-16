@@ -11,8 +11,8 @@
         select * from t_member where mem_id=#{mem_id} and mem_pw=#{mem_pw}
     </select>
     
-    <select id="selectId" parameterType="String" resultType="String">
-        select mem_id from t_member where mem_id=#{userid}
+    <select id="selectId" parameterType="String" resultType="int">
+        select count(mem_id) from t_member where mem_id=#{userid}
     </select>
     
     

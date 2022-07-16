@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.smhrd.domain.Member;
 import com.smhrd.mapper.MemberMapper;
@@ -28,20 +30,12 @@ public class MemberController {
 	}
 	
 	// 아이디중복체크
-	@GetMapping("/idCheck.do")
-	public int idCheck(String userid) {
+	@PostMapping("/idCheck.do")
+	@ResponseBody
+	public int idCheck(@RequestParam("userid") String userid) {
 		int check =0;
 		
-		System.out.println("들어가긴함?");
-		String id = mapper.selectId(userid);
-		
-		if(id!=null) {
-			System.out.println("ID중복O");
-			check = 0;
-		}else {
-			System.out.println("ID중복X");
-			check = 1;
-		}
+		check = mapper.selectId(userid);
 		
 		System.out.println(check);
 		return check;

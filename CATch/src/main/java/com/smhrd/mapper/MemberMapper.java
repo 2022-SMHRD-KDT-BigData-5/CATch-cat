@@ -9,7 +9,7 @@ public interface MemberMapper {
 	
 	public abstract Member selectMember(Member loginMember); 
 	
-	public abstract String selectId(String userid);
+	public int selectId(String userid);
 	
 	
 	
