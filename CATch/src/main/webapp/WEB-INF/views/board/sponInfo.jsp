@@ -31,7 +31,7 @@
 		<td colspan="2" align="center">
 		<button>수정</button>
 		<!-- 자신이 작성한 글에만 삭제버튼 출력 -->
-		<button>삭제</button>
+		<button onClick="sponDelete(${spon_seq})">삭제</button>
 		<button onclick="location.href='spon.do'">목록</button>
 		</td>
 	</tr>
@@ -58,6 +58,10 @@
 <tr><td>댓글 내용</td> <td><%=sponComment.getCmt_content() %></td></tr>
 </table>
 <%} %>
-
+<script type="text/javascript">
+	function sponDelete(spon_seq){
+		location.href='sponBoardDelete.do?spon_seq='+spon_seq;
+	}
+</script>
 </body>
 </html>

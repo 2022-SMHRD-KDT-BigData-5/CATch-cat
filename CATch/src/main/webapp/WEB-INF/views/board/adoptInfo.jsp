@@ -31,7 +31,7 @@
 		<td colspan="2" align="center">
 		<button>수정</button>
 		<!-- 자신이 작성한 글에만 삭제버튼 출력 -->
-		<button>삭제</button>
+		<button onClick="adoptDelete(${adt_seq})">삭제</button>
 		<button onclick="location.href='adopt.do'">목록</button>
 		</td>
 	</tr>
@@ -58,6 +58,10 @@
 <tr><td>댓글 내용</td> <td><%=adoptComment.getCmt_content() %></td></tr>
 </table>
 <%} %>
-
+<script type="text/javascript">
+	function adoptDelete(adt_seq){
+		location.href='adoptBoardDelete.do?adt_seq='+adt_seq;
+	}
+</script>
 </body>
 </html>
