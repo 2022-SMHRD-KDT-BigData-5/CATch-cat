@@ -1,6 +1,7 @@
 <%@page import="com.smhrd.domain.SponComment"%>
 <%@page import="com.smhrd.domain.SponBoard"%>
 <%@page import="java.util.List"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -37,11 +38,16 @@
 </table>
 
 <h1>댓글작성란</h1>
+<c:if test="${empty member }">
+<p>로그인 후 댓글 작성이 가능합니다</p>
+</c:if>
+<c:if test="${! empty member }">
 <form action="commentInsert.do">
-	<input type="text" name="cmt_id" value="cmt_id"><br>
+	<input type="text" name="cmt_id" value="${member.mem_id }" readonly><br>
 	<input type="text" name="comment">
 	<input type="submit" value="등록">
 </form>
+</c:if>
 <h1>댓글출력란</h1>
 <%for (SponComment sponComment : sponCommentList){ %>
 <table border="1px solid black" >

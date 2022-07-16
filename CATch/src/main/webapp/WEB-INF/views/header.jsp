@@ -24,13 +24,20 @@
                         </div>
                         <div class="col-lg-6 col-md-4 ">
                             <div class="social_media_links">
-                            	
+                            	<c:if test="${empty member }">
                                 <a href="login.do">
                                     		<span>login</span>
                                 </a>
                                 <a href="join.do">
                                     		<span>join</span>
                                 </a>
+                                </c:if>
+                                <c:if test="${! empty member }">
+                                <p>${member.mem_id }님</p>
+                                <a href="logout.do">
+                                <span>logout</span>
+                                </a>
+                                </c:if>
                                 
                             
                                 
@@ -54,10 +61,10 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a  href="main.do">home</a></li>
-                                        <li><a href="catcard.do">캣카드 <i class="ti-angle-down"></i></a>
+                                        <li><a href="#">캣카드 <i class="ti-angle-down"></i></a>
                                         <ul class="submenu">
-                                                <li><a href="blog.html">생성</a></li>
-                                                <li><a href="single-blog.html">조회</a></li>
+                                                <li><a href="catcard.do">생성</a></li>
+                                                <li><a href="catcard.do">조회</a></li>
                                             </ul>
                                             </li>
                                                                              

@@ -118,6 +118,7 @@
     </tbody>
     
   </table>
+  <button onclick="location.href='commBoardInsert.do'" class="btn btn-sm btn-success">글쓰기</button>
   </div>
 </div>
 

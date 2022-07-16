@@ -50,7 +50,7 @@
             에서
             <b>게시판에</b>
             글을 남겨보자
-         </h3>?
+         </h3>
       </div>
       <div class="heading-description-wrap">
          <div class="heading-description">
@@ -118,6 +118,7 @@
     </tbody>
     
   </table>
+  <button onclick="location.href='adoptBoardInsert.do'" class="btn btn-sm btn-success">글쓰기</button>
   </div>
 </div>
 
