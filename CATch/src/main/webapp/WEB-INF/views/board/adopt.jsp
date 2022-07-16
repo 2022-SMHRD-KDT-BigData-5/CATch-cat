@@ -54,7 +54,7 @@
       </div>
       <div class="heading-description-wrap">
          <div class="heading-description">
-            후원게시판
+            입양게시판
             <br>
             오직..
             <b>캣치에서만</b>
@@ -83,9 +83,9 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
+      <p><a href="comm.do">소통게시판</a></p>
+      <p><a href="adopt.do">입양게시판</a></p>
+      <p><a href="spon.do">후원게시판</a></p>
     </div>
     <div class="col-sm-8 text-left"> 
 

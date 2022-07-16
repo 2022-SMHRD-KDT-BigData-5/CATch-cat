@@ -43,7 +43,7 @@
 </c:if>
 <c:if test="${! empty member }">
 <form action="commentInsert.do">
-	<input type="text" name="cmt_id" value="${member.mem_id }" readonly><br>
+	<p>ID ${member.mem_id }</p>
 	<input type="text" name="comment">
 	<input type="submit" value="등록">
 </form>
