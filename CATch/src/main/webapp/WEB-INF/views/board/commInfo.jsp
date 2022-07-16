@@ -31,7 +31,7 @@
 		<td colspan="2" align="center">
 		<button>수정</button>
 		<!-- 자신이 작성한 글에만 삭제버튼 출력 -->
-		<button onClick="commDelete(${article_seq})">삭제</button>
+		<button onClick="location.href='commBoardDelete.do?article_seq=${article_seq}'">삭제</button>
 		<button onclick="location.href='comm.do'">목록</button>
 		</td>
 	</tr>
@@ -58,10 +58,5 @@
 <tr><td>댓글 내용</td> <td><%=commComment.getCmt_content() %></td></tr>
 </table>
 <%} %>
-<script type="text/javascript">
-	function commDelete(article_seq){
-		location.href='commBoardDelete.do?article_seq='+article_seq;
-	}
-</script>
 </body>
 </html>
