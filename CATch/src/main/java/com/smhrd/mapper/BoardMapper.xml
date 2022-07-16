@@ -54,7 +54,15 @@
 
     
     <!-- 작성한 댓글을 db에 추가하는 sql문  -->
+    <insert id="adoptCommentInsert" parameterType="com.smhrd.domain.AdoptComment">
+        insert into t_adoption_cmt(cmt_id, cmt_content, adt_seq)
+        values(#{cmt_id}, #{cmt_content}, #{adt_seq})
+    </insert>
     
+    <insert id="commCommentInsert" parameterType="com.smhrd.domain.CommComment">
+        insert into t_community_cmt(cmt_id, cmt_content, article_seq)
+        values(#{cmt_id}, #{cmt_content}, #{article_seq})
+    </insert>
     
     <insert id="sponCommentInsert" parameterType="com.smhrd.domain.SponComment">
         insert into t_sponsorship_cmt(cmt_id, cmt_content, spon_seq)
@@ -62,7 +70,7 @@
     </insert>
     
     
-    <!-- 게시글 등록하는 sql문 -->
+    <!-- 게시글 db에 등록하는 sql문 -->
     <insert id="adoptBoardInsert" parameterType="com.smhrd.domain.AdoptBoard">
         insert into t_adoption(adt_id, adt_title, adt_content)
         values(#{adt_id}, #{adt_title}, #{adt_content})

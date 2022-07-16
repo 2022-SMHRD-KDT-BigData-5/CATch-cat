@@ -99,12 +99,6 @@ public class BoardController {
 		// 로그인 완성 후 세션의 사용자아이디 받아올 수 있음
 	}
 
-	@PostMapping("/sponCommentInsert.do")
-	public String sponComment(SponComment vo) {
-		
-		mapper.sponCommentInsert(vo);
-		return "redirect:/spon.do";
-	}
 
 	// ---------- 게시글 작성페이지 이동하는 메서드
 
@@ -140,6 +134,25 @@ public class BoardController {
 	public String boardForm(SponBoard vo) {
 		mapper.sponBoardInsert(vo);
 		return "redirect:/spon.do";
+	}
+	
+	//----------- 댓글 등록하는 메서드
+	@RequestMapping("/adoptCommentInsert.do")
+	public String adoptComment(AdoptComment vo) {		
+		mapper.adoptCommentInsert(vo);
+		return "redirect:/adopt.do"; //adtinfo.do?adt_seq=1
+	}
+	
+	@RequestMapping("/commCommentInsert.do")
+	public String commComment(CommComment vo) {		
+		mapper.commCommentInsert(vo);
+		return "redirect:/comm.do"; //comminfo.do?article_seq=1
+	}
+	
+	@RequestMapping("/sponCommentInsert.do")
+	public String sponComment(SponComment vo) {		
+		mapper.sponCommentInsert(vo);
+		return "redirect:/spon.do"; //sponinfo.do?spon_seq=1
 	}
 
 }

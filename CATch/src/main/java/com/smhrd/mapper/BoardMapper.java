@@ -49,7 +49,10 @@ public interface BoardMapper {
 	public int sponBoardInsert(SponBoard vo);
 	
 	
-	// 댓글 작성하는 추상메서드
+	// 댓글 작성하는 추상메서드	
+	public int adoptCommentInsert(AdoptComment vo);
+	
+	public int commCommentInsert(CommComment vo);
 	
 	public int sponCommentInsert(SponComment vo);
 

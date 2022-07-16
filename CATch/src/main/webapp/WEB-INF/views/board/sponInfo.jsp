@@ -32,7 +32,7 @@
 		<button>수정</button>
 		<!-- 자신이 작성한 글에만 삭제버튼 출력 -->
 		<button>삭제</button>
-		<button>목록</button>
+		<button onclick="location.href='spon.do'">목록</button>
 		</td>
 	</tr>
 </table>

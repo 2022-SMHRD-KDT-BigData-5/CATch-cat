@@ -32,7 +32,7 @@
 		<button>수정</button>
 		<!-- 자신이 작성한 글에만 삭제버튼 출력 -->
 		<button>삭제</button>
-		<button>목록</button>
+		<button onclick="location.href='comm.do'">목록</button>
 		</td>
 	</tr>
 </table>
@@ -42,9 +42,11 @@
 <p>로그인 후 댓글 작성이 가능합니다</p>
 </c:if>
 <c:if test="${! empty member }">
-<form action="commentInsert.do">
+<form action="commCommentInsert.do"  method="post">
 	<p>ID ${member.mem_id }</p>
-	<input type="text" name="comment">
+	<input type="hidden" name="article_seq" value="${article_seq}">
+	<input type="hidden" value="${member.mem_id }" name="cmt_id">
+	<input type="text" name="cmt_content">
 	<input type="submit" value="등록">
 </form>
 </c:if>
