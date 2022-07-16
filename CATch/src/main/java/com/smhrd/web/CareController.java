@@ -20,13 +20,15 @@ public class CareController {
 	@Autowired
 	CareMapper mapper;
 	
-	@RequestMapping("/careList.do")
-	public String carelist(@ModelAttribute("care") CareBoard care,  ModelMap model) throws Exception {
+	//
+	@RequestMapping("/caremap.do")
+	public String carelist( CareBoard care,  ModelMap model)  {
   
-	    List<CareBoard> list = mapper.careList();
+	    List<CareBoard> list = mapper.caremapList();
 	    model.addAttribute("list", list);
 	        
-	    return "careList";
-	
+	    return "map";
 	}
+	
+	
 }

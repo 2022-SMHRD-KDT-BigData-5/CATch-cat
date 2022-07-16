@@ -99,7 +99,6 @@ public class BoardController {
 	
 	
 	//게시글과 댓글을 입력하는 메서드
-	
 	@RequestMapping("commentInsert.do")
 	public void commentInsert() {
 		//로그인 완성 후 세션의 사용자아이디 받아올 수 있음
@@ -142,14 +141,6 @@ public class BoardController {
 		mapper.sponBoardInsert(vo);
 		return "redirect:/spon.do";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
