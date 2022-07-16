@@ -53,13 +53,13 @@
     </select>
 
     
-    
-    
-    
-    
     <!-- 작성한 댓글을 db에 추가하는 sql문  -->
-    <!-- 이건 로그인 완성하고 해야할것 같다. -->
     
+    
+    <insert id="sponCommentInsert" parameterType="com.smhrd.domain.SponComment">
+        insert into t_sponsorship_cmt(cmt_id, cmt_content, spon_seq)
+        values(#{cmt_id}, #{cmt_content}, #{spon_seq})
+    </insert>
     
     
     <!-- 게시글 등록하는 sql문 -->

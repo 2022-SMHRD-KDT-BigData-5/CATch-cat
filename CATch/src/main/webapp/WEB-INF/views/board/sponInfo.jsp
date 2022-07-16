@@ -42,9 +42,11 @@
 <p>로그인 후 댓글 작성이 가능합니다</p>
 </c:if>
 <c:if test="${! empty member }">
-<form action="commentInsert.do">
+<form action="sponCommentInsert.do" method="post">
 	<p>ID ${member.mem_id }</p>
-	<input type="text" name="comment">
+	<input type="hidden" name="spon_seq" value="${spon_seq}">
+	<input type="hidden" value="${member.mem_id }" name="cmt_id">
+	<input type="text" name="cmt_content">
 	<input type="submit" value="등록">
 </form>
 </c:if>
