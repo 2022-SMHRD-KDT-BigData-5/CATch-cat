@@ -14,7 +14,7 @@ public class CatCardController {
 		return "catcard";
 	}
 	
-	@GetMapping("/catcardSearch")
+	@GetMapping("/catcardSearch.do")
 	public void catcardSearch() {
 		
 	}

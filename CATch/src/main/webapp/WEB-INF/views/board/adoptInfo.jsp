@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.domain.Member"%>
 <%@page import="com.smhrd.domain.AdoptComment"%>
 <%@page import="com.smhrd.domain.AdoptBoard"%>
 <%@page import="java.util.List"%>
@@ -15,7 +16,7 @@
 
 <% 
 	AdoptBoard adoptBoardInfo = (AdoptBoard)request.getAttribute("adoptInfo");
-
+	Member member = (Member)session.getAttribute("member");
 	List<AdoptComment> adoptCommentList = (List<AdoptComment>)request.getAttribute("adoptCommentList");
 	int adt_seq = (Integer)request.getAttribute("adt_seq");
 	
@@ -30,8 +31,10 @@
 	<tr>
 		<td colspan="2" align="center">
 		<!-- 자신이 작성한 글에만 수정/삭제버튼 출력 -->
+		<%if(member.getMem_id().equals(adoptBoardInfo.getAdt_id())){ %>
 		<button onClick="location.href='adoptUpdateForm.do?adt_seq=${adt_seq}'">수정</button>
 		<button onClick="location.href='adoptBoardDelete.do?adt_seq=${adt_seq}'">삭제</button>
+		<%} %>
 		<button onclick="location.href='adopt.do'">목록</button>
 		</td>
 	</tr>
