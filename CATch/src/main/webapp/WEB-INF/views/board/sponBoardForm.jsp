@@ -8,7 +8,7 @@
 </head>
 <body>
 	<form action="sponBoardInsert.do" method="post">
-		<h2>후원글 작성</h2>
+		<h2>후원게시글 작성</h2>
 		<div>
 			제목<input type="text" id="title" name="spon_title">
 		</div>

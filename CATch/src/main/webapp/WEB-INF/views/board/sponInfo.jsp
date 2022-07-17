@@ -20,7 +20,7 @@
 	int spon_seq = (Integer)request.getAttribute("spon_seq");
 	
 %>
-<h1>게시글 출력란</h1>
+<h1>후원게시글 상세</h1>
 <table>
 <tr><td>글제목</td> <td><%=sponBoardInfo.getSpon_title() %></td></tr>
 <tr><td>작성자</td> <td><%=sponBoardInfo.getSpon_id() %></td></tr>
@@ -29,8 +29,8 @@
 
 	<tr>
 		<td colspan="2" align="center">
-		<button>수정</button>
-		<!-- 자신이 작성한 글에만 삭제버튼 출력 -->
+		<!-- 자신이 작성한 글에만 수정/삭제버튼 출력 -->
+		<button onClick="location.href='sponUpdateForm.do?spon_seq=${spon_seq}'">수정</button>
 		<button onClick="location.href='sponBoardDelete.do?spon_seq=${spon_seq}'">삭제</button>
 		<button onclick="location.href='spon.do'">목록</button>
 		</td>

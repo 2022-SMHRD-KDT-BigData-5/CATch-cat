@@ -100,7 +100,7 @@ public class BoardController {
 	}
 
 
-	// ---------- 게시글 작성페이지 이동하는 메서드
+	// ---------------- 게시글 작성페이지로 이동하는 메서드
 
 	@GetMapping("/adoptBoardInsert.do")
 	public String adoptBoardForm() {
@@ -140,19 +140,19 @@ public class BoardController {
 	@RequestMapping("/adoptCommentInsert.do")
 	public String adoptComment(AdoptComment vo) {		
 		mapper.adoptCommentInsert(vo);
-		return "redirect:/adopt.do"; //adtinfo.do?adt_seq=1
+		return "redirect:/adtinfo.do?adt_seq="+vo.getAdt_seq();
 	}
 	
 	@RequestMapping("/commCommentInsert.do")
 	public String commComment(CommComment vo) {		
 		mapper.commCommentInsert(vo);
-		return "redirect:/comm.do"; //comminfo.do?article_seq=1
+		return "redirect:/comminfo.do?article_seq="+vo.getArticle_seq();
 	}
 	
 	@RequestMapping("/sponCommentInsert.do")
 	public String sponComment(SponComment vo) {		
 		mapper.sponCommentInsert(vo);
-		return "redirect:/spon.do"; //sponinfo.do?spon_seq=1
+		return "redirect:/sponinfo.do?spon_seq="+vo.getSpon_seq();
 	}
 	
 	
@@ -172,5 +172,41 @@ public class BoardController {
 		mapper.commBoardDelete(article_seq);
 		return "redirect:/comm.do";
 	}
-
+	
+	//--------------- 게시글 수정페이지로 이동하는 메서드
+	@RequestMapping("/adoptUpdateForm.do")
+	public String adoptUpdateForm(Model model, int adt_seq) {
+		AdoptBoard vo = mapper.adoptBoardInfo(adt_seq);
+		model.addAttribute("AdoptBoard", vo);		
+		return "board/adoptBoardUpdate";
+	}
+	@RequestMapping("/sponUpdateForm.do")
+	public String sponUpdateForm(Model model, int spon_seq) {
+		SponBoard vo = mapper.sponBoardInfo(spon_seq);
+		model.addAttribute("SponBoard", vo);		
+		return "board/sponBoardUpdate";
+	}
+	@RequestMapping("/commUpdateForm.do")
+	public String commUpdateForm(Model model, int article_seq) {
+		CommBoard vo = mapper.commBoardInfo(article_seq);
+		model.addAttribute("CommBoard", vo);		
+		return "board/commBoardUpdate";
+	}
+	
+	//-------------- 수정한 게시글 업데이트 해주는 메서드
+	@RequestMapping("/adoptBoardUpdate.do")
+	public String adoptBoardUpdate(AdoptBoard vo) {
+		mapper.adoptBoardUpdate(vo);
+		return "redirect:/adtinfo.do?adt_seq="+vo.getAdt_seq();
+	}
+	@RequestMapping("/sponBoardUpdate.do")
+	public String sponBoardUpdate(SponBoard vo) {
+		mapper.sponBoardUpdate(vo);
+		return "redirect:/sponinfo.do?spon_seq="+vo.getSpon_seq();
+	}
+	@RequestMapping("/commBoardUpdate.do")
+	public String commBoardUpdate(CommBoard vo) {
+		mapper.commBoardUpdate(vo);
+		return "redirect:/comminfo.do?article_seq="+vo.getArticle_seq();
+	}
 }

@@ -31,10 +31,7 @@
         select * from t_sponsorship
         where spon_seq=#{spon_seq};
     </select>    
-    
-    
-    
-    
+      
     
     <!-- 댓글의 전체정보 가져오는 sql문 -->
     <select id="adoptCommentList" resultType="com.smhrd.domain.AdoptComment">
@@ -70,7 +67,7 @@
     </insert>
     
     
-    <!-- 게시글 db에 등록하는 sql문 -->
+    <!-- 게시글 db에 추가하는 sql문 -->
     <insert id="adoptBoardInsert" parameterType="com.smhrd.domain.AdoptBoard">
         insert into t_adoption(adt_id, adt_title, adt_content)
         values(#{adt_id}, #{adt_title}, #{adt_content})
@@ -85,7 +82,22 @@
         insert into t_sponsorship(spon_id, spon_title, spon_content)
         values(#{spon_id}, #{spon_title}, #{spon_content})
     </insert>
-
+    
+    <!-- 수정한 게시글 db에 업데이트하는 sql문 -->
+	<update id="adoptBoardUpdate" parameterType="com.smhrd.domain.AdoptBoard">
+        update t_adoption set adt_id=#{adt_id}, adt_title=#{adt_title}, adt_content=#{adt_content}
+        where adt_seq = #{adt_seq}
+    </update>
+    
+	<update id="sponBoardUpdate" parameterType="com.smhrd.domain.SponBoard">
+        update t_sponsorship set spon_id=#{spon_id}, spon_title=#{spon_title}, spon_content=#{spon_content}
+        where spon_seq = #{spon_seq}
+    </update>
+    
+	<update id="commBoardUpdate" parameterType="com.smhrd.domain.CommBoard">
+        update t_community set article_id=#{article_id}, article_title=#{article_title}, article_content=#{article_content}
+        where article_seq = #{article_seq}
+    </update>
     
     
 </mapper>

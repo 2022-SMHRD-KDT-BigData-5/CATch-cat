@@ -20,7 +20,7 @@
 	int adt_seq = (Integer)request.getAttribute("adt_seq");
 	
 %>
-<h1>게시글 출력란</h1>
+<h1>입양 게시글 상세</h1>
 <table>
 <tr><td>글제목</td> <td><%=adoptBoardInfo.getAdt_title() %></td></tr>
 <tr><td>작성자</td> <td><%=adoptBoardInfo.getAdt_id() %></td></tr>
@@ -29,8 +29,8 @@
 
 	<tr>
 		<td colspan="2" align="center">
-		<button>수정</button>
-		<!-- 자신이 작성한 글에만 삭제버튼 출력 -->
+		<!-- 자신이 작성한 글에만 수정/삭제버튼 출력 -->
+		<button onClick="location.href='adoptUpdateForm.do?adt_seq=${adt_seq}'">수정</button>
 		<button onClick="location.href='adoptBoardDelete.do?adt_seq=${adt_seq}'">삭제</button>
 		<button onclick="location.href='adopt.do'">목록</button>
 		</td>

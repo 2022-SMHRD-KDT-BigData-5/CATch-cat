@@ -20,7 +20,7 @@
 	int article_seq = (Integer)request.getAttribute("article_seq");
 	
 %>
-<h1>게시글 출력란</h1>
+<h1>소통게시글 상세</h1>
 <table>
 <tr><td>글제목</td> <td><%=commBoardInfo.getArticle_title() %></td></tr>
 <tr><td>작성자</td> <td><%=commBoardInfo.getArticle_id() %></td></tr>
@@ -29,8 +29,8 @@
 
 	<tr>
 		<td colspan="2" align="center">
-		<button>수정</button>
-		<!-- 자신이 작성한 글에만 삭제버튼 출력 -->
+		<!-- 자신이 작성한 글에만 수정/삭제버튼 출력 -->
+		<button onClick="location.href='commUpdateForm.do?article_seq=${article_seq}'">수정</button>
 		<button onClick="location.href='commBoardDelete.do?article_seq=${article_seq}'">삭제</button>
 		<button onclick="location.href='comm.do'">목록</button>
 		</td>
