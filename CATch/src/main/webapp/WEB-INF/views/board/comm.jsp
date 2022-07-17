@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.domain.Member"%>
 <%@page import="com.smhrd.domain.CommBoard"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -37,7 +38,7 @@
     
 </head>
 <body>
-
+<% Member member = (Member)session.getAttribute("member");%>
 <jsp:include page="../header.jsp"></jsp:include>
 
 	<!--------------------------  게시판 시작 ---------------------------------->
@@ -110,11 +111,14 @@
         <td><a href="comminfo.do?article_seq=<%=commBoard.getArticle_seq()%>"><%=commBoard.getArticle_title() %></a></td>
         <td><%=commBoard.getArticle_date() %></td>
         <td><%=commBoard.getArticle_cnt() %></td>
-        <td><a href="commDelete.do?article_seq=">삭제</a>
+        <%if(member!=null){
+        	if(member.getMem_id().equals(commBoard.getArticle_id())){ %>
+        	<td><a href="commBoardDelete.do?article_seq=<%=commBoard.getArticle_seq()%>">삭제</a><td>
+			<%}else{ %>
+        	<td><td>
+       	<%}} //if문 두개 끝%>
       </tr>
-      
-      <%} %>
-    
+      <%} //for문 끝 %>
     </tbody>
     
   </table>

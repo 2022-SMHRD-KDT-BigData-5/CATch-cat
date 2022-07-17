@@ -112,18 +112,14 @@
         <td><a href="adtinfo.do?adt_seq=<%=adoptBoard.getAdt_seq()%>"><%=adoptBoard.getAdt_title() %></a></td>
         <td><%=adoptBoard.getAdt_date() %></td>
         <td><%=adoptBoard.getAdt_cnt() %></td>
-        <c:choose>
-        <c:when test="${ member.getMem_id() eq adoptBoard.getAdt_id()}">
-        	<td><a href="adtDelete.do?adt_seq=">삭제</a><td>
-        </c:when>
-        	<c:otherwise><td><%= member.getMem_id() %><td></c:otherwise>
-        </c:choose>
-       
-        
-       
+        <%if(member!=null){
+        	if(member.getMem_id().equals(adoptBoard.getAdt_id())){ %>
+        	<td><a href="adoptBoardDelete.do?adt_seq=<%=adoptBoard.getAdt_seq()%>">삭제</a><td>
+        <%}else{ %>
+        	<td><td>
+       	<%}} //if문 두개 끝%>
       </tr>
-      
-      <%} %>
+      <%} //for문 끝 %>
     
     </tbody>
     

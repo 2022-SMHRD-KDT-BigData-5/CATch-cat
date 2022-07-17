@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.domain.Member"%>
 <%@page import="com.smhrd.domain.SponBoard"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -37,7 +38,7 @@
     
 </head>
 <body>
-
+<% Member member = (Member)session.getAttribute("member");%>
 <jsp:include page="../header.jsp"></jsp:include>
 
 	<!--------------------------  게시판 시작 ---------------------------------->
@@ -109,10 +110,12 @@
         <td><a href="sponinfo.do?spon_seq=<%=sponBoard.getSpon_seq()%>"><%=sponBoard.getSpon_title() %></a></td>
         <td><%=sponBoard.getSpon_date() %></td>
         <td><%=sponBoard.getSpon_cnt() %></td>
-        <td><a href="sponDelete.do?spon_seq=">삭제</a>
+        <%if(member!=null){
+        	if(member.getMem_id().equals(sponBoard.getSpon_id())){%>
+        		<td><a href="sponDelete.do?spon_seq=">삭제</a>
+        <%}} //if문 두개 끝 %>
       </tr>
-      
-      <%} %>
+      <%} //for문 끝%>
     
     </tbody>
   </table>

@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.domain.Member"%>
 <%@page import="com.smhrd.domain.CommComment"%>
 <%@page import="com.smhrd.domain.CommBoard"%>
 <%@page import="java.util.List"%>
@@ -15,7 +16,7 @@
 
 <% 
 	CommBoard commBoardInfo = (CommBoard)request.getAttribute("commInfo");
-
+	Member member = (Member)session.getAttribute("member");
 	List<CommComment> commCommentList = (List<CommComment>)request.getAttribute("commCommentList");
 	int article_seq = (Integer)request.getAttribute("article_seq");
 	
@@ -30,8 +31,10 @@
 	<tr>
 		<td colspan="2" align="center">
 		<!-- 자신이 작성한 글에만 수정/삭제버튼 출력 -->
+		<%if(member.getMem_id().equals(commBoardInfo.getArticle_id())){ %>
 		<button onClick="location.href='commUpdateForm.do?article_seq=${article_seq}'">수정</button>
 		<button onClick="location.href='commBoardDelete.do?article_seq=${article_seq}'">삭제</button>
+		<%} %>
 		<button onclick="location.href='comm.do'">목록</button>
 		</td>
 	</tr>

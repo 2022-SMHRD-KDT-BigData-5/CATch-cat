@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.domain.Member"%>
 <%@page import="com.smhrd.domain.SponComment"%>
 <%@page import="com.smhrd.domain.SponBoard"%>
 <%@page import="java.util.List"%>
@@ -15,7 +16,7 @@
 
 <% 
 	SponBoard sponBoardInfo = (SponBoard)request.getAttribute("sponInfo");
-
+	Member member = (Member)session.getAttribute("member");
 	List<SponComment> sponCommentList = (List<SponComment>)request.getAttribute("sponCommentList");
 	int spon_seq = (Integer)request.getAttribute("spon_seq");
 	
@@ -30,8 +31,10 @@
 	<tr>
 		<td colspan="2" align="center">
 		<!-- 자신이 작성한 글에만 수정/삭제버튼 출력 -->
+		<%if(member.getMem_id().equals(sponBoardInfo.getSpon_id())){ %>
 		<button onClick="location.href='sponUpdateForm.do?spon_seq=${spon_seq}'">수정</button>
 		<button onClick="location.href='sponBoardDelete.do?spon_seq=${spon_seq}'">삭제</button>
+		<%} %>
 		<button onclick="location.href='spon.do'">목록</button>
 		</td>
 	</tr>
