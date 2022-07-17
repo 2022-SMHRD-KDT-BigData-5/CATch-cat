@@ -20,7 +20,7 @@
 	int adt_seq = (Integer)request.getAttribute("adt_seq");
 	
 %>
-<h1>게시글 출력란</h1>
+<h1>입양 게시글 상세</h1>
 <table>
 <tr><td>글제목</td> <td><%=adoptBoardInfo.getAdt_title() %></td></tr>
 <tr><td>작성자</td> <td><%=adoptBoardInfo.getAdt_id() %></td></tr>
@@ -29,10 +29,10 @@
 
 	<tr>
 		<td colspan="2" align="center">
-		<button>수정</button>
-		<!-- 자신이 작성한 글에만 삭제버튼 출력 -->
-		<button>삭제</button>
-		<button>목록</button>
+		<!-- 자신이 작성한 글에만 수정/삭제버튼 출력 -->
+		<button onClick="location.href='adoptUpdateForm.do?adt_seq=${adt_seq}'">수정</button>
+		<button onClick="location.href='adoptBoardDelete.do?adt_seq=${adt_seq}'">삭제</button>
+		<button onclick="location.href='adopt.do'">목록</button>
 		</td>
 	</tr>
 </table>
@@ -42,9 +42,11 @@
 <p>로그인 후 댓글 작성이 가능합니다</p>
 </c:if>
 <c:if test="${! empty member }">
-<form action="commentInsert.do">
+<form action="adoptCommentInsert.do"  method="post">
 	<p>ID ${member.mem_id }</p>
-	<input type="text" name="comment">
+	<input type="hidden" name="adt_seq" value="${adt_seq}">
+	<input type="hidden" value="${member.mem_id }" name="cmt_id">
+	<input type="text" name="cmt_content">
 	<input type="submit" value="등록">
 </form>
 </c:if>
@@ -56,6 +58,5 @@
 <tr><td>댓글 내용</td> <td><%=adoptComment.getCmt_content() %></td></tr>
 </table>
 <%} %>
-
 </body>
 </html>

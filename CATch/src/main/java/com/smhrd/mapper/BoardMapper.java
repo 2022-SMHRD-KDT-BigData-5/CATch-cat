@@ -2,8 +2,7 @@ package com.smhrd.mapper;
 
 import java.util.List;
 
-
-
+import org.apache.ibatis.annotations.Delete;
 
 import com.smhrd.domain.AdoptBoard;
 import com.smhrd.domain.AdoptComment;
@@ -41,7 +40,7 @@ public interface BoardMapper {
 
 	
 
-	// 게시글 작성하는 추상메서드
+	// 게시글 작성
 	public int adoptBoardInsert(AdoptBoard vo);
 	
 	public int commBoardInsert(CommBoard vo);
@@ -49,8 +48,29 @@ public interface BoardMapper {
 	public int sponBoardInsert(SponBoard vo);
 	
 	
+	// 댓글 작성
+	public int adoptCommentInsert(AdoptComment vo);
 	
+	public int commCommentInsert(CommComment vo);
+	
+	public int sponCommentInsert(SponComment vo);
+	
+	// 게시글 삭제
+	@Delete("delete from t_adoption where adt_seq=#{adt_seq}")
+	public int adoptBoardDelete(int adt_seq);
 
-
+	@Delete("delete from t_sponsorship where spon_seq=#{spon_seq}")
+	public int sponBoardDelete(int spon_seq);
+	
+	@Delete("delete from t_community where article_seq=#{article_seq}")
+	public int commBoardDelete(int article_seq);
+	
+	// 게시글 수정
+	public int adoptBoardUpdate(AdoptBoard vo);
+	
+	public int sponBoardUpdate(SponBoard vo);
+	
+	public int commBoardUpdate(CommBoard vo);
+	
 
 }
