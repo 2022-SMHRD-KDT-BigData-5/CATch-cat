@@ -159,16 +159,19 @@ public class BoardController {
 	//---------- 게시글 삭제 메서드
 	@RequestMapping("/adoptBoardDelete.do")
 	public String adoptDelete(int adt_seq) {
+		mapper.adoptBoardCommentDelete(adt_seq);
 		mapper.adoptBoardDelete(adt_seq);
 		return "redirect:/adopt.do";
 	}
 	@RequestMapping("/sponBoardDelete.do")
 	public String sponDelete(int spon_seq) {
+		mapper.sponBoardCommentDelete(spon_seq);
 		mapper.sponBoardDelete(spon_seq);
 		return "redirect:/spon.do";
 	}
 	@RequestMapping("/commBoardDelete.do")
 	public String commDelete(int article_seq) {
+		mapper.commBoardCommentDelete(article_seq);
 		mapper.commBoardDelete(article_seq);
 		return "redirect:/comm.do";
 	}
