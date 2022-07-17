@@ -308,6 +308,12 @@ function displayCenterInfo(result, status) {
         }
     }    
 }
+
+// 마커를 클릭했을 때 게시물 작성버튼과 해당 게시물이 생성되게 설정했습니다.
+kakao.maps.event.addListener(marker, 'click', function(){
+  markerDetail(p.id)
+})
+
 </script>
 </body>
 </html>
