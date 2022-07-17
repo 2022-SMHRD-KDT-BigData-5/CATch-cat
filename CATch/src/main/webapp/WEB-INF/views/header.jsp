@@ -62,7 +62,7 @@
 										<li><a href="#">캣카드 <i class="ti-angle-down"></i></a>
 											<ul class="submenu">
 												<li><a href="catcard.do">생성</a></li>
-												<li><a href="catcard.do">조회</a></li>
+												<li><a href="catcardSearch.do">조회</a></li>
 											</ul></li>
 
 										<li><a href="#">게시판 <i class="ti-angle-down"></i></a>
