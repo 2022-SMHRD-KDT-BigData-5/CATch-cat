@@ -29,6 +29,10 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/myCat.css">
     <link rel="stylesheet" href="css/jointest.css">
+    <style>
+    	.id_ok{color:rgb(7, 104, 7); display:none;}
+    	.id_already{color:rgb(219, 20, 63); display:none;}
+    </style>
     
 </head>
 <body>
@@ -47,6 +51,8 @@
                 
                 <h5>아이디</h5>
             <input name="mem_id" type="text" id="userid" placeholder="ID를 입력">
+            <span class="id_ok">사용 가능한 아이디입니다.</span>
+            <span class="id_already">이미 사용중인 아이디입니다.</span><br>
             
             <button class="btn" onclick="idCheck()" type="button">중복체크</button>
             
@@ -84,31 +90,27 @@
 	var inputbotton = 0
 	   
     function idCheck(){
-      let userid = $("#userid").val()
+      var userid = $("#userid").val()
 
       $.ajax({
-         data : {
-            'userid' : userid
-         },
-         url : 'idCheck.do',
-         type : 'get',
-         contentType : 'application/json; charset=UTF-8',
-         dataType : 'text',
-         success : function(data) {
-            if (data == 1) {
-               inputbotton = 1
-               alert("사용할 수 있는 아이디입니다.")
-               $("#userid").val(userid)
-               
-            } else {
-               alert("사용할 수 없는 아이디입니다.")
-               $("#userid").val("")
-            }
-         },
-         error : function(data) { 
-            alert("통신실패!")
-         }
-      })
+    	  url:'idCheck.do',
+    	  type:'post',
+    	  data:{'userid':userid},
+    	  success:function(check){
+    		  if(check == 0){
+    			  $('.id_ok').css('display','inline-block');
+    			  $('.id_already').css('display', 'none');
+    		  }else{
+    			  $('.id_already').css('display','inline-block');
+    			  $('.id_ok').css('display', 'none');
+    			  $('#userid').val('');
+    		  }
+    	  },
+    	  error:function(){
+    		  alert('에러입니다');
+    	  }
+    	  
+      });
 
    }
 	

@@ -116,6 +116,7 @@
     
     </tbody>
   </table>
+  <button onclick="location.href='sponBoardInsert.do'" class="btn btn-sm btn-success">글쓰기</button>
   </div>
 </div>
 
