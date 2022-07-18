@@ -341,9 +341,9 @@ function markerChk() {
 	
 	
 	$.ajax({
-        url: "/map",
+        url: 'caremap.do',
         type: "POST",
-        data : {}
+        data : "",
         success: function(data){
             alert(data.Msg);
         },

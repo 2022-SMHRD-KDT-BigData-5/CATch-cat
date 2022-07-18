@@ -1,18 +1,27 @@
 package com.smhrd.web;
 
 import java.util.HashMap;
-
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import com.smhrd.domain.CareBoard;
-import com.smhrd.mapper.CareMapper;
 
+import org.springframework.ui.ModelMap;
+
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.smhrd.domain.CareBoard;
+
+import com.smhrd.mapper.CareMapper;
 
 @Controller	
 public class CareController {
@@ -29,21 +38,21 @@ public class CareController {
 	    return "map";
 	}
 	
-	@RequestMapping("/markerChk")
 	@ResponseBody
-	public HashMap <String, String> markerChk( @RequestBody String message, HttpServletRequest request) {
+	@RequestMapping("/markerChk.do")
+	public HashMap <String, String> markerChk(  CareBoard care_latitude,CareBoard care_longitude,  ModelMap model, HttpServletRequest request) {
 		HashMap<String, String> result = new HashMap <String,String>();
 		
-//		String lat = request.getParameter("LAT");
-//		String log = request.getParameter("LNG");
-//		
-//		CareBoard list = new CareBoard();
-//		
-//		list.setCare_latitude(lat);
-//		list.setCare_longitude(log);
-//		
-	int insertRst = mapper.messageInsert();
-//		
+		String lat = request.getParameter("LAT");
+		String log = request.getParameter("LNG");
+		
+		CareBoard list = new CareBoard();
+		
+		list.setCare_latitude(lat);
+		list.setCare_longitude(log);
+		
+		int insertRst = mapper.messageInsert();
+		
 		if ( insertRst > 0) {
 			String Msg = "성공";
 			String Code = "0";

@@ -8,6 +8,5 @@
 		values(#{care_latitude},#{care_longitude})
 	</insert>
 
-   
-    
+
 </mapper>
