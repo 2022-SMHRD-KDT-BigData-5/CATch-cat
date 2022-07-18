@@ -72,16 +72,18 @@
 	<div id="board-search">
 		<div class="container">
 			<div class="search-window">
-				<form name="search-form" method="post" autocomplete="off">
-
-					<select name="type">
-						<option value="adt_title">제목</option>
-						<option value="adt_content">내용</option>
-						<option value="adt_id">작성자</option>
-					</select>
-					<input type="text" name="keyword" value="">
-					<input type="button" onclick="getSearchList()" value="검색">
+				<form name="form1" method="post" action="search.do">
+					<select name="search_option">
+						<option value="title"
+							<c:if test="${map.search_option == 'adt_title'}">selected</c:if>>제목</option>
+						<option value="content"
+							<c:if test="${map.search_option == 'adt_content'}">selected</c:if>>내용</option>
+						<option value="id"
+							<c:if test="${map.search_option == 'adt_id'}">selected</c:if>>작성자</option>
+					</select> <input name="keyword" value="${map.keyword}">
+					<input type="submit" value="조회">
 				</form>
+
 
 			</div>
 		</div>
