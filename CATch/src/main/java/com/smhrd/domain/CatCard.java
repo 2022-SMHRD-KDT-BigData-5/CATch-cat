@@ -20,8 +20,10 @@ public class CatCard {
 	private char cat_gender;
 	private Timestamp cat_date;
 	private String cat_nose;
-	private String mem_id;
 	private char cat_neutral;
+	private String cat_spec;
+	private String mem_id;
+	
 	
 
 }
