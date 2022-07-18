@@ -66,6 +66,7 @@
 <p id="result"></p>
 <!-- 주소 -->
 <span id="centerAddr"></span>
+<span id="resultBox"></span>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0a2cd6f2777e0f89378c802f40822eb3&libraries=services"></script>
 <script>
@@ -250,8 +251,9 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 // 주소-좌표 변환 객체를 생성합니다
 var geocoder = new kakao.maps.services.Geocoder();
 
-var marker = new kakao.maps.Marker(), // 클릭한 위치를 표시할 마커입니다
+var marker = new kakao.maps.Marker(),// 클릭한 위치를 표시할 마커입니다
     infowindow = new kakao.maps.InfoWindow({zindex:1}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
+    
 
 // 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
 searchAddrFromCoords(map.getCenter(), displayCenterInfo);
@@ -326,20 +328,20 @@ kakao.maps.event.addListener(marker, 'click', function() {
 
 
 
-$(document).ready(function () {
-	$("marker").on('click', function() {
-		markerChk();
-	})
-});
 	
 function markerChk() {
-    $.ajax({
-        url: "/webservice/markerChk",
+	$("#resultBox").children().remove();
+	//경도 위도를 ajax를 통해 보낼 데이터에 추가
+	var data={};
+	data["LAT"]=$("#lat").val();
+	data["LNG"]=$("#lng").val();
+
+	
+	
+	$.ajax({
+        url: "/",
         type: "POST",
-        data: {
-        	message : latlng.getLat(),
-        	message : latlng.getLng()
-        },
+        dataType : "jsong",
         success: function(data){
             alert(data.Msg);
         },

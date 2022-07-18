@@ -20,16 +20,13 @@ public class CatCardController {
 	public String catcard() {
 		return "catcard";
 	}
-	
-<<<<<<< HEAD
-	@GetMapping("/catcardSearch.do")
-	public void catcardSearch() {
-		
-=======
+
+
+
 	@RequestMapping("/catcardSearch.do")
 	public String catcardSearch() {
 		return "catcardSearch";
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
+
 	}
 	
 	

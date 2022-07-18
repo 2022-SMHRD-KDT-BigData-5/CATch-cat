@@ -9,8 +9,10 @@ public interface CareMapper {
 	
 	
 	
-	//급식소 리스트 가져오는 메서드
-	public abstract List<CareBoard> messageInsert();
+	//위도 경도 데이터 넣기
+	public abstract int messageInsert();
+
+	
 
 }
 

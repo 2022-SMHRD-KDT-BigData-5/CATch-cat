@@ -4,7 +4,7 @@
 <mapper namespace="com.smhrd.mapper.CareMapper">
     <!-- 급식소 주소,위도,경도 가져오는 sql문 -->
     <insert id="messageInsert" parameterType="com.smhrd.domain.CareBoard" >
-		insert into Careboard(care_latitude,care_longitude)
+		insert into t_carezone(care_latitude,care_longitude)
 		values(#{care_latitude},#{care_longitude})
 	</insert>
 
