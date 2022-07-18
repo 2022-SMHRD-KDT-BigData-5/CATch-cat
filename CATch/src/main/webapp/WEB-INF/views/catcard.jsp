@@ -1,6 +1,10 @@
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.domain.Vaccination"%>
+<%@page import="com.smhrd.domain.Medical"%>
 <%@page import="com.smhrd.domain.CatCard"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
  
@@ -32,8 +36,11 @@
 </head>
  
  <body>
- 	<% CatCard catcardInfo = (CatCard)request.getAttribute("catcardInfo");%>
- 	<% System.out.println(catcardInfo); %>
+ 	<% 
+ 	CatCard catcardInfo = (CatCard)session.getAttribute("catcardInfo");
+ 	List<Medical> medicalList = (List<Medical>)session.getAttribute("medicalList");
+ 	List<Vaccination> vaccinationList = (List<Vaccination>)session.getAttribute("vaccinationList");
+ 	%>
 	
    <jsp:include page="header.jsp"></jsp:include>
 
@@ -47,35 +54,34 @@
                     <div class="testmonial_wrap">
                         <div class="single_testmonial d-flex align-items-center">
                             
-                                
+                                <%if(catcardInfo != null){ %>
                                     <div class="test_thumb">
                                         <img src="img/testmonial/1.png" alt="">
                                     </div>
                                     <div class="test_content">
-                                        <h4><%=catcardInfo.getCat_name() %></h4>
-                                        <span><%=catcardInfo.getCat_seq() %></span>
+                                    
+                                        <h4><%=catcardInfo.getCat_name() %>의 CAT CARD</h4>
+                                        <span>캣카드번호 : <%=catcardInfo.getCat_seq() %></span>
                                         <p>고양이 생일 : <%=catcardInfo.getCat_birthdate() %></p>
-                                        <p>고양이 성별 : <%if(catcardInfo.getCat_gender() == 'M'){%><span>수컷</span>
-                                        <%}else{ %><span>암컷</span><%} %></p>
-                                        <p>카드 등록일 : 1952년 5월 35일</p>
+                                        <p>고양이 성별 : <%=catcardInfo.getCat_gender() %></p>
+                                        <p>카드 등록일 : <%=catcardInfo.getCat_date() %></p>
+                                    
                                     </div>
                                 
                                 
-                            
-
-                            
                                                                                                     
                             <div class = 'moreCard'>
                                  <input value="더보기" onclick="if(this.parentNode.getElementsByTagName('div')[0].style.display != ''){this.parentNode.getElementsByTagName('div')[0].style.display = '';this.value = '숨기기';}else{this.parentNode.getElementsByTagName('div')[0].style.display = 'none'; this.value = '더보기';}" type="button" />
                                     <div style="display: none;">
-                                     <p>보호자 : 집사조</p>
-                                       <p>거주지 : 제주도(자세한 주소는 제주살앙 이용 바람)</p>
-                                      <p>중성화 : 고양이가 싫어하여 안함</p> 
+                                     <p>보호자아이디 : <%=catcardInfo.getMem_id() %></p>
+                                      <p>중성화 : <%=catcardInfo.getCat_neutral() %></p> 
                                       <p>특이사항</p>
                                       <p>특이사항 없음 </p>
                                  </div>
                             </div>
-                            
+                            <%}else{ %>
+                                    <p>캣카드 번호를 다시 확인해주세요.</p>
+                                    <%} %>
 
 
                         </div>
@@ -86,44 +92,21 @@
                             <h7>진료 내역</h7>
                             <div class="medical_thumb">
                                <table class = "table table-border table-hover">
-                                <tr>
+                               <tr>
+                               		<td></td>
                                     <td>진료병원</td>
                                     <td>진료내역</td>
                                     <td>진료일</td>
                                 </tr>
-                                <tr>
-                                    <td>미래아동병원</td>
-                                    <td>고양이가 엄청 아파하여 주사를 맞추려다가 개고생을 하였다</td>
-                                    <td>1995년 15월 36일</td>
-                                </tr>
-                                <tr>
-                                    <td>미래아동병원</td>
-                                    <td>고양이가 엄청 아파하여 주사를 맞추려다가 개고생을 하였다</td>
-                                    <td>1995년 15월 36일</td>
-                                </tr>
-                                <tr>
-                                    <td>미래아동병원</td>
-                                    <td>고양이가 엄청 아파하여 주사를 맞추려다가 개고생을 하였다</td>
-                                    <td>1995년 15월 36일</td>
-                                </tr>
-                                <tr>
-                                    <td>미래아동병원</td>
-                                    <td>고양이가 엄청 아파하여 주사를 맞추려다가 개고생을 하였다</td>
-                                    <td>1995년 15월 36일</td>
-                                </tr> <tr>
-                                    <td>미래아동병원</td>
-                                    <td>고양이가 엄청 아파하여 주사를 맞추려다가 개고생을 하였다</td>
-                                    <td>1995년 15월 36일</td>
-                                </tr> <tr>
-                                    <td>미래아동병원</td>
-                                    <td>고양이가 엄청 아파하여 주사를 맞추려다가 개고생을 하였다</td>
-                                    <td>1995년 15월 36일</td>
-                                </tr>
-                                <tr>
-                                    <td>미래아동병원</td>
-                                    <td>고양이가 엄청 아파하여 주사를 맞추려다가 개고생을 하였다</td>
-                                    <td>1995년 15월 36일</td>
-                                </tr>
+                               <c:forEach items="${medicalList}" var="medi" varStatus = "status">
+                               		<tr>
+                               		<td>${status.count}</td>
+                               		<td>${medi.getMedi_name()}</td>
+                               		<td>${medi.getMedi_content()}</td>
+                               		<td>${medi.getMedi_date()}</td>
+                               		</tr>
+                               </c:forEach>
+                               
                                </table>
                             </div>
                             <h7>접종 내역</h7>

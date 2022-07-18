@@ -18,7 +18,7 @@
 	AdoptBoard adoptBoardInfo = (AdoptBoard)request.getAttribute("adoptInfo");
 	Member member = (Member)session.getAttribute("member");
 	List<AdoptComment> adoptCommentList = (List<AdoptComment>)request.getAttribute("adoptCommentList");
-	int adt_seq = (Integer)request.getAttribute("adt_seq");
+	int cmt_seq = (Integer)request.getAttribute("cmt_seq");
 	
 %>
 <h1>입양 게시글 상세</h1>
@@ -26,6 +26,7 @@
 <tr><td>글제목</td> <td><%=adoptBoardInfo.getAdt_title() %></td></tr>
 <tr><td>작성자</td> <td><%=adoptBoardInfo.getAdt_id() %></td></tr>
 <tr><td>작성일</td> <td><%=adoptBoardInfo.getAdt_date()%></td></tr>
+<tr><td>조회수</td> <td><%=adoptBoardInfo.getAdt_cnt()%></td></tr>
 <tr><td>작성내용</td> <td><%=adoptBoardInfo.getAdt_content() %></td></tr>
 
 	<tr>
@@ -59,6 +60,13 @@
 <tr><td>댓글작성자</td> <td><%=adoptComment.getCmt_id() %></td></tr>
 <tr><td>댓글작성일</td> <td><%=adoptComment.getCmt_date() %></td></tr>
 <tr><td>댓글 내용</td> <td><%=adoptComment.getCmt_content() %></td></tr>
+		<%if(member.getMem_id().equals(adoptComment.getCmt_id())){ %>
+<tr>
+		<td colspan="2" align="center">
+		<button onClick="location.href='adoptBoardCmtDelete.do?cmt_seq=<%=adoptComment.getCmt_seq()%>&&adt_seq=<%=adoptComment.getAdt_seq()%>'">삭제</button>
+		</td>
+	</tr>
+		<%} %>
 </table>
 <%} %>
 </body>
