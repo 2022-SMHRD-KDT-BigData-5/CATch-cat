@@ -3,8 +3,14 @@
 <mapper namespace="com.smhrd.mapper.CatCardMapper">
     
     <!-- 캣카드 번호로 캣카드 조회하는 sql문 -->
-    <select id="seqSearch" resultType="com.smhrd.domain.CatCard">
+    <select id="seqCatSearch" resultType="com.smhrd.domain.CatCard">
         select * from t_catcard where cat_seq = #{cat_seq}
+    </select>
+    <select id="seqMediSearch" resultType="com.smhrd.domain.Medical">
+        select * from t_medical where cat_seq=#{cat_seq}
+    </select>
+    <select id="seqVaccSearch" resultType="com.smhrd.domain.Vaccination">
+        select * from t_vaccination where cat_seq=#{cat_seq}
     </select>
     
     

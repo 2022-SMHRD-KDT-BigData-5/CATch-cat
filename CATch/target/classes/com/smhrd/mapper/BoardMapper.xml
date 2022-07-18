@@ -99,6 +99,19 @@
         where article_seq = #{article_seq}
     </update>
     
+	<!-- 조회수 업데이트하는 sql문 -->
+	<update id= "adoptCntUpdate" parameterType="com.smhrd.domain.AdoptBoard" >
+	    update t_adoption set adt_cnt = adt_cnt+1
+	    where adt_seq = #{adt_seq}
+	</update>
+	<update id= "commCntUpdate" parameterType="com.smhrd.domain.CommBoard" >
+	    update t_community set article_cnt = article_cnt+1
+	    where article_seq = #{article_seq}
+	</update>
+	<update id= "sponCntUpdate" parameterType="com.smhrd.domain.SponBoard" >
+	    update t_sponsorship set spon_cnt = spon_cnt+1
+	    where spon_seq = #{spon_seq}
+	</update>
     
 </mapper>
 

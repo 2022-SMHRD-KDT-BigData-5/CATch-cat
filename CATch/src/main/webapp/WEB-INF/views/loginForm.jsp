@@ -41,7 +41,7 @@
 		<input name="mem_id" type="text" placeholder="ID를 입력">
 		
 		<div>비밀번호</div>
-		<input name="mem_pw" type="text" placeholder="비밀번호 입력">
+		<input name="mem_pw" type="password" placeholder="비밀번호 입력">
 		
 		<input type="submit" class="btn" value="L O G I N"/>
 		

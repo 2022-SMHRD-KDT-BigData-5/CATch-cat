@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.smhrd.domain.AdoptBoard;
 import com.smhrd.domain.AdoptComment;
@@ -53,52 +54,36 @@ public class BoardController {
 
 	@RequestMapping("adtinfo.do")
 	public String adoptBoardInfo(Model model, int adt_seq) {
-
+		mapper.adoptCntUpdate(adt_seq);
 		model.addAttribute("adt_seq", adt_seq);
-
 		AdoptBoard adoptInfo = mapper.adoptBoardInfo(adt_seq);
-		model.addAttribute("adoptInfo", adoptInfo);
-
+		model.addAttribute("adoptInfo", adoptInfo);		
 		List<AdoptComment> adoptCommentList = (List<AdoptComment>) mapper.adoptCommentList(adt_seq);
-		model.addAttribute("adoptCommentList", adoptCommentList);
-
+		model.addAttribute("adoptCommentList", adoptCommentList);	
 		return "board/adoptInfo";
 	}
 
 	@RequestMapping("comminfo.do")
 	public String commBoardInfo(Model model, int article_seq) {
-
+		mapper.commCntUpdate(article_seq);
 		model.addAttribute("article_seq", article_seq);
-
 		CommBoard commInfo = mapper.commBoardInfo(article_seq);
 		model.addAttribute("commInfo", commInfo);
-
 		List<CommComment> commCommentList = (List<CommComment>) mapper.commCommentList(article_seq);
 		model.addAttribute("commCommentList", commCommentList);
-
 		return "board/commInfo";
 	}
 
 	@RequestMapping("sponinfo.do")
 	public String sponBoardInfo(Model model, int spon_seq) {
-
+		mapper.sponCntUpdate(spon_seq);
 		model.addAttribute("spon_seq", spon_seq);
-
 		SponBoard sponInfo = mapper.sponBoardInfo(spon_seq);
 		model.addAttribute("sponInfo", sponInfo);
-
 		List<SponComment> sponCommentList = (List<SponComment>) mapper.sponCommentList(spon_seq);
 		model.addAttribute("sponCommentList", sponCommentList);
-
 		return "board/sponInfo";
 	}
-
-	// 게시글과 댓글을 입력하는 메서드
-	@RequestMapping("commentInsert.do")
-	public void commentInsert() {
-		// 로그인 완성 후 세션의 사용자아이디 받아올 수 있음
-	}
-
 
 	// ---------------- 게시글 작성페이지로 이동하는 메서드
 
@@ -176,6 +161,23 @@ public class BoardController {
 		return "redirect:/comm.do";
 	}
 	
+	//--------- 댓글 삭제 메서드
+	@RequestMapping("/adoptBoardCmtDelete.do")
+	public String adoptCmtDelete(int cmt_seq, int adt_seq) {
+		mapper.adoptBoardCmtDelete(cmt_seq);
+		return "redirect:/adtinfo.do?adt_seq="+adt_seq;
+	}
+	@RequestMapping("/sponBoardCmtDelete.do")
+	public String sponCmtDelete(int cmt_seq, int spon_seq) {
+		mapper.sponBoardCmtDelete(cmt_seq);
+		return "redirect:/sponinfo.do?spon_seq="+spon_seq;
+	}
+	@RequestMapping("/commBoardCmtDelete.do")
+	public String commCmtDelete(int cmt_seq, int article_seq) {
+		mapper.commBoardCmtDelete(cmt_seq);
+		return "redirect:/comminfo.do?article_seq="+article_seq;
+	}
+	
 	//--------------- 게시글 수정페이지로 이동하는 메서드
 	@RequestMapping("/adoptUpdateForm.do")
 	public String adoptUpdateForm(Model model, int adt_seq) {
@@ -212,4 +214,5 @@ public class BoardController {
 		mapper.commBoardUpdate(vo);
 		return "redirect:/comminfo.do?article_seq="+vo.getArticle_seq();
 	}
+
 }
