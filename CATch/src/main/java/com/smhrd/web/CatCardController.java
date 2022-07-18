@@ -39,12 +39,20 @@ public class CatCardController {
 	public String seqSearch(HttpServletRequest request, int cat_seq) {
 		CatCard catcard = mapper.seqCatSearch(cat_seq);
 		List<Medical> medicalList = mapper.seqMediSearch(cat_seq);
-		List<Vaccination> vaccinationList = mapper.seqVaccSearch(cat_seq);
+		List<Vaccination> jh = mapper.jhSearch(cat_seq);
+		List<Vaccination> gg = mapper.ggSearch(cat_seq);
+		List<Vaccination> jb = mapper.jbSearch(cat_seq);
+		List<Vaccination> hc = mapper.hcSearch(cat_seq);
+		List<Vaccination> ss = mapper.ssSearch(cat_seq);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("catcardInfo", catcard);
 		session.setAttribute("medicalList", medicalList);
-		session.setAttribute("vaccinationList", vaccinationList);
+		session.setAttribute("jh", jh);
+		session.setAttribute("gg", gg);
+		session.setAttribute("jb", jb);
+		session.setAttribute("hc", hc);
+		session.setAttribute("ss", ss);
 		
 		return "redirect:/catcard.do";
 	}
@@ -59,7 +67,6 @@ public class CatCardController {
 	// --------------------------------------------------------------
 	
 	
-
 	
 	
 
