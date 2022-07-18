@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.mapper.CatCardMapper">
+    
+    <!-- 캣카드 번호로 캣카드 조회하는 sql문 -->
+    <select id="seqSearch" resultType="com.smhrd.domain.CatCard">
+        select * from t_catcard where cat_seq = #{cat_seq}
+    </select>
+    
+    
+    
+</mapper>
