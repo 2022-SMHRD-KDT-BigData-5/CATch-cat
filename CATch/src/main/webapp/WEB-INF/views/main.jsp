@@ -62,8 +62,10 @@
             <div class="row justify-content-center ">
                 <div class="col-lg-7 col-md-10">
                     <div class="section_title text-center mb-95">
-                        <h3>Services for every dog</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+                        <h3>반려묘 비문인식 </h3>
+                        <h3>어떤게 가능할까요?</h3>
+                        <p>궁금하시죠?ㅋㅋ</p>
+                  
                     </div>
                 </div>
             </div>
@@ -76,8 +78,8 @@
                              </div>
                          </div>
                          <div class="service_content text-center">
-                            <h3>Pet Boarding</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
+                            <h3>병원에 갈 필요 없이 간편한 반려묘 등록</h3>
+                            <p>칩 이식, 병원비 지출 없이 나의 고양이의 비문 등록</p>
                          </div>
                     </div>
                 </div>
@@ -89,8 +91,8 @@
                              </div>
                          </div>
                          <div class="service_content text-center">
-                            <h3>Healthy Meals</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
+                            <h3>인식표 / 외장칩없이 비문 조회로 반려묘 찾기</h3>
+                            <p>스마트폰만으로 유실묘를 찾을 수 있습니다.</p>
                          </div>
                     </div>
                 </div>
@@ -102,8 +104,8 @@
                              </div>
                          </div>
                          <div class="service_content text-center">
-                            <h3>Pet Spa</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>
+                            <h3>캣카드 등록하기</h3>
+                            <p>예방접종내역, 중성화유무, 이름, 성별 등 나의 고양이의 정보를 등록할 수 있습니다.</p>
                          </div>
                     </div>
                 </div>
@@ -124,10 +126,10 @@
                 <div class="col-lg-6 offset-lg-1 col-md-6">
                     <div class="pet_info">
                         <div class="section_title">
-                            <h3><span>We care your pet </span> <br>
-                                As you care</h3>
-                            <p>Lorem ipsum dolor sit , consectetur adipiscing elit, sed do <br> iusmod tempor incididunt ut labore et dolore magna aliqua. <br> Quis ipsum suspendisse ultrices gravida. Risus commodo <br>
-                                viverra maecenas accumsan.</p>
+                            <h3><span>WHY? </span> <br>
+                                                        왜 비문(코주름)이 필요할까요?</h3>
+                            <p>사람의 지문과 같이 반려견의 비문(코 지문)모두 다르며, <br> 나이가 들어서도 변하지 않기에 생체정보로써 사용할 수 있습니다. <br> 캣치와 함께 나의 반려묘를 등록해보세요 <br>
+                                </p>
                             <a href="about.html" class="boxed-btn3">About Us</a>
                         </div>
                     </div>
@@ -299,11 +301,11 @@
                 <div class="col-lg-8">
                     <div class="contact_text text-center">
                         <div class="section_title text-center">
-                            <h3>Why go with Anipat?</h3>
-                            <p>Because we know that even the best technology is only as good as the people behind it. 24/7 tech support.</p>
+                            <h3>Why go with CATch?</h3>
+                            <p>캣치는 반려묘의 비문인식을 통하여 <br> 반려동물과 함께 살기 좋은 세상을 목표로 하고 있습니다.</p>
                         </div>
                         <div class="contact_btn d-flex align-items-center justify-content-center">
-                            <a href="contact.html" class="boxed-btn4">Contact Us</a>
+                            <a href="contact.html" class="boxed-btn4">서비스 보러가기</a>
                             <p>Or  <a href="#"> +880 4664 216</a></p>
                         </div>
                     </div>

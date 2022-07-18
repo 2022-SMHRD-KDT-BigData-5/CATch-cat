@@ -16,8 +16,11 @@
     </select>
     
     
-    
-    
+    <!-- 마이페이지 캣카드 조회 -->
+    <select id="selectMyCat" resultType="com.smhrd.domain.CatCard">
+        select * from t_catcard
+        where mem_id=#{mem_id}
+    </select>
     
     
     

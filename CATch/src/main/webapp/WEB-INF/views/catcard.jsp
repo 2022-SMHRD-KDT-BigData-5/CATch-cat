@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.domain.Member"%>
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.domain.Vaccination"%>
 <%@page import="com.smhrd.domain.Medical"%>
@@ -37,6 +38,7 @@
  
  <body>
  	<% 
+ 	Member member = (Member)session.getAttribute("member");
  	CatCard catcardInfo = (CatCard)session.getAttribute("catcardInfo");
  	List<Medical> medicalList = (List<Medical>)session.getAttribute("medicalList");
 
@@ -89,6 +91,9 @@
                     </div>
                     <div class="testmonial_wrap">
                         <div class="single_testmonial d-flex align-items-center">
+                        <%if(member!=null){if(member.getMem_hospital() == 'T'){ %>
+                        	<button onclick="location.href='medicalUpdate.do'">수정</button><br>
+                        	<%}} %>
                             <h7>진료 내역</h7>
                             <div class="medical_thumb">
                                <table class = "table table-border table-hover">

@@ -72,12 +72,18 @@
 												<li><a href="spon.do">후원게시판</a></li>
 											</ul></li>
 										<li><a href="contact.html">고양터</a></li>
-										<li><a href="mypage.do">마이페이지 <i
-												class="ti-angle-down"></i></a>
+										<c:choose>
+										<c:when test="${empty member}"><li></li></c:when>
+										<c:otherwise>
+											<li><a href="mypage.do?mem_id=<%=member.getMem_id()%>">마이페이지
+										 <i class="ti-angle-down"></i></a>
 											<ul class="submenu">
-												<li><a href="blog.html">캣카드 조회</a></li>
+												<li><a href="mypage.do?mem_id=<%=member.getMem_id()%>">캣카드 조회</a></li>
 												<li><a href="single-blog.html">회원정보 수정</a></li>
 											</ul></li>
+										</c:otherwise>
+										</c:choose>
+										
 									</ul>
 								</nav>
 							</div>
