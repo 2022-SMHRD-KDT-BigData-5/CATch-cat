@@ -75,6 +75,10 @@ public interface BoardMapper {
 	@Delete("delete from t_sponsorship_cmt where spon_seq=#{spon_seq}")
 	public int sponBoardCommentDelete(int spon_seq);
 	
+	// 댓글 삭제
+	@Delete("delete from t_adoption_cmt where cmt_seq=#{cmt_seq}")
+	public int adoptBoardCmtDelete(int cmt_seq);
+	
 	
 	// 게시글 수정
 	public int adoptBoardUpdate(AdoptBoard vo);

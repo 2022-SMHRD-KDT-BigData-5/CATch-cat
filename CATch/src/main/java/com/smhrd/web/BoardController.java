@@ -93,13 +93,6 @@ public class BoardController {
 		return "board/sponInfo";
 	}
 
-	// 게시글과 댓글을 입력하는 메서드
-	@RequestMapping("commentInsert.do")
-	public void commentInsert() {
-		// 로그인 완성 후 세션의 사용자아이디 받아올 수 있음
-	}
-
-
 	// ---------------- 게시글 작성페이지로 이동하는 메서드
 
 	@GetMapping("/adoptBoardInsert.do")
@@ -174,6 +167,17 @@ public class BoardController {
 		mapper.commBoardCommentDelete(article_seq);
 		mapper.commBoardDelete(article_seq);
 		return "redirect:/comm.do";
+	}
+	
+	//--------- 댓글 삭제 메서드
+	@RequestMapping("/adoptBoardCmtDelete.do")
+	public String adoptCmtDelete(int cmt_seq, int adt_seq) {
+		int cnt = 0;
+		cnt = mapper.adoptBoardCmtDelete(cmt_seq);
+		if(cnt>0) {
+			System.out.println("Yes여요..^^*");
+		}else {System.out.println("No여요...8^8*");}
+		return "redirect:/adtinfo.do?adt_seq="+adt_seq;
 	}
 	
 	//--------------- 게시글 수정페이지로 이동하는 메서드
