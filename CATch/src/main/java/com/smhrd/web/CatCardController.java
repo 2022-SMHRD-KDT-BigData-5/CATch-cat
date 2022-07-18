@@ -32,7 +32,7 @@ public class CatCardController {
 	public String seqSearch(Model model, int cat_seq) {
 		CatCard catcard = mapper.seqSearch(cat_seq);
 		System.out.println(catcard.getCat_name());
-		model.addAttribute("catcard", catcard);
+		model.addAttribute("catcardInfo", catcard);
 		return "redirect:/catcard.do";
 	}
 	

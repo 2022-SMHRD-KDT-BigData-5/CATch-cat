@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.domain.CatCard"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -31,7 +32,9 @@
 </head>
  
  <body>
-
+ 	<% CatCard catcardInfo = (CatCard)request.getAttribute("catcardInfo");%>
+ 	<% System.out.println(catcardInfo); %>
+	
    <jsp:include page="header.jsp"></jsp:include>
 
 
@@ -49,10 +52,11 @@
                                         <img src="img/testmonial/1.png" alt="">
                                     </div>
                                     <div class="test_content">
-                                        <h4>고양이 이름 적을 곳</h4>
-                                        <span>고양이 카드 번호</span>
-                                        <p>고양이 생일 : 1852년 5월 35일</p>
-                                        <p>고양이 성별 : 🎩</p>
+                                        <h4><%=catcardInfo.getCat_name() %></h4>
+                                        <span><%=catcardInfo.getCat_seq() %></span>
+                                        <p>고양이 생일 : <%=catcardInfo.getCat_birthdate() %></p>
+                                        <p>고양이 성별 : <%if(catcardInfo.getCat_gender() == 'M'){%><span>수컷</span>
+                                        <%}else{ %><span>암컷</span><%} %></p>
                                         <p>카드 등록일 : 1952년 5월 35일</p>
                                     </div>
                                 
