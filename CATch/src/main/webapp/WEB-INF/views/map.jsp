@@ -66,7 +66,8 @@
 <p id="result"></p>
 <!-- 주소 -->
 <span id="centerAddr"></span>
-<span id="resultBox"></span>
+
+
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0a2cd6f2777e0f89378c802f40822eb3&libraries=services"></script>
 <script>
@@ -240,8 +241,9 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
  
  // 클릭한 위도, 경도 정보를 가져옵니다 
  var latlng = mouseEvent.latLng;
- 
- var message = '클릭한 위치의 좌표 (경도,위도) : ' + latlng.getLat() + ', ' + latlng.getLng();
+ var lat = latlng.getLat()
+ var lng = latlng.getLng()
+ var message = '클릭한 위치의 좌표 (경도,위도) : ' + lat + ', ' + lng;
  
  var resultDiv = document.getElementById('result'); 
  resultDiv.innerHTML = message;
@@ -330,18 +332,18 @@ kakao.maps.event.addListener(marker, 'click', function() {
 
 	
 function markerChk() {
-	$("#resultBox").children().remove();
+	$("#result").children().remove();
 	//경도 위도를 ajax를 통해 보낼 데이터에 추가
 	var data={};
-	data["LAT"]=$("#lat").val();
-	data["LNG"]=$("#lng").val();
+	data["LAT"]=$(lat).val();
+	data["LNG"]=$(lng).val();
 
 	
 	
 	$.ajax({
-        url: "/",
+        url: "/map",
         type: "POST",
-        dataType : "jsong",
+        data : {}
         success: function(data){
             alert(data.Msg);
         },

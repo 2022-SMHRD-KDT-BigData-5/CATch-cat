@@ -39,13 +39,7 @@ public class CatCardController {
 	
 	//캣카드 번호로 캣카드 조회
 	@RequestMapping("/seqSearch.do")
-<<<<<<< HEAD
-	public String seqSearch(Model model, int cat_seq) {
-		CatCard catcard = mapper.seqSearch(cat_seq);
-		System.out.println(catcard.getCat_name());
-		model.addAttribute("catcard", catcard);
-		return "redirect:/catcard.do";
-=======
+	
 	public String seqSearch(HttpServletRequest request, int cat_seq) {
 		CatCard catcard = mapper.seqCatSearch(cat_seq);
 		List<Medical> medicalList = mapper.seqMediSearch(cat_seq);
@@ -57,7 +51,7 @@ public class CatCardController {
 		session.setAttribute("vaccinationList", vaccinationList);
 		
 		return "redirect:/catcard.do";
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
+
 	}
 	
 	//비문 사진으로 캣카드 조회
