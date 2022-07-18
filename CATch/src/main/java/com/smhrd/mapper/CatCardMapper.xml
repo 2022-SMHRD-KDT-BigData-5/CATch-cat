@@ -13,6 +13,32 @@
         select * from t_vaccination where cat_seq=#{cat_seq}
     </select>
     
-    
+    <!-- 접종 정보 가져오는 sql문 -->
+    <select id="jhSearch" resultType="com.smhrd.domain.Vaccination">
+        select * from t_vaccination
+        where vacc_type = '종합백신'
+        and cat_seq = #{cat_seq}
+    </select>
+    <select id="ggSearch" resultType="com.smhrd.domain.Vaccination">
+        select * from t_vaccination
+        where vacc_type = '광견병'
+        and cat_seq = #{cat_seq}
+    </select>
+    <select id="jbSearch" resultType="com.smhrd.domain.Vaccination">
+        select * from t_vaccination
+        where vacc_type = '전염성 복막염'
+        and cat_seq = #{cat_seq}
+    </select>
+    <select id="hcSearch" resultType="com.smhrd.domain.Vaccination">
+        select * from t_vaccination
+        where vacc_type = '항체가검사'
+        and cat_seq = #{cat_seq}
+    </select>
+    <select id="ssSearch" resultType="com.smhrd.domain.Vaccination">
+        select * from t_vaccination
+        where vacc_type = '심장사상충'
+        and cat_seq = #{cat_seq}
+        order by vacc_date desc
+    </select>
     
 </mapper>
