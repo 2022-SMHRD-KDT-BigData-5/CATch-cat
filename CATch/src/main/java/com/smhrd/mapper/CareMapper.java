@@ -10,7 +10,7 @@ public interface CareMapper {
 	
 	
 	//급식소 리스트 가져오는 메서드
-	public List<CareBoard> caremapList();
+	public abstract List<CareBoard> messageInsert();
 
 }
 

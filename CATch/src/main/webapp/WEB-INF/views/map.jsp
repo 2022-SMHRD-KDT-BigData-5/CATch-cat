@@ -323,6 +323,31 @@ kakao.maps.event.addListener(marker, 'click', function() {
    // 마커 위에 인포윈도우를 표시합니다
    infowindow.open(map, marker);  
 });
+
+
+
+$(document).ready(function () {
+	$("marker").on('click', function() {
+		markerChk();
+	})
+});
+	
+function markerChk() {
+    $.ajax({
+        url: "/webservice/markerChk",
+        type: "POST",
+        data: {
+        	message : latlng.getLat(),
+        	message : latlng.getLng()
+        },
+        success: function(data){
+            alert(data.Msg);
+        },
+        error: function(){
+            alert("err");
+        }
+  	});
+}
 </script>
 </body>
 </html>
