@@ -93,13 +93,6 @@ public class BoardController {
 		return "board/sponInfo";
 	}
 
-	// 게시글과 댓글을 입력하는 메서드
-	@RequestMapping("commentInsert.do")
-	public void commentInsert() {
-		// 로그인 완성 후 세션의 사용자아이디 받아올 수 있음
-	}
-
-
 	// ---------------- 게시글 작성페이지로 이동하는 메서드
 
 	@GetMapping("/adoptBoardInsert.do")
