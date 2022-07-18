@@ -25,5 +25,9 @@ public interface CatCardMapper {
 	public abstract List<Vaccination> ssSearch(int cat_seq);
 	
 	
+	
+	//(병원관계자) 진료, 접종내역 업데이트
+	public abstract int mediUpdate(Medical medi);
+	public abstract int vaccUpdate(Vaccination vacc);
 
 }

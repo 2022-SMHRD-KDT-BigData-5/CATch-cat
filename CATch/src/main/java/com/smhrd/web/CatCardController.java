@@ -65,7 +65,31 @@ public class CatCardController {
 	
 	
 	// --------------------------------------------------------------
+	//진료접종내역 수정창으로 이동하는 메서드
+	@RequestMapping("/medicalUpdate.do")
+	public String medicalUpdate() {
+		return "medicalUpdate";
+	}
 	
+	//(병원관계자용) 진료+접종내역 update
+	@RequestMapping("/mediUpdate.do")
+	public String mediUpdate(String medi_id, String medi_name, int cat_seq, String medi_content) {
+		Medical medi = new Medical(medi_id, medi_name, medi_content, cat_seq);
+		mapper.mediUpdate(medi);
+		return "redirect:/medicalUpdate.do";
+	}
+	
+	@RequestMapping("/vaccUpdate.do")
+	public String vaccUpdate(String medi_id, String medi_name, int cat_seq, String[] vacc_type) {
+		int cnt = 0;
+		for(int i=0; i<vacc_type.length; i++) {
+		Vaccination vacc = new Vaccination(vacc_type[i], medi_id, medi_name, cat_seq);
+		cnt = mapper.vaccUpdate(vacc);
+		if(cnt>0) {
+			System.out.println(vacc_type[i]+"접종완료");
+		}}
+		return "redirect:/catcard.do";
+	}
 	
 	
 	
