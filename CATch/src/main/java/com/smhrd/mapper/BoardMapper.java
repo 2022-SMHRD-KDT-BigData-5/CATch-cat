@@ -75,9 +75,22 @@ public interface BoardMapper {
 	@Delete("delete from t_sponsorship_cmt where spon_seq=#{spon_seq}")
 	public int sponBoardCommentDelete(int spon_seq);
 	
+	// 게시글 조회수
+	public int adoptCntUpdate(int adt_seq);
+	
+	public int sponCntUpdate(int spon_seq);
+	
+	public int commCntUpdate(int article_seq);
+	
 	// 댓글 삭제
 	@Delete("delete from t_adoption_cmt where cmt_seq=#{cmt_seq}")
 	public int adoptBoardCmtDelete(int cmt_seq);
+	
+	@Delete("delete from t_sponsorship_cmt where cmt_seq=#{cmt_seq}")
+	public int sponBoardCmtDelete(int cmt_seq);
+	
+	@Delete("delete from t_community_cmt where cmt_seq=#{cmt_seq}")
+	public int commBoardCmtDelete(int cmt_seq);
 	
 	
 	// 게시글 수정

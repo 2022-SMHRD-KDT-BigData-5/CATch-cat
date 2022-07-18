@@ -16,7 +16,6 @@
 
 <% 
 	AdoptBoard adoptBoardInfo = (AdoptBoard)request.getAttribute("adoptInfo");
-	int adt_seq = (Integer)request.getAttribute("adt_seq");
 	Member member = (Member)session.getAttribute("member");
 	List<AdoptComment> adoptCommentList = (List<AdoptComment>)request.getAttribute("adoptCommentList");
 	int cmt_seq = (Integer)request.getAttribute("cmt_seq");
@@ -27,6 +26,7 @@
 <tr><td>글제목</td> <td><%=adoptBoardInfo.getAdt_title() %></td></tr>
 <tr><td>작성자</td> <td><%=adoptBoardInfo.getAdt_id() %></td></tr>
 <tr><td>작성일</td> <td><%=adoptBoardInfo.getAdt_date()%></td></tr>
+<tr><td>조회수</td> <td><%=adoptBoardInfo.getAdt_cnt()%></td></tr>
 <tr><td>작성내용</td> <td><%=adoptBoardInfo.getAdt_content() %></td></tr>
 
 	<tr>

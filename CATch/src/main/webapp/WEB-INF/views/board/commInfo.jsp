@@ -26,6 +26,7 @@
 <tr><td>글제목</td> <td><%=commBoardInfo.getArticle_title() %></td></tr>
 <tr><td>작성자</td> <td><%=commBoardInfo.getArticle_id() %></td></tr>
 <tr><td>작성일</td> <td><%=commBoardInfo.getArticle_date()%></td></tr>
+<tr><td>조회수</td> <td><%=commBoardInfo.getArticle_cnt()%></td></tr>
 <tr><td>작성내용</td> <td><%=commBoardInfo.getArticle_content() %></td></tr>
 
 	<tr>
@@ -59,6 +60,13 @@
 <tr><td>댓글작성자</td> <td><%=commComment.getCmt_id() %></td></tr>
 <tr><td>댓글작성일</td> <td><%=commComment.getCmt_date() %></td></tr>
 <tr><td>댓글 내용</td> <td><%=commComment.getCmt_content() %></td></tr>
+		<%if(member.getMem_id().equals(commComment.getCmt_id())){ %>
+		<tr>
+		<td colspan="2" align="center">
+		<button onClick="location.href='commBoardCmtDelete.do?cmt_seq=<%=commComment.getCmt_seq()%>&&article_seq=<%=commComment.getArticle_seq()%>'">삭제</button>
+		</td>
+	</tr>
+		<%} %>
 </table>
 <%} %>
 </body>
