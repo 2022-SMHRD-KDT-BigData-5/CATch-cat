@@ -76,7 +76,7 @@ public class CatCardController {
 	public String mediUpdate(String medi_id, String medi_name, int cat_seq, String medi_content) {
 		Medical medi = new Medical(medi_id, medi_name, medi_content, cat_seq);
 		mapper.mediUpdate(medi);
-		return "redirect:/medicalUpdate.do";
+		return "redirect:/catcard.do"; //바로 반영 안되는거 고쳐주세요
 	}
 	
 	@RequestMapping("/vaccUpdate.do")
@@ -88,7 +88,7 @@ public class CatCardController {
 		if(cnt>0) {
 			System.out.println(vacc_type[i]+"접종완료");
 		}}
-		return "redirect:/catcard.do";
+		return "redirect:/catcard.do"; //바로 반영 안되는거 고쳐주세요
 	}
 	
 	
