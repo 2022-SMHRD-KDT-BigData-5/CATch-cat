@@ -39,7 +39,7 @@
  	<% 
  	CatCard catcardInfo = (CatCard)session.getAttribute("catcardInfo");
  	List<Medical> medicalList = (List<Medical>)session.getAttribute("medicalList");
- 	List<Vaccination> vaccinationList = (List<Vaccination>)session.getAttribute("vaccinationList");
+
  	%>
 	
    <jsp:include page="header.jsp"></jsp:include>
@@ -111,21 +111,8 @@
                             </div>
                             <h7>접종 내역</h7>
                             <div class="vacc_content">
-                                <table class = "table table-border table-hover">
-                                    <tr>
-                                        <td>백신</td>
-                                        <td>접종여부</td>
-                                        <td>접종병원</td>
-                                        <td>접종일자</td>
-                                    </tr>
-                                    <tr>
-                                        <td>종합백신</td>
-                                        <td>접</td>
-                                        <td>미래아동병원</td>
-                                        <td>1994년 2월 38일</td>
-                                    </tr>
-
-                                </table>
+                            <!-- 너무 길어서 백신카드는 외부방식으로 불러옴 -->
+                                <jsp:include page="vaccincard.jsp"></jsp:include>
                             </div>
                         </div>
                     </div>
