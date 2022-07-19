@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -219,9 +220,13 @@ public class BoardController {
 		return "redirect:/comminfo.do?article_seq="+vo.getArticle_seq();
 	}
 	
-	//--------------
-	
-	
+	// ---------------
+	@RequestMapping("/adoptSearch.do")
+	public String adoptboardsearch(Model model, AdoptBoard vo) {	
+		List<AdoptBoard> adoptSearchList = mapper.adoptBoardSearch(vo);
+		model.addAttribute("adoptSearchList", adoptSearchList);
+		return "board/adopt";
+	}
 
 
 }

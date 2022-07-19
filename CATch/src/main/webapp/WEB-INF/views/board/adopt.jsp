@@ -72,16 +72,19 @@
 	<div id="board-search">
 		<div class="container">
 			<div class="search-window">
-				<form name="form1" method="post" action="search.do">
-					<select name="search_option">
-						<option value="title"
-							<c:if test="${map.search_option == 'adt_title'}">selected</c:if>>제목</option>
-						<option value="content"
-							<c:if test="${map.search_option == 'adt_content'}">selected</c:if>>내용</option>
-						<option value="id"
-							<c:if test="${map.search_option == 'adt_id'}">selected</c:if>>작성자</option>
-					</select> <input name="keyword" value="${map.keyword}">
-					<input type="submit" value="조회">
+				<form action="adoptSearch.do" method="get">
+					<fieldset>
+						<legend class="hidden">입양게시판 검색필드</legend>
+						<label class="hidden">검색분류</label>
+						<select name="field">
+							<option ${(param.field =="adt_title")?"selected":""} value="adt_title">제목</option>
+							<option ${(param.field =="adt_content")?"selected":""} value="adt_content">내용</option>
+							<option ${(param.field =="adt_id")?"selected":""} value="adt_id">작성자</option>
+						</select>
+						<label class="hidden">검색어</label>
+						<input type="text" name="query" value="${param.query }"/>
+						<input type="submit" value="조회">
+					</fieldset>
 				</form>
 
 
