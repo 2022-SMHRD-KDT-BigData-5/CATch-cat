@@ -18,4 +18,6 @@ public class AdoptBoard {
 	private int adt_cnt;
 	private String adt_id;
 
+	private String field;
+	private String query;
 }

@@ -72,16 +72,21 @@
 	<div id="board-search">
 		<div class="container">
 			<div class="search-window">
-				<form name="search-form" method="post" autocomplete="off">
-
-					<select name="type">
-						<option value="adt_title">제목</option>
-						<option value="adt_content">내용</option>
-						<option value="adt_id">작성자</option>
-					</select>
-					<input type="text" name="keyword" value="">
-					<input type="button" onclick="getSearchList()" value="검색">
+				<form action="adoptSearch.do" method="get">
+					<fieldset>
+						<legend class="hidden">입양게시판 검색필드</legend>
+						<label class="hidden">검색분류</label>
+						<select name="field">
+							<option ${(param.field =="adt_title")?"selected":""} value="adt_title">제목</option>
+							<option ${(param.field =="adt_content")?"selected":""} value="adt_content">내용</option>
+							<option ${(param.field =="adt_id")?"selected":""} value="adt_id">작성자</option>
+						</select>
+						<label class="hidden">검색어</label>
+						<input type="text" name="query" value="${param.query }"/>
+						<input type="submit" value="조회">
+					</fieldset>
 				</form>
+
 
 			</div>
 		</div>

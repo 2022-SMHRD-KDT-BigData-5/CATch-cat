@@ -3,17 +3,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Animal</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/myCat.css">
+    <link rel="stylesheet" href="css/catSearch.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+
 </head>
 <body>
-	<form action="seqSearch.do" method="post">
-		캣카드 번호로 찾기 <input type="text" name="cat_seq" placeholder="캣카드 고유번호를 입력해주세요" >
-		<input type="submit" value="검색">
-	</form>
-	<form action="imgSearch.do" method="post">
-		등록 비문으로 찾기 <input type="image" name="cat_nose">
-		<input type="submit" value="검색">
-	</form>
+
+
+
+<jsp:include page="header.jsp"></jsp:include>
+
+
+	<h1 class = 'h_title'>캣카드 조회</h1>
+    
+        <p class="title_p">화면이 뚜렷한 사진을 촬영하거나 첨부해주세요</p>
+        <br>
+        <p class="title_p">사진이 없을 경우 번호를 입력해 주세요</p>
+    
+<div id = 'search_body'>
+    <img src="img/Canon.png">
+</div>
+
+
+<form action="imgSearch.do" method="post">
+  <div class="filebox">
+      <div>사진 첨부 하기</div><input class = 'img_search' value="첨부파일" name="cat_nose">
+    <label for="file">업로드</label>
+    <input type="file" id = 'file'>
+    <input class = 'sinput' type="submit" value="첨부">
+    </div>
+</form>
+
+<form action="seqSearch.do" method="post">
+    캣카드 번호 입력  <input class = 'finput' type="text" name="cat_seq" placeholder="캣카드 고유번호를 입력해주세요" >
+    <input class = 'sinput' type="submit" value="입력">
+</form>
+
+
+
+<script>
+    $("#file").on('change',function(){
+  var fileName = $("#file").val();
+  $(".img_search").val(fileName);
+});
+</script>
 </body>
 </html>
