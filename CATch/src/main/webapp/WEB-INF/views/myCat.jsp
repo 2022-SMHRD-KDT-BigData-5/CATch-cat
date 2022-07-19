@@ -37,12 +37,11 @@
 
 </head>
 <body>
-	<%
-		List<CatCard> catcardList = (List<CatCard>) session.getAttribute("catcardList");
-	%>
+	<% List<CatCard> catcardList = (List<CatCard>) session.getAttribute("catcardList"); %>
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<h1 class='h_title'>MY CAT</h1>
+
 	<c:choose>
 		<c:when test="${empty catcardList}">
 			<div id='myCat_body'>

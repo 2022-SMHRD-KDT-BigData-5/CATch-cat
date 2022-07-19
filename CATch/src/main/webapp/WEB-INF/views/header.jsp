@@ -79,7 +79,7 @@
 										 <i class="ti-angle-down"></i></a>
 											<ul class="submenu">
 												<li><a href="mypage.do?mem_id=<%=member.getMem_id()%>">캣카드 조회</a></li>
-												<li><a href="single-blog.html">회원정보 수정</a></li>
+												<li><a href="myInfoCheck.do">회원정보 수정</a></li>
 											</ul></li>
 										</c:otherwise>
 										</c:choose>
