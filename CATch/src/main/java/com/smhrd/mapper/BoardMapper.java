@@ -30,14 +30,12 @@ public interface BoardMapper {
 	
 	public abstract SponBoard sponBoardInfo(int spon_seq);
 	
-
 	//게시글의 댓글을 가져오는 추상메서드
 	public abstract List<AdoptComment> adoptCommentList(int adt_seq);
 	
 	public abstract List<CommComment> commCommentList(int comm_seq);
 	
 	public abstract List<SponComment> sponCommentList(int spon_seq);
-
 	
 
 	// 게시글 작성
@@ -92,13 +90,15 @@ public interface BoardMapper {
 	@Delete("delete from t_community_cmt where cmt_seq=#{cmt_seq}")
 	public int commBoardCmtDelete(int cmt_seq);
 	
-	
 	// 게시글 수정
 	public int adoptBoardUpdate(AdoptBoard vo);
 	
 	public int sponBoardUpdate(SponBoard vo);
 	
 	public int commBoardUpdate(CommBoard vo);
+
+	// 게시글 검색
+	public abstract List<AdoptBoard> adoptBoardSearch(AdoptBoard vo);	
 	
 
 }
