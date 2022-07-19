@@ -32,8 +32,47 @@
 <link rel="stylesheet" href="css/slicknav.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/myCat.css">
+<link rel="stylesheet" href="css/catSearch.css">
 <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet"
+	href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+<style>
+body {
+	justify-content: center;
+	align-items: center;
+}
+
+.swiper {
+	width: 240px;
+	height: 320px;
+}
+
+.swiper-slide {
+	box-shadow: 5px 5px 5px gray;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	font-size: 22px;
+	font-weight: bold;
+	background-color: #FDF8F2;
+}
+
+.h_title {
+	margin-bottom: 50px;
+}
+</style>
+
+
+
 </head>
+
+
+
+
+
 
 </head>
 <body>
@@ -63,29 +102,43 @@
 		</c:when>
 
 		<c:otherwise>
-			<c:forEach items="${catcardList}" var="cc" varStatus="status">
-				<div id='myCat_body'>
-					<div class="myCatCard">
-						<div class='mycatCard_header'>
-							<p>${cc.getCat_seq()}</p>
+			<div class="swiper mySwiper">
+				<div class="swiper-wrapper">
+					<c:forEach items="${catcardList}" var="cc" varStatus="status">
+						<div class="swiper-slide">
+							<div class='mycatCard_header'>
+								<p>${cc.getCat_seq()}</p>
+							</div>
+							<div class='mycatCard_side'>
+								<img src="img/side_catch.png">
+							</div>
+							<div class='mycatCard_img'>
+								<img src="img/catimg1515.jpg">
+							</div>
+							<div class="mycatCard_name">
+								<p>${cc.getCat_name()}</p>
+							</div>
 						</div>
-						<div class='mycatCard_side'>
-							<img src="img/side_catch.png">
-						</div>
-						<div class='mycatCard_img'>
-							<img src="img/cat121212.png">
-						</div>
-						<div class="mycatCard_name">
-							<p>${cc.getCat_name()}</p>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
-			</c:forEach>
+			</div>
 
 
 		</c:otherwise>
 	</c:choose>
 
+
+
+	<!-- Swiper JS -->
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+	<!-- Initialize Swiper -->
+	<script>
+      var swiper = new Swiper(".mySwiper", {
+        effect: "cards",
+        grabCursor: true,
+      });
+    </script>
 
 
 </body>
