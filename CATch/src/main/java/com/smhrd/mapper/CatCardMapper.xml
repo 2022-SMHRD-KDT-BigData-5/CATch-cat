@@ -41,4 +41,18 @@
         order by vacc_date desc
     </select>
     
+    
+    
+    <!-- 접종내역 추가하는 sql문 -->
+    <insert id="vaccUpdate" parameterType="com.smhrd.domain.Vaccination">
+        insert into t_vaccination(cat_seq, medi_id, medi_name, vacc_type, vacc_date)
+        values(#{cat_seq}, #{medi_id}, #{medi_name}, #{vacc_type}, now())
+    </insert>
+    <insert id="mediUpdate" parameterType="com.smhrd.domain.Medical">
+        insert into t_medical(cat_seq, medi_id, medi_name, medi_content, medi_date)
+        values(#{cat_seq}, #{medi_id}, #{medi_name}, #{medi_content}, now())
+    </insert>
+    
+    
+    
 </mapper>
