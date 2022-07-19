@@ -45,7 +45,13 @@
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
 </style>
 </head>
+
 <body>
+<form action="caremap.do" method="post">
+<!--  <form onsubmit="searchPlaces(); return false;"></form> -->
+	 <label for="title">제목</label>
+		
+							 
 	<h1>🧀🐈🍙🐈🍕🐈 고양이 급식소 🧀🐈🍙🐈🍕🐈</h1>
 	<div class="map_wrap">
     <div id="map" style="width:80%;height:100%;position:relative;overflow:hidden;"></div>
@@ -53,21 +59,23 @@
     <div id="menu_wrap" class="bg_white">
         <div class="option">
             <div>
-                <form onsubmit="searchPlaces(); return false;">
-                    <br>우리 동네 : <input type="text" value="스마트인재캠퍼스" id="keyword" size="15"> 
-                    <button type="submit">찾기</button> 
-                </form>
-            </div>
+               <br>우리 동네 : <input type="text" value="스마트인재캠퍼스" id="keyword" size="15"> 
+                <button type="submit">찾기</button>
+    	</div>
         </div>
         <ul id="placesList"></ul>
         <div id="pagination"></div>
     </div>
 </div>
-<!-- 좌표 -->
-<p id="result"></p>
+<input type="hidden" id="placeName" name="care_name" value="">
+<input type="hidden" id="latitude" name="care_latitude" value="">
+<input type="hidden" id="longitude" name="care_longitude" value="">
+<div id="result"></div>
 <!-- 주소 -->
 <span id="centerAddr"></span>
 
+
+</form>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0a2cd6f2777e0f89378c802f40822eb3&libraries=services"></script>
 <script>
@@ -316,41 +324,80 @@ var infowindow = new kakao.maps.InfoWindow({
 	
 //지도에 클릭 이벤트를 등록합니다
 //지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
-kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+kakao.maps.event.addListener(marker, 'click', function(mouseover) {        
+
+
 
 // 클릭한 위도, 경도 정보를 가져옵니다 
-var latlng = mouseEvent.latLng;
-var LAT = latlng.getLat();
-var LNG = latlng.getLng();
-var message = '클릭한 위치의 좌표 (경도,위도) : ' + LAT + ', ' + LNG;
-console.log(LNG);
-console.log(LAT);
-var resultDiv = document.getElementById('result');
-resultDiv.innerHTML = message;
+ return function() {
+	 var latlng = mouseEvent.latLng;
+	 var LAT = latlng.getLat();
+	 var LNG = latlng.getLng();
+	 $("#latitude").val(LAT);
+	 $("#longitude").val(LNG);
+	 $("#placeName").val(care_name);
+	var message = '클릭한 위치의 좌표 (경도,위도) : ' + LAT + ', ' + LNG;
+	console.log(LNG);
+	console.log(LAT);
+	var resultDiv = document.getElementById('result');
+	resultDiv.innerHTML = message;
+
+};
+});
+
+
+
+//console.log(LNG);
+//console.log(LAT);
+//var resultDiv = document.getElementById('result');
+//resultDiv.innerHTML = message;
 
 	
 	//경도 위도를 ajax를 통해 보낼 데이터에 추가
-	var data={};
-	data[LAT]=$("#LAT").val();
-	data[LNG]=$("#LNG").val();
+//	var data={};
+//	data[LAT]=$("#LAT").val();
+//	data[LNG]=$("#LNG").val();
 	
 	
+//	$.ajax({
+//        url: 'markerChk.do',
+//       type: "post",
+//       data:"",	   
+       
+//        success: function(data){
+//            alert(data.Msg);
+//  	    },
+//  	     error: function(){
+//            alert("err");
+// 	  }  
+//      });
+//});
+//	for ( var i=0; i<places.length; i++ ) {
+		
+//	 kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+//	 kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+//	};
+//	(function (marker, title) {
+//		    kakao.maps.event.addListener(marker, 'click', (function(placePosition) {
+//		    displayInfowindow(marker, title);
+//		    return function() {
+		        // 좌표정보를 파싱하기 위해 hidden input에 값 지정
+//		        $("#latitude").val(placePosition.La);
+//		        $("#longitude").val(placePosition.Ma);
+//		        $("#placeName").val(care_name);
+		        // #result 영역에 좌표정보 출력
+//		        var resultDiv = document.getElementById('result');
+//		        var message = '클릭한 위치의 좌표 (경도,위도) : ' + LAT + ', ' + LNG;
+//				resultDiv.innerHTML = message;
+//		    }
+//		})(placePosition));
+		
 	
-	$.ajax({
-        url: 'markerChk.do',
-       type: "post",
-       dataType:"json",
-       contentType : "application/json",
-       data:{data:"data"},
-        success: function(data){
-            alert(data.Msg);
-  	    },
-  	     error: function(){
-            alert("err");
- 	  }  
-      });
-});
+		
+	
 
 </script>
+
+
 </body>
 </html>
