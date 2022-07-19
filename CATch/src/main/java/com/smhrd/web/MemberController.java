@@ -1,7 +1,5 @@
 package com.smhrd.web;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.smhrd.domain.CatCard;
 import com.smhrd.domain.Member;
 import com.smhrd.mapper.MemberMapper;
 
@@ -99,11 +96,8 @@ public class MemberController {
 	
 	//마이페이지의 캣카드로 이동
 	@RequestMapping("/mypage.do")
-	public String mypage(String mem_id, HttpServletRequest request) {
-		List<CatCard> catcardList = mapper.selectMyCat(mem_id);
+	public String mypage() {
 		
-		HttpSession session = request.getSession();
-		session.setAttribute("catcardList", catcardList);
 		return "myCat";
 	}
 	

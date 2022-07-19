@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
 .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
@@ -68,7 +69,6 @@
 <span id="centerAddr"></span>
 
 
-
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0a2cd6f2777e0f89378c802f40822eb3&libraries=services"></script>
 <script>
 // 마커를 담을 배열입니다
@@ -117,7 +117,7 @@ function placesSearchCB(data, status, pagination) {
         displayPlaces(data);
 
         // 페이지 번호를 표출합니다
-        displayPagination(pagination);
+//        displayPagination(pagination);
 
     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
@@ -235,21 +235,8 @@ function removeAllChildNods(el) {
         el.removeChild (el.lastChild);
     } 
  }
-//지도에 클릭 이벤트를 등록합니다
-//지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
-kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
- 
- // 클릭한 위도, 경도 정보를 가져옵니다 
- var latlng = mouseEvent.latLng;
- var LAT = latlng.getLat()
- var LNG = latlng.getLng()
- var message = '클릭한 위치의 좌표 (경도,위도) : ' + LAT + ', ' + LNG;
- console.log(LNG);
- console.log(LAT);
- var resultDiv = document.getElementById('result'); 
- resultDiv.innerHTML = message;
- 
-});
+
+
 //----------------------------------------------------------
 // 주소-좌표 변환 객체를 생성합니다
 var geocoder = new kakao.maps.services.Geocoder();
@@ -327,43 +314,43 @@ var infowindow = new kakao.maps.InfoWindow({
 
 
 	
-function markerChk() {
-		
-	
-	//지도 중심을 변경합니다.
-	map.setCenter(new daum.maps.LatLng(data["LAT"],data["LNG"]));
-   
-	//마커에 클릭이벤트를 등록합니다
-	kakao.maps.event.addListener(marker, 'click', function() {
-   
-	// 마커 위에 인포윈도우를 표시합니다
-    infowindow.open(map, marker);  
-     });
+//지도에 클릭 이벤트를 등록합니다
+//지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+
+// 클릭한 위도, 경도 정보를 가져옵니다 
+var latlng = mouseEvent.latLng;
+var LAT = latlng.getLat();
+var LNG = latlng.getLng();
+var message = '클릭한 위치의 좌표 (경도,위도) : ' + LAT + ', ' + LNG;
+console.log(LNG);
+console.log(LAT);
+var resultDiv = document.getElementById('result');
+resultDiv.innerHTML = message;
+
 	
 	//경도 위도를 ajax를 통해 보낼 데이터에 추가
-	$("#map").children().remove();
 	var data={};
-	data["LAT"]=$("#lat").val();
-	data["LNG"]=$("#lng").val();
+	data[LAT]=$("#LAT").val();
+	data[LNG]=$("#LNG").val();
+	
+	
 	
 	$.ajax({
         url: 'markerChk.do',
-       type: "get",
+       type: "post",
        dataType:"json",
        contentType : "application/json",
-       data:{'lat':LAT,
-    		'lng':LNG
-       },
+       data:{data:"data"},
         success: function(data){
             alert(data.Msg);
   	    },
   	     error: function(){
             alert("err");
- 	  }
-	  	});
+ 	  }  
+      });
+});
 
-}
-	
 </script>
 </body>
 </html>
