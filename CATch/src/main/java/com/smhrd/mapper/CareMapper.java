@@ -10,7 +10,7 @@ public interface CareMapper {
 	
 	
 	//위도 경도 데이터 넣기
-	public abstract int messageInsert();
+	public abstract int latlng();
 
 	
 

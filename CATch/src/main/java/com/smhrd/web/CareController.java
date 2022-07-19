@@ -12,12 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.ModelMap;
-
-
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.smhrd.domain.CareBoard;
 
@@ -40,7 +39,7 @@ public class CareController {
 	
 	@ResponseBody
 	@RequestMapping("/markerChk.do")
-	public HashMap <String, String> markerChk(  CareBoard care_latitude,CareBoard care_longitude,  ModelMap model, HttpServletRequest request) {
+	public HashMap <String, String> markerChk(   ModelMap model, HttpServletRequest request) {
 		HashMap<String, String> result = new HashMap <String,String>();
 		
 		String lat = request.getParameter("LAT");
@@ -51,7 +50,8 @@ public class CareController {
 		list.setCare_latitude(lat);
 		list.setCare_longitude(log);
 		
-		int insertRst = mapper.messageInsert();
+		int insertRst = mapper.latlng();
+		System.out.println(insertRst);
 		
 		if ( insertRst > 0) {
 			String Msg = "성공";
@@ -71,5 +71,8 @@ public class CareController {
 			return result;
 		}
 	}
+
+
+
 	
 }

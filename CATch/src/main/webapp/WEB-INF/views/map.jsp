@@ -241,10 +241,11 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
  
  // 클릭한 위도, 경도 정보를 가져옵니다 
  var latlng = mouseEvent.latLng;
- var lat = latlng.getLat()
- var lng = latlng.getLng()
- var message = '클릭한 위치의 좌표 (경도,위도) : ' + lat + ', ' + lng;
- 
+ var LAT = latlng.getLat()
+ var LNG = latlng.getLng()
+ var message = '클릭한 위치의 좌표 (경도,위도) : ' + LAT + ', ' + LNG;
+ console.log(LNG);
+ console.log(LAT);
  var resultDiv = document.getElementById('result'); 
  resultDiv.innerHTML = message;
  
@@ -322,36 +323,47 @@ var infowindow = new kakao.maps.InfoWindow({
  removable : iwRemoveable
 });
 
-//마커에 클릭이벤트를 등록합니다
-kakao.maps.event.addListener(marker, 'click', function() {
-   // 마커 위에 인포윈도우를 표시합니다
-   infowindow.open(map, marker);  
-});
 
 
 
 	
 function markerChk() {
-	$("#result").children().remove();
-	//경도 위도를 ajax를 통해 보낼 데이터에 추가
-	var data={};
-	data["LAT"]=$(lat).val();
-	data["LNG"]=$(lng).val();
-
+		
 	
+	//지도 중심을 변경합니다.
+	map.setCenter(new daum.maps.LatLng(data["LAT"],data["LNG"]));
+   
+	//마커에 클릭이벤트를 등록합니다
+	kakao.maps.event.addListener(marker, 'click', function() {
+   
+	// 마커 위에 인포윈도우를 표시합니다
+    infowindow.open(map, marker);  
+     });
+	
+	//경도 위도를 ajax를 통해 보낼 데이터에 추가
+	$("#map").children().remove();
+	var data={};
+	data["LAT"]=$("#lat").val();
+	data["LNG"]=$("#lng").val();
 	
 	$.ajax({
-        url: 'caremap.do',
-        type: "POST",
-        data : "",
+        url: 'markerChk.do',
+       type: "get",
+       dataType:"json",
+       contentType : "application/json",
+       data:{'lat':LAT,
+    		'lng':LNG
+       },
         success: function(data){
             alert(data.Msg);
-        },
-        error: function(){
+  	    },
+  	     error: function(){
             alert("err");
-        }
-  	});
+ 	  }
+	  	});
+
 }
+	
 </script>
 </body>
 </html>

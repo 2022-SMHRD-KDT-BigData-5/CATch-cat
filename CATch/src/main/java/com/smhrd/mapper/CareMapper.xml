@@ -3,10 +3,14 @@
 
 <mapper namespace="com.smhrd.mapper.CareMapper">
     <!-- 급식소 주소,위도,경도 가져오는 sql문 -->
-    <insert id="messageInsert" parameterType="com.smhrd.domain.CareBoard" >
-		insert into t_carezone(care_latitude,care_longitude)
-		values(#{care_latitude},#{care_longitude})
-	</insert>
-
+    <select id="latlng" parameterType="HashMap" resultType="HashMap" >
+	 <![CDATA[	
+        select  care_latitude AS LAT,care_longitude AS LNG
+		 from t_carezone
+		 WHERE
+   			 care_latitude > (#{LAT}-0.002) AND care_latitude < (#{LAT}+0.002) AND care_longitude > (#{LNG}-0.002) AND care_longitude < (#{LNG}+0.002)
+   	    ]]>
+	</select>
+	
 
 </mapper>
