@@ -28,6 +28,8 @@
         <property name="dataSource" ref="dataSource"></property>
         </bean>
         
+        <!-- 여기해서 안되면 servlet-context로 옮기기 -->
+        <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></bean>
         
         <!-- ************ -->
         <!-- mapper가 있는 패키지 스캔해서 interface를 완전한 객체로 만들어줌 -->

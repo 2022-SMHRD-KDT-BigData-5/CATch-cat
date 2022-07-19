@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.smhrd.domain.CatCard;
 import com.smhrd.domain.Medical;
+import com.smhrd.domain.PictureCatNose;
 import com.smhrd.domain.Vaccination;
 
 public interface CatCardMapper {
@@ -29,5 +30,9 @@ public interface CatCardMapper {
 	//(병원관계자) 진료, 접종내역 업데이트
 	public abstract int mediUpdate(Medical medi);
 	public abstract int vaccUpdate(Vaccination vacc);
+	
+	
+	//이미지 저장
+	PictureCatNose save(PictureCatNose picture);
 
 }

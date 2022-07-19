@@ -107,8 +107,27 @@ public class MemberController {
 		return "myCat";
 	}
 	
+	//마이페이지의 회원정보수정으로 이동
+	@RequestMapping("/myInfoCheck.do")
+	public String myInfoCheck() {
+		return "myInfoCheck";
+	}
 	
+	@RequestMapping("/myInfo.do")
+	public String myInfo(String mem_id, String mem_pw, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		Member loginMember = new Member(mem_id, mem_pw);
+		Member member = mapper.selectMember(loginMember);
+		session.setAttribute("member", member);
+		
+		return "myInfo";
+	}
 	
+	@RequestMapping("/myInfoUpdate.do")
+	public String myInfoUpdate() {
+		
+		return "redirect:/main.do";
+	}
 	
 	}
 	

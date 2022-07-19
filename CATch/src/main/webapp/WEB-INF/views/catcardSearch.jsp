@@ -12,7 +12,7 @@
 		<input type="submit" value="검색">
 	</form>
 	<form action="imgSearch.do" method="post">
-		등록 비문으로 찾기 <input type="image" name="cat_nose">
+		등록 비문으로 찾기 <input type="file" name="cat_nose">
 		<input type="submit" value="검색">
 	</form>
 </body>
