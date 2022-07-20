@@ -72,7 +72,7 @@
 	<div id="board-search">
 		<div class="container">
 			<div class="search-window">
-				<form action="adoptSearch.do" method="get">
+				<form action="#" method="get">
 					<fieldset>
 						<legend class="hidden">입양게시판 검색필드</legend>
 						<label class="hidden">검색분류</label>
@@ -180,7 +180,20 @@
 	</div>
 
 	<footer class="container-fluid text-center">
-		<p>페이징 위치</p>
+		  <div>
+  <a href="#">&laquo;</a>
+  <a href="#" >1</a>
+  <a href="#" >2</a>
+  <a href="#">3</a>
+  <a href="#" >4</a>
+  <a href="#" >5</a>
+  <a href="#" >6</a>
+  <a href="#" >7</a>
+  <a href="#">8</a>
+  <a href="#" >9</a>
+  <a href="#">10</a>
+  <a href="#">&raquo;</a>
+</div>
 	</footer>
 	<!--------------------------  게시판 끝 ---------------------------------->
 
