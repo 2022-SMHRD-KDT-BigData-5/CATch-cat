@@ -4,15 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
-<!-- 게시판css -->
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+<title>Insert title here</title>
+<!-- 게시판css -->
+ 
 <!-- CSS here -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -27,33 +25,44 @@
     <link rel="stylesheet" href="css/style.css">
     
     <!-- 글꼴 -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+	
+	<style>
+		.form-horizontal .form-group {
+    margin-right: 20.5%;
+    margin-left: 18%;
+}
+.filebox{
+	margin-left : 19.5%;
+}
+	</style>
 
 </head>
 <body>
-<jsp:include page="../header.jsp"></jsp:include>
-	<br><br><div style="text-align: center;" >
-	<form action="commBoardInsert.do" method="post">
-		<h3>소통게시글 작성</h3><br>
-		<div>
-			<input type="text" required placeholder="   제목" style="border:0 solid black;width: 704px;height: 28px;" id="title" name="article_title">
+<jsp:include page="../header.jsp"></jsp:include><br><br>
+	<div class="container"style="text-align: center">
+  <h4>소통게시글 작성</h4><br>
+  <form class="form-horizontal" action="commBoardInsert.do" method="post">
+    <div class="form-group">
+      <div class="col-sm-10">
+        <input type="text" class="form-control" style="width: 704px;height: 28px;" required placeholder=" 제 목" name="article_title">
+        <input type="hidden" id="writer" value="${member.mem_id }" name="article_id">
+      </div>
+    </div>
+    <div class="form-group">
+ <div class="col-sm-10">
+  <textarea class="form-control"placeholder=" 내 용"style="width: 704px;height: 400px;" rows="5" required name="article_content"></textarea>
+</div>
+</div>
+<div class="filebox" >
+			<input type="file" style=" border:0 solid black;width: 704px;height: 28px;" id="file" >
 		</div>
-		<div>
-			<input type="hidden" id="writer" value="${member.mem_id }" name="article_id">
-		</div><br>
-		<div>
-			
-			<textarea name="article_content"placeholder="   내용"style="border: 0px solid black;width: 704px;height: 400px;" required id="content"></textarea>
-		</div><br>
-		<div class="filebox" >
-			<input type="file" style=" border:0 solid black;width: 704px;height: 28px;"id='file'style="text-align: center;">
-		</div>
-		<button type="submit" class="btn btn-sm btn-success">등록하기</button>
+    <div class="form-group">        
+      <div>
+      <button type="submit" class="btn btn-sm btn-success">등록하기</button>
 		<button onclick="location.href='comm.do'" class="btn btn-sm btn-info">목록으로</button>
-
-	</form>
-	</div>
+      </div>
+    </div>
+  </form>
+</div>
 </body>
 </html>
