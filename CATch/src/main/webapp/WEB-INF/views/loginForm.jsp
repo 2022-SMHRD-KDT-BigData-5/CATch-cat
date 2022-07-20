@@ -16,7 +16,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <!-- CSS here -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/login.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -30,32 +30,24 @@
     
 </head>
 <body>
-	
-	<jsp:include page="header.jsp"></jsp:include>	
-	
-	<form action="login.do" method="post">
-		
-		<h2>로그인</h2>
-		
-		<div>아이디</div>
-		<input name="mem_id" type="text" placeholder="ID를 입력">
-		
-		<div>비밀번호</div>
-		<input name="mem_pw" type="password" placeholder="비밀번호 입력">
-		
-		<input type="submit" class="btn" value="L O G I N"/>
-		
- 	</form>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+   
+   <jsp:include page="header.jsp"></jsp:include>   
+   
+   <form action="login.do" method="post" class="loginForm">
+   <b><h2>Login</h2></b>
+      
+      <div class="idForm">아이디
+      	<input name="mem_id" type="text" placeholder="ID">
+      </div>
+      
+      <div class="passForm">비밀번호
+      <input name="mem_pw" type="password" placeholder="PW">
+      </div>
+      <input type="submit" class="btn" value="L O G I N"/>
+      <div class="bottomText">
+      	회원이 아니신가요? <a href="join.do">회원가입</a>
+      </div>
+    </form>
+
 </body>
 </html>
