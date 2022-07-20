@@ -15,15 +15,17 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor //필요한 필드만 요소로 갖는 생성자 생성
 public class CareBoard {
 
-	private int care_seq;	
+	private int care_seq;
 	@NonNull
 	private String care_name;
+	@NonNull
 	private String care_addr;
 	@NonNull
 	private String care_latitude;
 	@NonNull
 	private String care_longitude;
 	private String cat_seq;
+	@NonNull
 	private String care_id;
 	private String care_date;
 

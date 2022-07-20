@@ -2,6 +2,7 @@ package com.smhrd.domain;
 
 import java.sql.Timestamp;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,12 @@ public class AdoptBoard {
 	private Timestamp adt_date;
 	private int adt_cnt;
 	private String adt_id;
-
+	
+	// 파일저장경로
+	private String adt_url;
+	
 	private String field;
 	private String query;
+	
+	
 }
