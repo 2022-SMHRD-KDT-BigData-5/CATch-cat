@@ -1,6 +1,8 @@
 package com.smhrd.web;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -26,16 +28,10 @@ public class CareController {
 	
 	
 	
-	@RequestMapping("/caremap.do")
-	public String carelist(Model model,HttpServletRequest request, CareBoard careBoard)  {
-		
-		
-		return "map";
-		
-	}
-	
 	@RequestMapping("/carezone.do")
-	public String carezone() {
+	public String carezone(Model model) {
+		List<CareBoard> careList = mapper.selectCareZone();
+		model.addAttribute("careList", careList);
 		return "carezone";
 	}
 	
@@ -48,6 +44,8 @@ public class CareController {
 		}
 		return "redirect:/carezone.do";
 	}
+	
+	
 
 	
 	
