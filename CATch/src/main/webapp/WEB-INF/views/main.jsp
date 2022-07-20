@@ -122,7 +122,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-5 col-md-6">
                     <div class="catch12">
-                        <img src="img/about/catch12.png" alt="">
+                        <img src="img/about/cat12.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 offset-lg-1 col-md-6">
