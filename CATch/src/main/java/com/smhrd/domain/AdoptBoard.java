@@ -21,6 +21,7 @@ public class AdoptBoard {
 	
 	// 파일저장경로
 	private String adt_url;
+	private String adt_sname;
 	
 	private String field;
 	private String query;
