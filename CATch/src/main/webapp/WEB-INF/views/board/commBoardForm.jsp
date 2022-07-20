@@ -19,6 +19,11 @@
 			내용
 			<textarea name="article_content" id="content"></textarea>
 		</div>
+		<div class="filebox">
+			파일 첨부 <input class='img_search' value="첨부파일" name=""> <label
+				for="file"></label> <input type="file" id='file'> <input
+				class='sinput' type="submit" value="등록">
+		</div>
 		<button type="submit">등록</button>
 
 	</form>
