@@ -9,8 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
-<!-- 게시판css -->
- 
+
 <!-- CSS here -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -23,10 +22,7 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style.css">
-    
-    <!-- 글꼴 -->
-	
-	<style>
+<style>
 		.form-horizontal .form-group {
     margin-right: 20.5%;
     margin-left: 18%;
@@ -39,8 +35,30 @@
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include><br><br>
+<section class="notice" style="
+    padding-top: 50px;
+    padding-bottom: 10px;">
+   <div class="page-title">
+      <div class="container">
+         <h3 class="heading-primary elementor-heading-title">
+            <b>캣치</b>
+            에서
+            <b>게시판에</b>
+            글을 남겨보자
+         </h3>
+      </div>
+      <div class="heading-description-wrap">
+         <div class="heading-description">
+            소통게시판
+            <br>
+            오직..
+            <b>캣치에서만</b>
+         </div>
+      </div>
+   </div>
+</section>
+
 	<div class="container"style="text-align: center">
-  <h4>소통게시글 작성</h4><br>
   <form class="form-horizontal" action="commBoardInsert.do" method="post">
     <div class="form-group">
       <div class="col-sm-10">
