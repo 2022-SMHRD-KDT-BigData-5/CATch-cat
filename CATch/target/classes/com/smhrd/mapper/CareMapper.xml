@@ -3,9 +3,9 @@
 
 <mapper namespace="com.smhrd.mapper.CareMapper">
     <!-- 급식소 주소,위도,경도 넣기-->
-	<insert id="insertLALO" parameterType="com.smhrd.domain.CareBoard">
-        insert into t_carezone(care_latitude,care_longitude ,care_name)
-        values(#{care_latitude}, #{care_longitude}, #{care_name})
+	<insert id="insertAddress" parameterType="com.smhrd.domain.CareBoard">
+        insert into t_carezone(care_name, care_addr, care_latitude, care_longitude, care_date)
+        values(#{care_name}, #{care_addr}, #{care_latitude}, #{care_longitude}, now())
     </insert>
 
 </mapper>
