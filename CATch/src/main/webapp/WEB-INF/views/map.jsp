@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
 .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
@@ -44,7 +45,15 @@
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
 </style>
 </head>
+<!--  <form onsubmit="searchPlaces(); return false;"></form> -->
 <body>
+
+
+<form action="caremap.do" method="post">
+
+	
+		
+							 
 	<h1>🧀🐈🍙🐈🍕🐈 고양이 급식소 🧀🐈🍙🐈🍕🐈</h1>
 	<div class="map_wrap">
     <div id="map" style="width:80%;height:100%;position:relative;overflow:hidden;"></div>
@@ -52,24 +61,31 @@
     <div id="menu_wrap" class="bg_white">
         <div class="option">
             <div>
-                <form onsubmit="searchPlaces(); return false;">
-                    <br>우리 동네 : <input type="text" value="스마트인재캠퍼스" id="keyword" size="15"> 
-                    <button type="submit">찾기</button> 
-                </form>
-            </div>
+               <br>우리 동네 : <input type="text" value="스마트인재캠퍼스" id="keyword" size="15"> 
+                <button type="submit">찾기</button>
+    		</div>
         </div>
-        <ul id="placesList"></ul>
-        <div id="pagination"></div>
-    </div>
-</div>
-<!-- 좌표 -->
-<p id="result"></p>
+        	<ul id="placesList"></ul> 
+        	<div id="pagination"></div>
+    	</div>
+	</div>
+<input type="hidden" id="placeName" name="care_name" value="">
+<input type="hidden" id="latitude" name="care_latitude" value="">
+<input type="hidden" id="longitude" name="care_longitude" value="">
+<input type="submit" value="등록">
+
+</form>
+
+
 <!-- 주소 -->
 <span id="centerAddr"></span>
+<div id="result"></div>
+
+    
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0a2cd6f2777e0f89378c802f40822eb3&libraries=services"></script>
 <script>
-// 마커를 담을 배열입니다
+//마커를 담을 배열입니다
 var markers = [];
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -114,8 +130,7 @@ function placesSearchCB(data, status, pagination) {
         // 검색 목록과 마커를 표출합니다
         displayPlaces(data);
 
-        // 페이지 번호를 표출합니다
-        displayPagination(pagination);
+      
 
     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
@@ -308,6 +323,70 @@ function displayCenterInfo(result, status) {
         }
     }    
 }
+
+function displayPlaces(places) {
+
+    var listEl = document.getElementById('placesList'), 
+    menuEl = document.getElementById('menu_wrap'),
+    fragment = document.createDocumentFragment(), 
+    bounds = new kakao.maps.LatLngBounds(), 
+    listStr = '';
+    
+    // 검색 결과 목록에 추가된 항목들을 제거합니다
+    removeAllChildNods(listEl);
+
+    // 지도에 표시되고 있는 마커를 제거합니다
+    removeMarker();
+    
+    for ( var i=0; i<places.length; i++ ) {
+
+        // 마커를 생성하고 지도에 표시합니다
+        var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
+            marker = addMarker(placePosition, i), 
+            itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
+
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+        // LatLngBounds 객체에 좌표를 추가합니다
+        bounds.extend(placePosition);
+
+        // 마커와 검색결과 항목에 mouseover 했을때
+        // 해당 장소에 인포윈도우에 장소명을 표시합니다
+        // mouseout 했을 때는 인포윈도우를 닫습니다
+        (function (marker, title) {
+    kakao.maps.event.addListener(marker, 'click', (function(placePosition) {
+    displayInfowindow(marker, title);
+    return function() {
+        // 좌표정보를 파싱하기 위해 hidden input에 값 지정
+        $("#latitude").val(placePosition.La);
+        $("#longitude").val(placePosition.Ma);
+        $("#placeName").val(title);
+        // #result 영역에 좌표정보 출력
+        var resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = '선택하신 위치는 ' +'"'+title+'"' +placePosition+' 입니다';
+    }
+})(placePosition));
+
+
+            itemEl.onmouseover =  function () {
+                displayInfowindow(marker, title);
+            };
+
+            itemEl.onmouseout =  function () {
+                infowindow.close();
+            };
+        })(marker, places[i].place_name);
+
+        fragment.appendChild(itemEl);
+    }
+
+    // 검색결과 항목들을 검색결과 목록 Element에 추가합니다
+    listEl.appendChild(fragment);
+    menuEl.scrollTop = 0;
+
+    // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+    map.setBounds(bounds);
+}
 </script>
+
 </body>
 </html>

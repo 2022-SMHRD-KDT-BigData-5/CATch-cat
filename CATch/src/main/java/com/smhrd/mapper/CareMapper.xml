@@ -2,12 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.smhrd.mapper.CareMapper">
-    <!-- 급식소 주소,위도,경도 가져오는 sql문 -->
-    <select id="caremapList" parameterType="com.smhrd.domain.CareBoard" resultType="com.smhrd.domain.CareBoard">
-		select *  from t_carezone 
-		
-	</select>
-	
-   
-    
+    <!-- 급식소 주소,위도,경도 넣기-->
+	<insert id="insertLALO" parameterType="com.smhrd.domain.CareBoard">
+        insert into t_carezone(care_latitude,care_longitude ,care_name)
+        values(#{care_latitude}, #{care_longitude}, #{care_name})
+    </insert>
+
 </mapper>
