@@ -2,6 +2,7 @@ package com.smhrd.mapper;
 
 import java.util.List;
 
+import com.smhrd.domain.CareBoard;
 import com.smhrd.domain.CatCard;
 import com.smhrd.domain.Member;
 
@@ -18,5 +19,5 @@ public interface MemberMapper {
 	//마이페이지 캣카드 조회
 	public abstract List<CatCard> selectMyCat(String mem_id);
 	
-	
+
 }
