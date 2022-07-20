@@ -35,6 +35,11 @@ public class CareController {
 		return "map";
 		
 	}
+	
+	@RequestMapping("/carezone.do")
+	public String carezone() {
+		return "carezone";
+	}
 
 	
 	
