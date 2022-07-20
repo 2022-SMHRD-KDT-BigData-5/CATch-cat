@@ -27,15 +27,19 @@ public class CatCardController {
 	public String catcard() {
 		return "catcard";
 	}
-	
+
+
+
 	@RequestMapping("/catcardSearch.do")
 	public String catcardSearch() {
 		return "catcardSearch";
+
 	}
 	
 	
 	//캣카드 번호로 캣카드 조회
 	@RequestMapping("/seqSearch.do")
+	
 	public String seqSearch(HttpServletRequest request, int cat_seq) {
 		CatCard catcard = mapper.seqCatSearch(cat_seq);
 		List<Medical> medicalList = mapper.seqMediSearch(cat_seq);
@@ -55,6 +59,7 @@ public class CatCardController {
 		session.setAttribute("ss", ss);
 		
 		return "redirect:/catcard.do";
+
 	}
 	
 	//비문 사진으로 캣카드 조회

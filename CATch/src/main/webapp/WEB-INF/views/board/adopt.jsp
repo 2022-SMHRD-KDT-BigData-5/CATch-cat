@@ -161,7 +161,7 @@
 
 					</table>
 					<button onclick="location.href='adoptBoardInsert.do'"
-						class="btn btn-sm btn-success">글쓰기</button>
+						class="btn btn-sm btn-success" >글쓰기</button>
 				</div>
 			</div>
 
