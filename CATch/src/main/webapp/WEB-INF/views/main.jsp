@@ -73,7 +73,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single_service">
                          <div class="service_thumb d-flex align-items-center justify-content-center">
-                             <div class="service_icon">
+                             <div style="text-align : center;">
                                  <img src="img/about/cat01.png" alt="">
                              </div>
                          </div>
@@ -88,7 +88,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single_service active">
                          <div class="service_thumb d-flex align-items-center justify-content-center">
-                             <div class="service_icon">
+                             <div style="text-align : center;">
                                  <img src="img/about/cat02.png" alt="">
                              </div>
                          </div>
@@ -101,7 +101,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single_service">
                          <div class="service_thumb d-flex align-items-center justify-content-center">
-                             <div class="service_icon">
+                             <div style="text-align : center;">
                                  <img src="img/about/cat03.png" alt="">
                              </div>
                          </div>
@@ -121,8 +121,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 col-md-6">
-                    <div class="catch11">
-                        <img src="img/about/catch11.png" alt="">
+                    <div class="catch12">
+                        <img src="img/about/catch12.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 offset-lg-1 col-md-6">
