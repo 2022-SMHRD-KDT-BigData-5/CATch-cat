@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.mapper.CatCardMapper">
+    
+    <!-- 캣카드 번호로 캣카드 조회하는 sql문 -->
+    <select id="seqCatSearch" resultType="com.smhrd.domain.CatCard">
+        select * from t_catcard where cat_seq = #{cat_seq}
+    </select>
+    <select id="seqMediSearch" resultType="com.smhrd.domain.Medical">
+        select * from t_medical where cat_seq=#{cat_seq}
+    </select>
+    <select id="seqVaccSearch" resultType="com.smhrd.domain.Vaccination">
+        select * from t_vaccination where cat_seq=#{cat_seq}
+    </select>
+    
+    <!-- 접종 정보 가져오는 sql문 -->
+    <select id="jhSearch" resultType="com.smhrd.domain.Vaccination">
+        select * from t_vaccination
+        where vacc_type = '종합백신'
+        and cat_seq = #{cat_seq}
+    </select>
+    <select id="ggSearch" resultType="com.smhrd.domain.Vaccination">
+        select * from t_vaccination
+        where vacc_type = '광견병'
+        and cat_seq = #{cat_seq}
+    </select>
+    <select id="jbSearch" resultType="com.smhrd.domain.Vaccination">
+        select * from t_vaccination
+        where vacc_type = '전염성 복막염'
+        and cat_seq = #{cat_seq}
+    </select>
+    <select id="hcSearch" resultType="com.smhrd.domain.Vaccination">
+        select * from t_vaccination
+        where vacc_type = '항체가검사'
+        and cat_seq = #{cat_seq}
+    </select>
+    <select id="ssSearch" resultType="com.smhrd.domain.Vaccination">
+        select * from t_vaccination
+        where vacc_type = '심장사상충'
+        and cat_seq = #{cat_seq}
+        order by vacc_date desc
+    </select>
+    
+    
+    
+    <!-- 접종내역 추가하는 sql문 -->
+    <insert id="vaccUpdate" parameterType="com.smhrd.domain.Vaccination">
+        insert into t_vaccination(cat_seq, medi_id, medi_name, vacc_type, vacc_date)
+        values(#{cat_seq}, #{medi_id}, #{medi_name}, #{vacc_type}, now())
+    </insert>
+    <insert id="mediUpdate" parameterType="com.smhrd.domain.Medical">
+        insert into t_medical(cat_seq, medi_id, medi_name, medi_content, medi_date)
+        values(#{cat_seq}, #{medi_id}, #{medi_name}, #{medi_content}, now())
+    </insert>
+    
+    
+    
+</mapper>
