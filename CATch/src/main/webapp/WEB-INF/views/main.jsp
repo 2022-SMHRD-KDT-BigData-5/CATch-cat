@@ -42,15 +42,15 @@
                 <div class="row">
                     <div class="col-lg-5 col-md-6">
                         <div class="slider_text">
-                            <h3>I Love <br> <span>CAT CARD</span></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit, sed do eiusmod.</p>
+                            <h3>내 고양이의 <br> <span>코를 찍어보자!</span></h3>
+                            <p>캣치의 AI 생체 기술로 <br> 반려묘의 비문을 등록해보세요.</p>
                             <a href="contact.html" class="boxed-btn4">Contact Us</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="dog_thumb d-none d-lg-block">
-                <img src="img/banner/dog.png" alt="">
+                <img src="img/about/pet_care.png" alt="">
             </div>
         </div>
     </div>
@@ -62,45 +62,47 @@
             <div class="row justify-content-center ">
                 <div class="col-lg-7 col-md-10">
                     <div class="section_title text-center mb-95">
-                        <h3>반려묘 비문인식 </h3>
-                        <h3>어떤게 가능할까요?</h3>
-                        <p>궁금하시죠?ㅋㅋ</p>
-                  
+                        <h3>반려묘 비문인식 <br>
+                        <span class="main_color">어떤게 가능할까요?</span>
+                        </h3>
+
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6">
                     <div class="single_service">
-                         <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
-                             <div class="service_icon">
-                                 <img src="img/service/service_icon_1.png" alt="">
+                         <div class="service_thumb d-flex align-items-center justify-content-center">
+                             <div style="text-align : center;">
+                                 <img src="img/about/cat01.png" alt="">
                              </div>
                          </div>
                          <div class="service_content text-center">
-                            <h3>병원에 갈 필요 없이 간편한 반려묘 등록</h3>
-                            <p>칩 이식, 병원비 지출 없이 나의 고양이의 비문 등록</p>
+                            <h3>병원에 갈 필요 없이 
+                            <br>간편한 반려묘 등록</h3>
+                            <p>칩 이식, 병원비 지출 없이
+                            <br>나의 고양이의 비문 등록</p>
                          </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single_service active">
-                         <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
-                             <div class="service_icon">
-                                 <img src="img/service/service_icon_2.png" alt="">
+                         <div class="service_thumb d-flex align-items-center justify-content-center">
+                             <div style="text-align : center;">
+                                 <img src="img/about/cat02.png" alt="">
                              </div>
                          </div>
                          <div class="service_content text-center">
-                            <h3>인식표 / 외장칩없이 비문 조회로 반려묘 찾기</h3>
-                            <p>스마트폰만으로 유실묘를 찾을 수 있습니다.</p>
+                            <h3>내장칩없이 비문 조회로 <br>반려묘 찾기</h3>
+                            <p>유실묘를 찾을 수 있습니다.</p>
                          </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single_service">
-                         <div class="service_thumb service_icon_bg_1 d-flex align-items-center justify-content-center">
-                             <div class="service_icon">
-                                 <img src="img/service/service_icon_3.png" alt="">
+                         <div class="service_thumb d-flex align-items-center justify-content-center">
+                             <div style="text-align : center;">
+                                 <img src="img/about/cat03.png" alt="">
                              </div>
                          </div>
                          <div class="service_content text-center">
@@ -119,8 +121,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 col-md-6">
-                    <div class="pet_thumb">
-                        <img src="img/about/pet_care.png" alt="">
+                    <div class="catch12">
+                        <img src="img/about/catch12.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 offset-lg-1 col-md-6">
