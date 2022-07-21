@@ -96,9 +96,21 @@ public class CatCardController {
 		return "redirect:/catcard.do"; //바로 반영 안되는거 고쳐주세요
 	}
 	
-	//------------------------------------------------------------------
+	//캣카드 등록
+	@RequestMapping("/catcardInsert.do")
+	public String catcardform(CatCard cardform ,Model model) {
+		int cnt = 0;
+		cnt = mapper.insertcatcard(cardform);
+		if(cnt>0) {
+			System.out.println("캣카드 등록 성공");
+		}
+		return "redirect:/catcard.do";
+	}
+	
+	//캣카드 등록으로 이동
 	@RequestMapping("/catcardForm.do")
-	public String catcardform() {
+	public String catcardInsert() {
+		
 		return "catcardForm";
 	}
 
