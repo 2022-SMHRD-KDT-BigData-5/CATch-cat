@@ -38,12 +38,14 @@
  	Member member = (Member)session.getAttribute("member");%>
  	<h1 class = "h_title"><img src="img/catch-removebg.png" ></h1>
 <div class="joinform">
-<br><br>
+<br><br><br>
 <h4>회원정보 확인을 위해 비밀번호를 입력해주세요</h4><br><br><br>
 <form action="myInfo.do" method="post">
-	<input type="hidden" name="mem_id" value=<%=member.getMem_id() %>>
+<h5>아이디</h5>
+	<input type="text" style="background-color: #e2e2e2; border:0 solid black" readonly name="mem_id" value=<%=member.getMem_id() %>>
+	<h5>비밀번호</h5>
 	<input type="password" name="mem_pw">
-	<h5>  </h5>
+	<br><br><br><br><br>
 	<input type="submit" class="btn"value="입력">
 </form>
  </div>
