@@ -59,7 +59,7 @@
 	<!-- 상세페이지 시작 -->
 
 	<div class="container">
-		<h1>소통게시글 상세</h1>
+		<h2>게시글 상세</h2>
 		<table class="board_detail">
 			<colgroup>
 				<col width="15%"/>
@@ -84,15 +84,13 @@
 				<tr>
 					<th scope="row">제목</th>
 					<td colspan="3">
-						<input type="text" id="title" name="title"
-							th:value=<%=commBoardInfo.getArticle_title() %>/>
+						<%=commBoardInfo.getArticle_title() %>
 					</td>
 				</tr>
 			<tr>
 				<td colspan="4" class="view_text">
-					<textarea title="내용" id="content" name="content"
-						th:text=<%=commBoardInfo.getArticle_content()%>>
-					</textarea>
+					<%=commBoardInfo.getArticle_content()%>
+			
 				</td>
 			</tr>
 			
@@ -112,8 +110,10 @@
 				</td>
 			</tr>
 		</table>
-
-		<h1>댓글작성란</h1>
+	<div class="container">
+		<h2>Comment</h2>
+	
+		
 		<c:if test="${empty member }">
 			<p>로그인 후 댓글 작성이 가능합니다</p>
 		</c:if>
@@ -126,11 +126,13 @@
 					value="등록">
 			</form>
 		</c:if>
-		<h1>댓글출력란</h1>
+		<br>
+		<h2>전체댓글</h2>
 		<%
 			for (CommComment commComment : commCommentList) {
 		%>
-		<table border="1px solid black">
+		<table border="1px solid black;">
+
 			<tr>
 				<td>댓글작성자</td>
 				<td><%=commComment.getCmt_id()%></td>
@@ -156,6 +158,7 @@
 			</tbody>
 		</table>
 		<%} %>
+	</div>
 	</div>
 </body>
 </html>
