@@ -120,7 +120,7 @@
         <td><%=sponBoard.getSpon_cnt() %></td>
         <%if(member!=null){
         	if(member.getMem_id().equals(sponBoard.getSpon_id())){%>
-        		<td><a href="sponDelete.do?spon_seq=">삭제</a>
+        		<td><a href="sponBoardDelete.do?spon_seq=<%=sponBoard.getSpon_seq()%>">삭제</a>
         <%}} //if문 두개 끝 %>
       </tr>
       <%} //for문 끝%>
