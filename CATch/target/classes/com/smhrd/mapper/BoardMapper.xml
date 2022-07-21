@@ -69,8 +69,8 @@
     
     <!-- 게시글 db에 추가하는 sql문 -->
     <insert id="adoptBoardInsert" parameterType="com.smhrd.domain.AdoptBoard">
-        insert into t_adoption(adt_id, adt_title, adt_content, adt_url)
-        values(#{adt_id}, #{adt_title}, #{adt_content}, #{adt_url})
+        insert into t_adoption(adt_id, adt_title, adt_content, adt_url, adt_sname)
+        values(#{adt_id}, #{adt_title}, #{adt_content}, #{adt_url} ,#{adt_sname})
     </insert>
     
     <insert id="commBoardInsert" parameterType="com.smhrd.domain.CommBoard">

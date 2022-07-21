@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.domain.CareBoard"%>
 <%@page import="com.smhrd.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -14,11 +16,11 @@
 <%
 Member member = (Member)session.getAttribute("member");
 String care_id = "";
-if(member!=null){
-	care_id = member.getMem_id();
-}else{
-	care_id = "로그인먼저하세요";
-}
+if(member!=null){care_id = member.getMem_id();
+}else{care_id = "로그인먼저하세요";}
+
+List<CareBoard> careList = (List<CareBoard>)request.getAttribute("careList");
+
 %>
 
 	<div class="map_wrap">
@@ -127,9 +129,10 @@ if(member!=null){
 		//-------------검색 결과 목록과 마커를 표출하는 함수입니다
 		function displayPlaces(places) {
 
-			var listEl = document.getElementById('placesList'), menuEl = document
-					.getElementById('menu_wrap'), fragment = document
-					.createDocumentFragment(), bounds = new kakao.maps.LatLngBounds(), listStr = '';
+			var listEl = document.getElementById('placesList'),
+			menuEl = document.getElementById('menu_wrap'),
+			fragment = document.createDocumentFragment(),
+			bounds = new kakao.maps.LatLngBounds(), listStr = '';
 
 			// 검색 결과 목록에 추가된 항목들을 제거합니다
 			removeAllChildNods(listEl);
@@ -140,9 +143,9 @@ if(member!=null){
 			for (var i = 0; i < places.length; i++) {
 
 				// 마커를 생성하고 지도에 표시합니다
-				var placePosition = new kakao.maps.LatLng(places[i].y,
-						places[i].x), marker = addMarker(placePosition, i), itemEl = getListItem(
-						i, places[i]); // 검색 결과 항목 Element를 생성합니다
+				var placePosition = new kakao.maps.LatLng(places[i].y,places[i].x),
+				marker = addMarker(placePosition, i),
+				itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
 
 				// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
 				// LatLngBounds 객체에 좌표를 추가합니다
@@ -210,14 +213,13 @@ if(member!=null){
 
 		//마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
 		function addMarker(position, idx, title) {
-			var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
-			imageSize = new kakao.maps.Size(36, 37), // 마커 이미지의 크기
-			imgOptions = {
-				spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
-				spriteOrigin : new kakao.maps.Point(0, (idx * 46) + 10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
-				offset : new kakao.maps.Point(13, 37)
-			// 마커 좌표에 일치시킬 이미지 내에서의 좌표
-			}, markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize,
+			var imageSrc = 'upload/cat_icon2.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+	        imageSize = new kakao.maps.Size(36, 36),  // 마커 이미지의 크기
+	        imgOptions =  {
+	            spriteSize : new kakao.maps.Size(36, 36), // 스프라이트 이미지의 크기
+	            spriteOrigin : new kakao.maps.Point(0, 0), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+	            offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
+	        }, markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize,
 					imgOptions), marker = new kakao.maps.Marker({
 				position : position, // 마커의 위치
 				image : markerImage
@@ -394,9 +396,9 @@ if(member!=null){
 			for (var i = 0; i < places.length; i++) {
 
 				// 마커를 생성하고 지도에 표시합니다
-				var placePosition = new kakao.maps.LatLng(places[i].y,
-						places[i].x), marker = addMarker(placePosition, i), itemEl = getListItem(
-						i, places[i]); // 검색 결과 항목 Element를 생성합니다
+				var placePosition = new kakao.maps.LatLng(places[i].y,places[i].x),
+				 marker = addMarker(placePosition, i)	// ----------------------------------------------------------------------------------얘는 지워야됨.. 고양터아니고 그냥 동 표시 위한것
+				itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
 
 				// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
 				// LatLngBounds 객체에 좌표를 추가합니다
@@ -424,7 +426,7 @@ if(member!=null){
 					})(placePosition));
 
 					itemEl.onmouseover = function() {
-						displayInfowindow(marker, title);
+						infowindow.close();
 					};
 
 					itemEl.onmouseout = function() {
@@ -446,33 +448,34 @@ if(member!=null){
 		//---------------------------------------------------------------------------
 		// 커스텀 오버레이에 표시할 내용입니다     
 		// HTML 문자열 또는 Dom Element 입니다 
+		<%for (int i=0; i<careList.size(); i++){ %>
 		var content = '<div class="overlaybox">'
-				+ '    <div class="boxtitle">금주 영화순위</div>'
+				+ '    <div class="boxtitle"> <%=careList.get(i).getCare_name()%> </div>'
 				+ '    <div class="first">'
-				+ '        <div class="triangle text">1</div>'
-				+ '        <div class="movietitle text">드래곤 길들이기2</div>'
+				+ '        <div class="movietitle text"><%=careList.get(i).getCare_addr()%></div>'
 				+ '    </div>' + '    <ul>' + '        <li class="up">'
 				+ '            <span class="number">2</span>'
-				+ '            <span class="title">명량</span>'
-				+ '            <span class="arrow up"></span>'
+				+ '            <span class="title">고양이이름1(a태그로 캣카드이동)</span>'
+				
 				+ '            <span class="count">2</span>' + '        </li>'
 				+ '        <li>' + '            <span class="number">3</span>'
-				+ '            <span class="title">해적(바다로 간 산적)</span>'
-				+ '            <span class="arrow up"></span>'
+				+ '            <span class="title">고양이이름2</span>'
+				
 				+ '            <span class="count">6</span>' + '        </li>'
-				+ '        <li>' + '            <span class="number">4</span>'
-				+ '            <span class="title">해무</span>'
-				+ '            <span class="arrow up"></span>'
+				+ '        <li>' + '            <span class="number"></span>'
+				+ '            <span class="title">고양이이름3</span>'
+			
 				+ '            <span class="count">3</span>' + '        </li>'
 				+ '        <li>' + '            <span class="number">5</span>'
-				+ '            <span class="title">안녕, 헤이즐</span>'
-				+ '            <span class="arrow down"></span>'
+				+ '            <span class="title">고양이이름4</span>'
+		
 				+ '            <span class="count">1</span>' + '        </li>'
 				+ '    </ul>' + '</div>';
 
 		// 커스텀 오버레이가 표시될 위치입니다 
-		var position = new kakao.maps.LatLng(35.14883923610731, 126.91899262727176);
-
+		
+		var position = new kakao.maps.LatLng(<%=careList.get(i).getCare_latitude()%>, <%=careList.get(i).getCare_longitude()%>);
+		addMarker(position, <%=i%>);
 		// 커스텀 오버레이를 생성합니다
 		var customOverlay = new kakao.maps.CustomOverlay({
 			position : position,
@@ -480,9 +483,16 @@ if(member!=null){
 			xAnchor : 0.3,
 			yAnchor : 0.91
 		});
-
 		// 커스텀 오버레이를 지도에 표시합니다
 		customOverlay.setMap(map); //이거를 ->> itemEl.onmouseover = function() { <<-여기에 추가하면 어떨까?!
+									//또는!!! hidden 해놓고, 마커클릭시 
+		
+			
+		<%}%>
+
+
+			
+		
 	</script>
 
 </body>

@@ -28,6 +28,7 @@
 <tr><td>작성일</td> <td><%=adoptBoardInfo.getAdt_date()%></td></tr>
 <tr><td>조회수</td> <td><%=adoptBoardInfo.getAdt_cnt()%></td></tr>
 <tr><td>작성내용</td> <td><%=adoptBoardInfo.getAdt_content() %></td></tr>
+<tr><td>이미지</td> <td><img src="upload/<%=adoptBoardInfo.getAdt_sname()%>"></td></tr>
 
 	<tr>
 		<td colspan="2" align="center">
