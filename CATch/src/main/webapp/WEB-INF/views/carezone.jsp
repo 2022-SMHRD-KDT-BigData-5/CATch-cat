@@ -10,18 +10,25 @@
 <title>Insert title here</title>
 <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" href="css/carezone.css">
+<style>
+element .style {
+	display: none;
+}
+</style>
 </head>
 <!--  <form onsubmit="searchPlaces(); return false;"></form> -->
 <body>
-<%
-Member member = (Member)session.getAttribute("member");
-String care_id = "";
-if(member!=null){care_id = member.getMem_id();
-}else{care_id = "로그인먼저하세요";}
+	<%
+		Member member = (Member) session.getAttribute("member");
+	String care_id = "";
+	if (member != null) {
+		care_id = member.getMem_id();
+	} else {
+		care_id = "로그인먼저하세요";
+	}
 
-List<CareBoard> careList = (List<CareBoard>)request.getAttribute("careList");
-
-%>
+	List<CareBoard> careList = (List<CareBoard>) request.getAttribute("careList");
+	%>
 
 	<div class="map_wrap">
 		<div id="map"
@@ -41,16 +48,16 @@ List<CareBoard> careList = (List<CareBoard>)request.getAttribute("careList");
 			<div id="pagination"></div>
 		</div>
 	</div>
-	
-	
+
+
 	<!-- 클릭한 좌표의 위도, 경도 넘겨주는 폼태그 -->
 	<form action="insertAddress.do" method="post">
-	<!-- 나중에 이거 전부 hidden으로 바꿀것 -->
-		급식소 이름 : <input type="text" name="care_name" placeholder=" ex) OO고양터"> <br>
-		<input type="text" name="care_addr"> <br>
-		<input type="text" name="care_latitude"> <br>
-		<input type="text" name="care_longitude"> <br>
-		<input type="text" name="care_id" value=<%=care_id%> readonly> <br>
+		<!-- 나중에 이거 전부 hidden으로 바꿀것 -->
+		급식소 이름 : <input type="text" name="care_name" placeholder=" ex) OO고양터">
+		<br> <input type="text" name="care_addr"> <br> <input
+			type="text" name="care_latitude"> <br> <input
+			type="text" name="care_longitude"> <br> <input
+			type="text" name="care_id" value=<%=care_id%> readonly> <br>
 
 		<input type="submit" value="급식소 등록하기">
 	</form>
@@ -64,12 +71,31 @@ List<CareBoard> careList = (List<CareBoard>)request.getAttribute("careList");
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0a2cd6f2777e0f89378c802f40822eb3&libraries=services"></script>
 	<script>
+	// 급식소 위치 담을 변수
+	
+	var positions = [ 
+	<%for (int i = 0; i < careList.size(); i++) {%>
+		{
+	        title: "<%=careList.get(i).getCare_name()%>", 
+	        latlng: new kakao.maps.LatLng(<%=careList.get(i).getCare_latitude()%>, <%=careList.get(i).getCare_longitude()%>)
+	    },
+	<%}%>
+		];
+	
+	console.log[positions];
+	
+	
+	var imageSrc = "upload/cat_icon2.png"; 
+    
+	
+	
 		//마커를 담을 배열입니다
 		var markers = [];
 
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		
 		mapOption = {
-			center : new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+			center : new kakao.maps.LatLng(126.8526012, 35.1595454), // 지도의 중심좌표
 			level : 3
 		// 지도의 확대 레벨
 		};
@@ -110,8 +136,6 @@ List<CareBoard> careList = (List<CareBoard>)request.getAttribute("careList");
 				// 검색 목록과 마커를 표출합니다
 				displayPlaces(data);
 
-				// 페이지 번호를 표출합니다
-				displayPagination(pagination);
 
 			} else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
@@ -223,14 +247,16 @@ List<CareBoard> careList = (List<CareBoard>)request.getAttribute("careList");
 					imgOptions), marker = new kakao.maps.Marker({
 				position : position, // 마커의 위치
 				image : markerImage
+				
 			});
-
-			marker.setMap(map); // 지도 위에 마커를 표출합니다
-			markers.push(marker); // 배열에 생성된 마커를 추가합니다
+		
+		//	marker.setMap(map); // 지도 위에 마커를 표출합니다
+		//	markers.push(marker); // 배열에 생성된 마커를 추가합니다
 
 			return marker;
 		}
 
+		
 		//지도 위에 표시되고 있는 마커를 모두 제거합니다
 		function removeMarker() {
 			for (var i = 0; i < markers.length; i++) {
@@ -240,34 +266,7 @@ List<CareBoard> careList = (List<CareBoard>)request.getAttribute("careList");
 		}
 
 		//검색결과 목록 하단에 페이지번호를 표시는 함수입니다
-		function displayPagination(pagination) {
-			var paginationEl = document.getElementById('pagination'), fragment = document
-					.createDocumentFragment(), i;
 
-			// 기존에 추가된 페이지번호를 삭제합니다
-			while (paginationEl.hasChildNodes()) {
-				paginationEl.removeChild(paginationEl.lastChild);
-			}
-
-			for (i = 1; i <= pagination.last; i++) {
-				var el = document.createElement('a');
-				el.href = "#";
-				el.innerHTML = i;
-
-				if (i === pagination.current) {
-					el.className = 'on';
-				} else {
-					el.onclick = (function(i) {
-						return function() {
-							pagination.gotoPage(i);
-						}
-					})(i);
-				}
-
-				fragment.appendChild(el);
-			}
-			paginationEl.appendChild(fragment);
-		}
 
 		//검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
 		//인포윈도우에 장소명을 표시합니다
@@ -381,6 +380,7 @@ List<CareBoard> careList = (List<CareBoard>)request.getAttribute("careList");
 		}
 
 		//----------------------------------------목록에있는 주소들 차례로 마킹하는 함수
+		/*
 		function displayPlaces(places) {
 
 			var listEl = document.getElementById('placesList'), menuEl = document
@@ -444,55 +444,129 @@ List<CareBoard> careList = (List<CareBoard>)request.getAttribute("careList");
 			// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
 			map.setBounds(bounds);
 		}
+		*/
 
 		//---------------------------------------------------------------------------
+		//================================================================
+		for (var i = 0; i < positions.length; i ++) {
+		    
+		    // 마커 이미지의 이미지 크기 입니다
+		    var imageSize = new kakao.maps.Size(36, 36); 
+		    
+		    // 마커 이미지를 생성합니다    
+		    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+		    
+		    // 마커를 생성합니다
+		    var marker = new kakao.maps.Marker({
+		        map: map, // 마커를 표시할 지도
+		        position: positions[i].latlng, // 마커를 표시할 위치
+		        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+		        image : markerImage // 마커 이미지
+
+		    });
+		}
+		//================================================================	
 		// 커스텀 오버레이에 표시할 내용입니다     
 		// HTML 문자열 또는 Dom Element 입니다 
-		<%for (int i=0; i<careList.size(); i++){ %>
-		var content = '<div class="overlaybox">'
-				+ '    <div class="boxtitle"> <%=careList.get(i).getCare_name()%> </div>'
-				+ '    <div class="first">'
-				+ '        <div class="movietitle text"><%=careList.get(i).getCare_addr()%></div>'
-				+ '    </div>' + '    <ul>' + '        <li class="up">'
-				+ '            <span class="number">2</span>'
-				+ '            <span class="title">고양이이름1(a태그로 캣카드이동)</span>'
-				
-				+ '            <span class="count">2</span>' + '        </li>'
-				+ '        <li>' + '            <span class="number">3</span>'
-				+ '            <span class="title">고양이이름2</span>'
-				
-				+ '            <span class="count">6</span>' + '        </li>'
-				+ '        <li>' + '            <span class="number"></span>'
-				+ '            <span class="title">고양이이름3</span>'
-			
-				+ '            <span class="count">3</span>' + '        </li>'
-				+ '        <li>' + '            <span class="number">5</span>'
-				+ '            <span class="title">고양이이름4</span>'
-		
-				+ '            <span class="count">1</span>' + '        </li>'
-				+ '    </ul>' + '</div>';
+		var mark_content = [
+		<%for (int i = 0; i < careList.size(); i++) {%>
+		{
+		 content : '<div class="wrap">' + 
+        '    <div class="info">' + 
+        '        <div class="title"><%=careList.get(i).getCare_name()%><div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+        '        </div>' + 
+        '        <div class="body">' + 
+        '            <div class="img">' +
+        '                <img src="https://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
+        '           </div>' + 
+        '            <div class="desc">' + 
+        '                <div class="ellipsis"><%=careList.get(i).getCare_addr()%></div>' + 
+        '            </div>' + 
+        '        </div>' + 
+        '    </div>' +    
+        '</div>',
+        latlng: new kakao.maps.LatLng(<%=careList.get(i).getCare_latitude()%>, <%=careList.get(i).getCare_longitude()%>)
+		},
+	<%}%>
+		];
 
 		// 커스텀 오버레이가 표시될 위치입니다 
 		
-		var position = new kakao.maps.LatLng(<%=careList.get(i).getCare_latitude()%>, <%=careList.get(i).getCare_longitude()%>);
+		for (var i = 0; i < mark_content.length; i++) {
+		
+			
+		    // 마커 이미지의 이미지 크기 입니다
+		    var imageSize = new kakao.maps.Size(36, 36); 
+		    
+		    // 마커 이미지를 생성합니다    
+		    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+		    
+		    var marker = new kakao.maps.Marker({
+			map:map,
+			position : mark_content[i].latlng,
+			image : markerImage
+		});
+		var infowindow1 = new kakao.maps.InfoWindow({
+			content : mark_content[i].content
+		});
+		kakao.maps.event.addListener(marker,'click',markClick(map, marker, infowindow1));
+		kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow1));
+		}
+		
+	
+			
+		
+		
+		function markClick(map, marker, infowindow1) {
+		    return function() {
+		        infowindow1.open(map, marker);
+		        
+
+		    };
+		}
+
+		
+		// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+		function makeOutListener(infowindow1) {
+		    return function() {
+		        infowindow1.close();
+		    };
+		}
+		
+
+		<%-- var position = new kakao.maps.LatLng(<%=careList.get(i).getCare_latitude()%>, <%=careList.get(i).getCare_longitude()%>);
 		addMarker(position, <%=i%>);
 		// 커스텀 오버레이를 생성합니다
-		var customOverlay = new kakao.maps.CustomOverlay({
+		var infowindow1 = new kakao.maps.InfoWindow({
 			position : position,
 			content : content,
-			xAnchor : 0.3,
-			yAnchor : 0.91
-		});
-		// 커스텀 오버레이를 지도에 표시합니다
-		customOverlay.setMap(map); //이거를 ->> itemEl.onmouseover = function() { <<-여기에 추가하면 어떨까?!
-									//또는!!! hidden 해놓고, 마커클릭시 
-		
-			
-		<%}%>
+});
+		kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker, infowindow1));
 
-
+	function makeOverListener(map, marker, infowindow1) {
+	    return function() {
+	        infowindow1.open(map, marker);
+	    };
+	}
+	
+	function makeOutListener(infowindow1) {
+	    return function() {
+	        infowindow1.close();
+	    };
+	} --%>
+	
+/* 			kakao.maps.event.addListener(marker, 'click', function() {
+      // 마커 위에 인포윈도우를 표시합니다
+      customOverlay.open(map, marker);  
+});
+      */
 			
-		
+			
+			
+			
+			
+			
+			
 	</script>
 
 </body>
