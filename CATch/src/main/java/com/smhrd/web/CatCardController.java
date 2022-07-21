@@ -96,7 +96,10 @@ public class CatCardController {
 		return "redirect:/catcard.do"; //바로 반영 안되는거 고쳐주세요
 	}
 	
-	
-	
+	//------------------------------------------------------------------
+	@RequestMapping("/catcardForm.do")
+	public String catcardform() {
+		return "catcardForm";
+	}
 
 }
