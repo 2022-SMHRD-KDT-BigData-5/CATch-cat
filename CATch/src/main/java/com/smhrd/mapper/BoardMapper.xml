@@ -74,13 +74,13 @@
     </insert>
     
     <insert id="commBoardInsert" parameterType="com.smhrd.domain.CommBoard">
-        insert into t_community(article_id, article_title, article_content)
-        values(#{article_id}, #{article_title}, #{article_content})
+        insert into t_community(article_id, article_title, article_content, article_url, article_sname)
+        values(#{article_id}, #{article_title}, #{article_content}, #{article_url}, #{article_sname})
     </insert>
     
     <insert id="sponBoardInsert" parameterType="com.smhrd.domain.SponBoard">
-        insert into t_sponsorship(spon_id, spon_title, spon_content)
-        values(#{spon_id}, #{spon_title}, #{spon_content})
+        insert into t_sponsorship(spon_id, spon_title, spon_content, spon_url, spon_sname)
+        values(#{spon_id}, #{spon_title}, #{spon_content}, #{spon_url}, #{spon_sname})
     </insert>
     
     <!-- 수정한 게시글 db에 업데이트하는 sql문 -->

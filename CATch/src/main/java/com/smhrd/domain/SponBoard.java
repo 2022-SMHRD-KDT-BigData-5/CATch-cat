@@ -17,5 +17,8 @@ public class SponBoard {
 	private Timestamp spon_date;
 	private int spon_cnt;
 	private String spon_id;
-
+	
+	//이미지저장
+	private String spon_url;
+	private String spon_sname;
 }

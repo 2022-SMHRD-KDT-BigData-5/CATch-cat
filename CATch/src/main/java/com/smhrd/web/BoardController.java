@@ -153,44 +153,99 @@ public class BoardController {
 
 	// ----------- 게시글 등록하는 메서드0
 	@PostMapping("/adoptBoardInsert.do")
-	public String adoptInsert(AdoptBoard vo,HttpSession session ,@RequestParam("adt_file") MultipartFile file) throws IOException {
+	public String adoptInsert(AdoptBoard vo, HttpSession session, @RequestParam("file") MultipartFile file)
+			throws IOException {
 		// 원본파일명
-				String fileRealName = file.getOriginalFilename();
-				long size = file.getSize(); // 파일사이즈		
-				
-				// 서버에 저장할 파일이름 fileextension으로 .jsp 이런식의 확장명을 구함
-				String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
-				String path = session.getServletContext().getRealPath("resources/upload");
-				
-				// 파일업로드시 그 폴더에 동일한 명칭이 있을수도 있기때문에 랜덤한 명칭을 줌
-				UUID uuid = UUID.randomUUID();
-				String[] uuids = uuid.toString().split("-");
-				String uniqueName = uuids[0];
-				
-				File saveFile =new File(path+"\\"+uniqueName + fileExtension);
-				try {
-					// 실제 파일에 저장
-					file.transferTo(saveFile); 
-				}catch (IllegalStateException e) {
-					e.printStackTrace();
-				}
-				
-				String url = path+"\\"+uniqueName + fileExtension;
-				
-				vo.setAdt_url(url);
-				vo.setAdt_sname(uniqueName+fileExtension);
-				mapper.adoptBoardInsert(vo);
-				return "redirect:/adopt.do";
+		String fileRealName = file.getOriginalFilename();
+		long size = file.getSize(); // 파일사이즈
+
+		// 서버에 저장할 파일이름 fileextension으로 .jsp 이런식의 확장명을 구함
+		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
+		String path = session.getServletContext().getRealPath("resources/upload");
+
+		// 파일업로드시 그 폴더에 동일한 명칭이 있을수도 있기때문에 랜덤한 명칭을 줌
+		UUID uuid = UUID.randomUUID();
+		String[] uuids = uuid.toString().split("-");
+		String uniqueName = uuids[0];
+
+		File saveFile = new File(path + "\\" + uniqueName + fileExtension);
+		try {
+			// 실제 파일에 저장
+			file.transferTo(saveFile);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		}
+
+		String url = path + "\\" + uniqueName + fileExtension;
+
+		vo.setAdt_url(url);
+		vo.setAdt_sname(uniqueName + fileExtension);
+		mapper.adoptBoardInsert(vo);
+		return "redirect:/adopt.do";
 	}
 
 	@PostMapping("/commBoardInsert.do")
-	public String commInsert(CommBoard vo) {
+	public String commInsert(CommBoard vo, HttpSession session, @RequestParam("file") MultipartFile file)
+			throws IOException{
+		// 원본파일명
+		String fileRealName = file.getOriginalFilename();
+		long size = file.getSize(); // 파일사이즈
+
+		// 서버에 저장할 파일이름 fileextension으로 .jsp 이런식의 확장명을 구함
+		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
+		String path = session.getServletContext().getRealPath("resources/upload");
+
+		// 파일업로드시 그 폴더에 동일한 명칭이 있을수도 있기때문에 랜덤한 명칭을 줌
+		UUID uuid = UUID.randomUUID();
+		String[] uuids = uuid.toString().split("-");
+		String uniqueName = uuids[0];
+
+		File saveFile = new File(path + "\\" + uniqueName + fileExtension);
+		try {
+			// 실제 파일에 저장
+			file.transferTo(saveFile);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		}
+
+		String url = path + "\\" + uniqueName + fileExtension;
+
+		vo.setArticle_url(url);
+		vo.setArticle_sname(uniqueName + fileExtension);
+
 		mapper.commBoardInsert(vo);
 		return "redirect:/comm.do";
 	}
 
 	@PostMapping("/sponBoardInsert.do")
-	public String boardForm(SponBoard vo) {
+	public String boardForm(SponBoard vo, HttpSession session, @RequestParam("file") MultipartFile file)
+			throws IOException{
+		// 원본파일명
+		String fileRealName = file.getOriginalFilename();
+		long size = file.getSize(); // 파일사이즈
+
+		// 서버에 저장할 파일이름 fileextension으로 .jsp 이런식의 확장명을 구함
+		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
+		String path = session.getServletContext().getRealPath("resources/upload");
+
+		// 파일업로드시 그 폴더에 동일한 명칭이 있을수도 있기때문에 랜덤한 명칭을 줌
+		UUID uuid = UUID.randomUUID();
+		String[] uuids = uuid.toString().split("-");
+		String uniqueName = uuids[0];
+
+		File saveFile = new File(path + "\\" + uniqueName + fileExtension);
+		try {
+			// 실제 파일에 저장
+			file.transferTo(saveFile);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		}
+
+		String url = path + "\\" + uniqueName + fileExtension;
+
+		vo.setSpon_url(url);
+		vo.setSpon_sname(uniqueName + fileExtension);
+
 		mapper.sponBoardInsert(vo);
 		return "redirect:/spon.do";
 	}
