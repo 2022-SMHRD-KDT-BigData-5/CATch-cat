@@ -61,7 +61,7 @@
 </section>
 
 	<div class="container"style="text-align: center">
-  <form class="form-horizontal" action="commBoardUpdate.do?article_seq=${CommBoard.article_seq }" method="post">
+  <form class="form-horizontal" action="commBoardUpdate.do?article_seq=${CommBoard.article_seq }" enctype="multipart/form-data" method="post">
     <div class="form-group">
       <div class="col-sm-10">
         <input type="text" class="form-control" id="title" value="${CommBoard.article_title }" style="width: 704px;height: 28px;" required name="article_title">
@@ -70,8 +70,16 @@
     </div>
     <div class="form-group">
  <div class="col-sm-10">
-  <textarea class="form-control"style="width: 704px;height: 400px;" rows="5" required name="article_content">${CommBoard.article_content}</textarea>
+  <textarea class="form-control"style="width: 704px;height: 400px;" rows="5" value="${CommBoard.article_content}" required name="article_content"></textarea>
 </div>
+<div>
+	<img src="upload/${CommBoard.article_sname}">
+</div>
+<div>
+	<input type="file" name="file" id="id_photo">
+    (주의사항 : 이미지를 변경하고자 할때만 선택하시오.)
+</div>
+
 </div>
     <div class="form-group">        
       <div>

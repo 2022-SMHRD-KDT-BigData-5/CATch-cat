@@ -45,6 +45,12 @@ public interface BoardMapper {
 	
 	public int sponBoardInsert(SponBoard vo);
 	
+	// 게시글(이미지)작성
+	public int adoptFileInsert(AdoptBoard vo);
+	
+	public int commFileInsert(CommBoard vo);
+	
+	public int sponFileInsert(SponBoard vo);
 	
 	// 댓글 작성
 	public int adoptCommentInsert(AdoptComment vo);
@@ -96,7 +102,15 @@ public interface BoardMapper {
 	public int sponBoardUpdate(SponBoard vo);
 	
 	public int commBoardUpdate(CommBoard vo);
-
+	
+	// 게시글(이미지) 수정
+	public int adoptFileUpdate(AdoptBoard vo);
+	
+	public int sponFileUpdate(SponBoard vo);
+	
+	public int commFileUpdate(CommBoard vo);
+	
+	
 	// 게시글 검색
 	public abstract List<AdoptBoard> adoptBoardSearch(AdoptBoard vo);	
 	
