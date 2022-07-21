@@ -55,12 +55,12 @@ if(member!=null){
   
         <div class="catcardform">
 
-            <form action="catcardInsert.do" method="post"  >
+            <form action="catcardInsert.do" name="catform"  method="post" enctype="multipart/form-data" >
                 
                 <h2>캣카드 등록</h2>
                 
                 <h5>고양이 이름</h5>
-            <input name="cat_name" type="text"  placeholder="고양이 이름 입력">
+            <input name="cat_name" type="text"  placeholder="고양이 이름 입력" enctype="multipart/form-data">
            		
            		<h5>고양이 생년월일</h5>
             <p><input name="cat_birthdate" type="date" placeholder="-빼고 작성해주세요"></p>
@@ -80,6 +80,11 @@ if(member!=null){
             	<h5>고양이 특이사항</h5>
            	 <td colspan="2"><textarea name="cat_spec" cols="20" rows="5"></textarea></td>
             <tr align="center" bgcolor="whitesmoke">
+            
+            <h5>고양이 사진</h5>
+            <h5>고양이 사진 무조건 넣으세요!!!!!!!!!!!</h5>
+            <input type="file" style=" border:0 solid black;width: 704px;height: 28px;" name="file", id="file" >
+            
                 <td colspan="2"> 
                     <br><input type="submit" value="등록하기">
                 </td>

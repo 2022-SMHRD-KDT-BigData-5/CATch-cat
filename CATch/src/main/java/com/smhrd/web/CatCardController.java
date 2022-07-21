@@ -1,7 +1,10 @@
 package com.smhrd.web;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,7 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.smhrd.domain.CatCard;
 import com.smhrd.domain.Medical;
@@ -99,13 +103,34 @@ public class CatCardController {
 	
 	//캣카드 등록
 	@RequestMapping("/catcardInsert.do")
-	public String catcardform(CatCard cardform ,Model model, HttpServletRequest request) {
+	public String catcardform(CatCard cardform, HttpSession session, @RequestParam("file") MultipartFile file) 
+			throws IOException{
 		
-		int cnt = 0;
-		cnt = mapper.insertcatcard(cardform);
-		if(cnt>0) {
-			System.out.println("캣카드 등록 성공");
+		String fileRealName = file.getOriginalFilename();
+		long size = file.getSize(); // 파일사이즈
+
+		// 서버에 저장할 파일이름 fileextension으로 .jsp 이런식의 확장명을 구함
+		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
+		String path = session.getServletContext().getRealPath("resources/upload");
+
+		// 파일업로드시 그 폴더에 동일한 명칭이 있을수도 있기때문에 랜덤한 명칭을 줌
+		UUID uuid = UUID.randomUUID();
+		String[] uuids = uuid.toString().split("-");
+		String uniqueName = uuids[0];
+
+		File saveFile = new File(path + "\\" + uniqueName + fileExtension);
+		try {
+			file.transferTo(saveFile);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
 		}
+
+		String url = path + "\\" + uniqueName + fileExtension;
+
+		cardform.setCat_url(url);
+		cardform.setCat_sname(uniqueName + fileExtension);
+		mapper.insertcatcard(cardform);
+		
 		return "redirect:/catcard.do";
 		}
 	
