@@ -55,8 +55,8 @@
     
     <!-- 캣카드 등록  sql문-->
     <insert id="insertcatcard" parameterType="com.smhrd.domain.CatCard">
-        insert into t_catcard(cat_name, cat_birthdate, cat_gender, cat_neutral, mem_id, cat_spec, cat_date)
-        values(#{cat_name}, #{cat_birthdate}, #{cat_gender},  #{cat_neutral}, #{mem_id}, #{cat_spec}, now())
+        insert into t_catcard(cat_name, cat_birthdate, cat_gender, cat_neutral, mem_id, cat_spec, cat_date, cat_url, cat_sname)
+        values(#{cat_name}, #{cat_birthdate}, #{cat_gender},  #{cat_neutral}, #{mem_id}, #{cat_spec}, now(), #{cat_url}, #{cat_sname})
     </insert>
     
 </mapper>
