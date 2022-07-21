@@ -88,6 +88,11 @@
 							th:value=<%=commBoardInfo.getArticle_title() %>/>
 					</td>
 				</tr>
+				<tr><td>이미지</td> 
+					<td><img src="upload/<%=commBoardInfo.getArticle_sname()%>"></td>
+				</tr>
+				
+				
 			<tr>
 				<td colspan="4" class="view_text">
 					<textarea title="내용" id="content" name="content"

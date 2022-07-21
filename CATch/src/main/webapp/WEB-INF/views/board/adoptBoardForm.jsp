@@ -72,7 +72,7 @@
 </div>
 </div>
 <div class="filebox" >
-			<input type="file" style=" border:0 solid black;width: 704px;height: 28px;" name="adt_file", id="file" >
+			<input type="file" style=" border:0 solid black;width: 704px;height: 28px;" name="file", id="file" >
 		</div>
     <div class="form-group">        
       <div>

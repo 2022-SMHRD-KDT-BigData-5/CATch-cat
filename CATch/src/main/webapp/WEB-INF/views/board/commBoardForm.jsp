@@ -59,7 +59,7 @@
 </section>
 
 	<div class="container"style="text-align: center">
-  <form class="form-horizontal" action="commBoardInsert.do" method="post">
+  <form class="form-horizontal" action="commBoardInsert.do" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <div class="col-sm-10">
         <input type="text" class="form-control" style="width: 704px;height: 28px;" required placeholder=" 제 목" name="article_title">
@@ -72,7 +72,7 @@
 </div>
 </div>
 <div class="filebox" >
-			<input type="file" style=" border:0 solid black;width: 704px;height: 28px;" id="file" >
+			<input type="file" style=" border:0 solid black;width: 704px;height: 28px;" id="file" name="file" >
 		</div>
     <div class="form-group">        
       <div>

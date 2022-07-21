@@ -17,5 +17,8 @@ public class CommBoard {
 	private Timestamp article_date;
 	private int article_cnt;
 	private String article_id;
-
+	
+	//이미지저장
+	private String article_url;
+	private String article_sname;
 }
