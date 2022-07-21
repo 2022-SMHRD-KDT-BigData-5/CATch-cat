@@ -28,6 +28,7 @@
 <tr><td>작성일</td> <td><%=sponBoardInfo.getSpon_date()%></td></tr>
 <tr><td>조회수</td> <td><%=sponBoardInfo.getSpon_cnt()%></td></tr>
 <tr><td>작성내용</td> <td><%=sponBoardInfo.getSpon_content() %></td></tr>
+<tr><td>이미지</td> <td><img src="upload/<%=sponBoardInfo.getSpon_sname()%>"></td></tr>
 
 	<tr>
 		<td colspan="2" align="center">

@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.smhrd.domain.CatCard;
 import com.smhrd.domain.Medical;
+import com.smhrd.domain.Member;
 import com.smhrd.domain.PictureCatNose;
 import com.smhrd.domain.Vaccination;
 
@@ -34,5 +35,8 @@ public interface CatCardMapper {
 	
 	//이미지 저장
 	PictureCatNose save(PictureCatNose picture);
-
+	
+	//캣카드 등록 메서드
+	public abstract int insertcatcard(CatCard cardform);
+	
 }

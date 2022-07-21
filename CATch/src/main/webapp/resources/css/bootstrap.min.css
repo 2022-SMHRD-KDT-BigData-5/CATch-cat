@@ -69,22 +69,22 @@ section {
     display: block
 }
 section.notice{
-	padding: 80px 0;
+   padding: 80px 0;
 }
 
 .page-title{
-	margin-bottom:60px;
+   margin-bottom:60px;
 }
 .page-title h3 {
-	font-size: 28px;
-	font-weight: 400;
-  	text-align: center;
+   font-size: 28px;
+   font-weight: 400;
+     text-align: center;
 }
 
 #board-search .search-window{
-	padding: 15px 0;
-	background-color: #FDF8F2;
-	margin-left: 800px;
+   padding: 15px 0;
+   background-color: #FDF8F2;
+   margin-left: 800px;
 }
 #board-search .search-window .search-wrap {
   position: relative;
@@ -114,9 +114,9 @@ section.notice{
   font-size: 14px;
 }
 .heading-description-wrap{
-	font-size: 22px;
-	font-weight: 400;
-	text-align: center;
+   font-size: 22px;
+   font-weight: 400;
+   text-align: center;
 }
 
 
@@ -3277,44 +3277,4 @@ fieldset:disabled a.btn {
 
 .btn-outline-dark.focus,
 .btn-outline-dark:focus {
-    box-shadow: 0 0 0 .2rem rgba(52, 58, 64, .5)
-}
-
-.btn-outline-dark.disabled,
-.btn-outline-dark:disabled {
-    color: #343a40;
-    background-color: transparent
-}
-
-.btn-outline-dark:not(:disabled):not(.disabled).active,
-.btn-outline-dark:not(:disabled):not(.disabled):active,
-.show>.btn-outline-dark.dropdown-toggle {
-    color: #fff;
-    background-color: #343a40;
-    border-color: #343a40
-}
-
-.btn-outline-dark:not(:disabled):not(.disabled).active:focus,
-.btn-outline-dark:not(:disabled):not(.disabled):active:focus,
-.show>.btn-outline-dark.dropdown-toggle:focus {
-    box-shadow: 0 0 0 .2rem rgba(52, 58, 64, .5)
-}
-
-.btn-link {
-    font-weight: 400;
-    color: #007bff;
-    background-color: transparent
-}
-
-.btn-link:hover {
-    color: #0056b3;
-    text-decoration: underline;
-    background-color: transparent;
-    border-color: transparent
-}
-
-.btn-link.focus,
-.btn-link:focus {
-    text-decoration: underline;
-    border-color: transparent;
-    box-shadow: none
+    box-shadow: 0 0 0 .2rem rgba(52, 5
