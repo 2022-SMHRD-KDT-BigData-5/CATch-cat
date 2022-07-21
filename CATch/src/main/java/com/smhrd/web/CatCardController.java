@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.smhrd.domain.CatCard;
 import com.smhrd.domain.Medical;
+import com.smhrd.domain.Member;
 import com.smhrd.domain.Vaccination;
 import com.smhrd.mapper.CatCardMapper;
 
@@ -98,14 +99,16 @@ public class CatCardController {
 	
 	//캣카드 등록
 	@RequestMapping("/catcardInsert.do")
-	public String catcardform(CatCard cardform ,Model model) {
+	public String catcardform(CatCard cardform ,Model model, HttpServletRequest request) {
+		
 		int cnt = 0;
 		cnt = mapper.insertcatcard(cardform);
 		if(cnt>0) {
 			System.out.println("캣카드 등록 성공");
 		}
 		return "redirect:/catcard.do";
-	}
+		}
+	
 	
 	//캣카드 등록으로 이동
 	@RequestMapping("/catcardForm.do")
