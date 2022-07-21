@@ -17,10 +17,7 @@
 					<div class="row">
 						<div class="col-lg-6 col-md-8">
 							<div class="short_contact_list">
-								<ul>
-									<li><a href="#">+82-10-9927-8280</a></li>
-									<li><a href="#">Mon - Sat 8:00 - 22:00</a></li>
-								</ul>
+								
 							</div>
 						</div>
 						<div class="col-lg-6 col-md-4 ">

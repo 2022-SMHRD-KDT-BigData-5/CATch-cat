@@ -44,7 +44,7 @@
                         <div class="slider_text">
                             <h3>내 고양이의 <br> <span>코를 찍어보자!</span></h3>
                             <p>캣치의 AI 생체 기술로 <br> 반려묘의 비문을 등록해보세요.</p>
-                            <a href="contact.html" class="boxed-btn4">Contact Us</a>
+                            <a href="catcardForm.do" class="boxed-btn4">비문 등록 하러가기</a>
                         </div>
                     </div>
                 </div>
