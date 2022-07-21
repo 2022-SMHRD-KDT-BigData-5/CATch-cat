@@ -31,6 +31,12 @@
         <!-- 여기해서 안되면 servlet-context로 옮기기 -->
         <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></bean>
         
+        <!-- 이미지 테스트 -->
+		<bean id="uploadPath" class="java.lang.String">
+ 		<constructor-arg value="C:\\Users\\cameldev\\eclipse-workspace\\mypage\\src\\main\\webapp\\resources\\upload">
+ 		</constructor-arg>
+		</bean>
+
         <!-- ************ -->
         <!-- mapper가 있는 패키지 스캔해서 interface를 완전한 객체로 만들어줌 -->
         <mybatis-spring:scan base-package="com.smhrd.mapper"/>
