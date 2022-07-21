@@ -153,45 +153,119 @@ public class BoardController {
 
 	// ----------- 게시글 등록하는 메서드0
 	@PostMapping("/adoptBoardInsert.do")
-	public String adoptInsert(AdoptBoard vo,HttpSession session ,@RequestParam("adt_file") MultipartFile file) throws IOException {
-		// 원본파일명
-				String fileRealName = file.getOriginalFilename();
-				long size = file.getSize(); // 파일사이즈		
-				
-				// 서버에 저장할 파일이름 fileextension으로 .jsp 이런식의 확장명을 구함
-				String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
-				String path = session.getServletContext().getRealPath("resources/upload");
-				
-				// 파일업로드시 그 폴더에 동일한 명칭이 있을수도 있기때문에 랜덤한 명칭을 줌
-				UUID uuid = UUID.randomUUID();
-				String[] uuids = uuid.toString().split("-");
-				String uniqueName = uuids[0];
-				
-				File saveFile =new File(path+"\\"+uniqueName + fileExtension);
-				try {
-					// 실제 파일에 저장
-					file.transferTo(saveFile); 
-				}catch (IllegalStateException e) {
-					e.printStackTrace();
-				}
-				
-				String url = path+"\\"+uniqueName + fileExtension;
-				
-				vo.setAdt_url(url);
-				vo.setAdt_sname(uniqueName+fileExtension);
-				mapper.adoptBoardInsert(vo);
-				return "redirect:/adopt.do";
+	public String adoptInsert(AdoptBoard vo, HttpSession session, @RequestParam("file") MultipartFile file)
+			throws IOException {
+		
+		if (!file.isEmpty()) {
+			// 원본파일명
+			String fileRealName = file.getOriginalFilename();
+			long size = file.getSize(); // 파일사이즈
+
+			// 서버에 저장할 파일이름 fileextension으로 .jsp 이런식의 확장명을 구함
+			String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
+			String path = session.getServletContext().getRealPath("resources/upload");
+
+			// 파일업로드시 그 폴더에 동일한 명칭이 있을수도 있기때문에 랜덤한 명칭을 줌
+			UUID uuid = UUID.randomUUID();
+			String[] uuids = uuid.toString().split("-");
+			String uniqueName = uuids[0];
+
+			File saveFile = new File(path + "\\" + uniqueName + fileExtension);
+			try {
+				// 실제 파일에 저장
+				file.transferTo(saveFile);
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			}
+
+			String url = path + "\\" + uniqueName + fileExtension;
+
+			vo.setAdt_url(url);
+			vo.setAdt_sname(uniqueName + fileExtension);
+			mapper.adoptFileInsert(vo);
+
+		}else {
+			mapper.adoptBoardInsert(vo);
+		}
+		
+		
+		
+		return "redirect:/adopt.do";
 	}
 
 	@PostMapping("/commBoardInsert.do")
-	public String commInsert(CommBoard vo) {
-		mapper.commBoardInsert(vo);
+	public String commInsert(CommBoard vo, HttpSession session, @RequestParam("file") MultipartFile file)
+			throws IOException{
+		
+		if (!file.isEmpty()) {
+			// 원본파일명
+			String fileRealName = file.getOriginalFilename();
+			long size = file.getSize(); // 파일사이즈
+
+			// 서버에 저장할 파일이름 fileextension으로 .jsp 이런식의 확장명을 구함
+			String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
+			String path = session.getServletContext().getRealPath("resources/upload");
+
+			// 파일업로드시 그 폴더에 동일한 명칭이 있을수도 있기때문에 랜덤한 명칭을 줌
+			UUID uuid = UUID.randomUUID();
+			String[] uuids = uuid.toString().split("-");
+			String uniqueName = uuids[0];
+
+			File saveFile = new File(path + "\\" + uniqueName + fileExtension);
+			try {
+				// 실제 파일에 저장
+				file.transferTo(saveFile);
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			}
+
+			String url = path + "\\" + uniqueName + fileExtension;
+
+			vo.setArticle_url(url);
+			vo.setArticle_sname(uniqueName + fileExtension);
+			mapper.commFileInsert(vo);
+
+		} else {
+			mapper.commBoardInsert(vo);
+		}
+
 		return "redirect:/comm.do";
 	}
 
 	@PostMapping("/sponBoardInsert.do")
-	public String boardForm(SponBoard vo) {
-		mapper.sponBoardInsert(vo);
+	public String boardForm(SponBoard vo, HttpSession session, @RequestParam("file") MultipartFile file)
+			throws IOException{
+		if (!file.isEmpty()) {
+			// 원본파일명
+			String fileRealName = file.getOriginalFilename();
+			long size = file.getSize(); // 파일사이즈
+
+			String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
+			String path = session.getServletContext().getRealPath("resources/upload");
+
+			// 파일업로드시 그 폴더에 동일한 명칭이 있을수도 있기때문에 랜덤한 명칭을 줌
+			UUID uuid = UUID.randomUUID();
+			String[] uuids = uuid.toString().split("-");
+			String uniqueName = uuids[0];
+
+			File saveFile = new File(path + "\\" + uniqueName + fileExtension);
+			try {
+				file.transferTo(saveFile);
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			}
+
+			String url = path + "\\" + uniqueName + fileExtension;
+
+			vo.setSpon_url(url);
+			vo.setSpon_sname(uniqueName + fileExtension);
+
+			mapper.sponFileInsert(vo);
+
+		} else {
+			mapper.sponBoardInsert(vo);
+		}
+
 		return "redirect:/spon.do";
 	}
 
@@ -279,20 +353,109 @@ public class BoardController {
 
 	// -------------- 수정한 게시글 업데이트 해주는 메서드
 	@RequestMapping("/adoptBoardUpdate.do")
-	public String adoptBoardUpdate(AdoptBoard vo) {
-		mapper.adoptBoardUpdate(vo);
+	public String adoptBoardUpdate(AdoptBoard vo, HttpSession session, @RequestParam("file") MultipartFile file) 
+			throws IOException{
+		
+		// 이미지 변경했을때
+		if(!file.isEmpty()) {
+			System.out.println("이미지변경함");
+			String fileRealName = file.getOriginalFilename();
+			String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
+			String path = session.getServletContext().getRealPath("resources/upload");
+			UUID uuid = UUID.randomUUID();
+			String[] uuids = uuid.toString().split("-");
+			String uniqueName = uuids[0];
+			
+			File saveFile = new File(path + "\\" + uniqueName + fileExtension);
+			try {
+				// 실제 파일에 저장
+				file.transferTo(saveFile);
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			}
+
+			String url = path + "\\" + uniqueName + fileExtension;
+			vo.setAdt_url(url);
+			vo.setAdt_sname(uniqueName + fileExtension);
+			
+			mapper.adoptFileUpdate(vo);
+		}else { 
+			//이미지 변경안함
+			System.out.println("이미지 변경안함");
+			mapper.adoptBoardUpdate(vo);
+		}
+		
 		return "redirect:/adtinfo.do?adt_seq=" + vo.getAdt_seq();
 	}
 
 	@RequestMapping("/sponBoardUpdate.do")
-	public String sponBoardUpdate(SponBoard vo) {
-		mapper.sponBoardUpdate(vo);
+	public String sponBoardUpdate(SponBoard vo, HttpSession session, @RequestParam("file") MultipartFile file) 
+			throws IOException{
+		
+		// 이미지 변경했을때
+		if (!file.isEmpty()) {
+			System.out.println("이미지변경함");
+			String fileRealName = file.getOriginalFilename();
+			String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
+			String path = session.getServletContext().getRealPath("resources/upload");
+			UUID uuid = UUID.randomUUID();
+			String[] uuids = uuid.toString().split("-");
+			String uniqueName = uuids[0];
+
+			File saveFile = new File(path + "\\" + uniqueName + fileExtension);
+			try {
+				// 실제 파일에 저장
+				file.transferTo(saveFile);
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			}
+
+			String url = path + "\\" + uniqueName + fileExtension;
+			vo.setSpon_url(url);
+			vo.setSpon_sname(uniqueName + fileExtension);
+
+			mapper.sponFileUpdate(vo);
+		} else {
+			// 이미지 변경안함
+			System.out.println("이미지 변경안함");
+			mapper.sponBoardUpdate(vo);
+		}
+
 		return "redirect:/sponinfo.do?spon_seq=" + vo.getSpon_seq();
 	}
 
 	@RequestMapping("/commBoardUpdate.do")
-	public String commBoardUpdate(CommBoard vo) {
-		mapper.commBoardUpdate(vo);
+	public String commBoardUpdate(CommBoard vo, HttpSession session, @RequestParam("file") MultipartFile file) 
+			throws IOException{
+		// 이미지 변경했을때
+		if (!file.isEmpty()) {
+			System.out.println("이미지변경함");
+			String fileRealName = file.getOriginalFilename();
+			String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
+			String path = session.getServletContext().getRealPath("resources/upload");
+			UUID uuid = UUID.randomUUID();
+			String[] uuids = uuid.toString().split("-");
+			String uniqueName = uuids[0];
+
+			File saveFile = new File(path + "\\" + uniqueName + fileExtension);
+			try {
+				// 실제 파일에 저장
+				file.transferTo(saveFile);
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			}
+
+			String url = path + "\\" + uniqueName + fileExtension;
+			vo.setArticle_url(url);
+			vo.setArticle_sname(uniqueName + fileExtension);
+
+			mapper.commFileUpdate(vo);
+		} else {
+			// 이미지 변경안함
+			System.out.println("이미지 변경안함");
+			mapper.commBoardUpdate(vo);
+		}
+		
 		return "redirect:/comminfo.do?article_seq=" + vo.getArticle_seq();
 	}
 

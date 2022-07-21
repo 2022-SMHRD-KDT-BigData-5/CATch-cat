@@ -61,7 +61,7 @@
 </section>
 
 	<div class="container"style="text-align: center">
-  <form class="form-horizontal" action="sponBoardUpdate.do?spon_seq=${SponBoard.spon_seq }" method="post">
+  <form class="form-horizontal" action="sponBoardUpdate.do?spon_seq=${SponBoard.spon_seq }" enctype="multipart/form-data" method="post">
     <div class="form-group">
       <div class="col-sm-10">
         <input type="text" class="form-control" id="title" style="width: 704px;height: 28px;" required value="${SponBoard.spon_title }" name="spon_title">
@@ -72,6 +72,14 @@
  <div class="col-sm-10">
   <textarea class="form-control"style="width: 704px;height: 400px;" rows="5" required name="spon_content">${SponBoard.spon_content}</textarea>
 </div>
+<div>
+	<img src="upload/${SponBoard.spon_sname}">
+</div>
+<div>
+	<input type="file" name="file" id="id_photo">
+    (주의사항 : 이미지를 변경하고자 할때만 선택하시오.)
+</div>
+
 </div>
     <div class="form-group">        
       <div>

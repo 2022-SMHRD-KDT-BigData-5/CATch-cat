@@ -89,6 +89,38 @@
 					<td colspan="4" class="view_text"><%=commBoardInfo.getArticle_content()%>
 					</td>
 				</tr>
+<<<<<<< HEAD
+=======
+				<tr><td>이미지</td> 
+					<td><img src="upload/<%=commBoardInfo.getArticle_sname()%>"></td>
+				</tr>
+				
+				
+			<tr>
+				<td colspan="4" class="view_text">
+					<textarea title="내용" id="content" name="content"
+						th:text=<%=commBoardInfo.getArticle_content()%>>
+					</textarea>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" align="center">
+					<!-- 자신이 작성한 글에만 수정/삭제버튼 출력 --> <%
+ 	if (member.getMem_id().equals(commBoardInfo.getArticle_id())) {
+ %>
+					<button
+						onClick="location.href='commUpdateForm.do?article_seq=${article_seq}'">수정</button>
+					<button
+						onClick="location.href='commBoardDelete.do?article_seq=${article_seq}'">삭제</button>
+					<%
+						}
+					%>
+					<button onclick="location.href='comm.do'">목록</button>
+				</td>
+			</tr>
+		</table>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
 
 				<tr>
 					<td colspan="2" align="center">

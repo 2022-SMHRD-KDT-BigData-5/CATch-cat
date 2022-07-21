@@ -21,13 +21,9 @@
    </beans:bean>
    
 	
-	<!-- 파일업로드를 위한 디렉토리 설정 -->
-	<!-- String uploadPath = new String("업로드 경로") -->
-	<beans:bean id="uploadPath" class="java.lang.String">
-	    <!-- 파일업로드 디렉토리 -->
-	    <beans:constructor-arg value="해당디렉토리"/>
-	</beans:bean>
-	
+
+
+
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/**" location="/resources/" />

@@ -69,8 +69,8 @@
     
     <!-- 게시글 db에 추가하는 sql문 -->
     <insert id="adoptBoardInsert" parameterType="com.smhrd.domain.AdoptBoard">
-        insert into t_adoption(adt_id, adt_title, adt_content, adt_url, adt_sname)
-        values(#{adt_id}, #{adt_title}, #{adt_content}, #{adt_url} ,#{adt_sname})
+        insert into t_adoption(adt_id, adt_title, adt_content)
+        values(#{adt_id}, #{adt_title}, #{adt_content})
     </insert>
     
     <insert id="commBoardInsert" parameterType="com.smhrd.domain.CommBoard">
@@ -81,6 +81,22 @@
     <insert id="sponBoardInsert" parameterType="com.smhrd.domain.SponBoard">
         insert into t_sponsorship(spon_id, spon_title, spon_content)
         values(#{spon_id}, #{spon_title}, #{spon_content})
+    </insert>
+    
+    <!-- 게시글파일추가업로드  -->
+    <insert id="adoptFileInsert" parameterType="com.smhrd.domain.AdoptBoard">
+        insert into t_adoption(adt_id, adt_title, adt_content, adt_url, adt_sname)
+        values(#{adt_id}, #{adt_title}, #{adt_content}, #{adt_url} ,#{adt_sname})
+    </insert>
+    
+    <insert id="commFileInsert" parameterType="com.smhrd.domain.CommBoard">
+        insert into t_community(article_id, article_title, article_content, article_url, article_sname)
+        values(#{article_id}, #{article_title}, #{article_content}, #{article_url}, #{article_sname})
+    </insert>
+    
+    <insert id="sponFileInsert" parameterType="com.smhrd.domain.SponBoard">
+        insert into t_sponsorship(spon_id, spon_title, spon_content, spon_url, spon_sname)
+        values(#{spon_id}, #{spon_title}, #{spon_content}, #{spon_url}, #{spon_sname})
     </insert>
     
     <!-- 수정한 게시글 db에 업데이트하는 sql문 -->
@@ -99,6 +115,22 @@
         where article_seq = #{article_seq}
     </update>
     
+	<!-- 이미지수정한 게시글 db에 업데이트하는 sql문 -->
+	<update id="adoptFileUpdate" parameterType="com.smhrd.domain.AdoptBoard">
+        update t_adoption set adt_id=#{adt_id}, adt_title=#{adt_title}, adt_content=#{adt_content}, adt_url=#{adt_url}, adt_sname=#{adt_sname}
+        where adt_seq = #{adt_seq}
+    </update>
+	
+	<update id="sponFileUpdate" parameterType="com.smhrd.domain.SponBoard">
+        update t_sponsorship set spon_id=#{spon_id}, spon_title=#{spon_title}, spon_content=#{spon_content}, spon_url=#{spon_url}, spon_sname=#{spon_sname}
+        where spon_seq = #{spon_seq}
+    </update>
+	
+	<update id="commFileUpdate" parameterType="com.smhrd.domain.CommBoard">
+        update t_community set article_id=#{article_id}, article_title=#{article_title}, article_content=#{article_content}, article_url=#{article_url}, article_sname=#{article_sname}
+        where article_seq = #{article_seq}
+    </update>
+	
 	<!-- 조회수 업데이트하는 sql문 -->
 	<update id= "adoptCntUpdate" parameterType="com.smhrd.domain.AdoptBoard" >
 	    update t_adoption set adt_cnt = adt_cnt+1
