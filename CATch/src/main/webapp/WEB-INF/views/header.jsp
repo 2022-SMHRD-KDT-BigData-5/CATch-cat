@@ -50,7 +50,7 @@
 					<div class="row align-items-center">
 						<div class="col-xl-3 col-lg-3">
 							<div class="logo">
-								<a href="main.do"> <img src="img/catch.png" alt="">
+								<a href="main.do"> <img src="img/005.png" alt="">
 								</a>
 							</div>
 						</div>
