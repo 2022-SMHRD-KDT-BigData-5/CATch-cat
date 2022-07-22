@@ -44,8 +44,16 @@
                         <div class="slider_text">
                             <h3>집사님<br><span>밥줘요</span></h3>
                             <p>캣치의 AI 생체 기술로 <br> 반려묘의 비문을 등록해보세요.</p>
+<<<<<<< HEAD
                             <br>
+=======
+                   <br>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
                             <a href="catcardForm.do" class="boxed-btn4">캣카드 만들기</a>
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
                         </div>
                     </div>
                 </div>
