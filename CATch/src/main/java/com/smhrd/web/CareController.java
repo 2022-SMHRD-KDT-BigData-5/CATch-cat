@@ -11,13 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-
-
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.smhrd.domain.CareBoard;
-
+import com.smhrd.domain.CatCard;
 import com.smhrd.mapper.CareMapper;
 
 @Controller	
@@ -44,6 +44,15 @@ public class CareController {
 		}
 		return "redirect:/carezone.do";
 	}
+	
+	@RequestMapping("/selectCatCarezone.do")
+	public String selectCatCarezone(Model model, int cat_carezone) {
+		List<CatCard> catcardList = mapper.selectCareCatCard(cat_carezone);
+		model.addAttribute("catcardList", catcardList);
+		
+		return "redirect:/carezone.do";
+	}
+	
 	
 	
 
