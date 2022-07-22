@@ -32,9 +32,9 @@
     <link rel="stylesheet" href="css/myCat.css">
     <link rel="stylesheet" href="css/jointest.css">
     <style>
-    	.id_ok{color:rgb(7, 104, 7); display:none;}
-    	.id_already{color:rgb(219, 20, 63); display:none;}
-    	   * {
+       .id_ok{color:rgb(7, 104, 7); display:none;}
+       .id_already{color:rgb(219, 20, 63); display:none;}
+          * {
         font-size: 16px;
         font-family: Consolas, sans-serif;
       }
@@ -45,13 +45,13 @@
 Member member = (Member)session.getAttribute("member");
 String mem_id = "";
 if(member!=null){
-	mem_id = member.getMem_id();
+   mem_id = member.getMem_id();
 }
 %>
-	
-	<!-- 캣카드 등록 -->
-	
-	<h1 class = "h_title"><img src="img/catch-removebg.png" ></h1>
+   
+   <!-- 캣카드 등록 -->
+   
+   <h1 class = "h_title"><img src="img/catch-removebg.png" ></h1>
   
         <div class="catcardform">
 
@@ -60,30 +60,30 @@ if(member!=null){
                 <h2>캣카드 등록</h2>
                 
                 <h5>고양이 이름</h5>
-            <input name="cat_name" type="text"  placeholder="고양이 이름 입력" enctype="multipart/form-data">
-           		
-           		<h5>고양이 생년월일</h5>
+            <input name="cat_name" type="text"  placeholder="고양이 이름 입력" >
+                 
+                 <h5>고양이 생년월일</h5>
             <p><input name="cat_birthdate" type="date" placeholder="-빼고 작성해주세요"></p>
-      		
-            	<h5>고양이 성별</h5>
+            
+               <h5>고양이 성별</h5>
             <label><input type="radio" name="cat_gender" value="M" checked >수컷</label>
-  			<label><input type="radio" name="cat_gender" value="F" checked >암컷</label>
-  			
-  				<h5>중성화 여부</h5>
-          	<label><input class="joincheck" type="checkbox" name="cat_neutral" value="Y">중성화</label>
-			
+           <label><input type="radio" name="cat_gender" value="F" checked >암컷</label>
+           
+              <h5>중성화 여부</h5>
+             <label><input class="joincheck" type="checkbox" name="cat_neutral" value="Y">중성화</label>
+         
                      
-            	<h5>보호자 아이디</h5>
+               <h5>보호자 아이디</h5>
             <input name="mem_id" type="text" value=<%=mem_id%>>
   
-            	
-            	<h5>고양이 특이사항</h5>
-           	 <td colspan="2"><textarea name="cat_spec" cols="20" rows="5"></textarea></td>
+               
+               <h5>고양이 특이사항</h5>
+               <td colspan="2"><textarea name="cat_spec" cols="20" rows="5"></textarea></td>
             <tr align="center" bgcolor="whitesmoke">
             
             <h5>고양이 사진</h5>
             <h5>고양이 사진 무조건 넣으세요!!!!!!!!!!!</h5>
-            <input type="file" style=" border:0 solid black;width: 704px;height: 28px;" name="file", id="file" >
+             <input type="file" style=" border:0 solid black; display: inline-block" name="file", id="file" >
             
                 <td colspan="2"> 
                     <br><input type="submit" value="등록하기">
@@ -96,7 +96,7 @@ if(member!=null){
     </div>
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      <script type="text/javascript"></script>
-   	 <script>
+       <script>
      
      
      
