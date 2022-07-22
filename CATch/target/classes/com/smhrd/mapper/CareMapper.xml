@@ -12,4 +12,10 @@
 	<select id="selectCareZone" resultType="com.smhrd.domain.CareBoard">
 	    select * from t_carezone
 	</select>
+	
+	<!-- 급식소의 고양이정보 가져오기 -->
+	<select id="selectCareCatCard" resultType="com.smhrd.domain.CatCard">
+	    select * from t_catcard
+	    where cat_carezone = #{cat_carezone}
+	</select>
 </mapper>

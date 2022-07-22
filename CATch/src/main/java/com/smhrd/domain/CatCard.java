@@ -39,6 +39,9 @@ public class CatCard {
 	//이미지 저장
 	private String cat_url;
 	private String cat_sname;
+	
+	//급식소
+	private int cat_carezone;
 
 
 }
