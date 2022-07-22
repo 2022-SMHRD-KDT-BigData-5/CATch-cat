@@ -56,8 +56,8 @@
                     <div class="col-xl-3 col-md-6 col-lg-3 ">
                         <div class="footer_widget">
                             <div class="footer_logo">
-                                <a href="#">
-                                    <img src="img/logo.png" alt="">
+                                <a href="main.do">
+                                    <img src="img/catch.png" alt="">
                                 </a>
                             </div>
                             <p class="address_text">239 E 5th St, New York 
