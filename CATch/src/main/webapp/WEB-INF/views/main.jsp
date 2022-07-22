@@ -14,7 +14,7 @@
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="acss/bootstrap.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -44,12 +44,8 @@
                         <div class="slider_text">
                             <h3>집사님<br><span>밥줘요</span></h3>
                             <p>캣치의 AI 생체 기술로 <br> 반려묘의 비문을 등록해보세요.</p>
-<<<<<<< HEAD
-                            <a href="catcardForm.do" class="boxed-btn4">비문 등록 하러가기</a>
-=======
                             <br>
                             <a href="catcardForm.do" class="boxed-btn4">캣카드 만들기</a>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
                         </div>
                     </div>
                 </div>
