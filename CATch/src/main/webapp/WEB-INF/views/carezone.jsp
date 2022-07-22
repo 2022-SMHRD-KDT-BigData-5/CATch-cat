@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.domain.CatCard"%>
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.domain.CareBoard"%>
 <%@page import="com.smhrd.domain.Member"%>
@@ -27,7 +28,8 @@ element .style {
 		care_id = "로그인먼저하세요";
 	}
 
-	List<CareBoard> careList = (List<CareBoard>) request.getAttribute("careList");
+	List<CareBoard> careList = (List<CareBoard>)request.getAttribute("careList");
+	List<CatCard> catcardList = (List<CatCard>)request.getAttribute("catcardList");
 	%>
 
 	<div class="map_wrap">
@@ -59,7 +61,7 @@ element .style {
 			type="text" name="care_longitude"> <br> <input
 			type="text" name="care_id" value=<%=care_id%> readonly> <br>
 
-		<input type="submit" value="급식소 등록하기">
+		<input type="submit" value="급식소 등록하기" id="carezone_submit">
 	</form>
 
 	<!-- 주소 -->
@@ -243,9 +245,9 @@ element .style {
 	            spriteSize : new kakao.maps.Size(36, 36), // 스프라이트 이미지의 크기
 	            spriteOrigin : new kakao.maps.Point(0, 0), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
 	            offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
-	        }, markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize,
-					imgOptions), marker = new kakao.maps.Marker({
-				position : position, // 마커의 위치
+	        }, 
+	        markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions), 
+	        marker = new kakao.maps.Marker({ position : position, // 마커의 위치
 				image : markerImage
 				
 			});
@@ -489,11 +491,15 @@ element .style {
 		},
 	<%}%>
 		];
+		
+
+		
 
 		// 커스텀 오버레이가 표시될 위치입니다 
 		
 		for (var i = 0; i < mark_content.length; i++) {
 		
+
 			
 		    // 마커 이미지의 이미지 크기 입니다
 		    var imageSize = new kakao.maps.Size(36, 36); 
@@ -505,6 +511,7 @@ element .style {
 			map:map,
 			position : mark_content[i].latlng,
 			image : markerImage
+			
 		});
 		var infowindow1 = new kakao.maps.InfoWindow({
 			content : mark_content[i].content
@@ -516,12 +523,45 @@ element .style {
 	
 			
 		
-		
+		//클릭시 말풍선뜨는거 ㅎㅎ
 		function markClick(map, marker, infowindow1) {
 		    return function() {
 		        infowindow1.open(map, marker);
 		        
-
+		        var catList = [
+		        	{
+		        		name:'야웅이',
+		        		age:'2살',
+		        		gender:'암컷',
+		        		spec:'귀여움',
+		        		neut:'완료',
+		        		cat_seq:'7'
+		        	},
+		        	{
+		        		name:'나비',
+		        		age:'3살',
+		        		gender:'암컷',
+		        		spec:'츄르 좋아함',
+		        		neut:'완료',
+		        		cat_seq:'7'
+		        	},
+		        	{
+		        		name:'냥냥이',
+		        		age:'4살',
+		        		gender:'수컷',
+		        		spec:'사람을 잘 따름',
+		        		neut:'없음',
+		        		cat_seq:'7'
+		        	}
+		        ]
+		        
+		        //클릭시 하단에 고양이목록 추가하는 함수
+		        for(var i=0; i<3; i++){ $('#carezone_submit').after('<table border="1px solid black"><tr><td>이름</td><td>'+catList[i].name+'</td></tr><tr><td>나이</td><td>'+catList[i].age+'</td></tr><tr><td>중성화</td><td>'+catList[i].neut+'</td></tr></table>')}
+		       
+		        
+		        
+	
+		        
 		    };
 		}
 
@@ -530,6 +570,8 @@ element .style {
 		function makeOutListener(infowindow1) {
 		    return function() {
 		        infowindow1.close();
+		        
+		       
 		    };
 		}
 		

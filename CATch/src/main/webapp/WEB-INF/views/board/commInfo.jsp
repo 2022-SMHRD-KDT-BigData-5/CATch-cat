@@ -179,13 +179,10 @@
 
 				<table border="1px solid black">
 
-					<%
-            if (member.getMem_id().equals(commComment.getCmt_id())) {
-         %>
+					<%  if (member.getMem_id().equals(commComment.getCmt_id())) {  %>
 					<tr>
 						<td colspan="2" align="center">
-							<button
-								onClick="location.href='commBoardCmtDelete.do?cmt_seq=<%=commComment.getCmt_seq()%>&&article_seq=<%=commComment.getArticle_seq()%>'">삭제</button>
+							<button onClick="location.href='commBoardCmtDelete.do?cmt_seq=<%=commComment.getCmt_seq()%>&&article_seq=<%=commComment.getArticle_seq()%>'">삭제</button>
 						</td>
 					</tr>
 					<%} %>
