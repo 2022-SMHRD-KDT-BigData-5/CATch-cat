@@ -59,36 +59,26 @@
 											</c:otherwise>
 										</c:choose>
 
-										<li><a href="login.do">login</a>
+										
 										<c:choose>
 											<c:when test="${empty member}">
-												<a href="login.do"> 
-												</a>
-												<a href="join.do"> 
-												</a>
+												<li>
+												<a href="login.do">login</a>
+												</li>
+												<li>
+												<a href="join.do">join</a>
+												</li>
 											</c:when>
 											<c:otherwise>
-												<p>${member.mem_id}님</p>
+												<li>
 												<a href="logout.do"><span>logout</span></a>
+												</li>
 											</c:otherwise>
 										</c:choose>
-										</li>
 										
 										
 										
 										
-										<li><a href="join.do">join</a>
-										<c:choose>
-											<c:when test="${empty member }">
-												<a href="join.do">
-												</a>	
-											</c:when>
-											<c:otherwise>
-												<p>${member.mem_id}님</p>
-												<a href="logout.do"><span>logout</span></a>
-											</c:otherwise>
-										</c:choose>
-										</li>
 										
 
 									</ul>

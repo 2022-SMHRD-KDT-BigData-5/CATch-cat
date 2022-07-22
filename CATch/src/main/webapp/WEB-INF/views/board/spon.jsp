@@ -2,164 +2,153 @@
 <%@page import="com.smhrd.domain.SponBoard"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%
+	List<SponBoard> sponList = (List<SponBoard>) request.getAttribute("sponList");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
 
-<!-- 게시판css -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-<!-- CSS here -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/gijgo.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/slicknav.css">
-    <link rel="stylesheet" href="css/style.css">
+
+
+
+<link rel="stylesheet" href="css/style.css">
 
 <!-- 글꼴 -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
-    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap"
+	rel="stylesheet">
+
 </head>
+
+
 <body>
-<% Member member = (Member)session.getAttribute("member");%>
-<jsp:include page="../header.jsp"></jsp:include>
+	<%
+		Member member = (Member) session.getAttribute("member");
+	%>
+	<jsp:include page="../header.jsp"></jsp:include>
+
+
 
 	<!--------------------------  게시판 시작 ---------------------------------->
-<section class="notice">
-   <div class="page-title">
-      <div class="container">
-         <h3 class="heading-primary elementor-heading-title">
-            <b>캣치</b>
-            에서
-            <b>게시판에</b>
-            글을 남겨보자
-         </h3>?
-      </div>
-      <div class="heading-description-wrap">
-         <div class="heading-description">
-            후원게시판
-            <br>
-            오직..
-            <b>캣치에서만</b>
-         </div>
-      </div>
-   </div>
-</section>
+	<section class="notice">
+		<div class="page-title">
+			<div class="container">
+				<h3 class="heading-primary elementor-heading-title">
+					<b>캣치</b> 에서<b>게시판에</b> 글을 남겨보자
+				</h3>
+			</div>
+			<div class="heading-description-wrap">
+				<div class="heading-description">
+					 <br> 오직..<b>캣치에서만</b>
 
-<!-- 검색 -->
-	<div id="board-search">
-		<div class="container">
-			<div class="search-window">
-				<form action="#" method="get">
-					<fieldset>
-						<legend class="hidden">후원게시판 검색필드</legend>
-						<label class="hidden">검색분류</label>
-						<select name="field">
-							<option ${(param.field =="adt_title")?"selected":""} value="adt_title">제목</option>
-							<option ${(param.field =="adt_content")?"selected":""} value="adt_content">내용</option>
-							<option ${(param.field =="adt_id")?"selected":""} value="adt_id">작성자</option>
-						</select>
-						<label class="hidden">검색어</label>
-						<input type="text" name="query" value="${param.query }"/>
-						<input type="submit" value="조회">
-					</fieldset>
-				</form>
+					<div class="col-sm-2 sidenav"></div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 
+
+	<div class="container-fluid text-center">
+		<div class="row content">
+			<p>
+				<a href="comm.do"><img src="upload/green_cat.png"> 소통게시판   </a> 
+				<a href="adopt.do"><img src="upload/green_cat.png"> 입양게시판   </a> 
+				<a href="spon.do"><img src="upload/green_cat.png"> 후원게시판   </a>
+			</p>
+			<div class="col-sm-2 sidenav"></div>
+			<div class="col-sm-8 text-left">
+
+
+				<div class="table-responsive">
+
+
+
+					<table class="table" class="table table-hover"
+						class="table-responsive">
+						<thead class="table-light">
+							<tr>
+								<th scope="col">글번호</th>
+								<th scope="col">작성자</th>
+								<th scope="col">글제목</th>
+								<th scope="col">작성일</th>
+								<th scope="col">조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<%
+								for (SponBoard sponBoard : sponList) {
+							%>
+							<tr>
+								<td><%=sponList.indexOf(sponBoard) + 1%></td>
+								<td><%=sponBoard.getSpon_id()%></td>
+								<td><a
+									href="sponinfo.do?spon_seq=<%=sponBoard.getSpon_seq()%>"><%=sponBoard.getSpon_title()%></a></td>
+								<td><%=sponBoard.getSpon_date()%></td>
+								<td><%=sponBoard.getSpon_cnt()%></td>
+								<%
+									if (member != null) {
+									if (member.getMem_id().equals(sponBoard.getSpon_id())) {
+								%>
+								<td><a
+									href="sponBoardDelete.do?spon_seq=<%=sponBoard.getSpon_seq()%>">삭제</a></td>
+								<%
+									}
+								} //if문 두개 끝
+								%>
+							</tr>
+							<%
+								} //for문 끝
+							%>
+
+
+						</tbody>
+					</table>
+
+
+					<button onclick="location.href='sponBoardInsert.do'"
+						class="btn btn-sm btn-success">글쓰기</button>
+				</div>
+			</div>
+
+
+			<div class="col-sm-2 sidenav">
+				<img src="upload/cat_icon2.png">
 			</div>
 		</div>
 	</div>
-  
-<div class="container-fluid text-center">    
-  <div class="row content">
-    <div class="col-sm-2 sidenav">
-      <p><a href="comm.do">소통게시판</a></p>
-      <p><a href="adopt.do">입양게시판</a></p>
-      <p><a href="spon.do">후원게시판</a></p>
-    </div>
-    <div class="col-sm-8 text-left"> 
 
- 
-  <div class="table-responsive">  
-  <% List<SponBoard> sponList = (List<SponBoard>)request.getAttribute("sponList"); %>        
-  <table class="table">
-    <thead>
-      <tr>
-        <th>글번호</th>
-        <th>작성자</th>
-        <th>글제목</th>
-        <th>작성일</th>
-        <th>조회수</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <% for(SponBoard sponBoard : sponList){ %>
-       <tr>
-        <td><%=sponList.indexOf(sponBoard)+1 %></td>
-        <td><%=sponBoard.getSpon_id() %></td>
-        <td><a href="sponinfo.do?spon_seq=<%=sponBoard.getSpon_seq()%>"><%=sponBoard.getSpon_title() %></a></td>
-        <td><%=sponBoard.getSpon_date() %></td>
-        <td><%=sponBoard.getSpon_cnt() %></td>
-        <%if(member!=null){
-        	if(member.getMem_id().equals(sponBoard.getSpon_id())){%>
-        		<td><a href="sponBoardDelete.do?spon_seq=<%=sponBoard.getSpon_seq()%>">삭제</a>
-        <%}} //if문 두개 끝 %>
-      </tr>
-      <%} //for문 끝%>
-    
-    </tbody>
-  </table>
-  <button onclick="location.href='sponBoardInsert.do'" class="btn btn-sm btn-success">글쓰기</button>
-  </div>
-</div>
-
-
-    <div class="col-sm-2 sidenav">
-      <div class="well">
-        <p>ADS</p>
-      </div>
-      <div class="well">
-        <p>ADS</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<footer class="container-fluid text-center">
-  <div>
-  <a href="#">&laquo;</a>
-  <a href="#" >1</a>
-  <a href="#" >2</a>
-  <a href="#">3</a>
-  <a href="#" >4</a>
-  <a href="#" >5</a>
-  <a href="#" >6</a>
-  <a href="#" >7</a>
-  <a href="#">8</a>
-  <a href="#" >9</a>
-  <a href="#">10</a>
-  <a href="#">&raquo;</a>
-</div>
-</footer>
-<!--------------------------  게시판 끝 ---------------------------------->
+	<footer class="container-fluid text-center">
+		<div>
+			<ul class="pagination">
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">6</a></li>
+				<li><a href="#">7</a></li>
+				<li><a href="#">8</a></li>
+				<li><a href="#">9</a></li>
+				<li><a href="#">10</a></li>
+			</ul>
+		</div>
+	</footer>
+	<!--------------------------  게시판 끝 ---------------------------------->
 
 </body>
 </html>
