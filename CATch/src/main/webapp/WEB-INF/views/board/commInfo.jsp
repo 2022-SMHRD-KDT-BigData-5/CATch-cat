@@ -4,25 +4,25 @@
 <%@page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 
 <!-- 게시판css -->
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <!-- CSS here -->
 <link rel="stylesheet" href="css/board.css">
@@ -42,30 +42,30 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
-	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap"
-	rel="stylesheet">
+   href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap"
+   rel="stylesheet">
 </head>
 <body>
 
-<jsp:include page="../header.jsp"></jsp:include>
+	<jsp:include page="../header.jsp"></jsp:include>
 	<%
-		CommBoard commBoardInfo = (CommBoard) request.getAttribute("commInfo");
-	Member member = (Member) session.getAttribute("member");
-	List<CommComment> commCommentList = (List<CommComment>) request.getAttribute("commCommentList");
-	int article_seq = (Integer) request.getAttribute("article_seq");
-	%>
-	
+      CommBoard commBoardInfo = (CommBoard) request.getAttribute("commInfo");
+   Member member = (Member) session.getAttribute("member");
+   List<CommComment> commCommentList = (List<CommComment>) request.getAttribute("commCommentList");
+   int article_seq = (Integer) request.getAttribute("article_seq");
+   %>
+
 
 	<!-- 상세페이지 시작 -->
 
 	<div class="container">
-		<h1>소통게시글 상세</h1>
+		<h2>소통게시글 상세</h2>
 		<table class="board_detail">
 			<colgroup>
-				<col width="15%"/>
-				<col width="35%"/>
-				<col width="15%"/>
-				<col width="35%"/>
+				<col width="15%" />
+				<col width="35%" />
+				<col width="15%" />
+				<col width="35%" />
 			</colgroup>
 			<caption>게시글 상세내용</caption>
 			<tbody>
@@ -83,84 +83,117 @@
 				</tr>
 				<tr>
 					<th scope="row">제목</th>
-					<td colspan="3">
-						<input type="text" id="title" name="title"
-							th:value=<%=commBoardInfo.getArticle_title() %>/>
+					<td colspan="3"><%=commBoardInfo.getArticle_title() %></td>
+				</tr>
+				<tr>
+					<td colspan="4" class="view_text"><%=commBoardInfo.getArticle_content()%>
 					</td>
 				</tr>
-				<tr><td>이미지</td> 
+
+				<tr>
+					<td>이미지</td>
 					<td><img src="upload/<%=commBoardInfo.getArticle_sname()%>"></td>
 				</tr>
-				
-				
-			<tr>
-				<td colspan="4" class="view_text">
-					<textarea title="내용" id="content" name="content"
-						th:text=<%=commBoardInfo.getArticle_content()%>>
-					</textarea>
-				</td>
-			</tr>
-			
-			<tr>
-				<td colspan="2" align="center">
-					<!-- 자신이 작성한 글에만 수정/삭제버튼 출력 --> <%
- 	if (member.getMem_id().equals(commBoardInfo.getArticle_id())) {
- %>
-					<button
-						onClick="location.href='commUpdateForm.do?article_seq=${article_seq}'">수정</button>
-					<button
-						onClick="location.href='commBoardDelete.do?article_seq=${article_seq}'">삭제</button>
-					<%
-						}
-					%>
-					<button onclick="location.href='comm.do'">목록</button>
-				</td>
-			</tr>
-		</table>
 
-		<h1>댓글작성란</h1>
+
+				<tr>
+					<td colspan="4" class="view_text"><textarea title="내용"
+							id="content" name="content"
+							th:text=<%=commBoardInfo.getArticle_content()%>>
+               </textarea></td>
+				</tr>
+
+				<tr>
+
+
+
+					<td colspan="2" align="center">
+						<!-- 자신이 작성한 글에만 수정/삭제버튼 출력 --> 
+						<% if (member.getMem_id().equals(commBoardInfo.getArticle_id())) { %>
+						<button
+							onClick="location.href='commUpdateForm.do?article_seq=${article_seq}'">수정</button>
+						<button
+							onClick="location.href='commBoardDelete.do?article_seq=${article_seq}'">삭제</button>
+						<% } %>
+						<button onclick="location.href='comm.do'">목록</button>
+					</td>
+				</tr>
+		</table>
+		<br> <br>
+
 		<c:if test="${empty member }">
 			<p>로그인 후 댓글 작성이 가능합니다</p>
 		</c:if>
-		<c:if test="${! empty member }">
-			<form action="commCommentInsert.do" method="post">
-				<p>ID ${member.mem_id }</p>
-				<input type="hidden" name="article_seq" value="${article_seq}">
-				<input type="hidden" value="${member.mem_id }" name="cmt_id">
-				<input type="text" name="cmt_content"> <input type="submit"
-					value="등록">
-			</form>
-		</c:if>
-		<h1>댓글출력란</h1>
-		<%
-			for (CommComment commComment : commCommentList) {
-		%>
-		<table border="1px solid black">
-			<tr>
-				<td>댓글작성자</td>
-				<td><%=commComment.getCmt_id()%></td>
-			</tr>
-			<tr>
-				<td>댓글작성일</td>
-				<td><%=commComment.getCmt_date()%></td>
-			</tr>
-			<tr>
-				<td>댓글 내용</td>
-				<td><%=commComment.getCmt_content()%></td>
-			</tr>
-			<%
-				if (member.getMem_id().equals(commComment.getCmt_id())) {
-			%>
-			<tr>
-				<td colspan="2" align="center">
-					<button
-						onClick="location.href='commBoardCmtDelete.do?cmt_seq=<%=commComment.getCmt_seq()%>&&article_seq=<%=commComment.getArticle_seq()%>'">삭제</button>
-				</td>
-			</tr>
-			<%} %>
-			</tbody>
-		</table>
-		<%} %>
+		<div class="container">
+			<label for="content">comment</label>
+			<c:if test="${! empty member }">
+				<form action="commCommentInsert.do" method="post">
+					<div class="input-group">
+						
+						<input type="hidden" name="cmt_id" value="${article_id}">>
+						<input type="text" class="form-control" id="content" name="cmt_content" placeholder="내용을 입력해주세요."> 
+						<input type="hidden" name="article_seq" value="${article_seq}">>
+							<span class="input-group-btn"> <button class="btn btn-default" type="submit" name="commentInsertBtn">등록</button> </span>
+					</div>
+				</form>
+			</c:if>
+		</div>
+
+
+
+
+		<br> <br>
+
+		<h2>댓글 목록</h2>
+		<div class="container">
+			<div class="row">
+				<%
+               for (CommComment commComment : commCommentList) {
+               %>
+				<table class="table table-striped"
+					style="text-align: center; border: 1px solid #dddddd">
+					<%-- 홀,짝 행 구분 --%>
+					<thead>
+						<tr>
+							<th colspan="3"
+								style="background-color: #eeeeeee; text-align: left;">ㅇㅇ</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="width: 20%">작성자</td>
+							<td><%=commComment.getCmt_id()%></td>
+						</tr>
+						<tr>
+							<td>작성일자</td>
+							<td><%=commComment.getCmt_date()%></td>
+						</tr>
+						<tr>
+							<td>내용</td>
+							<td style="min-height: 200px; text-align: left;"><%=commComment.getCmt_content()%></td>
+						</tr>
+					</tbody>
+				</table>
+
+
+
+				<table border="1px solid black">
+
+					<%
+            if (member.getMem_id().equals(commComment.getCmt_id())) {
+         %>
+					<tr>
+						<td colspan="2" align="center">
+							<button
+								onClick="location.href='commBoardCmtDelete.do?cmt_seq=<%=commComment.getCmt_seq()%>&&article_seq=<%=commComment.getArticle_seq()%>'">삭제</button>
+						</td>
+					</tr>
+					<%} %>
+					</tbody>
+				</table>
+				<%} %>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
