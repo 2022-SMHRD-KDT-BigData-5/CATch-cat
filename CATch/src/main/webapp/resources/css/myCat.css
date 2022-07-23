@@ -1,14 +1,13 @@
 @charset "UTF-8";
 .h_title{
     font-size : 100px;
+    color : #006400;
     font-weight: 900;
-    color: #006400;
     margin-bottom: 0;
     font-family: "Poppins", sans-serif;
     text-transform: capitalize;
     text-align: center;
     margin-top: 70px;
-    
   }
 
 .h_title img{

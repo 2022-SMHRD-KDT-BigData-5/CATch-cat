@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/myCat.css">
 <style>
 		.form-horizontal .form-group {
     margin-right: 20.5%;
@@ -35,30 +36,9 @@
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include><br><br>
-<section class="notice" style="
-    padding-top: 50px;
-    padding-bottom: 10px;">
-   <div class="page-title">
-      <div class="container">
-         <h3 class="heading-primary elementor-heading-title">
-            <b>캣치</b>
-            에서
-            <b>게시판에</b>
-            글을 남겨보자
-         </h3>
-      </div>
-      <div class="heading-description-wrap">
-         <div class="heading-description">
-            소통게시판
-            <br>
-            오직..
-            <b>캣치에서만</b>
-         </div>
-      </div>
-   </div>
-</section>
+	<h3 class = 'h_title' style="color:#006400;font-size: 50px;">소통게시판</h3><br>
 
-	<div class="container"style="text-align: center">
+	<br><div class="container"style="text-align: center">
   <form class="form-horizontal" action="commBoardInsert.do" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <div class="col-sm-10">
@@ -75,7 +55,9 @@
 			<input type="file" style=" border:0 solid black;width: 704px;height: 28px;" id="file" name="file" >
 		</div>
     <div class="form-group">        
-      <div>
+      <div style="
+    margin-left: 30px;
+">
       <button type="submit" class="btn btn-sm btn-success">등록하기</button>
 		<button onclick="location.href='comm.do'" class="btn btn-sm btn-info">목록으로</button>
       </div>
