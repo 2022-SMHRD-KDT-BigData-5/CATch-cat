@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/myCat.css">
     <link rel="stylesheet" href="css/nice-select.css">
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/gijgo.css">
@@ -37,30 +38,9 @@
 <body>
 
 <jsp:include page="../header.jsp"></jsp:include><br><br>
-<section class="notice" style="
-    padding-top: 50px;
-    padding-bottom: 10px;">
-   <div class="page-title">
-      <div class="container">
-         <h3 class="heading-primary elementor-heading-title">
-            <b>캣치</b>
-            에서
-            <b>게시판에</b>
-            글을 수정해보자
-         </h3>
-      </div>
-      <div class="heading-description-wrap">
-         <div class="heading-description">
-            소통게시판
-            <br>
-            오직..
-            <b>캣치에서만</b>
-         </div>
-      </div>
-   </div>
-</section>
+<h3 class = 'h_title' style="color:#006400;font-size: 50px;">소통게시판</h3><br>
 
-	<div class="container"style="text-align: center">
+	<br><div class="container"style="text-align: center">
   <form class="form-horizontal" action="commBoardUpdate.do?article_seq=${CommBoard.article_seq }" enctype="multipart/form-data" method="post">
     <div class="form-group">
       <div class="col-sm-10">
@@ -70,19 +50,22 @@
     </div>
     <div class="form-group">
  <div class="col-sm-10">
-  <textarea class="form-control"style="width: 704px;height: 400px;" rows="5" value="${CommBoard.article_content}" required name="article_content"></textarea>
+  <textarea class="form-control"style="width: 704px;height: 400px;" rows="5" required name="article_content">${CommBoard.article_content}</textarea>
 </div>
-<div>
+<div style="margin-left: 15px;">
 	<img src="upload/${CommBoard.article_sname}">
 </div>
 <div>
-	<input type="file" name="file" id="id_photo">
+			<input type="file" style="  border:0 solid black;width: 704px;height: 28px;margin-left: 15px;" id="id_photo" name="file" >
+		</div>
+<div>
     (주의사항 : 이미지를 변경하고자 할때만 선택하시오.)
 </div>
 
 </div>
     <div class="form-group">        
-      <div>
+      <div  style="
+    margin-left: 30px;">
       <button type="submit" class="btn btn-sm btn-success">수정하기</button>
 		<button onclick="location.href='comm.do'" class="btn btn-sm btn-info">취소</button>
       </div>
