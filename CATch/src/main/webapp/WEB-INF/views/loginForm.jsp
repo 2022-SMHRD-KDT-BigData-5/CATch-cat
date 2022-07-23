@@ -1,17 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
- 
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html >
 <head>
 
 <meta charset="UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <title>Insert title here</title>
 
 <!-- 게시판css -->
@@ -32,12 +28,12 @@
     <link rel="stylesheet" href="css/style.css">
     
 </head>
+<body>
+	<jsp:include page="header.jsp"></jsp:include>
+	
 
-		<th:block th:fragment="setLogin(login)">
-	<body>	
-	<div class="member_login">
-   <form th :action="login.do" th :method="post" class="loginForm">
-     <jsp:include page="header.jsp"></jsp:include>   
+   <form action="login.do" method="post" class="loginForm">
+   
 		<b><h2>Login</h2></b>
       
       <div class="idForm">아이디
@@ -46,35 +42,16 @@
       
       <div class="passForm">비밀번호
       <input name="mem_pw" type="password" placeholder="PW">
+    
       </div>
-      <input type="submit" class="btn btn-secondary" value="L O G I N"/>
+      <input type="submit"  value="L O G I N"/>
       <div class="bottomText">
       	회원이 아니신가요? <a href="join.do">회원가입</a>
       </div>
     
     </form>
-    </div>
+   
+
 	
-
 </body>
-</th:block>
-
-	<ul class="nav">
- <li>
-  <a data-toggle="modal" href="#loginModal">LOGIN</a>
-  <div class="modal fade" id="loginModal" role="dialog">
-   <div class="modal-dialog">
-    <div class="modal-content">
-     <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal">×</button>
-      <h1 class="modal-title" align="center">로그인</h1>
-     </div>
-     <div class="modal-body">
-      <th:block th:replace="~{'login.do' :: setLogin(~{this::login} )}"></th:block>
-     </div>
-    </div>
-   </div>
-  </div>
- </li>
-</ul>
 </html>

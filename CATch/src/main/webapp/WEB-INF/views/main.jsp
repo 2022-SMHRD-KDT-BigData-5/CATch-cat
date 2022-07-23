@@ -34,8 +34,8 @@
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
-   <jsp:include page="header.jsp"></jsp:include>
-    
+  
+    	 <jsp:include page="header.jsp"></jsp:include>
 
       <div class="slider_area">
         <div class="single_slider slider_bg_1 d-flex align-items-center">

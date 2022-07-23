@@ -3,11 +3,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<%
@@ -64,7 +66,7 @@
 										<c:choose>
 											<c:when test="${empty member}">
 												<li>
-												<a href="login.do">login</a>
+												 <a data-toggle="modal" href="loginheard.do" data-target="#loginModal">LOGIN</a>
 												</li>
 												<li>
 												<a href="join.do">join</a>
@@ -93,8 +95,34 @@
 				</div>
 			</div>
 		</div>
-	</header>
+		
+		
+
 	
+		
+		
+	</header>
+
+
 
 </body>
+<ul class="nav">
+ <li>
+ 
+  <div class="modal fade" id="loginModal" role="dialog">
+   <div class="modal-dialog">
+    <div class="modal-content">
+     <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h1 class="modal-title" >로그인</h1>
+     </div>
+     <div class="modal-body">
+      <th:block th:replace="~{/loginheard.do :: setLogin}"></th:block>
+     </div>
+    </div>
+   </div>
+  </div>
+ </li>
+</ul>
+
 </html>
