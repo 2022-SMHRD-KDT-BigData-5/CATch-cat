@@ -45,6 +45,7 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap"
 	rel="stylesheet">
 
+
 </head>
 <body>
 	<%
@@ -180,7 +181,7 @@
 	</div>
 
 	<footer class="container-fluid text-center">
-		  <div>
+		  <div class="container">
   <a href="#">&laquo;</a>
   <a href="#" >1</a>
   <a href="#" >2</a>

@@ -529,13 +529,15 @@ element .style {
 		        infowindow1.open(map, marker);
 		        
 		        var catList = [
-		        	{
+		        	{	
+		        		
 		        		name:'야웅이',
 		        		age:'2살',
 		        		gender:'암컷',
 		        		spec:'귀여움',
 		        		neut:'완료',
-		        		cat_seq:'7'
+		        		cat_seq:'7',
+		        		url:'abc'
 		        	},
 		        	{
 		        		name:'나비',
@@ -543,7 +545,8 @@ element .style {
 		        		gender:'암컷',
 		        		spec:'츄르 좋아함',
 		        		neut:'완료',
-		        		cat_seq:'7'
+		        		cat_seq:'12',
+		        		url:'abc'abc
 		        	},
 		        	{
 		        		name:'냥냥이',
@@ -551,7 +554,8 @@ element .style {
 		        		gender:'수컷',
 		        		spec:'사람을 잘 따름',
 		        		neut:'없음',
-		        		cat_seq:'7'
+		        		cat_seq:'3',
+		        		url:'abc'
 		        	}
 		        ]
 		        

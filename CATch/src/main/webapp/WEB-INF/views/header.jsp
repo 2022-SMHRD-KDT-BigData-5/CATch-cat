@@ -9,39 +9,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<% Member member = (Member)session.getAttribute("member");  %>
+	<%
+		Member member = (Member) session.getAttribute("member");
+	%>
 	<header>
 		<div class="header-area ">
-			<div class="header-top_area">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-6 col-md-8">
-							<div class="short_contact_list">
-								
-							</div>
-						</div>
-						<div class="col-lg-6 col-md-4 ">
-							<div class="social_media_links">
-								<!-- 로그인 안했을 경우에만 보이게 하기 -->
-								<c:choose>
-									<c:when test="${empty member}">
-										<a href="login.do"> <span>login</span>
-										</a>
-										<a href="join.do"> <span>join</span>
-										</a>
-									</c:when>
-									<c:otherwise>
-										<p>${member.mem_id}님</p>
-										<a href="logout.do"><span>logout</span></a>
-									</c:otherwise>
-								</c:choose>
 
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			<div id="sticky-header" class="main-header-area">
 				<div class="container">
 					<div class="row align-items-center">
@@ -70,17 +43,44 @@
 											</ul></li>
 										<li><a href="carezone.do">고양터</a></li>
 										<c:choose>
-										<c:when test="${empty member}"><li></li></c:when>
-										<c:otherwise>
-											<li><a href="mypage.do?mem_id=<%=member.getMem_id()%>">마이페이지
-										 <i class="ti-angle-down"></i></a>
-											<ul class="submenu">
-												<li><a href="mypage.do?mem_id=<%=member.getMem_id()%>">캣카드 조회</a></li>
-												<li><a href="myInfoCheck.do">회원정보 수정</a></li>
-											</ul></li>
-										</c:otherwise>
+											<c:when test="${empty member}">
+												<li></li>
+											</c:when>
+											<c:otherwise>
+												<li><a href="mypage.do?mem_id=<%=member.getMem_id()%>">마이페이지
+														<i class="ti-angle-down"></i>
+												</a>
+													<ul class="submenu">
+														<li><a
+															href="mypage.do?mem_id=<%=member.getMem_id()%>">캣카드
+																조회</a></li>
+														<li><a href="myInfoCheck.do">회원정보 수정</a></li>
+													</ul></li>
+											</c:otherwise>
+										</c:choose>
+
+										
+										<c:choose>
+											<c:when test="${empty member}">
+												<li>
+												<a href="login.do">login</a>
+												</li>
+												<li>
+												<a href="join.do">join</a>
+												</li>
+											</c:when>
+											<c:otherwise>
+												<li>
+												<a href="logout.do"><span>logout</span></a>
+												</li>
+											</c:otherwise>
 										</c:choose>
 										
+										
+										
+										
+										
+
 									</ul>
 								</nav>
 							</div>
