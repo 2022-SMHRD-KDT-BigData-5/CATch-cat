@@ -1,17 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
+
+
+
 <head>
 <meta charset="UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 
 <title>Insert title here</title>
 
@@ -40,15 +46,44 @@
 <link rel="stylesheet" href="css/style.css">
 
 </head>
-
 <body>
+
 
 
 	<jsp:include page="header.jsp"></jsp:include>
 
+
+   	<b><h2>Login</h2></b>
+
 	<div class="member_login">
+
 		<button type="button" class="btn btn-info btn-round"
 			data-toggle="modal" data-target="#loginModal">로그인</button>
+
+
+		<form th:action="/loginheard.do" th:method="POST">
+				
+			
+			
+			<div class="idForm">
+				<input type="text" name="mem_id" placeholder="아이디">
+			</div>
+			
+			<div class="passForm">
+      			<input name="mem_pw" type="password" placeholder="비밀번호">
+     		 </div>
+			
+		
+
+      		<input type="submit"  class="btn btn-secondary" id="btn-login" value="로그인"/>
+      		<div class="bottomText">
+      			회원이 아니신가요? <a href="join.do">회원가입</a>
+     		</div>
+			
+		
+			
+		</form>
+
 	</div>
 
 	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"

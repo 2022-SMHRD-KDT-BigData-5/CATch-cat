@@ -14,7 +14,7 @@
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="acss/bootstrap.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style.css">
     
+
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
@@ -33,8 +34,8 @@
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
-   <jsp:include page="header.jsp"></jsp:include>
-    
+  
+    	 <jsp:include page="header.jsp"></jsp:include>
 
       <div class="slider_area">
         <div class="single_slider slider_bg_1 d-flex align-items-center">

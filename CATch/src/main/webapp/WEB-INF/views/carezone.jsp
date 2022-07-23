@@ -537,7 +537,7 @@ element .style {
 		        		spec:'귀여움',
 		        		neut:'완료',
 		        		cat_seq:'7',
-		        		url:
+		        		url:'abc'
 		        	},
 		        	{
 		        		name:'나비',
@@ -546,7 +546,7 @@ element .style {
 		        		spec:'츄르 좋아함',
 		        		neut:'완료',
 		        		cat_seq:'12',
-		        		url:
+		        		url:'abc'abc
 		        	},
 		        	{
 		        		name:'냥냥이',
@@ -555,7 +555,7 @@ element .style {
 		        		spec:'사람을 잘 따름',
 		        		neut:'없음',
 		        		cat_seq:'3',
-		        		url:
+		        		url:'abc'
 		        	}
 		        ]
 		        
