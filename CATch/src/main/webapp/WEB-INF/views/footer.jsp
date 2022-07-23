@@ -19,9 +19,9 @@
                                 Contact Us
                             </h3>
                             <ul class="address_line">
-                                <li>+555 0000 565</li>
-                                <li><a href="#">Demomail@gmail.Com</a></li>
-                                <li>700, Green Lane, New York, USA</li>
+                                <li>+82 010 1234 1234</li>
+                                <li><a href="#">smhrd@or.kr</a></li>
+                                <li>31-15, Yesul-gil, Dong-gu, Gwangju, Republic of Korea</li>
                             </ul>
                         </div>
                     </div>
