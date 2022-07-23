@@ -39,8 +39,9 @@
 
 <body>
    
-   <jsp:include page="header.jsp"></jsp:include>   
+   
 	<div class="member_login">
+	<jsp:include page="header.jsp"></jsp:include>   
 		<form th:action="@{/auth/loginProc}" th:method="POST">
 			<div class="member_login_input">
 				<input type="text" name="username" placeholder="아이디">

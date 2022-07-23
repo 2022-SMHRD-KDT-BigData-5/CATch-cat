@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
  
- 
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 
 <meta charset="UTF-8">
@@ -32,16 +32,12 @@
     <link rel="stylesheet" href="css/style.css">
     
 </head>
-<body>
-		<html lang="en" xmlns:th="http://www.thymeleaf.org">
-	<th:block th:fragment="setLogin(login)">
 
-	
-     <div class="member_login">
-   <jsp:include page="header.jsp"></jsp:include>   
-  
-   <form th:daction="@{/auth/login.do}" th:method="post" class="loginForm">
-  
+		<th:block th:fragment="setLogin(login)">
+	<body>	
+	<div class="member_login">
+   <form th :action="login.do" th :method="post" class="loginForm">
+     <jsp:include page="header.jsp"></jsp:include>   
 		<b><h2>Login</h2></b>
       
       <div class="idForm">아이디
@@ -59,7 +55,10 @@
     </form>
     </div>
 	
-	</th:block>
+
+</body>
+</th:block>
+
 	<ul class="nav">
  <li>
   <a data-toggle="modal" href="#loginModal">LOGIN</a>
@@ -71,12 +70,11 @@
       <h1 class="modal-title" align="center">로그인</h1>
      </div>
      <div class="modal-body">
-      <th:block th:replace="~{/member/login:: setLogin(~{this::login} )}"></th:block>
+      <th:block th:replace="~{'login.do' :: setLogin(~{this::login} )}"></th:block>
      </div>
     </div>
    </div>
   </div>
  </li>
 </ul>
-</body>
 </html>
