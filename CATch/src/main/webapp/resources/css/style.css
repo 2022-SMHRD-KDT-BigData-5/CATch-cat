@@ -1905,6 +1905,7 @@ h3 {
 .service_area {
   padding-top: 241px;
   padding-bottom: 106px;
+  background-color: #f8f8f8;
 }
 
 @media (max-width: 767px) {
