@@ -58,9 +58,9 @@
 <h1>댓글출력란</h1>
 <%for (AdoptComment adoptComment : adoptCommentList){ %>
 <table border="1px solid black" >
-<tr><td>댓글작성자</td> <td><%=adoptComment.getCmt_id() %></td></tr>
-<tr><td>댓글작성일</td> <td><%=adoptComment.getCmt_date() %></td></tr>
-<tr><td>댓글 내용</td> <td><%=adoptComment.getCmt_content() %></td></tr>
+<tr><td><%=adoptComment.getCmt_id() %></td></tr>
+<tr><td><%=adoptComment.getCmt_date() %></td></tr>
+<tr><td><%=adoptComment.getCmt_content() %></td></tr>
 		<%if(member.getMem_id().equals(adoptComment.getCmt_id())){ %>
 <tr>
 		<td colspan="2" align="center">
