@@ -41,7 +41,7 @@
 												<li><a href="adopt.do">입양게시판</a></li>
 												<li><a href="spon.do">후원게시판</a></li>
 											</ul></li>
-										<li><a href="carezone.do">고양터</a></li>
+										<li><a href="carezoneFinal.do">고양터</a></li>
 										<c:choose>
 											<c:when test="${empty member}">
 												<li></li>
