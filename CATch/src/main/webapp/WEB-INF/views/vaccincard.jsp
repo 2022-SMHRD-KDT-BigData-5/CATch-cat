@@ -18,8 +18,10 @@
 	List<Vaccination> hc = (List<Vaccination>)session.getAttribute("hc");
 	List<Vaccination> ss = (List<Vaccination>)session.getAttribute("ss");
 %>
-	<table class = "table table-border table-hover">
-                                    <tr>
+	
+                  
+                    <table class = "table table-border table-hover">
+                                    <tr class='medi_content_head'>
                                         <td>백신</td>
                                         <td>접종여부</td>
                                         <td>접종병원</td>
@@ -116,5 +118,6 @@
                                     
 
                                 </table>
+                               
 </body>
 </html>
