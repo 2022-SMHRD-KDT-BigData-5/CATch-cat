@@ -1,0 +1,146 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+
+:root{
+    --font--family : 'Cafe24Ssurround';
+    --background--color : #ffffff;
+    --color : #006400;
+    --line--color : #c1c1c17d;
+    --font--nanum : 'NanumSquare'
+}
+
+h7{
+	color : var(--color);
+	font-family : var(--font--family);
+	
+}
+
+.catcard_img{
+    width:300px;
+    height: 250px;
+    display: block;
+    display: flex;
+    
+}
+.catcard_img img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    margin-top: 50px;
+}
+
+.catcard_head{
+    display: flex;
+    flex-wrap: wrap;
+    grid-column: 1/3;
+    justify-content: space-evenly;
+    margin-top: 7px;
+}
+
+.catcard_content{
+    margin-top: 50px;
+    font-family : var(--font--family);
+}
+
+.catcard_content span{
+    margin-bottom: 10px;
+    font-size: 30px;
+    
+    color : var(--color);
+}
+.catcard_content p, #more_content p{
+    margin-top: 40px;
+    margin-bottom: 25px !important;
+    font-size: 20px;
+    color : black;
+    font-family : var(--font--family) !important;
+}
+
+
+.catcard_more{
+    grid-column: 1/3;
+    text-align: center;
+    margin-top: 10px !important;
+}
+
+#more_content{
+    display: none;
+   
+}
+
+.vacc_content, .medi_content{
+    margin-right: 80px;
+    margin-left: 80px;
+    grid-column: 1/3;
+}
+
+.table{
+    font-size: 15px;
+    margin-top : 10px;
+    font-family : var(--font--family);
+    color : black;
+   
+}
+
+.medi_content_head{
+	font-size : 20px;
+	background-color : var(--line--color) !important;
+	
+}
+
+
+.vacc_content h7, .medi_content h7{
+    font-size: 35px;
+
+}
+
+.medi_content{
+    margin-top: 0px;
+}
+
+.update_btn{
+    position: relative !important;
+    grid-column: 1/3;
+    margin-right : 80px;
+    margin-top : 30px;
+    margin-bottom : -45px;
+    
+  
+}
+
+.update_btn button{
+	  float : right;
+	background-color : var(--background--color);
+	font-family : var(--font--family);
+	color : var(--color);
+	border-color : var(--color);
+	border-radius : 6px;
+	border-right-color: var(--color);
+    border-bottom-color: var(--color);
+}
+
+/* ===============modal==================== */
+.update_modal{
+	position : absolute;
+	top : 0;
+	left : 0;
+	
+	width : 100%;
+	height : 100%;
+	
+	display : none !important;
+	
+	background-color : rgba(0,0,0,0.4);
+	
+}
+
+
+
