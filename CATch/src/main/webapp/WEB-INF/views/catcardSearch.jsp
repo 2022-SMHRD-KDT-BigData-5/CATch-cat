@@ -51,7 +51,7 @@
 </div>
 
 
-<form action="imgSearch.do" method="post">
+<form action="/imgSearch" method="post">
   <div class="filebox">
       <div>사진 첨부 하기</div><input class = 'img_search' value="첨부파일" name="cat_nose">
     <label for="file">업로드</label>
