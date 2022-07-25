@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html >
 <head>
+
 <meta charset="UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <title>Insert title here</title>
 
 <!-- 게시판css -->
@@ -30,24 +29,29 @@
     
 </head>
 <body>
-   
-   <jsp:include page="header.jsp"></jsp:include>   
-   
+	<jsp:include page="header.jsp"></jsp:include>
+	
+
    <form action="login.do" method="post" class="loginForm">
-   <b><h2>Login</h2></b>
+   
+		<b><h2>Login</h2></b>
       
       <div class="idForm">아이디
-      	<input name="mem_id" type="text" placeholder="ID">
+      	<input name="mem_id"  type="text"   placeholder="ID">
       </div>
       
       <div class="passForm">비밀번호
       <input name="mem_pw" type="password" placeholder="PW">
+    
       </div>
-      <input type="submit" class="btn" value="L O G I N"/>
+      <input type="submit"  value="L O G I N"/>
       <div class="bottomText">
       	회원이 아니신가요? <a href="join.do">회원가입</a>
       </div>
+    
     </form>
+   
 
+	
 </body>
 </html>

@@ -123,10 +123,15 @@ public class MemberController {
 		return "redirect:/main.do";
 	}
 	
+
+	
+	
+	
+	@GetMapping("/loginheard.do")
+	public String loginheard() {
+	
+	return "login";
 	}
 	
 	
-	
-	
-	
-	
+}

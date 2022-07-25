@@ -109,6 +109,7 @@ a:hover,
 a,
 button {
   outline: medium none;
+  border-radius: 9px;
 }
 
 /* line 37, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_reset.scss */

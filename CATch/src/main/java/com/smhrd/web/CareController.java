@@ -28,11 +28,11 @@ public class CareController {
 	
 	
 	
-	@RequestMapping("/carezone.do")
+	@RequestMapping("/carezoneFinal.do")
 	public String carezone(Model model) {
 		List<CareBoard> careList = mapper.selectCareZone();
 		model.addAttribute("careList", careList);
-		return "carezone";
+		return "carezoneFinal";
 	}
 	
 	@RequestMapping("/insertAddress.do")
@@ -42,7 +42,7 @@ public class CareController {
 		if(cnt>0) {
 			System.out.println("db에 급식소 등록 성공");
 		}
-		return "redirect:/carezone.do";
+		return "redirect:/carezoneFinal.do";
 	}
 	
 	@RequestMapping("/selectCatCarezone.do")
@@ -51,6 +51,13 @@ public class CareController {
 		model.addAttribute("catcardList", catcardList);
 		
 		return "redirect:/carezone.do";
+	}
+	
+
+	
+	@RequestMapping("/addCareCat")
+	public String addCareCat() {
+		return "catcardForm.do";
 	}
 	
 	
