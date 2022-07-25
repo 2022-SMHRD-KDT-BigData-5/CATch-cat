@@ -2651,11 +2651,11 @@ select.form-control-lg:not([size]):not([multiple]) {
   text-align:center;
   background:none;
   top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
+  left:20%;
   border-radius: 15px;
   border-color: #EED8BE;
   border-style: solid;
+  background-color :white;
 }
 
 .loginForm h2{

@@ -21,47 +21,36 @@
 
 <!-- CSS here -->
     <link href="css/login.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/gijgo.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/slicknav.css">
-    <link rel="stylesheet" href="css/style.css">
+
+
     
+ 
 </head>
-<th:block th:fragment="setLogin">
+<th:block th:fragment="setLogin(login)">
 <body>
 
-   	<b><h2>Login</h2></b>
+	
    
 	<div class="member_login">
 
-		<form th:action="/login.do" th:method="POST">
-				
-			
-			
-			<div class="idForm">
-				<input type="text" name="mem_id" placeholder="아이디">
-			</div>
-			
-			<div class="passForm">
-      			<input name="mem_pw" type="password" placeholder="비밀번호">
-     		 </div>
-			
+ 	<form th:action="login.do" th:method="post" class="loginForm">
+   	<b><h2>Login</h2></b>
 		
-
-      		<input type="submit"  class="btn btn-secondary" id="btn-login" value="로그인"/>
-      		<div class="bottomText">
-      			회원이 아니신가요? <a href="join.do">회원가입</a>
-     		</div>
-			
-		
-			
-		</form>
+      
+      <div class="idForm">아이디
+      	<input name="mem_id"  type="text"   placeholder="ID">
+      </div>
+      
+      <div class="passForm">비밀번호
+      <input name="mem_pw" type="password" placeholder="PW">
+      </div>
+      
+      <input type="submit"  class="btn btn-secondary" id="btn-login" value="L O G I N"/>
+      <div class="bottomText">
+      	회원이 아니신가요? <a href="join.do">회원가입</a>
+      </div>
+    
+    </form>
 
 	</div>
 </body>

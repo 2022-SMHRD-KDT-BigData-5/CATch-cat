@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html >
 <head>
 <meta charset="UTF-8">
 
@@ -10,10 +10,6 @@
 
 <title>Insert title here</title>
 
-<!-- modal 라이브러리 -->
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- 게시판css -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -40,7 +36,7 @@
    
 	<div class="member_login">
 
-		<form th:action="/loginheard.do" th:method="POST">
+		<form th:action="/login123.do" th:method="POST">
 				
 			
 			

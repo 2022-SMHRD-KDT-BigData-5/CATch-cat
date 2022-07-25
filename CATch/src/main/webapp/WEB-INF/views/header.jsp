@@ -44,7 +44,7 @@
 												<li><a href="adopt.do">입양게시판</a></li>
 												<li><a href="spon.do">후원게시판</a></li>
 											</ul></li>
-										<li><a href="carezoneFinal.do">고양터</a></li>
+										<li><a href="carezone.do">고양터</a></li>
 										<c:choose>
 											<c:when test="${empty member}">
 												<li></li>
@@ -66,7 +66,7 @@
 										<c:choose>
 											<c:when test="${empty member}">
 												<li>
-												 <a data-toggle="modal" href="login.do" data-target="#loginModal">LOGIN</a>
+												 <a href="login.do" data-toggle="modal"  data-target="#loginModal">LOGIN</a>
 												</li>
 												<li>
 												<a href="join.do">join</a>
@@ -117,12 +117,13 @@
       <h1 class="modal-title" >로그인</h1>
      </div>
      <div class="modal-body">
-      <th:block th:replace="~{/login.do :: setLogin}"></th:block>
+      <th:block th:replace="~{/login.do :: setLogin(~{this::login}}"></th:block>
+   
      </div>
     </div>
    </div>
   </div>
  </li>
 </ul>
-
+ 
 </html>
