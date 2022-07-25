@@ -66,8 +66,8 @@
 										<c:choose>
 											<c:when test="${empty member}">
 												<li>
-												 <a href="login.do" data-toggle="modal"  data-target="#loginModal" role="button"data-backdrop="static">
-												 <span class="btn btn-xs btn-success">LOGIN</span>
+												 <a href="login.do" data-toggle="modal"  data-target="#loginModal" >
+												LOGIN
 												</a>
 												</li>
 												<li>
@@ -111,9 +111,9 @@
 <ul class="nav">
  <li>
 
-  <div class="modal fade" id="loginModal" role="dialog" aria-labelledby="테스트정보 등록" aria-describedby="테스트 모달">
+  <div class="modal fade" id="loginModal" role="dialog" >
    <div class="modal-dialog">
-    <div class="modal-content" style="width:1200px;height:700px">
+    <div class="modal-content" >
 
      <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">×</button>
@@ -122,7 +122,7 @@
       <div class="modal-title" ></div>
      </div>
      <div class="modal-body">
-      <th:block th:replace="~{views/login.do :: setLogin(~{this::login} )}"></th:block>
+      <th:block th:replace="~{login.do :: setLogin(~{this::login} )}"></th:block>
       
      </div>
     </div>
