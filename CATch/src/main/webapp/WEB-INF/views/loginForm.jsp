@@ -36,12 +36,15 @@
    	<b><h2>Login</h2></b>
 		
       
-      <div class="idForm">아이디
-      	<input name="mem_id"  type="text"   placeholder="ID">
+      <div class="idForm">
+      	<input  type="text" name="mem_id" id="id"  autocomplete="off" value="" aria-labelledby="placeholder-id">
+      	 <label class="placeholder-text" for="fname" id="placeholder-id">
+      	 	<div class="text">아이디</div>
+      	 </label>
       </div>
       
-      <div class="passForm">비밀번호
-      <input name="mem_pw" type="password" placeholder="PW">
+      <div class="passForm">
+      <input type="password" name="mem_pw"  placeholder="비밀번호">
       </div>
       
       <input type="submit"  class="btn btn-secondary" id="btn-login" value="L O G I N"/>
@@ -52,6 +55,13 @@
     </form>
 
 	</div>
+	<script type="text/javascript">
+	let input_element = document.querySelector("input");
+
+	input_element.addEventListener("keyup", () => {
+	    input_element.setAttribute("value", input_element.value);
+	})
+	</script>
 </body>
 </th:block>
 </html>
