@@ -16,69 +16,101 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <!-- CSS here -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/gijgo.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/slicknav.css">
-    <link rel="stylesheet" href="css/style.css">
+
     <link rel="stylesheet" href="css/myCat.css">
-    <link rel="stylesheet" href="css/jointest.css">
-    <style>
-    	.id_ok{color:rgb(7, 104, 7); display:none;}
-    	.id_already{color:rgb(219, 20, 63); display:none;}
-    </style>
+    <link rel="stylesheet" href="css/joinForm.css">
+
     
 </head>
 <body>
 	
 
-	
+	<h1 class = "h_title"><img src="img/catch.png" ></h1>
 	<!-- 회원가입 -->
+	<div id="header">
+		<div id="wrapper">
+			<form action="join.do" method="post" name="joinform" onsubmit="return checkJoin()">
+			<div id="content">
+				<!-- ID -->
+				<div>
+					<h3>
+						<label for="id">아이디</label>
+					</h3>
+					<span class="box int_id">
+						<input name="mem_id" type="text" id="userid" 
+						class="int" placeholder="아이디 입력">
+						
+            			
+						<button class="idcheck" onclick="idCheck()" type="button">중복체크</button>
+						
+					</span>
+					<span class="id_ok">사용 가능한 아이디입니다.</span>
+            		<span class="id_already">이미 사용중인 아이디입니다.</span><br>
+					
+            		<span class="error_next_box"></span>
+				</div>
+				
+				<!-- pw -->
+				<div>
+					<h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
+					<span class="box int_pass">
+						<input name="mem_pw" type="password" placeholder="비밀번호 입력"
+						id="pswd1" class="int">
+						<span id="alertTxt">사용불가</span>												
+					</span>
+					<span class="error_next_box"></span>
+				</div>
+				
+				<!-- pw2 -->
+				<div>
+					<h3 class="join_title"><label for="pswd2">비밀번호 재확인</label></h3>
+					<span class="box int_pass_check">
+						<input name="checkpw" type="password" placeholder="비밀번호와 동일하게 입력"
+						class="int">						
+					</span>
+					<span class="error_next_box"></span>
+				</div>
+				
+				<!-- name -->
+				<div>
+					<h3 class="join_title"><label for="name">이름</label></h3>
+                    <span class="box int_name">
+                    	 <input name="mem_name" type="text" placeholder="이름을 입력"
+                    	 class="int">
+                    </span>
+				    <span class="error_next_box"></span>
+				</div>
+				
+				<!-- MOBILE -->
+                <div>
+                    <h3 class="join_title"><label for="phoneNo">휴대전화</label></h3>
+                    <span class="box int_mobile">
+                        <input name="mem_phone" type="text" placeholder="전화번호를 입력"
+                        id="mobile" class="int">              
+                    </span>
+                    <span class="error_next_box"></span>    
+                </div>
+                
+                <!-- 병원관계 유무 -->
+                <div>
+                	<h3 class="join_title"><label for="check">병원관계자</label></h3>
+                	<input class="joincheck" type="checkbox" name="mem_hospital" value="T">
+                               
+                </div>
+                
+                <!-- join btn -->
+                <div class="btn_area">               	
+                	<button type="submit" id="btnJoin" value="J O I N">회원가입</button>               	
+                </div>				
+			</div>	
+			</form>		
+		</div>
 	
-	<h1 class = "h_title"><img src="img/catch-removebg.png" ></h1>
+	
+	</div>
+	
   
-        <div class="joinform">
-
-            <form action="join.do" method="post" name="joinform" onsubmit="return checkJoin()">
-                
-                <h2>회원가입</h2>
-                
-                <h5>아이디</h5>
-            <input name="mem_id" type="text" id="userid" placeholder="ID를 입력">
-            <span class="id_ok">사용 가능한 아이디입니다.</span>
-            <span class="id_already">이미 사용중인 아이디입니다.</span><br>
-            
-            <button class="btn" onclick="idCheck()" type="button">중복체크</button>
-            
-            <h5>비밀번호</h5>
-            <input name="mem_pw" type="password" placeholder="비밀번호 입력">
-            
-            <h5>비밀번호확인</h5>
-            <input name="checkpw" type="password" placeholder="비밀번호와 동일하게 입력">
-            
-            <h5>이름</h5>
-            <input name="mem_name" type="text" placeholder="이름을 입력">
-            
-            <h5>전화번호</h5>
-            <input name="mem_phone" type="text" placeholder="전화번호를 입력">
-            
-            <h5>병원관계자유무</h5>
-            
-            <label><input class="joincheck" type="checkbox" name="mem_hospital" value="T">병원관계자</label>
-            
-            <input type="submit" class="btn" value="J O I N" />
-            
-            
-        </form>
-    </div>
-        
-        
+       
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script type="text/javascript"></script>
    
