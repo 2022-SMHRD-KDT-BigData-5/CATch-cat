@@ -546,7 +546,7 @@ element .style {
 		        		spec:'츄르 좋아함',
 		        		neut:'완료',
 		        		cat_seq:'12',
-		        		url:'abc'abc
+		        		url:'abc'
 		        	},
 		        	{
 		        		name:'냥냥이',
