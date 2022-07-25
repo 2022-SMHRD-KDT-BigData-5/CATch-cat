@@ -126,3 +126,21 @@ h7{
 	border-right-color: var(--color);
     border-bottom-color: var(--color);
 }
+
+/* ===============modal==================== */
+.update_modal{
+	position : absolute;
+	top : 0;
+	left : 0;
+	
+	width : 100%;
+	height : 100%;
+	
+	display : none !important;
+	
+	background-color : rgba(0,0,0,0.4);
+	
+}
+
+
+

@@ -4,7 +4,7 @@
 <%@page import="com.smhrd.domain.Medical"%>
 <%@page import="com.smhrd.domain.CatCard"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
@@ -98,106 +98,106 @@
 </head>
 
 <body>
-	<% 
- 	Member member = (Member)session.getAttribute("member");
- 	CatCard catcardInfo = (CatCard)session.getAttribute("catcardInfo");
- 	List<Medical> medicalList = (List<Medical>)session.getAttribute("medicalList");
+   <% 
+    Member member = (Member)session.getAttribute("member");
+    CatCard catcardInfo = (CatCard)session.getAttribute("catcardInfo");
+    List<Medical> medicalList = (List<Medical>)session.getAttribute("medicalList");
 
- 	%>
+    %>
 
-	<jsp:include page="header.jsp"></jsp:include>
-
-
-
-	<h1 class='h_title'><%=catcardInfo.getCat_name() %>의 CAT CARD</h1>
-	<!-- Swiper -->
-	<%if(catcardInfo != null){ %>
-	<div class="swiper mySwiper">
-		<div class="swiper-wrapper">
-			<div class="swiper-slide">
-				<div class="catcard_head">
-					<div class="catcard_img">
-						<img src="img/cat121212.png" alt="">
-					</div>
-					<div class="catcard_content">
-						<span>NO. <%=catcardInfo.getCat_seq() %></span>
-						<p>
-							고양이 생일 :
-							<%=catcardInfo.getCat_birthdate() %></p>
-						<p>
-							고양이 성별 :
-							<%=catcardInfo.getCat_gender() %></p>
-						<p>
-							카드 등록일 :
-							<%=catcardInfo.getCat_date() %></p>
-					</div>
-				</div>
+   <jsp:include page="header.jsp"></jsp:include>
 
 
 
-				<div class="catcard_more">
-					<button class="btn btn-primary btn-jittery">Click Me</button>
-					<div id='more_content'>
-						<p>
-							보호자아이디 :
-							<%=catcardInfo.getMem_id() %></p>
-						<p>
-							중성화 :
-							<%=catcardInfo.getCat_neutral() %></p>
-						<p>특이사항</p>
-						<p>특이사항 없음</p>
-					</div>
-				</div>
-			</div>
-
-	<%}else{ %>
-	<p>캣카드 번호를 다시 확인해주세요.</p>
-	<%} %>
-
-
-			<div class="swiper-slide">
-				<%if(member!=null){if(member.getMem_hospital() == 'T'){ %>
-				<div  class='update_btn'>
-				<button onclick="location.href='medicalUpdate.do'">수정</button>
-				</div>
-				
-				<%}} %>
-
-				<div class="medi_content">
-					<h7>진료내역</h7>
-					<table class="table table-border table-hover">
-						<tr class="medi_content_head">
-							<td></td>
-							<td>진료병원</td>
-							<td>진료내역</td>
-							<td>진료일</td>
-						</tr>
-						<c:forEach items="${medicalList}" var="medi" varStatus="status">
-							<tr>
-								<td>${status.count}</td>
-								<td>${medi.getMedi_name()}</td>
-								<td>${medi.getMedi_content()}</td>
-								<td>${medi.getMedi_date()}</td>
-							</tr>
-						</c:forEach>
-
-					</table>
-				</div>
+   <h1 class='h_title'><%=catcardInfo.getCat_name() %>의 CAT CARD</h1>
+   <!-- Swiper -->
+   <%if(catcardInfo != null){ %>
+   <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+         <div class="swiper-slide">
+            <div class="catcard_head">
+               <div class="catcard_img">
+                  <img src="img/cat121212.png" alt="">
+               </div>
+               <div class="catcard_content">
+                  <span>NO. <%=catcardInfo.getCat_seq() %></span>
+                  <p>
+                     고양이 생일 :
+                     <%=catcardInfo.getCat_birthdate() %></p>
+                  <p>
+                     고양이 성별 :
+                     <%=catcardInfo.getCat_gender() %></p>
+                  <p>
+                     카드 등록일 :
+                     <%=catcardInfo.getCat_date() %></p>
+               </div>
+            </div>
 
 
 
-				<div class="vacc_content">
-				<h7>접종 내역</h7>
-					<!-- 너무 길어서 백신카드는 외부방식으로 불러옴 -->
-					<jsp:include page="vaccincard.jsp"></jsp:include>
-				</div>
-			</div>
-	</div>
+            <div class="catcard_more">
+               <button class="btn btn-primary btn-jittery">Click Me</button>
+               <div id='more_content'>
+                  <p>
+                     보호자아이디 :
+                     <%=catcardInfo.getMem_id() %></p>
+                  <p>
+                     중성화 :
+                     <%=catcardInfo.getCat_neutral() %></p>
+                  <p>특이사항</p>
+                  <p>특이사항 없음</p>
+               </div>
+            </div>
+         </div>
+
+   <%}else{ %>
+   <p>캣카드 번호를 다시 확인해주세요.</p>
+   <%} %>
+
+
+         <div class="swiper-slide">
+            <%if(member!=null){if(member.getMem_hospital() == 'T'){ %>
+            <div  class='update_btn'>
+            <button onclick="location.href='medicalUpdate.do'">수정</button>
+            </div>
+            
+            <%}} %>
+
+            <div class="medi_content">
+               <h7>진료내역</h7>
+               <table class="table table-border table-hover">
+                  <tr class="medi_content_head">
+                     <td></td>
+                     <td>진료병원</td>
+                     <td>진료내역</td>
+                     <td>진료일</td>
+                  </tr>
+                  <c:forEach items="${medicalList}" var="medi" varStatus="status">
+                     <tr>
+                        <td>${status.count}</td>
+                        <td>${medi.getMedi_name()}</td>
+                        <td>${medi.getMedi_content()}</td>
+                        <td>${medi.getMedi_date()}</td>
+                     </tr>
+                  </c:forEach>
+
+               </table>
+            </div>
+
+
+
+            <div class="vacc_content">
+            <h7>접종 내역</h7>
+               <!-- 너무 길어서 백신카드는 외부방식으로 불러옴 -->
+               <jsp:include page="vaccincard.jsp"></jsp:include>
+            </div>
+         </div>
+   </div>
 <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
-	</div>
-	
-	    <div class="swiper-pagination"></div>
+   </div>
+   
+       <div class="swiper-pagination"></div>
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
@@ -227,16 +227,16 @@
 
 
     </script>
-	
-	<!-- testmonial_area_end  -->
+   
+   <!-- testmonial_area_end  -->
 
 
-	<!-- JS here -->
-	<script src="js/vendor/modernizr-3.5.0.min.js"></script>
-	<script src="js/vendor/jquery-1.12.4.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.slicknav.min.js"></script>
-	<script src="js/main.js"></script>
+   <!-- JS here -->
+   <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+   <script src="js/vendor/jquery-1.12.4.min.js"></script>
+   <script src="js/owl.carousel.min.js"></script>
+   <script src="js/jquery.slicknav.min.js"></script>
+   <script src="js/main.js"></script>
 
 
 </body>

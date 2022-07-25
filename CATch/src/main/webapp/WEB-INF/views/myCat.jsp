@@ -57,7 +57,7 @@ body {
 	border-radius: 10px;
 	font-size: 22px;
 	font-weight: bold;
-	background-color: #FDF8F2;
+	background-color: #006400;
 }
 
 .h_title {
