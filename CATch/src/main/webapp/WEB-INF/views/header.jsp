@@ -66,7 +66,7 @@
 										<c:choose>
 											<c:when test="${empty member}">
 												<li>
-												 <a data-toggle="modal" href="loginheard.do" data-target="#loginModal">LOGIN</a>
+												 <a data-toggle="modal" href="login.do" data-target="#loginModal">LOGIN</a>
 												</li>
 												<li>
 												<a href="join.do">join</a>
@@ -117,7 +117,7 @@
       <h1 class="modal-title" >로그인</h1>
      </div>
      <div class="modal-body">
-      <th:block th:replace="~{/loginheard.do :: setLogin}"></th:block>
+      <th:block th:replace="~{/login.do :: setLogin}"></th:block>
      </div>
     </div>
    </div>
