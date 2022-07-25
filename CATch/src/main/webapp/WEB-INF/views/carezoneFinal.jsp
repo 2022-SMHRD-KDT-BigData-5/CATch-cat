@@ -1,24 +1,36 @@
 <%@page import="com.smhrd.domain.CatCard"%>
-<%@page import="java.util.List"%>
 <%@page import="com.smhrd.domain.CareBoard"%>
+<%@page import="java.util.List"%>
 <%@page import="com.smhrd.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
-<link rel="stylesheet" href="css/carezone.css">
-<style>
-element .style {
-	display: none;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mapFinal.css">
+    <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+	<link rel="stylesheet" href="css/carezone.css">
 </head>
-<!--  <form onsubmit="searchPlaces(); return false;"></form> -->
+
 <body>
+
 	<%
 		Member member = (Member) session.getAttribute("member");
 	String care_id = "";
@@ -31,8 +43,13 @@ element .style {
 	List<CareBoard> careList = (List<CareBoard>)request.getAttribute("careList");
 	List<CatCard> catcardList = (List<CatCard>)request.getAttribute("catcardList");
 	%>
-
-	<div class="map_wrap">
+    <p class="map_title">급식소 등록</p>
+    <p class="page_explan">지도에서 좌표를 찍어 급식소를 등록하세요</p>
+    <div class="mappage_body">
+        <div class="map_area">
+        
+        
+        <div class="map_wrap">
 		<div id="map"
 			style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
 
@@ -50,33 +67,75 @@ element .style {
 			<div id="pagination"></div>
 		</div>
 	</div>
+        
 
 
-	<!-- 클릭한 좌표의 위도, 경도 넘겨주는 폼태그 -->
-	<form action="insertAddress.do" method="post">
-		<!-- 나중에 이거 전부 hidden으로 바꿀것 -->
-		급식소 이름 : <input type="text" name="care_name" placeholder=" ex) OO고양터">
-		<br> <input type="text" name="care_addr"> <br> <input
-			type="text" name="care_latitude"> <br> <input
-			type="text" name="care_longitude"> <br> <input
-			type="text" name="care_id" value=<%=care_id%> readonly> <br>
 
-		<input type="submit" value="급식소 등록하기" id="carezone_submit">
-	</form>
+        </div>
+        <div class="map_side">
+            <form action="insertAddress.do" method="post">
+                <span>급식소 이름</span> <input type="text" name="care_name" placeholder=" ex) OO고양터"> <br> 
+                <span>급식소 주소</span> <input type="text" name="care_addr"> <br>
+                <span>등록자 이름</span><input type="text" name="care_id" value=<%=care_id %> readonly> <br>
+                <input type="hidden" name="care_latitude"> <br> 
+                <input type="hidden" name="care_longitude"> <br> 
 
+
+                <input type="submit" value="급식소 등록하기" id="carezone_submit">
+            </form>
+
+        </div>
+    </div>
+
+    <div class="map_footer">
+        <table>
+           <tr class="map_table_head">
+            <td class="map_catImg"></td>
+            <td class="map_catName">이름</td>
+            <td class="map_catGender">성별</td>
+            <td class="map_neut">중성화</td>
+            <td class="map_spec">특이사항</td>
+           </tr>
+           <tr class="map_table_body">
+            <td><img src="img/catimg1515.jpg"></td>
+            <td>야웅이</td>
+            <td>수컷</td>
+            <td>완료</td>
+            <td>밥을 너무 많이 먹음 사료값이 너무 비싸서 급식소에서 밥을 맥이고 싶다</td>
+           </tr>
+           <tr class="map_table_body">
+            <td><img src="img/catimg1515.jpg"></td>
+            <td>나비</td>
+            <td>암컷</td>
+            <td>완료</td>
+            <td>츄르 좋아함</td>
+           </tr>
+           <tr class="map_table_body">
+            <td><img src="img/catimg1515.jpg"></td>
+            <td>냥냥이</td>
+            <td>수컷</td>
+            <td>완료</td>
+            <td>사람을 잘 따름</td>
+           </tr>
+           <tr class="map_table_body">
+            <td colspan="5"><a href="catcardForm.do">고양이 추가하기</a></td>
+           </tr>
+        </table>
+    </div>
+    
+    
 	<!-- 주소 -->
 	<span id="centerAddr"></span>
 	<div id="result"></div>
 
 
 
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0a2cd6f2777e0f89378c802f40822eb3&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0a2cd6f2777e0f89378c802f40822eb3&libraries=services"></script>
 	<script>
 	// 급식소 위치 담을 변수
 	
 	var positions = [ 
-	<%for (int i = 0; i < careList.size(); i++) {%>
+	<%for(int i = 0; i < careList.size(); i++) {%>
 		{
 	        title: "<%=careList.get(i).getCare_name()%>", 
 	        latlng: new kakao.maps.LatLng(<%=careList.get(i).getCare_latitude()%>, <%=careList.get(i).getCare_longitude()%>)
@@ -527,45 +586,7 @@ element .style {
 		function markClick(map, marker, infowindow1) {
 		    return function() {
 		        infowindow1.open(map, marker);
-		        
-		        var catList = [
-		        	{	
-		        		
-		        		name:'야웅이',
-		        		age:'2살',
-		        		gender:'암컷',
-		        		spec:'귀여움',
-		        		neut:'완료',
-		        		cat_seq:'7',
-		        		url:'abc'
-		        	},
-		        	{
-		        		name:'나비',
-		        		age:'3살',
-		        		gender:'암컷',
-		        		spec:'츄르 좋아함',
-		        		neut:'완료',
-		        		cat_seq:'12',
-		        		url:'abc'
-		        	},
-		        	{
-		        		name:'냥냥이',
-		        		age:'4살',
-		        		gender:'수컷',
-		        		spec:'사람을 잘 따름',
-		        		neut:'없음',
-		        		cat_seq:'3',
-		        		url:'abc'
-		        	}
-		        ]
-		        
-		        //클릭시 하단에 고양이목록 추가하는 함수
-		        for(var i=0; i<3; i++){ $('#carezone_submit').after('<table border="1px solid black"><tr><td>이름</td><td>'+catList[i].name+'</td></tr><tr><td>나이</td><td>'+catList[i].age+'</td></tr><tr><td>중성화</td><td>'+catList[i].neut+'</td></tr></table>')}
-		       
-		        
-		        
-	
-		        
+		     
 		    };
 		}
 
@@ -614,6 +635,6 @@ element .style {
 			
 			
 	</script>
-
 </body>
+
 </html>
