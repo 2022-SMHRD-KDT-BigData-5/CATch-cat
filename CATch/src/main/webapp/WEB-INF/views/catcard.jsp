@@ -4,23 +4,24 @@
 <%@page import="com.smhrd.domain.Medical"%>
 <%@page import="com.smhrd.domain.CatCard"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
- 
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Animal</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Animal</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
-    <!-- Place favicon.ico in the root directory -->
-
-    <!-- CSS here -->
+<!-- <link rel="manifest" href="site.webmanifest"> -->
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+<!-- Place favicon.ico in the root directory -->
+<!-- CSS here -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
@@ -33,111 +34,210 @@
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/myCat.css">
-    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <link rel="stylesheet" href="css/catcard.css">
+    <link rel="stylesheet" href="css/movebtn.css">
+<!-- <link rel="stylesheet" href="css/responsive.css"> -->
+
+<style>
+        html,
+        body {
+            position: relative;
+
+        }
+
+
+
+        .swiper {
+            width: 100%;
+            height: auto;
+            overflow: visible;
+            
+        }
+
+        .swiper-slide {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: auto;
+            grid-gap: 15px;
+            font-size: 18px;
+            background: #ffffff;
+            width: 50% !important;
+            height: 70%;
+            margin-left: 26% !important;
+            margin-right: 26% !important;
+            margin-top: 30px;
+            /* Center slide text vertically */
+            box-shadow: 3px 3px 3px 3px gray;
+            border-radius: 60px;
+
+
+        }
+
+
+        .swiper {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .swiper-pagination {
+            margin-bottom: -40px !important;
+            --swiper-theme-color : #006400;
+        }
+
+        .swiper-button-next, .swiper-button-prev{
+            --swiper-theme-color : #006400 ;
+        }
+
+
+        .h_title {
+            font-size: 60px;
+            color  : #006400;
+            font-family : var(--font--family);
+        }
+    </style>
 </head>
- 
- <body>
- 	<% 
+
+<body>
+	<% 
  	Member member = (Member)session.getAttribute("member");
  	CatCard catcardInfo = (CatCard)session.getAttribute("catcardInfo");
  	List<Medical> medicalList = (List<Medical>)session.getAttribute("medicalList");
 
  	%>
+
+	<jsp:include page="header.jsp"></jsp:include>
+
+
+
+	<h1 class='h_title'><%=catcardInfo.getCat_name() %>의 CAT CARD</h1>
+	<!-- Swiper -->
+	<%if(catcardInfo != null){ %>
+	<div class="swiper mySwiper">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<div class="catcard_head">
+					<div class="catcard_img">
+						<img src="img/cat121212.png" alt="">
+					</div>
+					<div class="catcard_content">
+						<span>NO. <%=catcardInfo.getCat_seq() %></span>
+						<p>
+							고양이 생일 :
+							<%=catcardInfo.getCat_birthdate() %></p>
+						<p>
+							고양이 성별 :
+							<%=catcardInfo.getCat_gender() %></p>
+						<p>
+							카드 등록일 :
+							<%=catcardInfo.getCat_date() %></p>
+					</div>
+				</div>
+
+
+
+				<div class="catcard_more">
+					<button class="btn btn-primary btn-jittery">Click Me</button>
+					<div id='more_content'>
+						<p>
+							보호자아이디 :
+							<%=catcardInfo.getMem_id() %></p>
+						<p>
+							중성화 :
+							<%=catcardInfo.getCat_neutral() %></p>
+						<p>특이사항</p>
+						<p>특이사항 없음</p>
+					</div>
+				</div>
+			</div>
+
+	<%}else{ %>
+	<p>캣카드 번호를 다시 확인해주세요.</p>
+	<%} %>
+
+
+			<div class="swiper-slide">
+				<%if(member!=null){if(member.getMem_hospital() == 'T'){ %>
+				<div  class='update_btn'>
+				<button onclick="location.href='medicalUpdate.do'">수정</button>
+				</div>
+				
+				<%}} %>
+
+				<div class="medi_content">
+					<h7>진료내역</h7>
+					<table class="table table-border table-hover">
+						<tr class="medi_content_head">
+							<td></td>
+							<td>진료병원</td>
+							<td>진료내역</td>
+							<td>진료일</td>
+						</tr>
+						<c:forEach items="${medicalList}" var="medi" varStatus="status">
+							<tr>
+								<td>${status.count}</td>
+								<td>${medi.getMedi_name()}</td>
+								<td>${medi.getMedi_content()}</td>
+								<td>${medi.getMedi_date()}</td>
+							</tr>
+						</c:forEach>
+
+					</table>
+				</div>
+
+
+
+				<div class="vacc_content">
+				<h7>접종 내역</h7>
+					<!-- 너무 길어서 백신카드는 외부방식으로 불러옴 -->
+					<jsp:include page="vaccincard.jsp"></jsp:include>
+				</div>
+			</div>
+	</div>
+<div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+	</div>
 	
-   <jsp:include page="header.jsp"></jsp:include>
+	    <div class="swiper-pagination"></div>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+    <script>
+        $(function () {
+            $(".btn").click(function () {
+                $("#more_content").show();
+                $('.btn').hide();
+            });
+        });
 
 
-<!-- testmonial_area_start  -->
- <div class="testmonial_area">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="textmonial_active owl-carousel">
-                    <div class="testmonial_wrap">
-                        <div class="single_testmonial d-flex align-items-center">
-                            
-                                <%if(catcardInfo != null){ %>
-                                    <div class="test_thumb">
-                                        <img src="img/testmonial/1.png" alt="">
-                                    </div>
-                                    <div class="test_content">
-                                    
-                                        <h4><%=catcardInfo.getCat_name() %>의 CAT CARD</h4>
-                                        <span>캣카드번호 : <%=catcardInfo.getCat_seq() %></span>
-                                        <p>고양이 생일 : <%=catcardInfo.getCat_birthdate() %></p>
-                                        <p>고양이 성별 : <%=catcardInfo.getCat_gender() %></p>
-                                        <p>카드 등록일 : <%=catcardInfo.getCat_date() %></p>
-                                    
-                                    </div>
-                                
-                                
-                                                                                                    
-                            <div class = 'moreCard'>
-                                 <input value="더보기" onclick="if(this.parentNode.getElementsByTagName('div')[0].style.display != ''){this.parentNode.getElementsByTagName('div')[0].style.display = '';this.value = '숨기기';}else{this.parentNode.getElementsByTagName('div')[0].style.display = 'none'; this.value = '더보기';}" type="button" />
-                                    <div style="display: none;">
-                                     <p>보호자아이디 : <%=catcardInfo.getMem_id() %></p>
-                                      <p>중성화 : <%=catcardInfo.getCat_neutral() %></p> 
-                                      <p>특이사항</p>
-                                      <p>특이사항 없음 </p>
-                                 </div>
-                            </div>
-                            <%}else{ %>
-                                    <p>캣카드 번호를 다시 확인해주세요.</p>
-                                    <%} %>
+    </script>
+	
+	<!-- testmonial_area_end  -->
 
 
-                        </div>
-                        
-                    </div>
-                    <div class="testmonial_wrap">
-                        <div class="single_testmonial d-flex align-items-center">
-                        <%if(member!=null){if(member.getMem_hospital() == 'T'){ %>
-                        	<button onclick="location.href='medicalUpdate.do'">수정</button><br>
-                        	<%}} %>
-                            <h7>진료 내역</h7>
-                            <div class="medical_thumb">
-                               <table class = "table table-border table-hover">
-                               <tr>
-                               		<td></td>
-                                    <td>진료병원</td>
-                                    <td>진료내역</td>
-                                    <td>진료일</td>
-                                </tr>
-                               <c:forEach items="${medicalList}" var="medi" varStatus = "status">
-                               		<tr>
-                               		<td>${status.count}</td>
-                               		<td>${medi.getMedi_name()}</td>
-                               		<td>${medi.getMedi_content()}</td>
-                               		<td>${medi.getMedi_date()}</td>
-                               		</tr>
-                               </c:forEach>
-                               
-                               </table>
-                            </div>
-                            <h7>접종 내역</h7>
-                            <div class="vacc_content">
-                            <!-- 너무 길어서 백신카드는 외부방식으로 불러옴 -->
-                                <jsp:include page="vaccincard.jsp"></jsp:include>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
+	<!-- JS here -->
+	<script src="js/vendor/modernizr-3.5.0.min.js"></script>
+	<script src="js/vendor/jquery-1.12.4.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.slicknav.min.js"></script>
+	<script src="js/main.js"></script>
 
-    </div>
-</div>
-<!-- testmonial_area_end  -->
-
-
-    <!-- JS here -->
-     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-     <script src="js/vendor/jquery-1.12.4.min.js"></script>
-     <script src="js/owl.carousel.min.js"></script>
-     <script src="js/jquery.slicknav.min.js"></script>
-     <script src="js/main.js"></script>
-    
 
 </body>
 </html>
