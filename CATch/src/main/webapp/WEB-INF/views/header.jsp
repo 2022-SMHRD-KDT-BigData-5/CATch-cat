@@ -7,9 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<%
@@ -66,7 +66,9 @@
 										<c:choose>
 											<c:when test="${empty member}">
 												<li>
-												 <a href="login.do" data-toggle="modal"  data-target="#loginModal">LOGIN</a>
+												 <a href="login.do" data-toggle="modal"  data-target="#loginModal" role="button"data-backdrop="static">
+												 <span class="btn btn-xs btn-success">LOGIN</span>
+												</a>
 												</li>
 												<li>
 												<a href="join.do">join</a>
@@ -74,7 +76,7 @@
 											</c:when>
 											<c:otherwise>
 												<li>
-												<a href="logout.do"><span>logout</span></a>
+												<a href="logout.do" ><span>logout</span></a>
 												</li>
 											</c:otherwise>
 										</c:choose>
@@ -108,17 +110,20 @@
 </body>
 <ul class="nav">
  <li>
- 
-  <div class="modal fade" id="loginModal" role="dialog">
+
+  <div class="modal fade" id="loginModal" role="dialog" aria-labelledby="테스트정보 등록" aria-describedby="테스트 모달">
    <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content" style="width:1200px;height:700px">
+
      <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">×</button>
-      <h1 class="modal-title" >로그인</h1>
+        
+
+      <div class="modal-title" ></div>
      </div>
      <div class="modal-body">
-      <th:block th:replace="~{/login.do :: setLogin(~{this::login}}"></th:block>
-   
+      <th:block th:replace="~{views/login.do :: setLogin(~{this::login} )}"></th:block>
+      
      </div>
     </div>
    </div>

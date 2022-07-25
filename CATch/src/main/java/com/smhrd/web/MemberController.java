@@ -126,12 +126,7 @@ public class MemberController {
 
 	
 	
-	
-	//@GetMapping("/loginheard.do")
-//	public String loginheard() {
-	
-//	return "login";
-//	}
+
 	
 	
 }

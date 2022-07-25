@@ -20,9 +20,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <!-- CSS here -->
-    <link href="css/login.css" rel="stylesheet" type="text/css" />
-
-
+        <link href="css/login.css" rel="stylesheet" type="text/css" />
+   
     
  
 </head>
@@ -49,7 +48,7 @@
       <div class="bottomText">
       	회원이 아니신가요? <a href="join.do">회원가입</a>
       </div>
-    
+     
     </form>
 
 	</div>
