@@ -28,6 +28,7 @@ public class CareBoard {
 	@NonNull
 	private String care_id;
 	private String care_date;
+	private String care_img;
 
 	
 }
