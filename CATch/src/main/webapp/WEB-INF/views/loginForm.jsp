@@ -32,7 +32,7 @@
    
 	<div class="member_login">
 
- 	<form th:action="login.do" th:method="post" class="loginForm">
+ 	<form action="login.do" method="POST" class="loginForm" >
    	<b><h2>LOGIN</h2></b>
 		
       
