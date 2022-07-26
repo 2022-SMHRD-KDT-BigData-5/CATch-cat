@@ -135,3 +135,39 @@ h7{
 	margin-top : 100px;
 }
 
+#update_modal h7{
+	font-size : 30px;
+}
+
+#update_modal textarea{
+	width : 840px !important;
+	height : 300px !important;
+}
+
+#update_modal form{
+	margin-bottom : 20px;
+}
+
+#update_modal .vacc_content{
+	margin : 0px !important;
+	font-size : 20px;
+	font-family : var(--font--family);
+}
+
+#update_modal input[type='submit']{
+	font-size : 20px;
+	font-family : var(--font--family);
+	color : var(--color);
+	background-color : var(--background--color);
+	border-radius : 6px;
+	border-color : var(--color);
+}
+
+.vacc_update input[type='checkbox']{
+	width : 30px;
+	height : 30px;
+	accent-color: #006400;
+}
+
+
+
