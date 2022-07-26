@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html >
+=======
+
+<html>
+
+
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
@@ -15,6 +22,19 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+<<<<<<< HEAD
+=======
+
+<title>Insert title here</title>
+
+
+<!-- modal 라이브러리 -->
+<script src="./jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="./bootstrapt/css/bootstrap.min.css" />
+<script src="./bootstrapt/js/bootstrap.min.js"></script>
+
+
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
 <!-- 게시판css -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

@@ -162,14 +162,14 @@
 
          <div class="swiper-slide">
          
-            <%--  <%if(member!=null){if(member.getMem_hospital() == 'T'){ %> --%>
+              <%if(member!=null){if(member.getMem_hospital() == 'T'){ %> 
           
           <div class='update_btn'>
                     <a  href="#update_modal" rel="modal:open" class='update_btn_body'>수정</a>
                 </div>
             
             
-          <%--  <%}} %> --%>
+           <%}} %> 
            
 
             <div class="medi_content">
@@ -234,18 +234,39 @@
 						</tr>
 					</c:forEach>
 				</table>
-				
-		<form action="mediUpdate.do">
+				<form action="mediUpdate.do">
 					<input type="hidden" name="medi_id" value=<%=member.getMem_id() %> >  
 					<input type="hidden" name="medi_name" value=<%=member.getMem_id() %>> 
 					<input type="hidden" name="cat_seq" value=<%=catcardInfo.getCat_seq() %>>
-					진료 내용 <textarea name="medi_content"></textarea>
+					<h7>진료 내용</h7><br>
+					
+					 <textarea name="medi_content"></textarea>
 					<br>
 					<input type="submit" value="등록">
 				</form>
-       
-       
-    </div>
+				<h7>접종 백신</h7>
+			<div class="vacc_content">
+			<form action="vaccUpdate.do" class = 'vacc_update'>
+				<input type="hidden" name="medi_id" value=<%=member.getMem_id() %>>
+				<input type="hidden" name="medi_name" value=<%=member.getMem_name() %>>
+				<input type="hidden" name="cat_seq" value=<%=catcardInfo.getCat_seq() %>>
+				종합백신 <input type="checkbox" name="vacc_type" value="종합백신">
+				광견병 <input type="checkbox" name="vacc_type" value="광견병">
+				전염성 복막염 <input type="checkbox" name="vacc_type" value="전염성 복막염">
+				항체가검사 <input type="checkbox" name="vacc_type" value="항체가검사">
+				심장사상충 <input type="checkbox" name="vacc_type" value="심장사상충">
+				<br>
+				<input type="submit" value="접종완료">
+			</form>
+				
+			</div>	
+
+			
+	</div>
+	</div>
+				
+				
+    
 
 
 

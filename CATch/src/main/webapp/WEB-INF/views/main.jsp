@@ -1,6 +1,6 @@
 <!doctype html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
-<html class="no-js" lang="zxx">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -43,8 +43,8 @@
                 <div class="row">
                     <div class="col-lg-5 col-md-6">
                         <div class="slider_text">
-                            <h3>집사님<br><span>밥줘요</span></h3>
-                            <p>캣치의 AI 생체 기술로 <br> 반려묘의 비문을 등록해보세요.</p>
+                            <h3>반려묘의<br><span>코를 찍자!</span></h3>
+                            <p>캣치의 AI 생체 기술로 <br>고양이 신분증을 만들어보세요.</p>
                             <br>
                             <a href="catcardForm.do" class="boxed-btn4">캣카드 만들기</a>
                         </div>
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="dog_thumb d-none d-lg-block">
-                <img src="img/about/004.png" alt="">
+                <img src="img/maincat.png" alt="">
             </div>
         </div>
     </div>

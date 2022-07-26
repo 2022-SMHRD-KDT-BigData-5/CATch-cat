@@ -76,7 +76,7 @@ body {
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
-    text-align: left;
+    text-align: center;
     background-color: #FFFFFF
 }
 
@@ -1213,6 +1213,9 @@ pre code {
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
         max-width: 50%
+        position: relative;
+        top: 50px;
+        left: 20px;
     }
     .col-md-7 {
         -webkit-box-flex: 0;
@@ -1396,6 +1399,9 @@ pre code {
         -ms-flex: 0 0 25%;
         flex: 0 0 25%;
         max-width: 25%
+        position: relative;
+        right: 300px;
+        top: 10px;
     }
     .col-lg-4 {
         -webkit-box-flex: 0;
@@ -4058,7 +4064,7 @@ tbody.collapse.show {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     padding-left: 0;
-    margin-bottom: 0;
+    margin-bottom: 20;
     list-style: none
 }
 
