@@ -89,7 +89,7 @@ body {
 						<p>No. 12345</p>
 					</div>
 					<div class='mycatCard_side'>
-						<img src="img/side_catch.png">
+						<img src="img/side_logo.png">
 					</div>
 					<div class='mycatCard_img'>
 						<img src="img/cat121212.png">
@@ -110,7 +110,7 @@ body {
 								<p>${cc.getCat_seq()}</p>
 							</div>
 							<div class='mycatCard_side'>
-								<img src="img/side_catch.png">
+								<img src="img/side_logo.png">
 							</div>
 							<div class='mycatCard_img'>
 								<img src="img/catimg1515.jpg">

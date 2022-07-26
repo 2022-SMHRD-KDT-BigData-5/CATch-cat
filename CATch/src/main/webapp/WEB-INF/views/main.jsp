@@ -28,6 +28,16 @@
     
 
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    
+    <style>
+    	.slider_text {
+    		left :35px;
+    		top  : 80px;
+    	}
+    	.dog_thumb{
+    		right : 30% !important;
+    	}
+    </style>
 </head>
 
 <body>
