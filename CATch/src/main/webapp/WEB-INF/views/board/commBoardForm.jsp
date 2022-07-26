@@ -25,8 +25,8 @@
     <link rel="stylesheet" href="css/myCat.css">
 <style>
 		.form-horizontal .form-group {
-    margin-right: 20.5%;
-    margin-left: 18%;
+   margin-right: 20.5% !important;
+    margin-left: 18% !important;
 }
 .filebox{
 	margin-left : 19.5%;

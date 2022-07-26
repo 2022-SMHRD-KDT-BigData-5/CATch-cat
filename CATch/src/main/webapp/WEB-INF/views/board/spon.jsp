@@ -24,7 +24,7 @@
 
 
 <link rel="stylesheet" href="css/style.css">
-
+<link rel="stylesheet" href="css/boardtest.css">
 <!-- 글꼴 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,7 +44,11 @@
 
 
 	<!--------------------------  게시판 시작 ---------------------------------->
-	<section class="notice">
+<div class="board_head">
+	<h1 class = 'h_title'>후원게시판</h1>
+	<p>고양이들을 후원해주세요~</p>
+	</div>
+<!-- 	<section class="notice">
 		<div class="page-title">
 			<div class="container">
 				<h3 class="heading-primary elementor-heading-title">
@@ -60,7 +64,7 @@
 			</div>
 		</div>
 	</section>
-
+ -->
 
 
 	<div class="container-fluid text-center">
