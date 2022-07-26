@@ -19,18 +19,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <!-- CSS here -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/gijgo.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/slicknav.css">
+
     <link rel="stylesheet" href="css/style.css">
-    
+    <link rel="stylesheet" href="css/boardtest.css">
     <!-- 글꼴 -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +34,13 @@
 
 	<!--------------------------  게시판 시작 ---------------------------------->
 
-<section class="notice">
+
+	<div class="board_head">
+	<h1 class = 'h_title'>소통게시판</h1>
+	<p>집사들간의 정보공유와 소통을 하는 게시판입니다~</p>
+	</div>
+
+<!-- <section class="notice">
    <div class="page-title">
       <div class="container">
          <h3 class="heading-primary elementor-heading-title">
@@ -59,13 +56,14 @@
             <br>
             오직..
             <b>캣치에서만</b>
+            <div class="col-sm-2 sidenav"></div>
          </div>
       </div>
    </div>
-</section>
+</section> -->
 
 <!-- 검색 -->
-	<div id="board-search">
+	<%-- <div id="board-search">
 		<div class="container">
 			<div class="search-window">
 				<form action="#" method="get">
@@ -86,15 +84,16 @@
 
 			</div>
 		</div>
-	</div>
+	</div> --%>
   
 <div class="container-fluid text-center">    
   <div class="row content">
-    <div class="col-sm-2 sidenav">
-      <p><a href="comm.do">소통게시판</a></p>
-      <p><a href="adopt.do">입양게시판</a></p>
-      <p><a href="spon.do">후원게시판</a></p>
-    </div>
+    <p>
+				<a href="comm.do"><img src="upload/green_cat.png"> 소통게시판   </a> 
+				<a href="adopt.do"><img src="upload/green_cat.png"> 입양게시판   </a> 
+				<a href="spon.do"><img src="upload/green_cat.png"> 후원게시판   </a>
+			</p>
+			<div class="col-sm-2 sidenav"></div>
     <div class="col-sm-8 text-left"> 
 
  
@@ -138,32 +137,27 @@
 
 
     <div class="col-sm-2 sidenav">
-      <div class="well">
-        <p>ADS</p>
-      </div>
-      <div class="well">
-        <p>ADS</p>
-      </div>
+      <img src="upload/cat_icon2.png">
     </div>
   </div>
 </div>
 
 <footer class="container-fluid text-center">
-  <div>
-  <a href="#">&laquo;</a>
-  <a href="#" >1</a>
-  <a href="#" >2</a>
-  <a href="#">3</a>
-  <a href="#" >4</a>
-  <a href="#" >5</a>
-  <a href="#" >6</a>
-  <a href="#" >7</a>
-  <a href="#">8</a>
-  <a href="#" >9</a>
-  <a href="#">10</a>
-  <a href="#">&raquo;</a>
-</div>
-</footer>
+		<div>
+			<ul class="pagination">
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">6</a></li>
+				<li><a href="#">7</a></li>
+				<li><a href="#">8</a></li>
+				<li><a href="#">9</a></li>
+				<li><a href="#">10</a></li>
+			</ul>
+		</div>
+	</footer>
 <!--------------------------  게시판 끝 ---------------------------------->
 
 </body>

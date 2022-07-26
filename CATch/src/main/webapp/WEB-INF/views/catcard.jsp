@@ -297,6 +297,18 @@
     });
     
 </script>
+
+  <script>
+        $(function () {
+            $(".btn").click(function () {
+                $("#more_content").show();
+                $('.btn').hide();
+            });
+        });
+
+
+    </script>
+
    
    <!-- testmonial_area_end  -->
 
