@@ -80,12 +80,6 @@
 												</li>
 											</c:otherwise>
 										</c:choose>
-										
-										
-										
-										
-										
-
 									</ul>
 								</nav>
 							</div>
@@ -97,12 +91,7 @@
 				</div>
 			</div>
 		</div>
-		
-		
 
-	
-		
-		
 	</header>
 
 

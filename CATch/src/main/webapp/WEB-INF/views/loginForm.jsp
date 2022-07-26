@@ -33,21 +33,19 @@
 	<div class="member_login">
 
  	<form th:action="login.do" th:method="post" class="loginForm">
-   	<b><h2>Login</h2></b>
+   	<b><h2>LOGIN</h2></b>
 		
       
       <div class="idForm">
-      	<input  type="text" name="mem_id" id="id"  autocomplete="off" value="" aria-labelledby="placeholder-id">
-      	 <label class="placeholder-text" for="fname" id="placeholder-id">
-      	 	<div class="text">아이디</div>
-      	 </label>
-      </div>
-      
+      	<input  type="text" name="mem_id"  placeholder="아이디">
+
+ 	  </div>
+ 
       <div class="passForm">
       <input type="password" name="mem_pw"  placeholder="비밀번호">
       </div>
       
-      <input type="submit"  class="btn btn-secondary" id="btn-login" value="L O G I N"/>
+      <input type="submit"  class="btn btn-secondary" id="btn-login" value="로그인"/>
       <div class="bottomText">
       	회원이 아니신가요? <a href="join.do">회원가입</a>
       </div>
@@ -55,13 +53,7 @@
     </form>
 
 	</div>
-	<script type="text/javascript">
-	let input_element = document.querySelector("input");
 
-	input_element.addEventListener("keyup", () => {
-	    input_element.setAttribute("value", input_element.value);
-	})
-	</script>
 </body>
 </th:block>
 </html>
