@@ -30,7 +30,8 @@
 </head>
 
 <body>
-
+	<jsp:include page="header.jsp"></jsp:include>
+	
 	<%
 		Member member = (Member) session.getAttribute("member");
 	String care_id = "";
@@ -97,23 +98,23 @@
             <td class="map_spec">특이사항</td>
            </tr>
            <tr class="map_table_body">
-            <td><img src="img/catimg1515.jpg"></td>
+            <td><img src="img/cat001.jpg"></td>
             <td>야웅이</td>
             <td>수컷</td>
             <td>완료</td>
             <td>밥을 너무 많이 먹음 사료값이 너무 비싸서 급식소에서 밥을 맥이고 싶다</td>
            </tr>
            <tr class="map_table_body">
-            <td><img src="img/catimg1515.jpg"></td>
+            <td><img src="img/cat002.jpg"></td>
             <td>나비</td>
             <td>암컷</td>
             <td>완료</td>
             <td>츄르 좋아함</td>
            </tr>
            <tr class="map_table_body">
-            <td><img src="img/catimg1515.jpg"></td>
-            <td>냥냥이</td>
-            <td>수컷</td>
+            <td><img src="img/cat003.jpg"></td>
+            <td>감자</td>
+            <td>암컷</td>
             <td>완료</td>
             <td>사람을 잘 따름</td>
            </tr>
