@@ -134,6 +134,7 @@ h7{
 	left : 25% !important;
 	max-width : 900px !important;
 	margin-top : 100px;
+	display :none;
 }
 
 #update_modal h7{
