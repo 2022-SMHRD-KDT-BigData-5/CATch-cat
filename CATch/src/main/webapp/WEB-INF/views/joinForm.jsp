@@ -32,7 +32,7 @@
 <body>
 	
 
-	<h1 class = "h_title"><img src="img/catch.png" ></h1>
+	<a href="main.do"><h1 class = "h_title"><img src="img/joinlogo.png" ></h1></a>
 	<!-- 회원가입 -->
 	<div id="header">
 		<div id="wrapper">

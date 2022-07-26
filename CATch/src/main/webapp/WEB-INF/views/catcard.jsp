@@ -293,7 +293,7 @@
   <script>
 
     $(".update_btn_body").click(function(){
-        $(".update_modal").show();
+        $("#update_modal").show();
     });
     
 </script>
