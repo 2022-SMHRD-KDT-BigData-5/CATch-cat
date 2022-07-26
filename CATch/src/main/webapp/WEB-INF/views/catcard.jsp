@@ -10,16 +10,10 @@
 <html class="no-js" lang="zxx">
 
 <head>
-<meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Animal</title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- <link rel="manifest" href="site.webmanifest"> -->
-<link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
-<!-- Place favicon.ico in the root directory -->
-<!-- CSS here -->
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -36,8 +30,14 @@
     <link rel="stylesheet" href="css/myCat.css">
     <link rel="stylesheet" href="css/catcard.css">
     <link rel="stylesheet" href="css/movebtn.css">
-<!-- <link rel="stylesheet" href="css/responsive.css"> -->
 
+    <!-- Remember to include jQuery :) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <!-- Demo styles -->
 <style>
         html,
         body {
@@ -102,6 +102,11 @@
     Member member = (Member)session.getAttribute("member");
     CatCard catcardInfo = (CatCard)session.getAttribute("catcardInfo");
     List<Medical> medicalList = (List<Medical>)session.getAttribute("medicalList");
+    List<Vaccination> jh = (List<Vaccination>)session.getAttribute("jh");
+	List<Vaccination> gg = (List<Vaccination>)session.getAttribute("gg");
+	List<Vaccination> jb = (List<Vaccination>)session.getAttribute("jb");
+	List<Vaccination> hc = (List<Vaccination>)session.getAttribute("hc");
+	List<Vaccination> ss = (List<Vaccination>)session.getAttribute("ss");
 
     %>
 
@@ -109,9 +114,9 @@
 
 
 
+   <%if(catcardInfo != null){ %>
    <h1 class='h_title'><%=catcardInfo.getCat_name() %>의 CAT CARD</h1>
    <!-- Swiper -->
-   <%if(catcardInfo != null){ %>
    <div class="swiper mySwiper">
       <div class="swiper-wrapper">
          <div class="swiper-slide">
@@ -134,7 +139,6 @@
             </div>
 
 
-
             <div class="catcard_more">
                <button class="btn btn-primary btn-jittery">Click Me</button>
                <div id='more_content'>
@@ -155,13 +159,18 @@
    <%} %>
 
 
+
          <div class="swiper-slide">
-            <%if(member!=null){if(member.getMem_hospital() == 'T'){ %>
-            <div  class='update_btn'>
-            <button onclick="location.href='medicalUpdate.do'">수정</button>
-            </div>
+         
+            <%--  <%if(member!=null){if(member.getMem_hospital() == 'T'){ %> --%>
+          
+          <div class='update_btn'>
+                    <a  href="#update_modal" rel="modal:open" class='update_btn_body'>수정</a>
+                </div>
             
-            <%}} %>
+            
+          <%--  <%}} %> --%>
+           
 
             <div class="medi_content">
                <h7>진료내역</h7>
@@ -201,6 +210,49 @@
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+
+
+
+
+  <div id='update_modal'>
+       
+       <h7>진료 내역</h7>
+			<div class="medical_thumb">
+				<table class="table table-border table-hover">
+					<tr>
+						<td></td>
+						<td>진료병원</td>
+						<td>진료내역</td>
+						<td>진료일</td>
+					</tr>
+					<c:forEach items="${medicalList}" var="medi" varStatus="status">
+						<tr>
+							<td>${status.count}</td>
+							<td>${medi.getMedi_name()}</td>
+							<td>${medi.getMedi_content()}</td>
+							<td>${medi.getMedi_date()}</td>
+						</tr>
+					</c:forEach>
+				</table>
+				
+		<form action="mediUpdate.do">
+					<input type="hidden" name="medi_id" value=<%=member.getMem_id() %> >  
+					<input type="hidden" name="medi_name" value=<%=member.getMem_id() %>> 
+					<input type="hidden" name="cat_seq" value=<%=catcardInfo.getCat_seq() %>>
+					진료 내용 <textarea name="medi_content"></textarea>
+					<br>
+					<input type="submit" value="등록">
+				</form>
+       
+       
+    </div>
+
+
+
+
+
+
+
     <!-- Initialize Swiper -->
     <script>
         var swiper = new Swiper(".mySwiper", {
@@ -217,16 +269,13 @@
             },
         });
     </script>
-    <script>
-        $(function () {
-            $(".btn").click(function () {
-                $("#more_content").show();
-                $('.btn').hide();
-            });
-        });
+  <script>
 
-
-    </script>
+    $(".update_btn_body").click(function(){
+        $(".update_modal").show();
+    });
+    
+</script>
    
    <!-- testmonial_area_end  -->
 
@@ -239,5 +288,8 @@
    <script src="js/main.js"></script>
 
 
+
+
+	
 </body>
 </html>
