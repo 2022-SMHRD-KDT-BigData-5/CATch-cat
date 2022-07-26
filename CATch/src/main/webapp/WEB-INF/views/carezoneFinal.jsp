@@ -531,25 +531,25 @@
 		// 커스텀 오버레이에 표시할 내용입니다     
 		// HTML 문자열 또는 Dom Element 입니다 
 		var mark_content = [
-		<%for (int i = 0; i < careList.size(); i++) {%>
-		{
-		 content : '<div class="wrap">' + 
-        '    <div class="info">' + 
-        '        <div class="title"><%=careList.get(i).getCare_name()%><div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
-        '        </div>' + 
-        '        <div class="body">' + 
-        '            <div class="img">' +
-        '                <img src="https://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
-        '           </div>' + 
-        '            <div class="desc">' + 
-        '                <div class="ellipsis"><%=careList.get(i).getCare_addr()%></div>' + 
-        '            </div>' + 
-        '        </div>' + 
-        '    </div>' +    
-        '</div>',
-        latlng: new kakao.maps.LatLng(<%=careList.get(i).getCare_latitude()%>, <%=careList.get(i).getCare_longitude()%>)
-		},
-	<%}%>
+			<%for (int i = 0; i < careList.size(); i++) {%>
+			{
+			 content : '<div class="wrap">' + 
+	        '    <div class="info">' + 
+	        '        <div class="title"> <%=careList.get(i).getCare_name()%> <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+	        '        </div>' + 
+	        '        <div class="body">' + 
+	        '            <div class="img">' +
+	        '                <img src=<%if(careList.get(i).getCare_img() != null){%> <%=careList.get(i).getCare_img()%> <%}else{%>"upload/carezone_icon.png" <%}%>  width="73" height="70">' +
+	        '           </div>' + 
+	        '            <div class="desc">' + 
+	        '                <div class="ellipsis"><%=careList.get(i).getCare_addr()%></div>' + 
+	        '            </div>' + 
+	        '        </div>' + 
+	        '    </div>' +    
+	        '</div>',
+	        latlng: new kakao.maps.LatLng(<%=careList.get(i).getCare_latitude()%>, <%=careList.get(i).getCare_longitude()%>)
+			},
+		<%}%>
 		];
 		
 
