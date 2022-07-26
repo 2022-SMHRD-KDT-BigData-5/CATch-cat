@@ -20,7 +20,14 @@
     <link rel="stylesheet" href="css/myCat.css">
     <link rel="stylesheet" href="css/joinForm.css">
 
-    
+    <style>
+    	.id_ok{
+    	color:#006400;
+    	display:none;}
+    	.id_already{
+    	color:red;
+    	display:none;}
+    </style>
 </head>
 <body>
 	
