@@ -95,8 +95,6 @@
 	</header>
 
 
-
-</body>
 <ul class="nav">
  <li>
 
@@ -111,7 +109,7 @@
       <div class="modal-title" ></div>
      </div>
      <div class="modal-body">
-      <th:block th:replace="~{login.do :: setLogin(~{this::login} )}"></th:block>
+
       
      </div>
     </div>
@@ -120,4 +118,6 @@
  </li>
 </ul>
  
+
+</body>
 </html>
