@@ -1,15 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html >
-=======
 
 <html>
 
 
-
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
 <head>
 <meta charset="UTF-8">
 
@@ -25,13 +20,12 @@
 
 <title>Insert title here</title>
 
-<<<<<<< HEAD
-=======
+
 <!-- modal 라이브러리 -->
 <script src="./jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" href="./bootstrapt/css/bootstrap.min.css" />
 <script src="./bootstrapt/js/bootstrap.min.js"></script>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
+
 
 <!-- 게시판css -->
 <script

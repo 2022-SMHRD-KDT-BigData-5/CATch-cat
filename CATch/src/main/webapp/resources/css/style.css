@@ -1501,7 +1501,7 @@ h3 {
 @media (min-width: 1200px) and (max-width: 1500px) {
   /* line 74, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_slider.scss */
   .slider_area .dog_thumb {
-    right: 10%;
+    right: 20%;
     text-align: right;
   }
 }
