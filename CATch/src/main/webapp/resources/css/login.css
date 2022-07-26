@@ -327,7 +327,7 @@ input{
     border-radius: 1rem;
 }
 
-.placeholder-text{
+.placeholder-id{
     position: absolute;
     top: 0;
     bottom: 0;
@@ -339,7 +339,7 @@ input{
     align-items: center;
 }
 
-.placeholder-text{
+.placeholder-id{
     pointer-events: none;
 }
 
@@ -350,14 +350,14 @@ input{
     color: black;
 }
 
-input, .placeholder-text{
+input, .placeholder-id{
     font-size: 1.4rem;
     padding: 0 1.2rem;
 }
 
 input:focus{
     outline: none;
-    border-color: blueviolet;
+    border-color: #006400;
 }
 
 
@@ -365,7 +365,7 @@ input:focus{
     transform: translate(0);
     transition: transform 0.15s ease-out, font-size 0.15s ease-out, background-color 0.2s ease-out, color 0.15s ease-out;
 }
-input:focus + .placeholder-text .text, :not(input[value=""]) + .placeholder-text .text{
+input:focus + .placeholder-id .text, :not(input[value=""]) + .placeholder-id .text{
     background-color: white;
     font-size: 1.1rem;
     color: black;
@@ -374,9 +374,9 @@ input:focus + .placeholder-text .text, :not(input[value=""]) + .placeholder-text
 
 
 
-input:focus + .placeholder-text .text{
-    border-color: blueviolet;
-    color: blueviolet;
+input:focus + .placeholder-id .text{
+    border-color: #006400;
+    color: #006400;
 }
 
 
@@ -387,11 +387,11 @@ select,
 textarea {
     margin: 0;
     font-family: inherit;
-    font-size: inherit;
+    font-size: 20px;
     line-height: inherit
      height: 5rem;
     width: 40rem;
-    border: 2px solid black;
+    border: 2px solid #5EBC88;
     border-radius: 1rem;
 }
 
@@ -520,11 +520,15 @@ h6 {
 .h1,
 h1 {
     font-size: 2.5rem
+  
+
 }
 
 .h2,
 h2 {
     font-size: 2rem
+  
+    font-size: 70px;
 }
 
 .h3,
@@ -2716,7 +2720,7 @@ select.form-control-lg:not([size]):not([multiple]) {
 .loginForm {
   position:absolute;
   width:600px;
-  height:400px;
+  height:500px;
   padding: 30px, 20px;
   text-align:center;
   background:none;
@@ -2730,6 +2734,8 @@ select.form-control-lg:not([size]):not([multiple]) {
 .loginForm h2{
   text-align: center;
   margin: 30px;
+  color: #5EBC88;
+    font-size: 70px;
 }
 
 .idForm{
@@ -2742,6 +2748,7 @@ select.form-control-lg:not([size]):not([multiple]) {
   border-bottom: 2px solid #adadad;
   margin: 30px;
   padding: 10px 10px;
+
 }
 
 .id {
@@ -2766,11 +2773,9 @@ select.form-control-lg:not([size]):not([multiple]) {
 
 .btn {
   position:relative;
-  left:40%;
+  left:34%;
   transform: translateX(-50%);
   margin-bottom: 40px;
-  width:80%;
-  height:40px;
   background: #5EBC88;
   background-position: left;
   background-size: 200%;
@@ -2855,13 +2860,13 @@ fieldset:disabled a.btn {
 
 .btn-secondary {
     color: #fff;
-    background-color: #6c757d;
+  
     border-color: #6c757d
 }
 
 .btn-secondary:hover {
     color: #fff;
-    background-color: #5a6268;
+    background-color: #006400;
     border-color: #545b62
 }
 
