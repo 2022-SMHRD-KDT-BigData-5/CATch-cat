@@ -142,6 +142,7 @@ public class CatCardController {
 		
 		return "catcardNoseForm";
 	}
+<<<<<<< HEAD
 	//캣카드  등록 페이지
 		@RequestMapping("/catcardregistration.do")
 		public String catcardregistration() {
@@ -162,5 +163,16 @@ public class CatCardController {
 		
 		return "catnext";
 	}
+=======
+
+	// 로딩중 페이지로 이동
+	@RequestMapping("/loading1.do")
+	public String catcardload() {
+		return "loading1";
+	}
+				
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
 	
 }
+
+	
