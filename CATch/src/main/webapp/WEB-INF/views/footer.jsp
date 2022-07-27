@@ -31,11 +31,11 @@
                                 Our Servces
                             </h3>
                             <ul class="links">
-                                <li><a href="#">Pet Insurance</a></li>
-                                <li><a href="#">Pet surgeries </a></li>
-                                <li><a href="#">Pet Adoption</a></li>
-                                <li><a href="#">Dog Insurance</a></li>
-                                <li><a href="#">Dog Insurance</a></li>
+                                <li><a href="#">Cat Insurance</a></li>
+                                <li><a href="#">Cat surgeries </a></li>
+                                <li><a href="#">Cat Adoption</a></li>
+                                <li><a href="#">Cat Insurance</a></li>
+                                <li><a href="#">Cat Insurance</a></li>
                             </ul>
                         </div>
                     </div>
@@ -60,8 +60,7 @@
                                     <img src="img/catch.png" alt="">
                                 </a>
                             </div>
-                            <p class="address_text">239 E 5th St, New York 
-                                NY 10003, USA
+                            <p class="address_text">31-15, Yesul-gil, Dong-gu, Gwangju, Republic of Korea
                             </p>
                             <div class="socail_links">
                                 <ul>

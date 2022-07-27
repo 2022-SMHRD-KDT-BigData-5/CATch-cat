@@ -458,9 +458,9 @@ h3 {
 
 /* line 59, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_btn.scss */
 .boxed-btn4:hover {
-  background: #5EBC88;
+  background: #006400;
   color: #fff;
-  border: 1px solid #5EBC88;
+  border: 1px solid #FFFFFF;
 }
 
 /* line 64, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_btn.scss */
@@ -1108,7 +1108,8 @@ h3 {
 @media (min-width: 992px) and (max-width: 1200px) {
   /* line 119, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_header.scss */
   .header-area .main-header-area .main-menu ul li a {
-    font-size: 15px;
+    font-size: 18px;
+    font-weight: bold;
     
   }
 }
@@ -1116,7 +1117,8 @@ h3 {
 @media (min-width: 1200px) and (max-width: 1500px) {
   /* line 119, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_header.scss */
   .header-area .main-header-area .main-menu ul li a {
-    font-size: 15px;
+    font-size: 18px;
+    font-weight: bold;
     
   }
 }
@@ -1252,7 +1254,7 @@ h3 {
   transition: transform 500ms ease, background 500ms ease;
   -webkit-transition: transform 500ms ease, background 500ms ease;
   box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1);
-  /* background: rgba(255, 255, 255, 0.96); */
+  
 }
 
 @media (max-width: 767px) {
@@ -1413,6 +1415,7 @@ h3 {
 .slider_area .single_slider .slider_text {
   position: relative;
   z-index: 6;
+  bottom: 120px;
 }
 
 /* line 30, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_slider.scss */
@@ -1501,7 +1504,7 @@ h3 {
 @media (min-width: 1200px) and (max-width: 1500px) {
   /* line 74, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_slider.scss */
   .slider_area .dog_thumb {
-    right: 20%;
+    right: 10%;
     text-align: right;
   }
 }
@@ -1904,9 +1907,11 @@ h3 {
 
 /* line 4, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_service.scss */
 .service_area {
-  padding-top: 241px;
-  padding-bottom: 106px;
+  padding-top: 120px;
+  padding-bottom: 60px;
   background-color: #f8f8f8;
+  margin-top: 140px;
+  margin-bottom: 40px;
 }
 
 @media (max-width: 767px) {
@@ -2296,6 +2301,11 @@ h3 {
   width: 95%;
   margin-top: 10px;
  }
+
+
+
+
+
 
 
 
@@ -3333,8 +3343,8 @@ h3 {
 
 /* line 1, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_pet_care.scss */
 .pet_care_area {
-  padding-top: 73px;
-  padding-bottom: 24px;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 @media (max-width: 767px) {

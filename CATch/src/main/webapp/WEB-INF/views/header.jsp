@@ -67,16 +67,16 @@
 											<c:when test="${empty member}">
 												<li>
 												 <a href="login.do" data-toggle="modal"  data-target="#loginModal" >
-												LOGIN
+												Login
 												</a>
 												</li>
 												<li>
-												<a href="join.do">join</a>
+												<a href="join.do">Join</a>
 												</li>
 											</c:when>
 											<c:otherwise>
 												<li>
-												<a href="logout.do" ><span>logout</span></a>
+												<a href="logout.do" ><span>Logout</span></a>
 												</li>
 											</c:otherwise>
 										</c:choose>
