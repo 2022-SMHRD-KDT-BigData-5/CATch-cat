@@ -106,7 +106,7 @@
 					<th scope="row">작성자</th>
 					<td><%=adoptBoardInfo.getAdt_id()%></td>
 					<th scope="row">작성일</th>
-					<td><%=adoptBoardInfo.getAdt_date()%></td>
+					<td><%=adoptBoardInfo.getAdt_date().getYear()-100%>년 <%=adoptBoardInfo.getAdt_date().getMonth()+1%>월 <%=adoptBoardInfo.getAdt_date().getDate()%>일</td>
 				</tr>
 				<tr>
 					<th scope="row">제목</th>

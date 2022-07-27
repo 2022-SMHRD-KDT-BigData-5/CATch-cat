@@ -126,8 +126,8 @@
     
     
 	<!-- 주소 -->
-	<span id="centerAddr"></span>
-	<div id="result"></div>
+ 	<span id="centerAddr" style="display: none;"></span> 
+	<div id="result" style="display: none;"></div>
 
 
 
@@ -576,17 +576,24 @@
 		var infowindow1 = new kakao.maps.InfoWindow({
 			content : mark_content[i].content
 		});
+		kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow1));
 		kakao.maps.event.addListener(marker,'click',markClick(map, marker, infowindow1));
 		kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow1));
 		}
 		
-	
+		// 마우스 올렸을 때 
+		function makeOverListener(map, marker, infowindow1) {
+		    return function() {
+		        infowindow1.open(map, marker);
+		    };
+		}
+		
 			
 		
 		//클릭시 말풍선뜨는거 ㅎㅎ
 		function markClick(map, marker, infowindow1) {
 		    return function() {
-		        infowindow1.open(map, marker);
+		    	$(".map_footer").css("display","block");
 		     
 		    };
 		}
