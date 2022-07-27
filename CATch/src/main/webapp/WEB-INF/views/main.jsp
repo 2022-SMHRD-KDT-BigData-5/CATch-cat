@@ -140,7 +140,7 @@
                                                         왜 비문(코주름)이 <br>필요할까요?</h3>
                             <p>사람의 지문과 같이 반려견의 비문(코 지문)모두 다르며, <br> 나이가 들어서도 변하지 않기에 생체정보로써 사용할 수 있습니다. <br> 캣치와 함께 나의 반려묘를 등록해보세요 <br>
                                 </p>
-                            <a href="about.html" class="boxed-btn3">About Us</a>
+                            <a href="catcardForm.do" class="boxed-btn3">시작하기</a>
                         </div>
                     </div>
                 </div>
