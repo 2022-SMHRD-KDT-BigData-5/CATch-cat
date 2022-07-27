@@ -38,10 +38,13 @@
 <%
 Petcare petcare = (Petcare)session.getAttribute("petcare"); 
 List<PetcareReview> petCareReviewList = (List<PetcareReview>)session.getAttribute("petCareReviewList");
+
 %>
 
    <h1 class="h_title"><%=petcare.getPetcare_name() %></h1>
-    <div class = "petcare_att_img"></div>
+    <div class = "petcare_att_img">
+    	<img src="${petcare.getPetcare_detail()}">
+    </div>
     <div class = "petcare_att_review">
     <jsp:include page="insertReview.jsp"></jsp:include>
         <p class="reivew_name">후기</p>
