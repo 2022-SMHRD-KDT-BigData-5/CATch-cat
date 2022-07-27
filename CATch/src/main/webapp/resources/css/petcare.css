@@ -64,3 +64,25 @@ body{
     margin: 0px 20%;
     height: 600px;
 }
+
+.petcare_att_review{
+    margin: 10px 20%;
+}
+
+.petcare_att_review .reivew_name{
+    font-size: 25px ;
+    color: var(--color) ;
+    font-family: var(--font--family) ;
+    margin-top: 40px;
+}
+
+.petcare_review_content{
+    
+}
+
+.petcare_review_content .review_writer{
+    margin-right: 30px;
+    font-size: 18px;
+    color: var(--color);
+    font-family: var(--font--family);
+}

@@ -125,5 +125,8 @@ public interface BoardMapper {
 	
 	// 펫케어 리뷰 가져오기
 	public abstract List<PetcareReview> selectPetcareReviewList(int petcare_seq);
+	
+	//펫케어 리뷰 등록하기
+	public abstract int insertReview(PetcareReview petcareReview);
 
 }

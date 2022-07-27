@@ -170,8 +170,15 @@
 	<select id="selectPetcareReviewList" resultType="com.smhrd.domain.PetcareReview">
 	    select * from t_petcare_review
 	    where review_petcare = #{petcare_seq}
+	    order by review_date desc
 	</select>
 	
+	<!-- 펫케어 리뷰 등록하는 sql문 -->
+	<insert id="insertReview" parameterType="com.smhrd.domain.PetcareReview">
+	    insert into t_petcare_review(review_id, review_content, review_petcare, review_star, review_date)
+	    values(#{review_id}, #{review_content}, #{review_petcare}, #{review_star}, now())
+	    
+	</insert>
     
 </mapper>
 
