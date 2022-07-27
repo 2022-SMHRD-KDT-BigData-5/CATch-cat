@@ -6,6 +6,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
@@ -134,7 +135,8 @@
                      <%=catcardInfo.getCat_gender() %></p>
                   <p>
                      카드 등록일 :
-                     <%=catcardInfo.getCat_date() %></p>
+                     <%=catcardInfo.getCat_date().getYear()-100%>년 <%=catcardInfo.getCat_date().getMonth()+1%>월 <%=catcardInfo.getCat_date().getDate()%>일</p>
+                     
                </div>
             </div>
 
@@ -186,7 +188,7 @@
                         <td>${status.count}</td>
                         <td>${medi.getMedi_name()}</td>
                         <td>${medi.getMedi_content()}</td>
-                        <td>${medi.getMedi_date()}</td>
+                        <td>${fn:split(medi.getMedi_date(), " ")[0]}</td>
                      </tr>
                   </c:forEach>
 
@@ -274,7 +276,7 @@
 							<td>${status.count}</td>
 							<td>${medi.getMedi_name()}</td>
 							<td>${medi.getMedi_content()}</td>
-							<td>${medi.getMedi_date()}</td>
+							<td>${fn:split(medi.getMedi_date(), " ")[0]}</td>
 						</tr>
 					</c:forEach>
 				</table>
