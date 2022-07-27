@@ -142,4 +142,13 @@ public class CatCardController {
 		return "catcardForm";
 	}
 
+	// 로딩중 페이지로 이동
+	@RequestMapping("/loading1.do")
+	public String catcardload() {
+		return "loading1";
+	}
+				
+	
 }
+
+	
