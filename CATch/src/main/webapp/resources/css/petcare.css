@@ -1,0 +1,66 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body{
+    background-color: #ffffff;
+}
+
+
+
+.petcare_body{
+    height: auto;
+    display :flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0px 175px;
+}
+
+.petcare{
+    border: 1px solid #006400;
+    width: 300px;
+    height: 380px;
+    margin: 40px 65px;
+    padding: 20px 20px;
+    object-fit: cover;
+    border-radius: 30px;
+    box-shadow: 7px 7px 0px 5px;
+}
+
+.petcare_img{
+    width: 260px;
+    height: 260px;
+    margin-bottom: 15px;
+}
+
+.petcare_img img{
+	border-radius: 15px;
+}
+
+
+.petcare span{
+    font-size: 30px;
+    font-family: 'Cafe24Ssurround';
+    margin-top: 10px;
+}
+
+.petcare p {
+    margin-top: -5px;
+}
+
+.petcare:hover{
+    box-shadow: 7px 7px 0px 5px var(--color);
+    color: var(--color);
+}
+
+
+.petcare_att_img{
+    border: 1px solid #c1c1c17d;;
+    margin: 0px 20%;
+    height: 600px;
+}

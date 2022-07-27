@@ -30,6 +30,8 @@ import com.smhrd.domain.AdoptComment;
 import com.smhrd.domain.CommBoard;
 import com.smhrd.domain.CommComment;
 import com.smhrd.domain.Member;
+import com.smhrd.domain.Petcare;
+import com.smhrd.domain.PetcareReview;
 import com.smhrd.domain.SponBoard;
 import com.smhrd.domain.SponComment;
 import com.smhrd.mapper.BoardMapper;
@@ -465,6 +467,30 @@ public class BoardController {
 		List<AdoptBoard> adoptSearchList = mapper.adoptBoardSearch(vo);
 		model.addAttribute("adoptSearchList", adoptSearchList);
 		return "board/adopt";
+	}
+	
+	
+	
+	
+	// ------------------------------- 펫케어 ----------------------------------------
+	//펫케어로 이동
+	@RequestMapping("/petcare.do")
+	public String getPetcare(Model model) {
+		List<Petcare> petCareList = mapper.selectPetcareList();
+		model.addAttribute("petCareList", petCareList);
+		return "petcare";
+	}
+	
+	//펫케어 상세정보로 이동+리뷰출력
+	@RequestMapping("/petcareInfo.do/{petcare_seq}")
+	public String getPetcareReview(Model model, @PathVariable int petcare_seq) {
+		Petcare petcare = mapper.selectPetcare(petcare_seq);
+		model.addAttribute("petcare", petcare);
+		
+		List<PetcareReview> petCareReviewList = mapper.selectPetcareReviewList(petcare_seq);
+		model.addAttribute("petCareReviewList", petCareReviewList);
+		
+		return "petcareInfo";
 	}
 
 }
