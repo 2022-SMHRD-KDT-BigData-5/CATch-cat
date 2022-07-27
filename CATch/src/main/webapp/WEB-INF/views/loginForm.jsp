@@ -33,7 +33,7 @@
 	<div class="member_login">
 
  	<form action="login.do" method="POST" class="loginForm" >
-   	<b><h2>LOGIN</h2></b>
+   	<b><h2>Login</h2></b>
 		
       
       <div class="idForm">
