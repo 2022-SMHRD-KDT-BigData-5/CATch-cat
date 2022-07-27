@@ -38,6 +38,13 @@
     <div id="wrapper">
         <form action="loding.do" class ="cardform" name="catform"  method="post" enctype="multipart/form-data" >
           <div id="content">    
+            
+            <!-- 고양이 민증번호 -->
+            <div>
+            	<h3>고양이 민증번호</h3>
+            	<p><input value="${catnum}" readonly >
+            </div>
+            
              
             <!--고양이 이름-->   
             <div>    
