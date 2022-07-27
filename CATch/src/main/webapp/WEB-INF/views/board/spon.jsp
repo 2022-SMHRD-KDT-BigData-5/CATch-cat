@@ -102,7 +102,7 @@
 								<td><%=sponBoard.getSpon_id()%></td>
 								<td><a
 									href="sponinfo.do?spon_seq=<%=sponBoard.getSpon_seq()%>"><%=sponBoard.getSpon_title()%></a></td>
-								<td><%=sponBoard.getSpon_date()%></td>
+								<td><%=sponBoard.getSpon_date().getYear()-100%>년 <%=sponBoard.getSpon_date().getMonth()+1%>월 <%=sponBoard.getSpon_date().getDate()%>일</td>
 								<td><%=sponBoard.getSpon_cnt()%></td>
 								<%
 									if (member != null) {

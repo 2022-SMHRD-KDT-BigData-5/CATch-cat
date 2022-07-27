@@ -106,7 +106,7 @@
 					<th scope="row">작성자</th>
 					<td><%=sponBoardInfo.getSpon_id()%></td>
 					<th scope="row">작성일</th>
-					<td><%=sponBoardInfo.getSpon_date()%></td>
+					<td><%=sponBoardInfo.getSpon_date().getYear()-100%>년 <%=sponBoardInfo.getSpon_date().getMonth()+1%>월 <%=sponBoardInfo.getSpon_date().getDate()%>일</td>
 				</tr>
 				<tr>
 					<th scope="row">제목</th>
