@@ -1,11 +1,13 @@
+<%@page import="java.util.Spliterator"%>
 <%@page import="com.smhrd.domain.Member"%>
 <%@page import="com.smhrd.domain.AdoptBoard"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta charset="utf-8">
@@ -44,6 +46,9 @@
 <body>
 	<%
 		Member member = (Member) session.getAttribute("member");
+
+		List<AdoptBoard> adoptList = (List<AdoptBoard>) request.getAttribute("adoptList");
+		
 	%>
 	<jsp:include page="../header.jsp"></jsp:include>
 
@@ -109,9 +114,7 @@
 
 
 				<div class="table-responsive">
-					<%
-						List<AdoptBoard> adoptList = (List<AdoptBoard>) request.getAttribute("adoptList");
-					%>
+
 					<table class="table">
 						<thead>
 							<tr>
@@ -132,7 +135,7 @@
 								<td><%=adoptBoard.getAdt_id()%></td>
 								<td><a
 									href="adtinfo.do?adt_seq=<%=adoptBoard.getAdt_seq()%>"><%=adoptBoard.getAdt_title()%></a></td>
-								<td><%=adoptBoard.getAdt_date()%></td>
+								<td><%=adoptBoard.getAdt_date().getYear()-100%>년 <%=adoptBoard.getAdt_date().getMonth()+1%>월 <%=adoptBoard.getAdt_date().getDate()%>일</td>
 								<td><%=adoptBoard.getAdt_cnt()%></td>
 								<%
 									if (member != null) {

@@ -5,14 +5,17 @@
     <!-- 게시글의 전체정보 가져오는 sql문  -->
     <select id="adoptBoardList" resultType="com.smhrd.domain.AdoptBoard">
         select * from t_adoption
+        order by adt_date desc
     </select>
     
     <select id="commBoardList" resultType="com.smhrd.domain.CommBoard">
         select * from t_community
+        order by article_date desc
     </select>
     
     <select id="sponBoardList" resultType="com.smhrd.domain.SponBoard">
         select * from t_sponsorship
+        order by spon_date desc
     </select>
 
     

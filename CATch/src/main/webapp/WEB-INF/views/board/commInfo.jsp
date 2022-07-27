@@ -106,7 +106,7 @@
 					<th scope="row">작성자</th>
 					<td><%=commBoardInfo.getArticle_id()%></td>
 					<th scope="row">작성일</th>
-					<td><%=commBoardInfo.getArticle_date()%></td>
+					<td><%=commBoardInfo.getArticle_date().getYear()-100%>년 <%=commBoardInfo.getArticle_date().getMonth()+1%>월 <%=commBoardInfo.getArticle_date().getDate()%>일</td>
 				</tr>
 				<tr>
 					<th scope="row">제목</th>

@@ -116,7 +116,7 @@
         <td><%=commList.indexOf(commBoard)+1 %></td>
         <td><%=commBoard.getArticle_id() %></td>
         <td><a href="comminfo.do?article_seq=<%=commBoard.getArticle_seq()%>"><%=commBoard.getArticle_title() %></a></td>
-        <td><%=commBoard.getArticle_date() %></td>
+        <td><%=commBoard.getArticle_date().getYear()-100%>년 <%=commBoard.getArticle_date().getMonth()+1%>월 <%=commBoard.getArticle_date().getDate()%>일</td>
         <td><%=commBoard.getArticle_cnt() %></td>
         <%if(member!=null){
         	if(member.getMem_id().equals(commBoard.getArticle_id())){ %>
