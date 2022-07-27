@@ -484,8 +484,12 @@ public class BoardController {
 	//펫케어 상세정보로 이동+리뷰출력
 	@RequestMapping("/petcareInfo.do/{petcare_seq}")
 	public String getPetcareReview(Model model, @PathVariable int petcare_seq) {
+		Petcare petcare = mapper.selectPetcare(petcare_seq);
+		model.addAttribute("petcare", petcare);
+		
 		List<PetcareReview> petCareReviewList = mapper.selectPetcareReviewList(petcare_seq);
 		model.addAttribute("petCareReviewList", petCareReviewList);
+		
 		return "petcareInfo";
 	}
 
