@@ -3,6 +3,7 @@ package com.smhrd.web;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -102,40 +103,39 @@ public class CatCardController {
 	}
 	
 	
-	   //캣카드 등록
-	   @RequestMapping("/catcardInsert.do")
-	   public String catcardform(CatCard cardform, HttpSession session, @RequestParam("file") MultipartFile file) 
-	         throws IOException{
-	      
-	      String fileRealName = file.getOriginalFilename();
-	      long size = file.getSize(); // 파일사이즈
+	// 캣카드 등록
+	@RequestMapping("/catcardInsert.do")
+	public String catcardform(CatCard cardform, HttpSession session, @RequestParam("file") MultipartFile file)
+			throws IOException {
 
-	      // 서버에 저장할 파일이름 fileextension으로 .jsp 이런식의 확장명을 구함
-	      String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
-	      String path = session.getServletContext().getRealPath("resources/upload");
+		String fileRealName = file.getOriginalFilename();
+		long size = file.getSize(); // 파일사이즈
 
-	      // 파일업로드시 그 폴더에 동일한 명칭이 있을수도 있기때문에 랜덤한 명칭을 줌
-	      UUID uuid = UUID.randomUUID();
-	      String[] uuids = uuid.toString().split("-");
-	      String uniqueName = uuids[0];
+		// 서버에 저장할 파일이름 fileextension으로 .jsp 이런식의 확장명을 구함
+		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
+		String path = session.getServletContext().getRealPath("resources/upload");
 
-	      File saveFile = new File(path + "\\" + uniqueName + fileExtension);
-	      try {
-	         file.transferTo(saveFile);
-	      } catch (IllegalStateException e) {
-	         e.printStackTrace();
-	      }
+		// 파일업로드시 그 폴더에 동일한 명칭이 있을수도 있기때문에 랜덤한 명칭을 줌
+		UUID uuid = UUID.randomUUID();
+		String[] uuids = uuid.toString().split("-");
+		String uniqueName = uuids[0];
 
-	      String url = path + "\\" + uniqueName + fileExtension;
+		File saveFile = new File(path + "\\" + uniqueName + fileExtension);
+		try {
+			file.transferTo(saveFile);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		}
 
-	      cardform.setCat_url(url);
-	      cardform.setCat_sname(uniqueName + fileExtension);
-	      mapper.insertcatcard(cardform);
-	      
-	      return "redirect:/catcard.do";
-	      }
-	
-	
+		String url = path + "\\" + uniqueName + fileExtension;
+
+		cardform.setCat_url(url);
+		cardform.setCat_sname(uniqueName + fileExtension);
+		mapper.insertcatcard(cardform);
+
+		return "redirect:/catcard.do";
+	}
+
 	//캣카드 코사진 등록 페이지
 	@RequestMapping("/imgNoseForm.do")
 	public String catcardNose() {
@@ -143,9 +143,22 @@ public class CatCardController {
 		return "catcardNoseForm";
 	}
 
-	//캣카드  등록 페이지
+	//캣카드  등록 페이지 + 고양이주민번호 랜덤하게 주기(DB구조는 안고침)(상의)
 		@RequestMapping("/catcardregistration.do")
-		public String catcardregistration() {
+		public String catcardregistration(Model model) {
+			
+			LocalDate now = LocalDate.now();
+			
+			int year = now.getYear();
+			int monthValue = now.getMonthValue();
+			int dayOfMonth = now.getDayOfMonth();
+			//0~999
+			int rand = (int)(Math.random()*1000);
+			
+			String num = Integer.toString(year) + Integer.toString(monthValue)+
+					Integer.toString(dayOfMonth)+ Integer.toString(rand);
+			
+			model.addAttribute("catnum", num);
 			
 			return "catcardForm";
 	}
