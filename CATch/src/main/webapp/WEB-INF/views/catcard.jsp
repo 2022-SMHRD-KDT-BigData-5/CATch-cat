@@ -201,7 +201,51 @@
                <jsp:include page="vaccincard.jsp"></jsp:include>
             </div>
          </div>
+         
+         
+         <div class="swiper-slide">
+         	<div class = "care_content">
+         		<h7>펫케어</h7>
+         	<table class="table table-border table-hover">
+                  <tr class="medi_content_head">
+                     <td>상품명</td>
+                     <td>종류</td>
+                     <td>가입일자</td>
+                     <td>또 뭐지</td>
+                     <td>리뷰 작성하러 가기</td>
+                  </tr>
+                     <tr>
+                        <td>보험</td>
+                        <td>보험</td>
+                        <td>1995년 5월 21일</td>
+                        <td></td>
+                        <td>a태그를 사용하나요?</td>
+                     </tr>
+
+               </table>
+         	
+         	
+         	
+         	
+         	
+         	</div>
+         </div>
+         
+         
+         
+         
+         
+         
+         
+         
+         
    </div>
+   </div>
+ 
+   
+
+   
+   
 <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
    </div>
