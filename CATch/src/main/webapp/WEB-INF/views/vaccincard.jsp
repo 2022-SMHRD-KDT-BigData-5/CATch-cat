@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,7 @@
                                         <td>${jh.getVacc_type()}</td>
                                         <td>${status.count}차</td>
                                         <td>${jh.getMedi_name()}</td>
-                                        <td>${jh.getVacc_date()}</td>
+                                        <td>${fn:split(jh.getVacc_date(), " ")[0]}</td>
                                     </tr>
                                     </c:forEach>
                                     
@@ -51,7 +52,7 @@
                                     	<td><%=gg.get(0).getVacc_type() %></td>
                                     	<td>접종</td>
                                     	<td><%=gg.get(0).getMedi_name() %></td>
-                                    	<td><%=gg.get(0).getVacc_date() %></td>
+                                    	<td><%=gg.get(0).getVacc_date().getYear()+1900 %>-0<%=gg.get(0).getVacc_date().getMonth()+1 %>-<%=gg.get(0).getVacc_date().getDate() %></td>
                                     </tr>
                                     </c:otherwise>
                                     </c:choose>
@@ -71,7 +72,7 @@
                                     	<td><%=jb.get(0).getVacc_type() %></td>
                                     	<td>접종완료</td>
                                     	<td><%=jb.get(0).getMedi_name() %></td>
-                                    	<td><%=jb.get(0).getVacc_date() %></td>
+                                    	<td><%=jb.get(0).getVacc_date().getYear()+1900 %>-0<%=jb.get(0).getVacc_date().getMonth()+1 %>-<%=jb.get(0).getVacc_date().getDate() %></td>
                                     </tr>
                                     </c:otherwise>
                                     </c:choose>
@@ -91,7 +92,7 @@
                                     	<td><%=hc.get(0).getVacc_type() %></td>
                                     	<td>접종완료</td>
                                     	<td><%=hc.get(0).getMedi_name() %></td>
-                                    	<td><%=hc.get(0).getVacc_date() %></td>
+                                    	<td><%=hc.get(0).getVacc_date().getYear()+1900 %>-0<%=hc.get(0).getVacc_date().getMonth()+1 %>-<%=hc.get(0).getVacc_date().getDate() %></td>
                                     </tr>
                                     </c:otherwise>
                                     </c:choose>
@@ -111,7 +112,7 @@
                                     	<td><%=ss.get(0).getVacc_type() %></td>
                                     	<td>최근접종내역</td>
                                     	<td><%=ss.get(0).getMedi_name() %></td>
-                                    	<td><%=ss.get(0).getVacc_date() %></td>
+                                    	<td><%=ss.get(0).getVacc_date().getYear()+1900 %>-0<%=ss.get(0).getVacc_date().getMonth()+1 %>-<%=ss.get(0).getVacc_date().getDate() %></td>
                                     </tr>
                                     </c:otherwise>
                                     </c:choose>
