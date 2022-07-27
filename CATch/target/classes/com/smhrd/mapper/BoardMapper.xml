@@ -155,5 +155,16 @@
           
     </select>
     
+	<!-- 펫케어 정보 가져오는 sql문 -->
+	<select id="selectPetcareList" resultType="com.smhrd.domain.Petcare">
+	    select * from t_petcare
+	</select>
+	
+	<!-- 펫케어 리뷰 가져오는 sql문 -->
+	<select id="selectPetcareReviewList" resultType="com.smhrd.domain.PetcareReview">
+	    select * from t_petcare_review
+	    where review_petcare = #{petcare_seq}
+	</select>
+    
 </mapper>
 
