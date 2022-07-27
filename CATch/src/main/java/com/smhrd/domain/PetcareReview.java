@@ -12,4 +12,5 @@ public class PetcareReview {
 	private String review_id;
 	private String review_content;
 	private int review_petcare;
+	private int review_star;
 }
