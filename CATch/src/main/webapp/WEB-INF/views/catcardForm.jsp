@@ -31,12 +31,12 @@
 </head>
 <body>
 
-  <a href="main.do"><h1 class = "h_title"><img src="img/joinlogo.png" ></h1></a>
+  <a href="loding.do"><h1 class = "h_title"><img src="img/joinlogo.png" ></h1></a>
    
   <!-- 캣카드 등록 -->
    <div id="header">    
     <div id="wrapper">
-        <form action="catcardInsert.do" class ="cardform" name="catform"  method="post" enctype="multipart/form-data" >
+        <form action="loding.do" class ="cardform" name="catform"  method="post" enctype="multipart/form-data" >
           <div id="content">    
              
             <!--고양이 이름-->   
@@ -101,7 +101,7 @@
                  
             <!-- join btn -->
             <div class="btn_area">               	
-            <button type="submit" id="btn" value="등록하기">등록하기</button>               	
+            <button type="submit" id="btn" value="등록하기" >등록하기</button>               	
                 </div>		
            
           </div>       

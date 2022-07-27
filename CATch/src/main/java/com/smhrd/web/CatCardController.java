@@ -101,45 +101,66 @@ public class CatCardController {
 		return "redirect:/catcard.do"; //바로 반영 안되는거 고쳐주세요
 	}
 	
-	//캣카드 등록
-	@RequestMapping("/catcardInsert.do")
-	public String catcardform(CatCard cardform, HttpSession session, @RequestParam("file") MultipartFile file) 
-			throws IOException{
-		
-		String fileRealName = file.getOriginalFilename();
-		long size = file.getSize(); // 파일사이즈
+	
+	   //캣카드 등록
+	   @RequestMapping("/catcardInsert.do")
+	   public String catcardform(CatCard cardform, HttpSession session, @RequestParam("file") MultipartFile file) 
+	         throws IOException{
+	      
+	      String fileRealName = file.getOriginalFilename();
+	      long size = file.getSize(); // 파일사이즈
 
-		// 서버에 저장할 파일이름 fileextension으로 .jsp 이런식의 확장명을 구함
-		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
-		String path = session.getServletContext().getRealPath("resources/upload");
+	      // 서버에 저장할 파일이름 fileextension으로 .jsp 이런식의 확장명을 구함
+	      String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
+	      String path = session.getServletContext().getRealPath("resources/upload");
 
-		// 파일업로드시 그 폴더에 동일한 명칭이 있을수도 있기때문에 랜덤한 명칭을 줌
-		UUID uuid = UUID.randomUUID();
-		String[] uuids = uuid.toString().split("-");
-		String uniqueName = uuids[0];
+	      // 파일업로드시 그 폴더에 동일한 명칭이 있을수도 있기때문에 랜덤한 명칭을 줌
+	      UUID uuid = UUID.randomUUID();
+	      String[] uuids = uuid.toString().split("-");
+	      String uniqueName = uuids[0];
 
-		File saveFile = new File(path + "\\" + uniqueName + fileExtension);
-		try {
-			file.transferTo(saveFile);
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-		}
+	      File saveFile = new File(path + "\\" + uniqueName + fileExtension);
+	      try {
+	         file.transferTo(saveFile);
+	      } catch (IllegalStateException e) {
+	         e.printStackTrace();
+	      }
 
-		String url = path + "\\" + uniqueName + fileExtension;
+	      String url = path + "\\" + uniqueName + fileExtension;
 
-		cardform.setCat_url(url);
-		cardform.setCat_sname(uniqueName + fileExtension);
-		mapper.insertcatcard(cardform);
-		
-		return "redirect:/catcard.do";
-		}
+	      cardform.setCat_url(url);
+	      cardform.setCat_sname(uniqueName + fileExtension);
+	      mapper.insertcatcard(cardform);
+	      
+	      return "redirect:/catcard.do";
+	      }
 	
 	
-	//캣카드 등록으로 이동
-	@RequestMapping("/catcardForm.do")
-	public String catcardInsert() {
+	//캣카드 코사진 등록 페이지
+	@RequestMapping("/imgNoseForm.do")
+	public String catcardNose() {
 		
-		return "catcardForm";
+		return "catcardNoseForm";
 	}
-
+	//캣카드  등록 페이지
+		@RequestMapping("/catcardregistration.do")
+		public String catcardregistration() {
+			
+			return "catcardForm";
+	}
+	
+	//캣카드 등록 로딩 페이지
+	@RequestMapping("/loding.do")
+	public String catcardloding() {
+		
+		return "catLoding";
+	}
+	
+	//캣카드 등록 완료
+	@RequestMapping("/completion.do")
+	public String catcardcompletion() {
+		
+		return "catnext";
+	}
+	
 }
