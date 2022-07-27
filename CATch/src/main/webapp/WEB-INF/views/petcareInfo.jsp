@@ -56,16 +56,6 @@ List<PetcareReview> petCareReviewList = (List<PetcareReview>)session.getAttribut
         
         </c:forEach>
 
-        <div class = "petcare_review_content">
-            <hr>
-            <span class="review_writer">고양이어머니</span><span>1995년 12월 99일</span><br>
-            <pre>여기는 
-                나쁘지 
-                않았다 
-                그럭
-                 저럭
-                  가볼만한곳</pre>
-        </div>
 
     </div>
 
