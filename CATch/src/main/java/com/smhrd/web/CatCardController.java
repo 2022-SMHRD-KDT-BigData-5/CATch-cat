@@ -133,7 +133,7 @@ public class CatCardController {
 		cardform.setCat_sname(uniqueName + fileExtension);
 		mapper.insertcatcard(cardform);
 
-		return "redirect:/catcard.do";
+		return "catLoding";
 	}
 
 	//캣카드 코사진 등록 페이지
