@@ -6,6 +6,7 @@ import java.util.List;
 import com.smhrd.domain.CatCard;
 import com.smhrd.domain.Medical;
 import com.smhrd.domain.Member;
+import com.smhrd.domain.PetcareAdmin;
 import com.smhrd.domain.PictureCatNose;
 import com.smhrd.domain.Vaccination;
 
@@ -39,4 +40,6 @@ public interface CatCardMapper {
 	//캣카드 등록 메서드
 	public abstract int insertcatcard(CatCard cardform);
 	
+	//내가 가입한 펫케어 출력
+	public abstract List<PetcareAdmin> selectAdmin(int admin_catcard);
 }

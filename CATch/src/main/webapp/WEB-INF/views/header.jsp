@@ -17,15 +17,15 @@
    String id_info="None";
    String mem_id = "";
    if(member != null){
-	   if(member.getMem_hospital() == 'P'){
-		   id_info= "P";
-	   }else if(member.getMem_hospital() == 'H'){
-		   id_info="P";
-	   }else{
-		   id_info="N";
-	   }
-	   mem_id = member.getMem_id();
-		   
+      if(member.getMem_hospital() == 'P'){
+         id_info= "P";
+      }else if(member.getMem_hospital() == 'H'){
+         id_info="P";
+      }else{
+         id_info="N";
+      }
+      mem_id = member.getMem_id();
+         
    }
    %>
    <header>
