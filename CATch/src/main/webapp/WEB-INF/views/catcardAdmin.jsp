@@ -39,8 +39,9 @@
    %>
    <jsp:include page="header.jsp"></jsp:include>
 
+
    <div class="board_head">
-      <h1 class="h_title">${petcareAdmin.get(0).getAdmin_name()} 고객관리</h1>
+      <h1 class="h_title">${member.getMem_name()} 고객관리</h1>
       <p>우리 업체에 등록한 고양이의 캣카드를 조회하는 곳입니다.</p>
    </div>
    <div class="container-fluid text-center">
@@ -85,6 +86,17 @@
          </div>
       </div>
    </div>
+
+
+
+
+
+
+
+
+
+
+
 
    <footer class="container-fluid text-center">
       <div>

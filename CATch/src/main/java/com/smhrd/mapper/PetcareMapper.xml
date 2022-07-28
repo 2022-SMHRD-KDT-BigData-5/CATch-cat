@@ -31,6 +31,7 @@
     <select id="selectPetcareAdmin" resultType="com.smhrd.domain.PetcareAdmin">
         select * from t_petcare_admin
         where admin_id = #{admin_id}
+        order by admin_date desc
     </select>
     
     <!-- 펫케어 업체가 고객 방문기록을 등록하는 sql문 -->
