@@ -19,45 +19,57 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/boardtest.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap"
+	rel="stylesheet">
+
 <body>
 
 	<%
-		Member member = (Member)session.getAttribute("member");
-	
+		Member member = (Member) session.getAttribute("member");
 	%>
 	<jsp:include page="header.jsp"></jsp:include>
 
-	<div class="admin_head">
-		<h1 class="a_title">관리자 페이지</h1>
+	<div class="board_head">
+		<h1 class="h_title">관리자 페이지</h1>
 		<p>내가 등록한 캣카드 조회하는 페이지 입니다.</p>
 	</div>
 	<div class="container-fluid text-center">
-	<div class="row content">
-		
+		<div class="row content">
+
+			<div class="col-sm-2 sidenav"></div>
+			<div class="col-sm-8 text-left">
+
+
+
+				<div class="table-responsive">
+					<table class="table" class="table table-hover"
+						class="table-responsive">
+						<thead class="table-light">
+							<tr>
+								<th scope="col">캣카드번호</th>
+								<th scope="col">작성자</th>
+								<th scope="col">등록일</th>
+								
+							</tr>
+						<tbody>
+
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
 	</div>
-
-</div>
-	<div class="table-responsive">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>캣카드번호</th>
-					<th>작성자</th>
-					<th>등록일</th>
-
-				</tr>
-			<tbody>
-				
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					
-				</tr>
-			</tbody>
-		</table>
-	</div>
-
 
 	<footer class="container-fluid text-center">
 		<div>
