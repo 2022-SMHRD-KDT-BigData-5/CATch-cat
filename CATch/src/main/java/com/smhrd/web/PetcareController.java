@@ -57,7 +57,7 @@ public class PetcareController {
 		return "redirect:/petcareInfo.do?petcare_seq="+petcare_seq;
 	}
 	
-	//펫케어Admin 고객방문기록 조회
+	//업체페이지 고객방문기록 조회
 	@RequestMapping("/catcardAdmin.do")
 	public String selectPetcareAdmin(HttpSession session) {
 		Member member = (Member)session.getAttribute("member");
