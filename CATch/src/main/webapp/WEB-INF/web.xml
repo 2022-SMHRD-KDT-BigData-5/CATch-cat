@@ -51,6 +51,8 @@
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
+		 <url-pattern>*.gif</url-pattern>
+
 	</servlet-mapping>
 
 	<filter>

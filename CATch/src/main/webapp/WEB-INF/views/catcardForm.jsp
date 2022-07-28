@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -30,7 +31,15 @@
     </style>
 </head>
 <body>
-
+<%
+Member member = (Member)session.getAttribute("member");
+String mem_id = "";
+if(member != null){
+	mem_id = member.getMem_id();
+}else{
+	mem_id = "로그인을해야합니다.";
+}
+%>
   <a href="main.do"><h1 class = "h_title"><img src="img/joinlogo.png" ></h1></a>
    
   <!-- 캣카드 등록 -->
@@ -38,6 +47,13 @@
     <div id="wrapper">
         <form action="catcardInsert.do" class ="cardform" name="catform"  method="post" enctype="multipart/form-data" >
           <div id="content">    
+            
+            <!-- 고양이 민증번호 -->
+            <div>
+            	<h3>고양이 민증번호</h3>
+            	<p><input name="cat_seq" value="${catnum}" readonly ></p>
+            </div>
+            
              
             <!--고양이 이름-->   
             <div>    
@@ -60,9 +76,8 @@
             <h3>고양이 성별</h3>
             <span class="box int_gender"> 
             <select  name="cat_gender" class="int"  >
-                <option value="성별">성별</option>
-                <option value="수컷">수컷</option>
-                <option value="암컷">암컷</option>
+                <option value="M">수컷</option>
+                <option value="F">암컷</option>
             </select>     
             </span>
             </div>
@@ -71,7 +86,7 @@
             <div>
                <h3>보호자 아이디</h3>
                <span class="box int_id"> 
-              <input name="mem_id" type="text" class="int" placeholder="아이디 입력">
+              <input name="mem_id" type="text" class="int" value=<%=mem_id%> readonly>
                </span> 
             </div>  
             
@@ -101,7 +116,7 @@
                  
             <!-- join btn -->
             <div class="btn_area">               	
-            <button type="submit" id="btn" value="등록하기">등록하기</button>               	
+            <button type="submit" id="btn" value="등록하기" >등록하기</button>               	
                 </div>		
            
           </div>       

@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+
+#load > img {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+}
