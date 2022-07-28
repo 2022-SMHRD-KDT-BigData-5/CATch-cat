@@ -27,6 +27,8 @@ public class PetcareAdmin {
 	private String admin_content;
 	@NonNull
 	private String admin_id;
+	@NonNull
+	private int admin_petcare_seq;
 	
 
 }

@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.smhrd.domain.CatCard;
 import com.smhrd.domain.Medical;
 import com.smhrd.domain.Member;
+import com.smhrd.domain.PetcareAdmin;
 import com.smhrd.domain.Vaccination;
 import com.smhrd.mapper.CatCardMapper;
 
@@ -42,6 +43,7 @@ public class CatCardController {
 
 	}
 	
+		
 	
 	//캣카드 번호로 캣카드 조회
 	@RequestMapping("/seqSearch.do")
@@ -63,6 +65,9 @@ public class CatCardController {
 		session.setAttribute("jb", jb);
 		session.setAttribute("hc", hc);
 		session.setAttribute("ss", ss);
+		
+		List<PetcareAdmin> catcardPetcare = mapper.selectAdmin(cat_seq);
+		session.setAttribute("catcardPetcare", catcardPetcare);
 		
 		return "redirect:/catcard.do";
 
@@ -180,9 +185,6 @@ public class CatCardController {
 		
 		return "catnext";
 	}
-
-
-
 
 	// 로딩중 페이지로 이동
 	@RequestMapping("/loading1.do")
