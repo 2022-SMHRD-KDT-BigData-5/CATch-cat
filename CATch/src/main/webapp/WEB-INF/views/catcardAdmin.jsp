@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>   
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +40,7 @@
    <jsp:include page="header.jsp"></jsp:include>
 
    <div class="board_head">
-      <h1 class="h_title">관리자 페이지</h1>
+      <h1 class="h_title">${petcareAdmin.get(0).getAdmin_name()} 고객관리</h1>
       <p>우리 업체에 등록한 고양이의 캣카드를 조회하는 곳입니다.</p>
    </div>
    <div class="container-fluid text-center">
@@ -55,10 +56,11 @@
                   class="table-responsive">
                   <thead class="table-light">
                      <tr>
-                        <th scope="col">캣카드번호</th>
-                        <th scope="col">상호명</th>
+                        
+						<th scope="col">등록일</th>
+						<th scope="col">캣카드번호</th>
                         <th scope="col">내용</th>
-                        <th scope="col">등록일</th>
+                        
                         
                      </tr>
                   <tbody>
@@ -66,10 +68,11 @@
 
                      <c:forEach items="${petcareAdmin}" var="pa" varStatus="status">
                      	<tr>
+                        
+                        <td>${fn:split(pa.getAdmin_date(), " ")[0]}</td>
                         <td>${pa.getAdmin_catcard()}</td>
-                        <td>${pa.getAdmin_name()}</td>
                         <td>${pa.getAdmin_content()}</td>
-                        <td>${pa.getAdmin_date()}</td>
+                        
                      </tr>
                      </c:forEach>
                      

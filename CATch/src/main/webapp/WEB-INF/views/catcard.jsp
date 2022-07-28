@@ -226,7 +226,7 @@
 							<td>${cp.getAdmin_name()}</td>
 							<td>${cp.getAdmin_cate()}</td>
 							<td>${cp.getAdmin_content()} </td>
-							<td>${fn:split(medi.getAdmin_date(), " ")[0]}</td>
+							<td>${fn:split(cp.getAdmin_date(), " ")[0]}</td>
 							<td><a href="petcareInfo.do?petcare_seq=${cp.getAdmin_petcare_seq()}">리뷰작성</a></td>
 							
 							
