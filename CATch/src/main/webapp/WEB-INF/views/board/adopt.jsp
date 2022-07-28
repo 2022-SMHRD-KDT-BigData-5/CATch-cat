@@ -107,7 +107,7 @@
 			<p>
 				<a href="comm.do"><img src="upload/green_cat.png"> 소통게시판   </a> 
 				<a href="adopt.do"><img src="upload/green_cat.png"> 입양게시판   </a> 
-				<a href="spon.do"><img src="upload/green_cat.png"> 후원게시판   </a>
+				<a href="petcare.do"><img src="upload/green_cat.png"> 펫케어   </a>
 			</p>
 			<div class="col-sm-2 sidenav"></div>
 			<div class="col-sm-8 text-left">
