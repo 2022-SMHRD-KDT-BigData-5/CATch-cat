@@ -102,7 +102,7 @@
                 <div>
                 	<h3 class="join_title"><label for="check">병원관계자</label></h3>
                 	<input class="joincheck" type="checkbox" name="mem_hospital" value="T">
-                               
+                             
                 </div>
                 
                 <!-- join btn -->
