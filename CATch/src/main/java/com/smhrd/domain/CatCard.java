@@ -14,7 +14,8 @@ import lombok.RequiredArgsConstructor;
 @NoArgsConstructor
 @RequiredArgsConstructor 
 public class CatCard {
-
+	
+	@NonNull
 	private int cat_seq;
 	@NonNull
 	private String cat_name;
@@ -37,7 +38,9 @@ public class CatCard {
 	
 	
 	//이미지 저장
+	@NonNull
 	private String cat_url;
+	@NonNull
 	private String cat_sname;
 	
 	//급식소
