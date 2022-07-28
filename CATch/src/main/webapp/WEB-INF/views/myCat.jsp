@@ -106,6 +106,7 @@ body {
 				<div class="swiper-wrapper">
 					<c:forEach items="${catcardList}" var="cc" varStatus="status">
 						<div class="swiper-slide">
+							<a href="seqSearch.do?cat_seq=${cc.getCat_seq()}">
 							<div class='mycatCard_header'>
 								<p>${cc.getCat_seq()}</p>
 							</div>
@@ -118,6 +119,7 @@ body {
 							<div class="mycatCard_name">
 								<p>${cc.getCat_name()}</p>
 							</div>
+							</a>
 						</div>
 					</c:forEach>
 				</div>
