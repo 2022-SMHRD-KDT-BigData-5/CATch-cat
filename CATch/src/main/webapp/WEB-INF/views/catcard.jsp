@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.domain.PetcareAdmin"%>
 <%@page import="com.smhrd.domain.Member"%>
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.domain.Vaccination"%>
@@ -108,7 +109,9 @@
 	List<Vaccination> jb = (List<Vaccination>)session.getAttribute("jb");
 	List<Vaccination> hc = (List<Vaccination>)session.getAttribute("hc");
 	List<Vaccination> ss = (List<Vaccination>)session.getAttribute("ss");
-	List<petcare>
+	List<PetcareAdmin> catcardPetcare = (List<PetcareAdmin>)session.getAttribute("catcardPetcare");
+	
+
     %>
 
    <jsp:include page="header.jsp"></jsp:include>
@@ -209,28 +212,21 @@
          	<div class = "care_content">
          		<h7>펫케어</h7>
          	<table class="table table-border table-hover">
-                  <tr class="medi_content_head">
+                  <tr class="admin_content_head">
                      <td>상품명</td>
                      <td>종류</td>
                      <td>가입 일자</td>
                      <td>내역</td>
                      <td>리뷰 작성하러 가기</td>
                   </tr>
-                     <tr>
-                
-                        <td>보험</td>
-                        <td>1995년 5월 21일</td>
-                        <td></td>
-                        <td>a태그를 사용하나요?</td>
-                     </tr>
-					<c:forEach items="${petCaeList}" var="care" varStatus="status">
+					<c:forEach items="${catcardPetcare}" var="cp" varStatus="status">
 						<tr>
-							<td>${petcare.careseq}</td>
+							<td>${status.count}</td>
+							<td>${cp.getAdmin_name()}</td>
+							<td>${cp.getAdmin_cate()}</td>
+							<td>$${fn:split(medi.getAdmin_date(), " ")[0]}</td>
+							<td>${cp.getAdmin_content()} </td>
 							
-							<td>${medi.getMedi_content()}</td>
-							<td>${petcare.getPetcare_name()}</td>
-							<td>${fn:split(petcare.getadmin_date(), " ")[0]}</td>
-							<li><a href="insertReview.do">리뷰작성</a></li>
 						</tr>
 					</c:forEach>
                </table>

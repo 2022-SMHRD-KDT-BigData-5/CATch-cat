@@ -59,4 +59,8 @@
         values(#{cat_seq}, #{cat_name}, #{cat_birthdate}, #{cat_gender},  #{cat_neutral}, #{mem_id}, #{cat_spec}, now(), #{cat_url}, #{cat_sname})
     </insert>
     
+    <!-- 내가가입한 캣케어 sql문 -->
+    <select id="selectAdmin" parameterType="com.smhrd.domain.PetcareAdmin"> 
+      select * from t_petcare_admin 
+      where admin_catcard=#{admin_catcard}
 </mapper>
