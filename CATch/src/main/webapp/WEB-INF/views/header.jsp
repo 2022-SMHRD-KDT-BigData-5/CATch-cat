@@ -58,6 +58,7 @@
 															href="mypage.do?mem_id=<%=member.getMem_id()%>">캣카드
 																조회</a></li>
 														<li><a href="myInfoCheck.do">회원정보 수정</a></li>
+														<li><a href="catcardAdmin.do?mem_id=<%=  %>"></a></li>
 													</ul></li>
 											</c:otherwise>
 										</c:choose>

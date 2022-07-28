@@ -25,6 +25,19 @@
 	    insert into t_petcare_review(review_id, review_content, review_petcare, review_star, review_date)
 	    values(#{review_id}, #{review_content}, #{review_petcare}, #{review_star}, now())
 	</insert>
+	
+	
+	<!-- 펫케어 업체가 고객 방문기록을 조회하는 sql문 -->
+    <select id="selectPetcareAdmin" resultType="com.smhrd.domain.PetcareAdmin">
+        select * from t_petcare_admin
+        where admin_id = #{admin_id}
+    </select>
     
+    <!-- 펫케어 업체가 고객 방문기록을 등록하는 sql문 -->
+    <insert id="insertPetcareAdmin" parameterType="com.smhrd.domain.PetcareAdmin">
+        insert into t_petcare_admin(admin_name, admin_cate, admin_catcard, admin_date, admin_content, admin_id)
+        values(#{admin_name}, #{admin_cate}, #{admin_catcard}, now(), #{admin_content}, #{admin_id})
+        
+    </insert>
     
 </mapper>

@@ -61,7 +61,8 @@
 </form>
 
 <form action="seqSearch.do" method="post">
-    캣카드 번호 입력  <input class = 'finput' type="text" name="cat_seq" placeholder="캣카드 고유번호를 입력해주세요" >
+    캣카드 번호 입력  
+    <input class = 'finput' type="text" name="cat_seq" placeholder="캣카드 고유번호를 입력해주세요" >
     <input class = 'sinput' type="submit" value="입력">
 </form>
 

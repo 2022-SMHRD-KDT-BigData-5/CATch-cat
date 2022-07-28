@@ -25,7 +25,8 @@ public class PetcareAdmin {
 	private Timestamp admin_date;
 	@NonNull
 	private String admin_content;
-	
+	@NonNull
+	private String admin_id;
 	
 
 }

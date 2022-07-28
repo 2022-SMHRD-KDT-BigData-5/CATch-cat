@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.smhrd.domain.Petcare;
+import com.smhrd.domain.PetcareAdmin;
 import com.smhrd.domain.PetcareReview;
 import com.smhrd.mapper.PetcareMapper;
 
@@ -53,6 +54,28 @@ public class PetcareController {
 		int petcare_seq = petcareReview.getReview_petcare();
 		
 		return "redirect:/petcareInfo.do?petcare_seq="+petcare_seq;
+	}
+	
+	//펫케어Admin 고객방문기록 조회
+	@RequestMapping("/selectPetcareAdmin")
+	public String selectPetcareAdmin(Model model, String admin_id) {
+		PetcareAdmin petcareAdmin = mapper.selectPetcareAdmin(admin_id);
+		model.addAttribute("petcareAdmin", petcareAdmin);
+		return "";
+	}
+	
+	//펫케어Admin 고객방문기록 등록
+	@RequestMapping("/insertPetcareAdmin")
+	public String insertPetcareAdmin(PetcareAdmin petcareAdmin) {
+		int cnt = 0;
+		cnt = mapper.insertPetcareAdmin(petcareAdmin);
+		if(cnt>0) {
+			System.out.println("방문기록 등록 성공");
+		}else {
+			System.out.println("방문기록 등록 실패");
+		}
+		
+		return "";
 	}
 
 }
