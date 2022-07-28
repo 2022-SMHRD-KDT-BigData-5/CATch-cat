@@ -154,7 +154,7 @@
                      중성화 :
                      <%=catcardInfo.getCat_neutral() %></p>
                   <p>특이사항</p>
-                  <p>특이사항 없음</p>
+                  <p><%=catcardInfo.getCat_spec()%></p>
                </div>
             </div>
          </div>

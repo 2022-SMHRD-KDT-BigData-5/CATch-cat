@@ -89,14 +89,15 @@ public class CatCardController {
 	
 	//(병원관계자용) 진료+접종내역 update
 	@RequestMapping("/mediUpdate.do")
-	public String mediUpdate(String medi_id, String medi_name, int cat_seq, String medi_content) {
+	public String mediUpdate(String medi_id, String medi_name, int cat_seq, String medi_content, Model model) {
 		Medical medi = new Medical(medi_id, medi_name, medi_content, cat_seq);
 		mapper.mediUpdate(medi);
-		return "redirect:/catcard.do"; //바로 반영 안되는거 고쳐주세요
+		model.addAttribute("cat_seq", cat_seq);
+		return "redirect:/seqSearch.do";
 	}
 	
 	@RequestMapping("/vaccUpdate.do")
-	public String vaccUpdate(String medi_id, String medi_name, int cat_seq, String[] vacc_type) {
+	public String vaccUpdate(String medi_id, String medi_name, int cat_seq, String[] vacc_type, Model model) {
 		int cnt = 0;
 		for(int i=0; i<vacc_type.length; i++) {
 		Vaccination vacc = new Vaccination(vacc_type[i], medi_id, medi_name, cat_seq);
@@ -104,7 +105,8 @@ public class CatCardController {
 		if(cnt>0) {
 			System.out.println(vacc_type[i]+"접종완료");
 		}}
-		return "redirect:/catcard.do"; //바로 반영 안되는거 고쳐주세요
+		model.addAttribute("cat_seq", cat_seq);
+		return "redirect:/seqSearch.do";
 	}
 	
 	
