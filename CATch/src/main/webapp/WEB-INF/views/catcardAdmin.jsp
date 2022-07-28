@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,7 +21,8 @@
 <body>
 
 	<%
-		Admin admin = (Admin) session.getAttribute("admin");
+		Member member = (Member)session.getAttribute("member");
+	
 	%>
 	<jsp:include page="header.jsp"></jsp:include>
 

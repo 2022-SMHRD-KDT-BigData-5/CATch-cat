@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.smhrd.domain.Member;
 import com.smhrd.domain.Petcare;
 import com.smhrd.domain.PetcareAdmin;
 import com.smhrd.domain.PetcareReview;
@@ -57,15 +58,17 @@ public class PetcareController {
 	}
 	
 	//펫케어Admin 고객방문기록 조회
-	@RequestMapping("/selectPetcareAdmin")
-	public String selectPetcareAdmin(Model model, String admin_id) {
+	@RequestMapping("/catcardAdmin.do")
+	public String selectPetcareAdmin(HttpSession session) {
+		Member member = (Member)session.getAttribute("member");
+		String admin_id = member.getMem_id();
 		PetcareAdmin petcareAdmin = mapper.selectPetcareAdmin(admin_id);
-		model.addAttribute("petcareAdmin", petcareAdmin);
-		return "";
+		session.setAttribute("petcareAdmin", petcareAdmin);
+		return "catcardAdmin";
 	}
 	
 	//펫케어Admin 고객방문기록 등록
-	@RequestMapping("/insertPetcareAdmin")
+	@RequestMapping("/insertPetcareAdmin.do")
 	public String insertPetcareAdmin(PetcareAdmin petcareAdmin) {
 		int cnt = 0;
 		cnt = mapper.insertPetcareAdmin(petcareAdmin);
@@ -77,5 +80,7 @@ public class PetcareController {
 		
 		return "";
 	}
+	
+
 
 }
