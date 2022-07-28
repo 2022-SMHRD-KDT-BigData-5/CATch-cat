@@ -63,4 +63,5 @@
     <select id="selectAdmin" parameterType="com.smhrd.domain.PetcareAdmin"> 
       select * from t_petcare_admin 
       where admin_catcard=#{admin_catcard}
+      </select>
 </mapper>
