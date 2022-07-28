@@ -50,7 +50,7 @@
                             <h3>반려묘의<br><span>코를 찍자!</span></h3>
                             <p>캣치의 AI 생체 기술로 <br>고양이 신분증을 만들어보세요.</p>
                             <br>
-                            <a href="catcardForm.do" class="boxed-btn4">캣카드 만들기</a>
+                            <a href="catcardregistration.do" class="boxed-btn4">캣카드 만들기</a>
                         </div>
                     </div>
                 </div>
