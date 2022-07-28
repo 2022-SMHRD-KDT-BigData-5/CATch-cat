@@ -114,7 +114,9 @@ body {
 								<img src="img/side_logo.png">
 							</div>
 							<div class='mycatCard_img'>
-								<img src="img/catimg1515.jpg">
+						
+									<img src="${cc.getCat_url()}" onerror="this.src='upload/cat_blank.png'">
+							
 							</div>
 							<div class="mycatCard_name">
 								<p>${cc.getCat_name()}</p>
