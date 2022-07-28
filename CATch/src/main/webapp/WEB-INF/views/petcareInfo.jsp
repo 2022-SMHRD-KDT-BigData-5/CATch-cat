@@ -28,7 +28,16 @@
     <link rel="stylesheet" href="css/catcard.css">
     <link rel="stylesheet" href="css/petcare.css">
     
-
+	 <style>
+        hr{
+            margin-bottom: 0px !important;
+        }
+        pre{
+        background-color : #ffffff !important;
+        border : 1px solid #ffffff !important;
+        }
+    </style>
+	
 
 
 </head>

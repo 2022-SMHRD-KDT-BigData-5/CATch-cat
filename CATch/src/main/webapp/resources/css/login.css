@@ -391,7 +391,7 @@ textarea {
     line-height: inherit
      height: 5rem;
     width: 40rem;
-    border: 2px solid #5EBC88;
+    border: 2px solid #006400;
     border-radius: 1rem;
 }
 
@@ -2734,7 +2734,7 @@ select.form-control-lg:not([size]):not([multiple]) {
 .loginForm h2{
   text-align: center;
   margin: 30px;
-  color: #5EBC88;
+  color: #006400;
     font-size: 70px;
 }
 
@@ -2776,7 +2776,7 @@ select.form-control-lg:not([size]):not([multiple]) {
   left:34%;
   transform: translateX(-50%);
   margin-bottom: 40px;
-  background: #5EBC88;
+  background: #006400;
   background-position: left;
   background-size: 200%;
   color:white;
