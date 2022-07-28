@@ -96,12 +96,22 @@
             color  : #006400;
             font-family : var(--font--family);
         }
+        
+        .btn-primary {
+    color: #fff;
+    background-color: #006400 !important;
+    border-color: #006400 !important;
+}
     </style>
 </head>
 
 <body>
    <% 
     Member member = (Member)session.getAttribute("member");
+    String mem_id = "";
+    if(member!=null){
+    	mem_id = member.getMem_id();
+    }
     CatCard catcardInfo = (CatCard)session.getAttribute("catcardInfo");
     List<Medical> medicalList = (List<Medical>)session.getAttribute("medicalList");
     List<Vaccination> jh = (List<Vaccination>)session.getAttribute("jh");
@@ -145,7 +155,7 @@
 
 
             <div class="catcard_more">
-               <button class="btn btn-primary btn-jittery">Click Me</button>
+               <button class="btn btn-primary btn-jittery">더보기</button>
                <div id='more_content'>
                   <p>
                      보호자아이디 :
@@ -355,8 +365,25 @@
   <script>
         $(function () {
             $(".btn").click(function () {
-                $("#more_content").show();
-                $('.btn').hide();
+            	var cat_mem_id = "<%=catcardInfo.getMem_id()%>";
+            	
+            	$.ajax({
+            		url:'catcardMemCheck.do',
+            		type:'POST',
+            		data:{'cat_mem_id':cat_mem_id},
+            		success:function(check){
+            			if(check==1){
+            				 $("#more_content").show();
+            	             $('.btn').hide();
+            			}else{
+            				alert('캣카드를 등록한 사용자만 조회할 수 있습니다!');
+            			}
+            		},
+            		error:function(){
+            			alert('에러입니다');
+            		}
+            	});
+               
             });
         });
 

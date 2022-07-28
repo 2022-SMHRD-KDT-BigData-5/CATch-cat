@@ -13,8 +13,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.smhrd.domain.CatCard;
@@ -192,6 +194,22 @@ public class CatCardController {
 	@RequestMapping("/loading1.do")
 	public String catcardload() {
 		return "loading1";
+	}
+	
+	
+	
+	//캣카드 더보기 클릭시 멤버 확인
+	@PostMapping("/catcardMemCheck.do")
+	@ResponseBody
+	public int catcardMemCheck(@RequestParam("cat_mem_id") String cat_mem_id, HttpSession session ) {
+		System.out.println("컨트롤러 도착/캣카드보호자는"+cat_mem_id);
+		int check=0;
+		Member member = (Member)session.getAttribute("member");
+		if(member.getMem_id().equals(cat_mem_id)) {
+			check=1;
+		}
+		System.out.println("비교 성공");
+		return check;
 	}
 				
 
