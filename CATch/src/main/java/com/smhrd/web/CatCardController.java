@@ -143,7 +143,11 @@ public class CatCardController {
 		return "catcardNoseForm";
 	}
 
+
+	//캣카드  등록 페이지
+
 	//캣카드  등록 페이지 + 고양이주민번호 랜덤하게 주기(DB구조는 안고침)(상의)
+
 		@RequestMapping("/catcardregistration.do")
 		public String catcardregistration(Model model) {
 			
@@ -177,6 +181,9 @@ public class CatCardController {
 		return "catnext";
 	}
 
+
+
+
 	// 로딩중 페이지로 이동
 	@RequestMapping("/loading1.do")
 	public String catcardload() {
@@ -184,7 +191,7 @@ public class CatCardController {
 	}
 				
 
-	
+
 }
 
 	
