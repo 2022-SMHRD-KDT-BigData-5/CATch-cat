@@ -57,9 +57,10 @@
                   <thead class="table-light">
                      <tr>
                         
-						<th scope="col">등록일</th>
 						<th scope="col">캣카드번호</th>
+						<th scope="col">고양이이름</th>
                         <th scope="col">내용</th>
+						<th scope="col">등록일</th>
                         
                         
                      </tr>
@@ -69,9 +70,10 @@
                      <c:forEach items="${petcareAdmin}" var="pa" varStatus="status">
                      	<tr>
                         
-                        <td>${fn:split(pa.getAdmin_date(), " ")[0]}</td>
                         <td>${pa.getAdmin_catcard()}</td>
+                        <td>${pa.getAdmin_catname()}</td>
                         <td>${pa.getAdmin_content()}</td>
+                        <td>${fn:split(pa.getAdmin_date(), " ")[0]}</td>
                         
                      </tr>
                      </c:forEach>

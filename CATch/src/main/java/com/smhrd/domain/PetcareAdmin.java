@@ -22,6 +22,8 @@ public class PetcareAdmin {
 	@NonNull
 	private int admin_catcard;
 	@NonNull
+	private String admin_catname;
+	@NonNull
 	private Timestamp admin_date;
 	@NonNull
 	private String admin_content;
@@ -29,6 +31,11 @@ public class PetcareAdmin {
 	private String admin_id;
 	@NonNull
 	private int admin_petcare_seq;
+
+
+	
+
+	
 	
 
 }
