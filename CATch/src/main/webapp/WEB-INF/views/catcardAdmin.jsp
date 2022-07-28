@@ -33,7 +33,7 @@
 <body>
 
    <%
-      Member member = (Member) session.getAttribute("member");
+    Member member = (Member) session.getAttribute("member");
    	List<PetcareAdmin> petcareAdmin = (List<PetcareAdmin>)session.getAttribute("petcareAdmin");
 
    %>
