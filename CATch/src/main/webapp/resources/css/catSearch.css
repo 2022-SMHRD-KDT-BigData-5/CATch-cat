@@ -102,3 +102,8 @@ form{
     overflow: hidden;
     border: 0;
 }
+
+.search-head {
+	text-align : center;
+	
+}

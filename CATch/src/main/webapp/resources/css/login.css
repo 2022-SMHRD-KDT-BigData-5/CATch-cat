@@ -2785,6 +2785,7 @@ select.form-control-lg:not([size]):not([multiple]) {
   cursor:pointer;
   transition: 0.4s;
   display:inline;
+  font-size:20px;
 }
 
 .btn:focus,

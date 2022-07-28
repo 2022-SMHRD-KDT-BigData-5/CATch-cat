@@ -1,0 +1,39 @@
+@charset "UTF-8";
+.bg {
+	  width: 100%;
+	 
+	  position:fixed; top:0; left:0
+	  height: 500px;
+	  overflow: hidden;
+	  margin: 0px auto;
+	  position: relative;
+	
+}
+video {
+    width: 100%;
+  }
+
+.slider_area {
+	    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.slider_area p {
+ text-align: center;
+    font-size: 48px;
+    color: #048975;
+}
+
+  @media(max-width:664px) {
+    .bg {
+      height: auto;
+    }
+    video {
+      height: 400px;
+    }
+    .text p {
+      font-size: 24px;
+    }
+  }

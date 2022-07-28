@@ -30,7 +30,7 @@
 
 
 <jsp:include page="header.jsp"></jsp:include>
-
+<div class="search-head">
 
 <h1 class = 'h_title'>캣카드 등록</h1>
 
@@ -50,7 +50,7 @@
 			<input class='sinput' type="submit" value="등록">
 		</div>
 	</form>
-
+</div>
 
 	<script>
 	
