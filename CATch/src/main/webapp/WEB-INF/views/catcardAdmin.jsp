@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.domain.PetcareAdmin"%>
+<%@page import="java.util.List"%>
 <%@page import="com.smhrd.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -22,7 +24,8 @@
 
 	<%
 		Member member = (Member)session.getAttribute("member");
-	
+		List<PetcareAdmin> petcareAdmin = (List<PetcareAdmin>)session.getAttribute("petcareAdmin");
+
 	%>
 	<jsp:include page="header.jsp"></jsp:include>
 
@@ -36,11 +39,26 @@
 			<thead>
 				<tr>
 					<th>캣카드번호</th>
-					<th>작성자</th>
+					<th>상호명</th>
+					<th>내용</th>
 					<th>등록일</th>
-
 				</tr>
 			<tbody>
+			<tr>
+				<td>10238</td>
+				<td>코코호텔</td>
+				<td>이발함</td>
+				<td>1886년 12월24일</td>
+				</tr>
+			<c:forEach items="${petcareAdmin}" var="pa">
+				<tr>
+				<td>${pa.getAdmin_catcard()}</td>
+				<td>${pa.getAdmin_name()}</td>
+				<td>${pa.getAdmin_content()}</td>
+				<td>${pa.getAdmin_date()}</td>
+				</tr>
+			</c:forEach>
+			
 
 			</tbody>
 		</table>
