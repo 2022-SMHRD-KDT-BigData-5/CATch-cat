@@ -108,7 +108,7 @@
 	List<Vaccination> jb = (List<Vaccination>)session.getAttribute("jb");
 	List<Vaccination> hc = (List<Vaccination>)session.getAttribute("hc");
 	List<Vaccination> ss = (List<Vaccination>)session.getAttribute("ss");
-
+	List<petcare>
     %>
 
    <jsp:include page="header.jsp"></jsp:include>
@@ -212,18 +212,27 @@
                   <tr class="medi_content_head">
                      <td>상품명</td>
                      <td>종류</td>
-                     <td>가입일자</td>
-                     <td>또 뭐지</td>
+                     <td>가입 일자</td>
+                     <td>내역</td>
                      <td>리뷰 작성하러 가기</td>
                   </tr>
                      <tr>
-                        <td>보험</td>
+                
                         <td>보험</td>
                         <td>1995년 5월 21일</td>
                         <td></td>
                         <td>a태그를 사용하나요?</td>
                      </tr>
-
+					<c:forEach items="${petCaeList}" var="care" varStatus="status">
+						<tr>
+							<td>${petcare.careseq}</td>
+							
+							<td>${medi.getMedi_content()}</td>
+							<td>${petcare.getPetcare_name()}</td>
+							<td>${fn:split(petcare.getadmin_date(), " ")[0]}</td>
+							<li><a href="insertReview.do">리뷰작성</a></li>
+						</tr>
+					</c:forEach>
                </table>
          	
          	
