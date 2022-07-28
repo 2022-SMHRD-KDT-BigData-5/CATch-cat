@@ -29,6 +29,6 @@ public interface PetcareMapper {
 	public abstract int insertPetcareAdmin(PetcareAdmin petcareAdmin);
 	
 	// 업체 이용기록 조회
-	public abstract PetcareAdmin selectPetcareAdmin(String admin_id);
+	public abstract List<PetcareAdmin> selectPetcareAdmin(String admin_id);
 
 }

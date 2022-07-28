@@ -61,9 +61,12 @@ public class PetcareController {
 	@RequestMapping("/catcardAdmin.do")
 	public String selectPetcareAdmin(HttpSession session) {
 		Member member = (Member)session.getAttribute("member");
-		String admin_id = member.getMem_id();
-		PetcareAdmin petcareAdmin = mapper.selectPetcareAdmin(admin_id);
-		session.setAttribute("petcareAdmin", petcareAdmin);
+		if(member!=null) {
+			String admin_id = member.getMem_id();
+			List<PetcareAdmin> petcareAdmin = mapper.selectPetcareAdmin(admin_id);
+			session.setAttribute("petcareAdmin", petcareAdmin);
+		}
+		
 		return "catcardAdmin";
 	}
 	

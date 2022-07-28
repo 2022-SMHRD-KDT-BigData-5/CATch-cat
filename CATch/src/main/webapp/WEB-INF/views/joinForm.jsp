@@ -100,8 +100,11 @@
                 
                 <!-- 병원관계 유무 -->
                 <div>
-                	<h3 class="join_title"><label for="check">병원관계자</label></h3>
-                	<input class="joincheck" type="checkbox" name="mem_hospital" value="T">
+                	<h3 class="join_title"><label for="check">관계자</label></h3>
+                	<input class="joincheck" type="radio" name="mem_hospital" value="N">보호자
+                    <input class="joincheck" type="radio" name="mem_hospital" value="H">병원
+                    <input class="joincheck" type="radio" name="mem_hospital" value="P">펫케어
+                    
                                
                 </div>
                 
