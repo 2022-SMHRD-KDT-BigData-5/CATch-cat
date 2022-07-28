@@ -60,10 +60,10 @@
                               <li><a href="carezoneFinal.do">고양터</a></li>
 
                                  <%if(id_info.equals("N")){ %>
-                                    <li><a href="mypage.do">마이페이지<i class="ti-angle-down"></i>  </a>
+                                    <li><a href="mypage.do?mem_id=<%=member.getMem_id()%>">마이페이지<i class="ti-angle-down"></i>  </a>
                                        <ul class="submenu">
                                           <li><a
-                                             href="mypage.do">캣카드 조회</a></li>
+                                             href="mypage.do?mem_id=<%=member.getMem_id()%>">캣카드 조회</a></li>
                                           <li><a href="myInfoCheck.do">회원정보 수정</a></li>
                                        </ul></li>
                                  <%}else if(id_info == "P"){ %>
