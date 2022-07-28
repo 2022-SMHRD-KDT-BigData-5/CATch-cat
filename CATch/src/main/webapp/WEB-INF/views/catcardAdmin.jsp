@@ -31,7 +31,7 @@
 		<h1 class="a_title">관리자 페이지</h1>
 		<p>내가 등록한 캣카드 조회하는 페이지 입니다.</p>
 	</div>
-<div class="container-fluid text-center">
+	<div class="container-fluid text-center">
 	<div class="row content">
 		
 	</div>
@@ -49,7 +49,9 @@
 			<tbody>
 				
 				<tr>
-					<td><%= %></td>
+					<td></td>
+					<td></td>
+					<td></td>
 					
 				</tr>
 			</tbody>
