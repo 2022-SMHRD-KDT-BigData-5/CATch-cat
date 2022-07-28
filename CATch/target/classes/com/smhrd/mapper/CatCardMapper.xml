@@ -60,8 +60,8 @@
     </insert>
     
     <!-- 내가가입한 캣케어 sql문 -->
-    <select id="selectAdmin" parameterType="com.smhrd.domain.PetcareAdmin"> 
+    <select id="selectAdmin" resultType="com.smhrd.domain.PetcareAdmin"> 
       select * from t_petcare_admin 
-      where admin_catcard=#{admin_catcard}
+      where admin_catcard = #{admin_catcard}
       </select>
 </mapper>
