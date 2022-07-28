@@ -136,20 +136,18 @@
          <div class="swiper-slide">
             <div class="catcard_head">
                <div class="catcard_img">
-                  <img src="img/cat121212.png" alt="">
+                  <img src="<%=catcardInfo.getCat_url()%>" alt="upload/cat_blank.png">
                </div>
                <div class="catcard_content">
                   <span>NO. <%=catcardInfo.getCat_seq() %></span>
                   <p>
                      고양이 생일 :
                      <%=catcardInfo.getCat_birthdate() %></p>
-                  <p>
-                     고양이 성별 :
-                     <%=catcardInfo.getCat_gender() %></p>
+                  <p>고양이 성별 : <%if(catcardInfo.getCat_gender() == 'M'){%>수컷<%}else{ %>암컷<%}%></p>
                   <p>
                      카드 등록일 :
                      <%=catcardInfo.getCat_date().getYear()-100%>년 <%=catcardInfo.getCat_date().getMonth()+1%>월 <%=catcardInfo.getCat_date().getDate()%>일</p>
-                     
+                  <p>중성화 : <%if(catcardInfo.getCat_neutral() == 'N'){%>X<%}else{ %>O<%}%></p>
                </div>
             </div>
 
@@ -157,13 +155,9 @@
             <div class="catcard_more">
                <button class="btn btn-primary btn-jittery">더보기</button>
                <div id='more_content'>
-                  <p>
-                     보호자아이디 :
-                     <%=catcardInfo.getMem_id() %></p>
-                  <p>
-                     중성화 :
-                     <%=catcardInfo.getCat_neutral() %></p>
-                  <p>특이사항</p>
+                  <p>보호자아이디 : <%=catcardInfo.getMem_id() %></p>
+                  <p>보호자연락처 : 010-1234-5678</p>
+                  <p>특이사항 : </p>
                   <p><%=catcardInfo.getCat_spec()%></p>
                </div>
             </div>
@@ -363,6 +357,7 @@
 </script>
 
   <script>
+  		//캣카드 등록자만 상세정보 볼수있게 해주는 '더보기'클릭 메서드
         $(function () {
             $(".btn").click(function () {
             	var cat_mem_id = "<%=catcardInfo.getMem_id()%>";
