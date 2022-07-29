@@ -57,7 +57,7 @@
                         <div class="footer_widget">
                             <div class="footer_logo">
                                 <a href="main.do">
-                                    <img src="img/catch.png" alt="">
+                                    <img src="img/catch2.png" alt="">
                                 </a>
                             </div>
                             <p class="address_text">31-15, Yesul-gil, Dong-gu, Gwangju, Republic of Korea

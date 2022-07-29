@@ -205,6 +205,7 @@ public class CatCardController {
 		System.out.println("컨트롤러 도착/캣카드보호자는"+cat_mem_id);
 		int check=0;
 		Member member = (Member)session.getAttribute("member");
+
 		if(member.getMem_id().equals(cat_mem_id)) {
 			check=1;
 		}
