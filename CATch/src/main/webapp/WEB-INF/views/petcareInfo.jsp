@@ -62,7 +62,10 @@ List<PetcareReview> petCareReviewList = (List<PetcareReview>)session.getAttribut
 
         <div class = "petcare_review_content">
             <hr>
-            <span class="review_writer">${pcr.review_id}</span><span>${pcr.review_date}</span><br>
+            <span class="review_writer">${pcr.review_id}</span>
+            <span class="text-muted ${pcr.review_star}"></span>
+            <span>${pcr.review_date}</span>
+			<br>
             <pre>${pcr.review_content}</pre>
         </div>
         
@@ -74,9 +77,14 @@ List<PetcareReview> petCareReviewList = (List<PetcareReview>)session.getAttribut
 
 
 
-
-
-
-
 </body>
+<script>
+	$(".0").html("&#9734; &#9734; &#9734; &#9734; &#9734;");
+	$(".1").html("&#9733; &#9734; &#9734; &#9734; &#9734;");
+	$(".2").html("&#9733; &#9733; &#9734; &#9734; &#9734;");
+	$(".3").html("&#9733; &#9733; &#9733; &#9734; &#9734;");
+	$(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
+	$(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;"); 
+</script>
+
 </html>
