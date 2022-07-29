@@ -106,6 +106,7 @@ body {
 				<div class="swiper-wrapper">
 					<c:forEach items="${catcardList}" var="cc" varStatus="status">
 						<div class="swiper-slide">
+							<a href="seqSearch.do?cat_seq=${cc.getCat_seq()}">
 							<div class='mycatCard_header'>
 								<p>${cc.getCat_seq()}</p>
 							</div>
@@ -113,11 +114,14 @@ body {
 								<img src="img/side_logo.png">
 							</div>
 							<div class='mycatCard_img'>
-								<img src="img/catimg1515.jpg">
+						
+									<img src="${cc.getCat_url()}" onerror="this.src='upload/cat_blank.png'">
+							
 							</div>
 							<div class="mycatCard_name">
 								<p>${cc.getCat_name()}</p>
 							</div>
+							</a>
 						</div>
 					</c:forEach>
 				</div>

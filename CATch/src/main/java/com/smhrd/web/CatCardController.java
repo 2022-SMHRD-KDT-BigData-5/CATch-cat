@@ -13,13 +13,16 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.smhrd.domain.CatCard;
 import com.smhrd.domain.Medical;
 import com.smhrd.domain.Member;
+import com.smhrd.domain.PetcareAdmin;
 import com.smhrd.domain.Vaccination;
 import com.smhrd.mapper.CatCardMapper;
 
@@ -42,6 +45,7 @@ public class CatCardController {
 
 	}
 	
+		
 	
 	//캣카드 번호로 캣카드 조회
 	@RequestMapping("/seqSearch.do")
@@ -64,6 +68,9 @@ public class CatCardController {
 		session.setAttribute("hc", hc);
 		session.setAttribute("ss", ss);
 		
+		List<PetcareAdmin> catcardPetcare = mapper.selectAdmin(cat_seq);
+		session.setAttribute("catcardPetcare", catcardPetcare);
+		
 		return "redirect:/catcard.do";
 
 	}
@@ -84,14 +91,15 @@ public class CatCardController {
 	
 	//(병원관계자용) 진료+접종내역 update
 	@RequestMapping("/mediUpdate.do")
-	public String mediUpdate(String medi_id, String medi_name, int cat_seq, String medi_content) {
+	public String mediUpdate(String medi_id, String medi_name, int cat_seq, String medi_content, Model model) {
 		Medical medi = new Medical(medi_id, medi_name, medi_content, cat_seq);
 		mapper.mediUpdate(medi);
-		return "redirect:/catcard.do"; //바로 반영 안되는거 고쳐주세요
+		model.addAttribute("cat_seq", cat_seq);
+		return "redirect:/seqSearch.do";
 	}
 	
 	@RequestMapping("/vaccUpdate.do")
-	public String vaccUpdate(String medi_id, String medi_name, int cat_seq, String[] vacc_type) {
+	public String vaccUpdate(String medi_id, String medi_name, int cat_seq, String[] vacc_type, Model model) {
 		int cnt = 0;
 		for(int i=0; i<vacc_type.length; i++) {
 		Vaccination vacc = new Vaccination(vacc_type[i], medi_id, medi_name, cat_seq);
@@ -99,7 +107,8 @@ public class CatCardController {
 		if(cnt>0) {
 			System.out.println(vacc_type[i]+"접종완료");
 		}}
-		return "redirect:/catcard.do"; //바로 반영 안되는거 고쳐주세요
+		model.addAttribute("cat_seq", cat_seq);
+		return "redirect:/seqSearch.do";
 	}
 	
 	
@@ -181,13 +190,26 @@ public class CatCardController {
 		return "catnext";
 	}
 
-
-
-
 	// 로딩중 페이지로 이동
 	@RequestMapping("/loading1.do")
 	public String catcardload() {
 		return "loading1";
+	}
+	
+	
+	
+	//캣카드 더보기 클릭시 멤버 확인
+	@PostMapping("/catcardMemCheck.do")
+	@ResponseBody
+	public int catcardMemCheck(@RequestParam("cat_mem_id") String cat_mem_id, HttpSession session ) {
+		System.out.println("컨트롤러 도착/캣카드보호자는"+cat_mem_id);
+		int check=0;
+		Member member = (Member)session.getAttribute("member");
+		if(member.getMem_id().equals(cat_mem_id)) {
+			check=1;
+		}
+		System.out.println("비교 성공");
+		return check;
 	}
 				
 

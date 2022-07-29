@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.domain.PetcareAdmin"%>
 <%@page import="com.smhrd.domain.Member"%>
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.domain.Vaccination"%>
@@ -95,12 +96,22 @@
             color  : #006400;
             font-family : var(--font--family);
         }
+        
+        .btn-primary {
+    color: #fff;
+    background-color: #006400 !important;
+    border-color: #006400 !important;
+}
     </style>
 </head>
 
 <body>
    <% 
     Member member = (Member)session.getAttribute("member");
+    String mem_id = "";
+    if(member!=null){
+    	mem_id = member.getMem_id();
+    }
     CatCard catcardInfo = (CatCard)session.getAttribute("catcardInfo");
     List<Medical> medicalList = (List<Medical>)session.getAttribute("medicalList");
     List<Vaccination> jh = (List<Vaccination>)session.getAttribute("jh");
@@ -108,6 +119,8 @@
 	List<Vaccination> jb = (List<Vaccination>)session.getAttribute("jb");
 	List<Vaccination> hc = (List<Vaccination>)session.getAttribute("hc");
 	List<Vaccination> ss = (List<Vaccination>)session.getAttribute("ss");
+	List<PetcareAdmin> catcardPetcare = (List<PetcareAdmin>)session.getAttribute("catcardPetcare");
+	
 
     %>
 
@@ -123,35 +136,29 @@
          <div class="swiper-slide">
             <div class="catcard_head">
                <div class="catcard_img">
-                  <img src="img/cat121212.png" alt="">
+                  <img src="<%=catcardInfo.getCat_url()%>" alt="upload/cat_blank.png">
                </div>
                <div class="catcard_content">
                   <span>NO. <%=catcardInfo.getCat_seq() %></span>
                   <p>
                      고양이 생일 :
                      <%=catcardInfo.getCat_birthdate() %></p>
-                  <p>
-                     고양이 성별 :
-                     <%=catcardInfo.getCat_gender() %></p>
+                  <p>고양이 성별 : <%if(catcardInfo.getCat_gender() == 'M'){%>수컷<%}else{ %>암컷<%}%></p>
                   <p>
                      카드 등록일 :
                      <%=catcardInfo.getCat_date().getYear()-100%>년 <%=catcardInfo.getCat_date().getMonth()+1%>월 <%=catcardInfo.getCat_date().getDate()%>일</p>
-                     
+                  <p>중성화 : <%if(catcardInfo.getCat_neutral() == 'N'){%>X<%}else{ %>O<%}%></p>
                </div>
             </div>
 
 
             <div class="catcard_more">
-               <button class="btn btn-primary btn-jittery">Click Me</button>
+               <button class="btn btn-primary btn-jittery">더보기</button>
                <div id='more_content'>
-                  <p>
-                     보호자아이디 :
-                     <%=catcardInfo.getMem_id() %></p>
-                  <p>
-                     중성화 :
-                     <%=catcardInfo.getCat_neutral() %></p>
-                  <p>특이사항</p>
-                  <p>특이사항 없음</p>
+                  <p>보호자아이디 : <%=catcardInfo.getMem_id() %></p>
+                  <p>보호자연락처 : 010-1234-5678</p>
+                  <p>특이사항 : </p>
+                  <p><%=catcardInfo.getCat_spec()%></p>
                </div>
             </div>
          </div>
@@ -209,21 +216,26 @@
          	<div class = "care_content">
          		<h7>펫케어</h7>
          	<table class="table table-border table-hover">
-                  <tr class="medi_content_head">
+                  <tr class="admin_content_head">
+                     <td>번호</td>
                      <td>상품명</td>
-                     <td>종류</td>
-                     <td>가입일자</td>
-                     <td>또 뭐지</td>
-                     <td>리뷰 작성하러 가기</td>
+                     <td>상품 종류</td>
+                     <td>내역</td>
+                     <td>등록일</td>
+                     <td></td>
                   </tr>
-                     <tr>
-                        <td>보험</td>
-                        <td>보험</td>
-                        <td>1995년 5월 21일</td>
-                        <td></td>
-                        <td>a태그를 사용하나요?</td>
-                     </tr>
-
+					<c:forEach items="${catcardPetcare}" var="cp" varStatus="status">
+						<tr>
+							<td>${status.count}</td>
+							<td>${cp.getAdmin_name()}</td>
+							<td>${cp.getAdmin_cate()}</td>
+							<td>${cp.getAdmin_content()} </td>
+							<td>${fn:split(cp.getAdmin_date(), " ")[0]}</td>
+							<td><a href="petcareInfo.do?petcare_seq=${cp.getAdmin_petcare_seq()}">리뷰작성</a></td>
+							
+							
+						</tr>
+					</c:forEach>
                </table>
          	
          	
@@ -345,10 +357,28 @@
 </script>
 
   <script>
+  		//캣카드 등록자만 상세정보 볼수있게 해주는 '더보기'클릭 메서드
         $(function () {
             $(".btn").click(function () {
-                $("#more_content").show();
-                $('.btn').hide();
+            	var cat_mem_id = "<%=catcardInfo.getMem_id()%>";
+            	
+            	$.ajax({
+            		url:'catcardMemCheck.do',
+            		type:'POST',
+            		data:{'cat_mem_id':cat_mem_id},
+            		success:function(check){
+            			if(check==1){
+            				 $("#more_content").show();
+            	             $('.btn').hide();
+            			}else{
+            				alert('캣카드를 등록한 사용자만 조회할 수 있습니다!');
+            			}
+            		},
+            		error:function(){
+            			alert('에러입니다');
+            		}
+            	});
+               
             });
         });
 

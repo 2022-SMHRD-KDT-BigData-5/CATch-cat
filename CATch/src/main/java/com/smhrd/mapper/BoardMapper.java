@@ -117,16 +117,6 @@ public interface BoardMapper {
 	public abstract List<AdoptBoard> adoptBoardSearch(AdoptBoard vo);	
 	
 	
-	// 펫케어 전체정보 가져오기 
-	public abstract List<Petcare> selectPetcareList();
-	
-	//펫케어 상세정보 가져오기
-	public abstract Petcare selectPetcare(int petcare_seq);
-	
-	// 펫케어 리뷰 가져오기
-	public abstract List<PetcareReview> selectPetcareReviewList(int petcare_seq);
-	
-	//펫케어 리뷰 등록하기
-	public abstract int insertReview(PetcareReview petcareReview);
+
 
 }
