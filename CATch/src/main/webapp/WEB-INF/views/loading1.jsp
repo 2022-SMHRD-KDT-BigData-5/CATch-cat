@@ -16,7 +16,7 @@
 <body>
 
 
-	<h1 class = 'h_title'>캣카드 등록중입니다...</h1>
+	<h1 class = 'h_title'>로딩중입니다...</h1>
 	<div id="load">
 		<img src="img/catkk.gif" alt="">
 	</div>
