@@ -21,17 +21,17 @@
 
 <!-- CSS here -->
         <link href="css/login.css" rel="stylesheet" type="text/css" />
-   
+ 
     
  
 </head>
-<th:block th:fragment="setLogin(login)">
+
 <body>
 
 	
    
 	<div class="member_login">
-
+	<div class= "body">
  	<form action="login.do" method="POST" class="loginForm" >
    	<b><h2>Login</h2></b>
 		
@@ -51,9 +51,8 @@
       </div>
      
     </form>
-
+	</div>
 	</div>
 
 </body>
-</th:block>
 </html>

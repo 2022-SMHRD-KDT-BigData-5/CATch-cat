@@ -612,18 +612,12 @@
       customOverlay.open(map, marker);  
 });
       */
-<<<<<<< HEAD
-      </script>
-=======
-			
-			
-			
-			
-			
-			
-			
-	</script>
 
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
+      
+			
+			
+					
+
+      </script>
 </body>
 </html>
