@@ -102,7 +102,7 @@
 			<%for(int j= 0; j<catcardListAll.size(); j++) {%>
 			<% if(catcardListAll.get(j).getCat_carezone() == i+1) { %>
 			
-			<tr class="map_table_body">
+			<tr class="map_table_body" onclick="location.href='seqSearch.do?cat_seq=<%=catcardListAll.get(j).getCat_seq()%>'">
 				<td><img src=<%=catcardListAll.get(j).getCat_url()%>></td>
 				<td><%=catcardListAll.get(j).getCat_name()%></td>
 				<td><%=catcardListAll.get(j).getCat_gender()%></td>
