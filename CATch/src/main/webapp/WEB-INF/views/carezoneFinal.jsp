@@ -3,35 +3,36 @@
 <%@page import="java.util.List"%>
 <%@page import="com.smhrd.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>고양터🗺</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/gijgo.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/slicknav.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/mapFinal.css">
-    <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
-	<link rel="stylesheet" href="css/carezone.css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>고양터🗺</title>
+<link rel="stylesheet"
+	href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/themify-icons.css">
+<link rel="stylesheet" href="css/nice-select.css">
+<link rel="stylesheet" href="css/flaticon.css">
+<link rel="stylesheet" href="css/gijgo.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/slicknav.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/mapFinal.css">
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="css/carezone.css">
 </head>
 
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	
+
 	<%
 		Member member = (Member) session.getAttribute("member");
 	String care_id = "";
@@ -42,96 +43,89 @@
 	}
 
 	List<CareBoard> careList = (List<CareBoard>)request.getAttribute("careList");
-	List<CatCard> catcardList = (List<CatCard>)request.getAttribute("catcardList");
+	List<CatCard> catcardListAll = (List<CatCard>)request.getAttribute("catcardListAll");
+	
 	%>
-    <p class="map_title">급식소 등록</p>
-    <p class="page_explan">지도에서 좌표를 찍어 급식소를 등록하세요</p>
-    <div class="mappage_body">
-        <div class="map_area">
-        
-        
-        <div class="map_wrap">
-		<div id="map"
-			style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+	<p class="map_title">급식소 등록</p>
+	<p class="page_explan">지도에서 좌표를 찍어 급식소를 등록하세요</p>
+	<div class="mappage_body">
+		<div class="map_area">
 
-		<div id="menu_wrap" class="bg_white">
-			<div class="option">
-				<div>
-					<form onsubmit="searchPlaces(); return false;">
-						키워드 : <input type="text" value="대의동" id="keyword" size="15">
-						<button type="submit">검색하기</button>
-					</form>
+
+			<div class="map_wrap">
+				<div id="map"
+					style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+
+				<div id="menu_wrap" class="bg_white">
+					<div class="option">
+						<div>
+							<form onsubmit="searchPlaces(); return false;">
+								키워드 : <input type="text" value="대의동" id="keyword" size="15">
+								<button type="submit">검색하기</button>
+							</form>
+						</div>
+					</div>
+					<hr>
+					<ul id="placesList"></ul>
+					<div id="pagination"></div>
 				</div>
 			</div>
-			<hr>
-			<ul id="placesList"></ul>
-			<div id="pagination"></div>
+
+
+
+
+		</div>
+		<div class="map_side">
+			<form action="insertAddress.do" method="post">
+				<span>급식소 이름</span> <input type="text" name="care_name"
+					placeholder=" ex) OO고양터"> <br> <span>급식소 주소</span> <input
+					type="text" name="care_addr"> <br> <span>등록자 이름</span><input
+					type="text" name="care_id" value=<%=care_id %> readonly> <br>
+				<input type="hidden" name="care_latitude"> <br> <input
+					type="hidden" name="care_longitude"> <br> <input
+					type="submit" value="급식소 등록하기" id="carezone_submit">
+			</form>
+
 		</div>
 	</div>
-        
 
+	<%for (int i = 0; i < careList.size(); i++) {%>
+	<div class="map_footer <%=i%>">
+		<table class="cat_table">
+			<tr class="map_table_head">
+				<td class="map_catImg"></td>
+				<td class="map_catName">이름</td>
+				<td class="map_catGender">성별</td>
+				<td class="map_neut">중성화</td>
+				<td class="map_spec">특이사항</td>
+			</tr>
+			<%for(int j= 0; j<catcardListAll.size(); j++) {%>
+			<% if(catcardListAll.get(j).getCat_carezone() == i+1) { %>
+			
+			<tr class="map_table_body" onclick="location.href='seqSearch.do?cat_seq=<%=catcardListAll.get(j).getCat_seq()%>'">
+				<td><img src=<%=catcardListAll.get(j).getCat_url()%>></td>
+				<td><%=catcardListAll.get(j).getCat_name()%></td>
+				<td><%=catcardListAll.get(j).getCat_gender()%></td>
+				<td><%=catcardListAll.get(j).getCat_neutral()%></td>
+				<td><%=catcardListAll.get(j).getCat_spec()%></td>
+			</tr>
+			<%} %>
+			<%} %>
+			
+			<td colspan="5"><a href="catcardForm.do">고양이 추가하기</a></td>
+			</tr>
+		</table>
+	</div>
+	<%} %>
 
-
-        </div>
-        <div class="map_side">
-            <form action="insertAddress.do" method="post">
-                <span>급식소 이름</span> <input type="text" name="care_name" placeholder=" ex) OO고양터"> <br> 
-                <span>급식소 주소</span> <input type="text" name="care_addr"> <br>
-                <span>등록자 이름</span><input type="text" name="care_id" value=<%=care_id %> readonly> <br>
-                <input type="hidden" name="care_latitude"> <br> 
-                <input type="hidden" name="care_longitude"> <br> 
-
-
-                <input type="submit" value="급식소 등록하기" id="carezone_submit">
-            </form>
-
-        </div>
-    </div>
-
-    <div class="map_footer">
-        <table>
-           <tr class="map_table_head">
-            <td class="map_catImg"></td>
-            <td class="map_catName">이름</td>
-            <td class="map_catGender">성별</td>
-            <td class="map_neut">중성화</td>
-            <td class="map_spec">특이사항</td>
-           </tr>
-           <tr class="map_table_body">
-            <td><img src="img/cat001.jpg"></td>
-            <td>야웅이</td>
-            <td>수컷</td>
-            <td>완료</td>
-            <td>밥을 너무 많이 먹음 사료값이 너무 비싸서 급식소에서 밥을 맥이고 싶다</td>
-           </tr>
-           <tr class="map_table_body">
-            <td><img src="img/cat002.jpg"></td>
-            <td>나비</td>
-            <td>암컷</td>
-            <td>완료</td>
-            <td>츄르 좋아함</td>
-           </tr>
-           <tr class="map_table_body">
-            <td><img src="img/cat003.jpg"></td>
-            <td>감자</td>
-            <td>암컷</td>
-            <td>완료</td>
-            <td>사람을 잘 따름</td>
-           </tr>
-           <tr class="map_table_body">
-            <td colspan="5"><a href="catcardForm.do">고양이 추가하기</a></td>
-           </tr>
-        </table>
-    </div>
-    
-    
 	<!-- 주소 -->
- 	<span id="centerAddr" style="display: none;"></span> 
+	<span id="centerAddr" style="display: none;"></span>
 	<div id="result" style="display: none;"></div>
 
 
 
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0a2cd6f2777e0f89378c802f40822eb3&libraries=services"></script>
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0a2cd6f2777e0f89378c802f40822eb3&libraries=services"></script>
 	<script>
 	// 급식소 위치 담을 변수
 	
@@ -307,7 +301,7 @@
 	            offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
 	        }, 
 	        markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions), 
-	        marker = new kakao.maps.Marker({ position : position, // 마커의 위치
+	        marker1 = new kakao.maps.Marker({ position : position, // 마커의 위치
 				image : markerImage
 				
 			});
@@ -315,7 +309,7 @@
 		//	marker.setMap(map); // 지도 위에 마커를 표출합니다
 		//	markers.push(marker); // 배열에 생성된 마커를 추가합니다
 
-			return marker;
+			return marker1;
 		}
 
 		
@@ -337,7 +331,7 @@
 					+ '</div>';
 
 			infowindow.setContent(content);
-			infowindow.open(map, marker);
+			infowindow.open(map, marker1);
 		}
 
 		// 검색결과 목록의 자식 Element를 제거하는 함수입니다
@@ -367,8 +361,17 @@
 
 		// 주소-좌표 변환 객체를 생성합니다
 		var geocoder = new kakao.maps.services.Geocoder();
-
-		var marker = new kakao.maps.Marker(), // 클릭한 위치를 표시할 마커입니다
+		var imageSrc = 'upload/cat_icon2.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+        imageSize = new kakao.maps.Size(36, 36),  // 마커 이미지의 크기
+        imgOptions =  {
+            spriteSize : new kakao.maps.Size(36, 36), // 스프라이트 이미지의 크기
+            spriteOrigin : new kakao.maps.Point(0, 0), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+            offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
+        }
+		var markerImage1 = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions)
+		var marker1 = new kakao.maps.Marker({
+			image : markerImage1 // 마커 이미지
+		}), // 클릭한 위치를 표시할 마커입니다
 		infowindow = new kakao.maps.InfoWindow({
 			zindex : 1
 		}); // 클릭한 위치에 대한 주소를 표시할 인포윈도우입니다
@@ -395,12 +398,12 @@
 					detailAddr + '</div>';
 
 					// 마커를 클릭한 위치에 표시합니다 
-					marker.setPosition(mouseEvent.latLng);
-					marker.setMap(map);
+					marker1.setPosition(mouseEvent.latLng);
+					marker1.setMap(map);
 
 					// 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
 					infowindow.setContent(content);
-					infowindow.open(map, marker);
+					infowindow.open(map, marker1);
 					
 					
 				}
@@ -442,75 +445,11 @@
 		}
 
 		//----------------------------------------목록에있는 주소들 차례로 마킹하는 함수
-		/*
-		function displayPlaces(places) {
 
-			var listEl = document.getElementById('placesList'), menuEl = document
-					.getElementById('menu_wrap'), fragment = document
-					.createDocumentFragment(), bounds = new kakao.maps.LatLngBounds(), listStr = '';
-
-			// 검색 결과 목록에 추가된 항목들을 제거합니다
-			removeAllChildNods(listEl);
-
-			// 지도에 표시되고 있는 마커를 제거합니다
-			removeMarker();
-
-			for (var i = 0; i < places.length; i++) {
-
-				// 마커를 생성하고 지도에 표시합니다
-				var placePosition = new kakao.maps.LatLng(places[i].y,places[i].x),
-				 marker = addMarker(placePosition, i)	// ----------------------------------------------------------------------------------얘는 지워야됨.. 고양터아니고 그냥 동 표시 위한것
-				itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
-
-				// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-				// LatLngBounds 객체에 좌표를 추가합니다
-				bounds.extend(placePosition);
-
-				// 마커와 검색결과 항목에 mouseover 했을때
-				// 해당 장소에 인포윈도우에 장소명을 표시합니다
-				// mouseout 했을 때는 인포윈도우를 닫습니다
-				(function(marker, title) {
-					kakao.maps.event.addListener(marker, 'click', (function(
-							placePosition) {
-						displayInfowindow(marker, title);
-						return function() {
-							// 좌표정보를 파싱하기 위해 hidden input에 값 지정
-							$("#latitude").val(placePosition.La);
-							$("#longitude").val(placePosition.Ma);
-							$("#placeName").val(title);
-							// #result 영역에 좌표정보 출력
-							var resultDiv = document.getElementById('result');
-							resultDiv.innerHTML = '선택하신 위치는 ' + '"' + title + '"' + placePosition + ' 입니다';
-							
-							
-							
-						}
-					})(placePosition));
-
-					itemEl.onmouseover = function() {
-						infowindow.close();
-					};
-
-					itemEl.onmouseout = function() {
-						infowindow.close();
-					};
-				})(marker, places[i].place_name);
-
-				fragment.appendChild(itemEl);
-			}
-
-			// 검색결과 항목들을 검색결과 목록 Element에 추가합니다
-			listEl.appendChild(fragment);
-			menuEl.scrollTop = 0;
-
-			// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-			map.setBounds(bounds);
-		}
-		*/
 
 		//---------------------------------------------------------------------------
 		//================================================================
-		for (var i = 0; i < positions.length; i ++) {
+/* 		for (var i = 0; i < positions.length; i ++) {
 		    
 		    // 마커 이미지의 이미지 크기 입니다
 		    var imageSize = new kakao.maps.Size(36, 36); 
@@ -526,7 +465,7 @@
 		        image : markerImage // 마커 이미지
 
 		    });
-		}
+		} */
 		//================================================================	
 		// 커스텀 오버레이에 표시할 내용입니다     
 		// HTML 문자열 또는 Dom Element 입니다 
@@ -555,8 +494,12 @@
 
 		
 
-		// 커스텀 오버레이가 표시될 위치입니다 
 		
+		var lat_arr = []
+		var lng_arr = []
+		
+		// 커스텀 오버레이가 표시될 위치입니다 
+
 		for (var i = 0; i < mark_content.length; i++) {
 		
 
@@ -572,32 +515,65 @@
 			position : mark_content[i].latlng,
 			image : markerImage
 			
+			
 		});
 		var infowindow1 = new kakao.maps.InfoWindow({
-			content : mark_content[i].content
+			content : mark_content[i].content,
+			position : mark_content[i].latlng
+			
+			
 		});
+		
+		
+		lat_arr.push(mark_content[i].latlng.Ma)
+		lng_arr.push(mark_content[i].latlng.La)
+		
+		
+		console.log(mark_content[i].latlng.Ma) // 마커 위도
+		console.log(mark_content[i].latlng.La) // 마커 경도
+		
+		
+		
+		
+		kakao.maps.event.addListener(marker, 'mouseover', makeOver(map, marker, lat_arr));
 		kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow1));
-		kakao.maps.event.addListener(marker,'click',markClick(map, marker, infowindow1));
 		kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow1));
+		kakao.maps.event.addListener(marker,'click',markClick(map, marker, infowindow1));
+		
+
+		
 		}
 		
+		// 마우스 올렸을 때 
+		function makeOver(map, marker, lat_arr) {
+		    return function() {
+		        console.log(marker.getPosition().Ma);
+		    
+		        
+		     
+		    };
+		}
+		
+	
 		// 마우스 올렸을 때 
 		function makeOverListener(map, marker, infowindow1) {
 		    return function() {
 		        infowindow1.open(map, marker);
-		    };
-		}
-		
-			
-		
-		//클릭시 말풍선뜨는거 ㅎㅎ
-		function markClick(map, marker, infowindow1) {
-		    return function() {
-		    	$(".map_footer").css("display","block");
-		     
-		    };
-		}
 
+		       
+		        
+		        			
+		        			
+		        			
+		        			
+		        			
+		    	
+		    };
+		}
+		
+		
+		
+		
 		
 		// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
 		function makeOutListener(infowindow1) {
@@ -607,30 +583,31 @@
 		       
 		    };
 		}
+		var footer;
+		//클릭시 말풍선뜨는거 ㅎㅎ
+		function markClick(map, marker, infowindow1) {
+		    return function() {
+		    	<%for (int j = 0; j < careList.size(); j++) {%>
+	        	if(marker.getPosition().Ma == <%=careList.get(j).getCare_latitude()%> && marker.getPosition().La == <%=careList.get(j).getCare_longitude()%>){
+	        			console.log(<%=j+1%>)
+	        			footer = <%=j+1%>
+	        	}
+	        			<%}%>
+	        			
+	        			
+	        			
+		    	$('.map_footer').css("display","none");
+		    	$('.map_footer.'+footer).css("display","block");
+		    	
+		 
+		     
+		    }
+		};
 		
 
-		<%-- var position = new kakao.maps.LatLng(<%=careList.get(i).getCare_latitude()%>, <%=careList.get(i).getCare_longitude()%>);
-		addMarker(position, <%=i%>);
-		// 커스텀 오버레이를 생성합니다
-		var infowindow1 = new kakao.maps.InfoWindow({
-			position : position,
-			content : content,
-});
-		kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker, infowindow1));
-
-	function makeOverListener(map, marker, infowindow1) {
-	    return function() {
-	        infowindow1.open(map, marker);
-	    };
-	}
+		
 	
-	function makeOutListener(infowindow1) {
-	    return function() {
-	        infowindow1.close();
-	    };
-	} --%>
-	
-/* 			kakao.maps.event.addListener(marker, 'click', function() {
+ /* 			kakao.maps.event.addListener(marker, 'click', function() {
       // 마커 위에 인포윈도우를 표시합니다
       customOverlay.open(map, marker);  
 });
@@ -643,6 +620,7 @@
 			
 			
 	</script>
+
 </body>
 
 </html>

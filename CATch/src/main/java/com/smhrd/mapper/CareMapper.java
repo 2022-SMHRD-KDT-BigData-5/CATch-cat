@@ -20,6 +20,9 @@ public interface CareMapper {
 	//특정 급식소에 등록된 모든 고양이 데이터 가져오기
 	public abstract List<CatCard> selectCareCatCard(int cat_carezone);
 	
+	//급식소에 사는 모든 고양이 가져오기
+	public abstract List<CatCard> selectAllCareCatcard();
+	
 	
 
 
