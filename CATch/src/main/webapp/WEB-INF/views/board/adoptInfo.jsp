@@ -70,6 +70,11 @@
 	color: #fff;
 	border: solid #6c757d;
 }
+
+pre {
+    background-color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+}
 </style>
 </head>
 <body>
@@ -121,7 +126,7 @@
 					}
 				%>
 				<tr style="height: 200px;">
-					<td colspan="4"><%=adoptBoardInfo.getAdt_content()%></td>
+					<td colspan="4"><pre><%=adoptBoardInfo.getAdt_content()%></pre></td>
 				</tr>
 
 				<tr>
@@ -191,7 +196,7 @@
 						%>
 					</tr>
 					<tr>
-						<td colspan='3' style="height: 80px; text-align: left;"><%=adoptComment.getCmt_content()%></td>
+						<td colspan='3' style="height: 80px; text-align: left;"><pre><%=adoptComment.getCmt_content()%></pre></td>
 					</tr>
 				</table>
 				<%
