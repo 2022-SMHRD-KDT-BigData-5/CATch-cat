@@ -25,7 +25,7 @@
     
  
 </head>
-
+<th:block th:fragment="setLogin(login)">
 <body>
 
 	
@@ -55,4 +55,5 @@
 	</div>
 
 </body>
+</th:block>
 </html>

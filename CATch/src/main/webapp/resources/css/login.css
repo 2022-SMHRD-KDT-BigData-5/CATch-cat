@@ -123,8 +123,8 @@ section.notice{
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-	display: inline-block;
-    margin-left: 35%;
+
+
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
@@ -2729,7 +2729,7 @@ select.form-control-lg:not([size]):not([multiple]) {
   border-color: #EED8BE;
   border-style: solid;
   background-color :white;
-  margin-top : 40%
+
 }
 
 .loginForm h2{
@@ -3449,7 +3449,5 @@ fieldset:disabled a.btn {
     border-color: transparent;
     box-shadow: none
 
-. body {
-    display: inline-block;
-}
+
 

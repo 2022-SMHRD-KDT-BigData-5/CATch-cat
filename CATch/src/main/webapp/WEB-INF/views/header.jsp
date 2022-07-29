@@ -132,7 +132,7 @@
      </div>
      <div class="modal-body">
 
-      
+      <th:block th:replace="~{login.do :: setLogin(~{this::login} )}"></th:block>
      </div>
     </div>
    </div>
