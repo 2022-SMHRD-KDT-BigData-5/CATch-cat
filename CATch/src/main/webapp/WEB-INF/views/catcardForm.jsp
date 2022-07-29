@@ -102,16 +102,17 @@ if(member != null){
             <div>
             <h3>고양이 사진</h3>
             <span class="box int_file"> 
-            <input placeholder="고양이 사진 무조건 넣으세요!!!!!!!!!!!"class="int">   
+            <input placeholder="하단의 버튼을 클릭하여 고양이의 사진을 등록해주세요."class="int">   
             </span>
+            <br>
              <input class="filecheck" type="file" style=" border:0 solid black; display: inline-block" name="file", id="file" >
             
             </div>
 
             <!--중성화 유무-->
             <div>
-              <h3>중성화 유무</h3>
-               <label><input class="neutralcheck" type="checkbox" name="cat_neutral" value="Y">중성화</label>  
+              <h3>중성화 여부</h3>
+               <label><input class="neutralcheck" type="checkbox" name="cat_neutral" value="Y">중성화 완료시 체크</label>  
               </div>  
                  
             <!-- join btn -->
