@@ -635,39 +635,7 @@
       customOverlay.open(map, marker);  
 });
       */
-			
-	kakao.maps.event.addListener(marker, 'click', function() {
-		clickmarker(marker, places);
-	});		
-	
-      itemEl.onmouseover = function() {
-			displayInfowindow(marker, title);
-		};
 
-	itemEl.onmouseout = function() {
-			infowindow.close();
-		};
-		})(marker, laces[i].place_name,
-				[places[i].place_name, places[i].address_name, places[i].id, places[i].phone, places[i].place_url]);
-		
-		fragment.appendChild(itemEl);
-			
-	(function(marker, title, places){
-		kakao.maps.event.addListener(marker,'click',function(){
-			clickmarker(marker, places);
-		});
-	}) (marker, places[i].place_name,
-			[places[i].place_name, places[i].address_name, places[i].id, places[i].phone, places[i].place_url]);
-	
-	
-		fragment.appenChild(itemEl);
-		
-		
-	function clickmarker (marker, places) {
-		var place_name = places[0];
-		var address_name = places
-	}
-	</script>
 </body>
 
 </html>
