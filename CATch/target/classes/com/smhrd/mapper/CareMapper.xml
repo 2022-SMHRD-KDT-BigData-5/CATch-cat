@@ -18,4 +18,10 @@
 	    select * from t_catcard
 	    where cat_carezone = #{cat_carezone}
 	</select>
+	
+	<!-- 급식소에 사는 모든 고양이 가져오기 -->
+	<select id="selectAllCareCatcard" resultType="com.smhrd.domain.CatCard">
+	    select * from t_catcard
+	    where cat_carezone is not null
+	</select>
 </mapper>
