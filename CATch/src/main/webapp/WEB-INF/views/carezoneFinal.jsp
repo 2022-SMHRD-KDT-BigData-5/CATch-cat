@@ -635,7 +635,6 @@
       customOverlay.open(map, marker);  
 });
       */
-
+      </script>
 </body>
-
 </html>

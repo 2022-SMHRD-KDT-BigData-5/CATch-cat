@@ -11,11 +11,11 @@
 	<link rel="stylesheet" href="css/catcardloding.css">
 </head>
 <body>
-	<div id="load">
-		<img src="img/catkk.gif" alt="">
+	 <div id="load">
+        <video muted autoplay loop>
+          <source src="img/catmove.mp4" type="video/mp4">
+        </video>
 	</div>
-	
-	
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
