@@ -31,6 +31,8 @@ public class CareController {
 	@RequestMapping("/carezoneFinal.do")
 	public String carezone(Model model) {
 		List<CareBoard> careList = mapper.selectCareZone();
+		List<CatCard> catcardListAll = mapper.selectAllCareCatcard();
+		model.addAttribute("catcardListAll", catcardListAll);
 		model.addAttribute("careList", careList);
 		return "carezoneFinal";
 	}
@@ -59,6 +61,7 @@ public class CareController {
 	public String addCareCat() {
 		return "catcardForm.do";
 	}
+	
 	
 	
 	
