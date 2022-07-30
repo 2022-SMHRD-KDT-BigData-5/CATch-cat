@@ -77,8 +77,14 @@ public class CatCardController {
 	
 	//비문 사진으로 캣카드 조회
 	@RequestMapping("/imgSearch.do")
-	public void imgSearch() {
+	public String imgSearch() {
 		
+		return "loading1";
+	}
+	@RequestMapping("/searchCom.do")
+	public String searchCom() {
+		
+		return "searchcom";
 	}
 	
 	
@@ -187,7 +193,7 @@ public class CatCardController {
 	@RequestMapping("/completion.do")
 	public String catcardcompletion() {
 		
-		return "catnext";
+		return "success";
 	}
 
 	// 로딩중 페이지로 이동

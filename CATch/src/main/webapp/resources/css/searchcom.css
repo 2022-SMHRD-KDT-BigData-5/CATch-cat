@@ -1,0 +1,62 @@
+@charset "UTF-8";
+svg{
+    width: 220px;
+    height: 220px;
+}
+svg>circle{
+    fill: transparent;
+    stroke: #006400;
+    stroke-width: 10;
+    /* 점선 꽉 차게 */
+    stroke-dasharray: 629;
+    stroke-dashoffset: 629;
+    stroke-linecap: round;
+    transform-origin: 50%;
+    transform: rotate(-90deg);
+}
+
+.h_title{
+    font-size : 100px;
+    color : #006400;
+    font-weight: 900;
+    margin-bottom: 0;
+    font-family: 'Cafe24Ssurround';
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 70px;
+  }
+
+.com_body{
+    padding: 0px 20%;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.com_img{
+    width: 300px;
+    height: 300px;
+    display: block;
+}
+
+.com_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.com_body svg{
+    display: block;
+    margin-top: 35px;
+    margin-left: 50px;
+}
+svg text{
+    font-size: 50px;
+    fill : #006400;
+    font-family: var(--font--family);
+}
+
+.com_p{
+    font-size: 50px;
+
+}
