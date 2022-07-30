@@ -82,7 +82,8 @@ public class MemberController {
 			System.out.println("로그인 성공");
 		}else {
 			System.out.println("로그인 실패");
-			return "redirect:/login.do";
+			
+			return "redirect:/main.do";
 		}
 		
 			return "redirect:/main.do";

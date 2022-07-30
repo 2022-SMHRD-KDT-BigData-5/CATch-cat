@@ -42,7 +42,7 @@
 
 	<h1 class = 'h_title'>캣카드 조회</h1>
     
-        <p class="title_p">화면이 뚜렷한 사진을 촬영하거나 첨부해주세요</p>
+        <p class="title_p">코주름이 뚜렷한 사진을 촬영하거나 첨부해주세요</p>
         <br>
         <p class="title_p">사진이 없을 경우 번호를 입력해 주세요</p>
     
@@ -51,7 +51,7 @@
 </div>
 
 
-<form action="/imgSearch" method="post">
+<form action="imgSearch.do" method="post">
   <div class="filebox">
       <div>사진 첨부 하기</div><input class = 'img_search' value="첨부파일" name="cat_nose">
     <label for="file">업로드</label>
