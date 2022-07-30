@@ -22,7 +22,13 @@
     <link rel="stylesheet" href="css/myCat.css">
     <link rel="stylesheet" href="css/catcard.css">
     <link rel="stylesheet" href="css/searchcom.css">
+       <link rel="stylesheet" href="css/success.css">
     
+        <style>
+        body{
+            text-align: center;
+        }
+    </style>
 </head>
 <body >
 
@@ -32,9 +38,9 @@
     <h1 class="h_title">조회성공</h1>
     <p class="com_p">이 고양이가 맞나요?</p>
     <div class="com_body">
-        <div class="com_img"><img src="back-cat.png"></div>
+        <div class="com_img"><img src="img/cat001.jpg"></div>
         <svg>
-            <text class = 'number' text-anchor="start" x="60" y="125" >75</text><text text-anchor="start" x="120" y="125">%</text>
+            <text class = 'number' text-anchor="start" x="60" y="125" >75</text><text text-anchor="start" x="130" y="125">%</text>
             <circle cx="110" cy="110" r="100">
             </circle>
             
@@ -42,9 +48,8 @@
         
     </div>
 
-  <button class="success_button">메인</button> 
-    <br>
-    <button class="success_button">다시조회</button> 
+  <button class="success_button" onclick="location.href='catcard.do'">캣카드이동</button> 
+    <button class="success_button" onclick="location.href='catcardSearch.do'">다시조회</button> 
 
     
     <!-- This is Javascript Code -->
