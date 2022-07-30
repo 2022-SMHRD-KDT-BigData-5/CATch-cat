@@ -187,7 +187,7 @@ public class CatCardController {
 	@RequestMapping("/completion.do")
 	public String catcardcompletion() {
 		
-		return "catnext";
+		return "success";
 	}
 
 	// 로딩중 페이지로 이동
