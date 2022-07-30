@@ -103,7 +103,7 @@ pre {
 			<tbody>
 				<tr>
 					<th scope="row">카테고리</th>
-					<td>소통게시판</td>
+					<td>입양게시판</td>
 					<th scope="row">조회수</th>
 					<td><%=adoptBoardInfo.getAdt_cnt()%></td>
 				</tr>
