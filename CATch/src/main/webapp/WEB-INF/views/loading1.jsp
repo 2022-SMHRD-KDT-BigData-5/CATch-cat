@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8" >
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,9 +16,9 @@
 <body>
 
 
-	<h1 class = 'h_title'>로딩중입니다...</h1>
+	<h1 class = 'h_title'>비문이 일치하는 고양이를 조회중입니다...</h1>
 	<div id="load">
-		<img src="img/catkk.gif" alt="">
+		<img src="img/catkk.gif">
 	</div>
 	
 	
@@ -28,6 +28,15 @@
 	$(window).load(function() {
     $('#load').hide();
 	}); 
+	
+
+	</script>
+	<script>
+    setTimeout('move_page()', 9000); //2초후에 move_page함수실행
+    
+    function move_page(){
+    location.href="searchCom.do"  // 페이지 이동
+    }
 	</script>
 
 </body>
