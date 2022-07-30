@@ -12,6 +12,19 @@
 	<link rel="stylesheet" href="css/catcardloding.css">
 	
     <link rel="stylesheet" href="css/myCat.css">
+    
+    <style>
+    	.h_title{
+    		 position: absolute;
+    		 margin-left : 150px;
+    		 
+    	}
+    	body{
+    	text-align : center;
+    	margin : 0px;
+    	}
+    </style>
+    
 </head>
 <body>
 
