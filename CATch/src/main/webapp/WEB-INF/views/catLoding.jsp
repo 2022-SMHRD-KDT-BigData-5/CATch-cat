@@ -7,12 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+	      <link rel="stylesheet" href="css/myCat.css">
 	  
     <link rel="stylesheet" href="css/catLoding.css">
 </head>
 <body>
  
-
+	<h1 class = 'h_title'>캣카드 등록중입니다...</h1>
 <div id="load">
     <img src="img/catloding.gif" >
 
