@@ -2717,7 +2717,7 @@ select.form-control-lg:not([size]):not([multiple]) {
 
 
 
-.loginForm {
+.loginForm{
   position:absolute;
   width:600px;
   height:500px;
@@ -2726,10 +2726,11 @@ select.form-control-lg:not([size]):not([multiple]) {
   background:none;
   top:50%;
   border-radius: 15px;
-  border-color: #EED8BE;
-  border-style: solid;
+  box-shadow: 5px 5px;
   background-color :white;
 }
+
+
 
 .loginForm h2{
   text-align: center;
@@ -2739,13 +2740,11 @@ select.form-control-lg:not([size]):not([multiple]) {
 }
 
 .idForm{
-  border-bottom: 2px solid #adadad;
   margin: 30px;
   padding: 10px 10px;
 }
 
 .passForm{
-  border-bottom: 2px solid #adadad;
   margin: 30px;
   padding: 10px 10px;
 
@@ -2793,6 +2792,8 @@ select.form-control-lg:not([size]):not([multiple]) {
 }
 .bottomText {
   text-align: center;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .btn.focus,

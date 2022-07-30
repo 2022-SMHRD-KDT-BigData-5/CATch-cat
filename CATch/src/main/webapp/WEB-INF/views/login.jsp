@@ -34,6 +34,7 @@
 <link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="css/slicknav.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/login.css">
 
 </head>
 <body>
@@ -42,11 +43,11 @@
 
 
    	<b><h2>Login</h2></b>
-
+	<div class="loginForm">
 	<div class="member_login">
 
 
-		<form action="/login123.do" method="POST">
+		<form action="login.do" method="POST">
 			<div class="idForm">
 				<input type="text" name="mem_id" placeholder="아이디">
 			</div>
@@ -61,6 +62,6 @@
 		</form>
 	
 	</div>
-
+	</div>
 </body>
 </html>
