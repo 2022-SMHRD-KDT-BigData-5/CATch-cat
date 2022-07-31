@@ -57,7 +57,7 @@
                                     <li><a href="catcardSearch.do">조회</a></li>
                                  </ul></li>
 
-                              <li><a href="#">펫뮤니티<i class="ti-angle-down"></i></a>
+                              <li><a href="#">캣뮤니티<i class="ti-angle-down"></i></a>
                                  <ul class="submenu">
                                     <li><a href="comm.do">소통게시판</a></li>
                                     <li><a href="adopt.do">입양게시판</a></li>
