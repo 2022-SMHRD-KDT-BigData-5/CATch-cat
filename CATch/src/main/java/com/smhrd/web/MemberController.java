@@ -1,9 +1,11 @@
 package com.smhrd.web;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.xml.ws.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.smhrd.domain.CatCard;
 import com.smhrd.domain.Member;
@@ -66,7 +69,9 @@ public class MemberController {
 	}
 	
 	// 로그인하기
+	
 	@PostMapping("/login.do")
+	
 	public String login(HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
@@ -78,12 +83,12 @@ public class MemberController {
 		Member loginMember = new Member(mem_id, mem_pw); 
 		Member member = mapper.selectMember(loginMember);
 		session.setAttribute("member", member);
+		
 		if(member != null) {
 			System.out.println("로그인 성공");
-		}else {
+		}else {		
 			System.out.println("로그인 실패");
-			
-			return "redirect:/main.do";
+			return "redirect:/main.do";			
 		}
 		
 			return "redirect:/main.do";
