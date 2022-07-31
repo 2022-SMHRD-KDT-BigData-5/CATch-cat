@@ -57,7 +57,7 @@
                                     <li><a href="catcardSearch.do">조회</a></li>
                                  </ul></li>
 
-                              <li><a href="#">게시판 <i class="ti-angle-down"></i></a>
+                              <li><a href="#">캣뮤니티<i class="ti-angle-down"></i></a>
                                  <ul class="submenu">
                                     <li><a href="comm.do">소통게시판</a></li>
                                     <li><a href="adopt.do">입양게시판</a></li>
@@ -73,7 +73,7 @@
                                           <li><a href="myInfoCheck.do">회원정보 수정</a></li>
                                        </ul></li>
                                  <%}else if(id_info == "P"){ %>
-                                    <li><a href="catcardAdmin.do">업체페이지<i class="ti-angle-down"></i>  </a>
+                                    <li><a href="catcardAdmin.do">고객페이지<i class="ti-angle-down"></i>  </a>
                                        <ul class="submenu">
                                           <li><a
                                              href="catcardAdmin.do">고객정보 조회</a></li>
