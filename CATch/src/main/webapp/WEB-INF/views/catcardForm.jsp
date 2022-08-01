@@ -95,7 +95,7 @@ if(member != null){
             <div>
                <h3>고양이 특이사항</h3>
                <span class="box int_spec"> 
-               <input name ="cat-spec" class="int" placeholder="특이사항 입력">
+               <input name ="cat_spec" class="int" placeholder="특이사항 입력">
                </span>
             </div>
             

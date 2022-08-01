@@ -79,6 +79,8 @@ public class CatCardController {
 	@RequestMapping("/imgSearch.do")
 	public String imgSearch() {
 		
+		// 여기다가 추가해서 바꾸기
+		
 		return "loading1";
 	}
 	@RequestMapping("/searchCom.do")
