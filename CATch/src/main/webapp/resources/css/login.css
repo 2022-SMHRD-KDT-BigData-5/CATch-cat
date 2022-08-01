@@ -2718,12 +2718,8 @@ select.form-control-lg:not([size]):not([multiple]) {
 
 
 
-<<<<<<< HEAD
-.loginForm {
-=======
 .loginForm{
   position:absolute;
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
   width:600px;
   height:500px;
   padding: 30px, 20px;
