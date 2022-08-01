@@ -46,16 +46,17 @@
         <br>
         <p class="title_p">사진이 없을 경우 번호를 입력해 주세요</p>
     
-<div id = 'search_body'>
-    <img src="img/Canon.png">
-</div>
+	<div id='search_body'>
+		<img src="img/Canon.png" id="preview" style="width:250px; height:250px">
+	</div>
 
 
 <form action="imgSearch.do" method="post">
   <div class="filebox">
-      <div>사진 첨부 하기</div><input class = 'img_search' value="첨부파일" name="cat_nose">
+      <div>사진 첨부 하기</div>
+      <input class = 'img_search' value="첨부파일" name="cat_nose">
     <label for="file">업로드</label>
-    <input type="file" id = 'file'>
+    <input type="file" name="file" id ='file'>
     <input class = 'sinput' type="submit" value="첨부">
     </div>
 </form>
@@ -67,11 +68,21 @@
 
 
 
-<script>
-    $("#file").on('change',function(){
-  var fileName = $("#file").val();
-  $(".img_search").val(fileName);
-});
-</script>
+	<script>
+		$("#file").on("change", function(event) {
+
+			var file = event.target.files[0];
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$("#preview").attr("src", e.target.result);
+			}
+			reader.readAsDataURL(file);
+		});
+
+		$("#file").on('change', function() {
+			var fileName = $("#file").val();
+			$(".img_search").val(fileName);
+		});
+	</script>
 </body>
 </html>
