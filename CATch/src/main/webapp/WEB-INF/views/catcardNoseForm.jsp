@@ -23,10 +23,20 @@
 <link rel="stylesheet" href="css/myCat.css">
 <link rel="stylesheet" href="css/catSearch.css">
 <!-- <link rel="stylesheet" href="css/responsive.css"> -->
-
+<style>
+	.loading{
+		width:100%;
+    	height:100%;
+    	position:fixed;
+    	left:0px;
+    	top:0px;
+    	background:#006400;
+    	z-index:1000; /* 이 값으로 레이어의 위치를 조정합니다. */
+	}
+</style>
 </head>
 <body>
-
+<div class="loading"></div>
 
 
 <jsp:include page="header.jsp"></jsp:include>
@@ -68,6 +78,12 @@
 	var fileName = $("#file").val();
 	$(".img_search").val(fileName);
 	});
+</script>
+
+<script>
+	$(window).load(function(){
+		$(".loading").fadeOut();
+	})
 </script>
 </body>
 </html>
