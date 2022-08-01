@@ -53,6 +53,7 @@
     <img src="img/Canon.png" id="preview" style="width: 250px; height: 250px">
 </div>
 
+<<<<<<< HEAD
 	<form action="imgSearch.do" method="post">
 		<div class="filebox">
 			<div>사진 첨부 하기</div>
@@ -62,6 +63,9 @@
 		</div>
 	</form>
 
+=======
+
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
 <form action="imgSearch.do" method="post">
   <div class="filebox">
       <div>사진 첨부 하기</div><input class = 'img_search' value="첨부파일" name="cat_nose">
