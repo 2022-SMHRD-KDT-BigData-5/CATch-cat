@@ -43,17 +43,6 @@
 	<jsp:include page="header.jsp"></jsp:include>
 
 
-
-	<h1 class='h_title'>캣카드 조회</h1>
-
-	<p class="title_p">코주름이 뚜렷한 사진을 촬영하거나 첨부해주세요</p>
-	<br>
-	<p class="title_p">사진이 없을 경우 번호를 입력해 주세요</p>
-
-	<div id='search_body'>
-		<img src="img/Canon.png">
-	</div>
-
 	<h1 class = 'h_title'>캣카드 조회</h1>
     
         <p class="title_p">코주름이 뚜렷한 사진을 촬영하거나 첨부해주세요</p>
