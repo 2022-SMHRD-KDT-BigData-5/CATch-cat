@@ -485,9 +485,9 @@
 	        '            </div>' + 
 	        '        </div>' + 
 	        '    </div>' +    
-	        '</div>',
+	        '</div>'
 	        latlng: new kakao.maps.LatLng(<%=careList.get(i).getCare_latitude()%>, <%=careList.get(i).getCare_longitude()%>)
-			},
+			
 		<%}%>
 		];
 		
