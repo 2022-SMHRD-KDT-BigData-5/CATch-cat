@@ -5,7 +5,8 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>캣카드 조회</title>
+
+<title>캣카드 조회🔍</title>
 <meta name="description" content="">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -42,7 +43,21 @@
 
 	<jsp:include page="header.jsp"></jsp:include>
 
+<<<<<<< HEAD
+=======
 
+	<h1 class = 'h_title'>캣카드 조회</h1>
+    
+        <p class="title_p">코주름이 뚜렷한 사진을 촬영하거나 첨부해주세요</p>
+        <br>
+        <p class="title_p">사진이 없을 경우 번호를 입력해 주세요</p>
+    
+<div id = 'search_body'>
+    <img src="img/Canon.png" id="preview" >
+</div>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
+
+<<<<<<< HEAD
 	<h1 class='h_title'>캣카드 조회</h1>
 
 	<p class="title_p">코주름이 뚜렷한 사진을 촬영하거나 첨부해주세요</p>
@@ -63,6 +78,20 @@
 			<input class='sinput' type="submit" value="첨부">
 		</div>
 	</form>
+=======
+
+	<form action="imgSearch.do" method="post">
+		<div class="filebox">
+			<div>사진 첨부 하기</div>
+			<input class='img_search' value="첨부파일" name="cat_nose"> <label
+				for="file">업로드</label> <input type="file" id='file'> <input
+				class='sinput' type="submit" value="첨부">
+		</div>
+	</form>
+
+
+
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
 
 	<form action="seqSearch.do" method="post">
 		<div class="filebox">

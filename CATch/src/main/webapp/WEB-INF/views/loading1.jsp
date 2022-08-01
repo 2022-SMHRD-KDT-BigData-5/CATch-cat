@@ -28,13 +28,17 @@
 </head>
 <body>
 
+	 
 
 	<h1 class = 'h_title'>비문이 일치하는 고양이를 조회중입니다...</h1>
 	<div id="load">
-		<img src="img/catkk.gif">
+
+		<img src="img/catkk.gif" alt="">
+
+
+
+
 	</div>
-	
-	
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">

@@ -63,5 +63,6 @@
     <select id="selectAdmin" resultType="com.smhrd.domain.PetcareAdmin"> 
       select * from t_petcare_admin 
       where admin_catcard = #{admin_catcard}
+      order by admin_date desc
       </select>
 </mapper>

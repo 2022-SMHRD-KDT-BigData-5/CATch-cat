@@ -485,13 +485,13 @@
 	        '            </div>' + 
 	        '        </div>' + 
 	        '    </div>' +    
-	        '</div>',
+	        '</div>'
 	        latlng: new kakao.maps.LatLng(<%=careList.get(i).getCare_latitude()%>, <%=careList.get(i).getCare_longitude()%>)
-			},
+			
 		<%}%>
 		];
 		
-
+		console.log(mark_content);
 		
 
 		
@@ -612,15 +612,12 @@
       customOverlay.open(map, marker);  
 });
       */
-			
-			
-			
-			
-			
-			
-			
-	</script>
 
+      
+			
+			
+					
+
+      </script>
 </body>
-
 </html>

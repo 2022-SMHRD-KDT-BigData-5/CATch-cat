@@ -85,6 +85,14 @@ form {
 	margin-right: 4px;
 }
 
+<<<<<<< HEAD
+
+}
+
+.search-head {
+	text-align : center;
+	
+=======
 .filebox label:hover {
 	background: #5ebc88;
 	color: #fdf8f2;
@@ -97,4 +105,5 @@ form {
 	padding: 0;
 	overflow: hidden;
 	border: 0;
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
 }
