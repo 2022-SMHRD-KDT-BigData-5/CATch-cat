@@ -171,7 +171,7 @@
 
          <div class="swiper-slide">
          
-              <%if(member!=null){if(member.getMem_hospital() == 'T'){ %> 
+              <%if(member!=null){if(member.getMem_hospital() == 'H'){ %> 
           
           <div class='update_btn'>
                     <a  href="#update_modal" rel="modal:open" class='update_btn_body'>수정</a>

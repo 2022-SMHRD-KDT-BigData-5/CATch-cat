@@ -36,11 +36,11 @@
 
 <jsp:include page="header.jsp"></jsp:include>
 
+    <h1>캣카드 등록이 완료 되었습니다.</h1>
     
-    
-    <button class="success_button" onclick="location.href='main.do'">메인</button> 
+    <button class="success_button" onclick="location.href='main.do'">메인으로가기</button> 
     <br>
-    <button class="success_button" onclick="location.href='catcardSearch.do'">등록/조회</button> 
+    <button class="success_button" onclick="location.href='catcardSearch.do'">캣카드 조회하기</button> 
 
 
 
