@@ -77,11 +77,32 @@ public class CatCardController {
 	
 	//비문 사진으로 캣카드 조회
 	@RequestMapping("/imgSearch.do")
-	public String imgSearch() {
+	public String imgSearch(HttpServletRequest request) {
 		
 		// 여기다가 추가해서 바꾸기
+		int cat_seq = 2022051429;
+		CatCard catcard = mapper.seqCatSearch(cat_seq);
+		List<Medical> medicalList = mapper.seqMediSearch(cat_seq);
+		List<Vaccination> jh = mapper.jhSearch(cat_seq);
+		List<Vaccination> gg = mapper.ggSearch(cat_seq);
+		List<Vaccination> jb = mapper.jbSearch(cat_seq);
+		List<Vaccination> hc = mapper.hcSearch(cat_seq);
+		List<Vaccination> ss = mapper.ssSearch(cat_seq);
 		
-		return "loading1";
+		HttpSession session = request.getSession();
+		session.setAttribute("catcardInfo", catcard);
+		session.setAttribute("medicalList", medicalList);
+		session.setAttribute("jh", jh);
+		session.setAttribute("gg", gg);
+		session.setAttribute("jb", jb);
+		session.setAttribute("hc", hc);
+		session.setAttribute("ss", ss);
+		
+		List<PetcareAdmin> catcardPetcare = mapper.selectAdmin(cat_seq);
+		session.setAttribute("catcardPetcare", catcardPetcare);
+		
+		return "redirect:/catcard.do";
+
 	}
 	@RequestMapping("/searchCom.do")
 	public String searchCom() {

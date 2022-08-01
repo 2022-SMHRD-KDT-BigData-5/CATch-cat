@@ -171,7 +171,7 @@
 
          <div class="swiper-slide">
          
-              <%if(member!=null){if(member.getMem_hospital() == 'T'){ %> 
+              <%if(member!=null){if(member.getMem_hospital() == 'H'){ %> 
           
           <div class='update_btn'>
                     <a  href="#update_modal" rel="modal:open" class='update_btn_body'>수정</a>
@@ -375,7 +375,7 @@
             			}
             		},
             		error:function(){
-            			alert('에러입니다');
+            			alert('캣카드를 등록한 사용자만 조회할 수 있습니다!');
             		}
             	});
                
