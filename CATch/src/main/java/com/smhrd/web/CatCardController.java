@@ -80,7 +80,7 @@ public class CatCardController {
 	public String imgSearch(HttpServletRequest request) {
 		
 		// 여기다가 추가해서 바꾸기
-		int cat_seq = 20228198;
+		int cat_seq = 2022051429;
 		CatCard catcard = mapper.seqCatSearch(cat_seq);
 		List<Medical> medicalList = mapper.seqMediSearch(cat_seq);
 		List<Vaccination> jh = mapper.jhSearch(cat_seq);
