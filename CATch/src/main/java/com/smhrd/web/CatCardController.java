@@ -164,7 +164,10 @@ public class CatCardController {
 	//캣카드  등록 페이지 + 고양이주민번호 랜덤하게 주기(DB구조는 안고침)(상의)
 
 		@RequestMapping("/catcardregistration.do")
-		public String catcardregistration(Model model) {
+		public String catcardregistration(Model model,HttpServletRequest request, String label) {
+			
+			String cat_label = request.getParameter("label");
+			
 			
 			LocalDate now = LocalDate.now();
 			
@@ -178,9 +181,11 @@ public class CatCardController {
 					Integer.toString(dayOfMonth)+ Integer.toString(rand);
 			
 			model.addAttribute("catnum", num);
+			model.addAttribute("cat_label", cat_label);
 			
 			return "catcardForm";
 	}
+		
 	
 	//캣카드 등록 로딩 페이지
 	@RequestMapping("/loding.do")

@@ -48,6 +48,7 @@ if(member != null){
         <form action="catcardInsert.do" class ="cardform" name="catform"  method="post" enctype="multipart/form-data" >
           <div id="content">    
             
+            
             <!-- 고양이 민증번호 -->
             <div>
             	<h3>고양이 민증번호</h3>

@@ -33,8 +33,10 @@
     </style>
 </head>
 <body>
+
 <jsp:include page="header.jsp"></jsp:include>
- <h1 class = "h_title">등록 완료</h1>
+
+    
     
     <button class="success_button" onclick="location.href='main.do'">메인</button> 
     <br>
