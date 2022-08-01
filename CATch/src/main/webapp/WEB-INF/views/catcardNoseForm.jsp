@@ -47,8 +47,8 @@
 		<div class="filebox">
 			<div>사진 첨부 하기</div>
 			<input class='img_search' value="첨부파일" name="cat_nose"> 
-			<label for="file">업로드</label> 
-			<input type="file" name="file" id='file'> 
+			<label for="file">업로드 
+			<input type="file" name="file" id='file'> </label>
 			<input class='sinput' type="submit" value="등록">
 		</div>
 	</form>
