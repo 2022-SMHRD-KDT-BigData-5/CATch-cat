@@ -16,7 +16,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>입양 게시판 댓글😊</title>
 
 <!-- 게시판css -->
 <script
@@ -103,7 +103,7 @@ pre {
 			<tbody>
 				<tr>
 					<th scope="row">카테고리</th>
-					<td>소통게시판</td>
+					<td>입양게시판</td>
 					<th scope="row">조회수</th>
 					<td><%=adoptBoardInfo.getAdt_cnt()%></td>
 				</tr>

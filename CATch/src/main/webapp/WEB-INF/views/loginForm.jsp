@@ -8,7 +8,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Insert title here</title>
+<title>로그인</title>
 
 <!-- modal 라이브러리 -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -21,9 +21,7 @@
 
 <!-- CSS here -->
         <link href="css/login.css" rel="stylesheet" type="text/css" />
-   		
-    
- 
+
 </head>
 <th:block th:fragment="setLogin(login)">
 <body>
@@ -31,7 +29,7 @@
 	
    
 	<div class="member_login">
-
+	<div class= "body">
  	<form action="login.do" method="POST" class="loginForm" >
    	<b><h2>Login</h2></b>
 		
@@ -51,7 +49,7 @@
       </div>
      
     </form>
-
+	</div>
 	</div>
 
 </body>

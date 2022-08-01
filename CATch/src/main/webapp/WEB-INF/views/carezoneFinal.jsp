@@ -491,7 +491,7 @@
 		<%}%>
 		];
 		
-
+		console.log(mark_content);
 		
 
 		
@@ -612,15 +612,12 @@
       customOverlay.open(map, marker);  
 });
       */
-			
-			
-			
-			
-			
-			
-			
-	</script>
 
+      
+			
+			
+					
+
+      </script>
 </body>
-
 </html>
