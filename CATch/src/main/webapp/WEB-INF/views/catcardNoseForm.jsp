@@ -34,7 +34,7 @@
 
 <h1 class = 'h_title'>캣카드 등록</h1>
 
-    <p class="title_p">화면이 뚜렷한 사진을 촬영하거나 첨부해주세요</p>
+    <p class="title_p">코주름이 뚜렷한 사진을 촬영하거나 첨부해주세요</p>
 
 	<div id='search_body'>
 		<img src="img/Canon.png" id="preview" style="width: 250px; height: 250px">
