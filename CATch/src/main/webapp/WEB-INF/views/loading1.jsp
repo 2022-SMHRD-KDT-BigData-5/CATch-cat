@@ -32,12 +32,12 @@
 
 	<h1 class = 'h_title'>비문이 일치하는 고양이를 조회중입니다...</h1>
 	<div id="load">
-<<<<<<< HEAD
+
 		<img src="img/catkk.gif" alt="">
 
-=======
-		<img src="img/catkk.gif">
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-5/CATch-cat.git
+
+
+
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
