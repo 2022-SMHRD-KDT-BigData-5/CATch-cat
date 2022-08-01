@@ -59,7 +59,7 @@
 		<div class="filebox">
 			<div>사진 첨부 하기</div>
 			<input class='img_search' value="첨부파일" name="cat_nose"> <label
-				for="file">업로드</label> <input type="file" name="file" id='file'>
+				for="file" >업로드</label> <input type="file" name="file" id='file'>
 			<input class='sinput' type="submit" value="첨부">
 		</div>
 	</form>
