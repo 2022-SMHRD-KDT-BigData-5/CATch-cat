@@ -73,7 +73,10 @@
                                           <li><a href="myInfoCheck.do">회원정보 수정</a></li>
                                        </ul></li>
                                  <%}else if(id_info == "P"){ %>
+                                    <li><a href="catcardAdmin.do">고객페이지<i class="ti-angle-down"></i>  </a>
+
                                     <li><a href="catcardAdmin.do">고객 관리<i class="ti-angle-down"></i>  </a>
+
                                        <ul class="submenu">
                                           <li><a
                                              href="catcardAdmin.do">방문고객 관리</a></li>
