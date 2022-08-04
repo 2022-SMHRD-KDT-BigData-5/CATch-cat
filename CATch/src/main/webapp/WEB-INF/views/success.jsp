@@ -36,8 +36,8 @@
 
 <jsp:include page="header.jsp"></jsp:include>
 
-    <h1>캣카드 등록이 완료 되었습니다.</h1>
-    
+    <h1 class="h_title">캣카드 등록이 완료 되었습니다.</h1>
+    <br/><br/><br/>
     <button class="success_button" onclick="location.href='main.do'">메인으로가기</button> 
     <br>
     <button class="success_button" onclick="location.href='catcardSearch.do'">캣카드 조회하기</button> 
