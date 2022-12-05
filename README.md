@@ -1,5 +1,5 @@
 # CATch (팀명: 집사조)
-![image](https://user-images.githubusercontent.com/97463172/170165560-205e130b-17ee-43cc-990e-64391c09859a.png)
+![image](https://user-images.githubusercontent.com/97463172/205543548-24f42f37-f1eb-4002-b737-162fb03b4893.png)
 
 ## 1. 프로젝트명
 * 고양이 비문을 이용한 신분증 제작 서비스
@@ -21,15 +21,15 @@
 |데이터베이스|MySQL|
 
 ## 4. 아키텍처(구조)
-![image](https://user-images.githubusercontent.com/97463172/170419129-f7f93b31-efd0-4682-a285-48305ae14584.png)
+![image](https://user-images.githubusercontent.com/97463172/205543582-28de0da0-8b80-4c18-b407-f144bab9fa92.png)
 
 
 ## 5. 기능 흐름도
 ### 서비스 흐름도(웹화면설계서)
-![image](https://user-images.githubusercontent.com/102156535/170403691-b4efc219-2398-4c75-8e2e-6665ea31d55d.png)
+![image](https://user-images.githubusercontent.com/97463172/205543611-71002991-f341-44c8-b4d5-6c814a0d845a.png)
 
 ### 서비스 흐름도(DB설계서)
-![image](https://user-images.githubusercontent.com/102156535/170400709-1a0769ca-091b-46b1-b4f4-93e2def30678.png)
+![image](https://user-images.githubusercontent.com/97463172/205543661-6d4a3b71-01d4-44ce-9080-a4bc5544904b.png)
 
 
 ## 6 SW 동작 화면
