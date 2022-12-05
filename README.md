@@ -34,26 +34,37 @@
 
 ## 6 SW 동작 화면
 ### 메인화면
-![image](https://user-images.githubusercontent.com/97463172/170187449-3c6e1836-a490-4ce7-a819-8bbfbe7ed6ef.png)
+![image](https://user-images.githubusercontent.com/97463172/205543749-b964844e-10a7-44c6-a18b-2d16cc5faa92.png)
 
-### 회원가입/로그인
-![image](https://user-images.githubusercontent.com/97463172/170166547-d548b32d-40c8-4cb4-a185-4e9c742fa86b.png)
+### 보호자/병원관계자/펫케어관계자 계정으로 각각 로그인
+![image](https://user-images.githubusercontent.com/97463172/205543793-e3da2f12-f4b4-4538-acf8-0367f62440ee.png)
 
-### 여행정보 추천(카테고리에 맞는 여행지의 이름과 주소)
-![image](https://user-images.githubusercontent.com/102156535/170403614-7a5cfa20-e4d4-4ab4-a91d-e0789f9900c4.png)
+### 비문사진 업로드하여 캣카드 등록
+![image](https://user-images.githubusercontent.com/97463172/205543844-4429185e-2289-4d8b-80b1-b5e244c4a245.png)
 
-### 여행정보를 플래너에 drag&drop으로 손 쉬운 추가
-![image](https://user-images.githubusercontent.com/97463172/170166738-c1c68356-6d82-461f-a4b1-2297ed358f96.png)
-
-### 저장된 여행계획 플래너메뉴에서 확인
-![image](https://user-images.githubusercontent.com/97463172/170166873-31e2cff0-2bfc-4f86-93cd-1079da792a82.png)
-
-### 여행 후 다이어리와 후기작성
-![image](https://user-images.githubusercontent.com/97463172/170166956-a72e816f-9ea2-4751-a20f-d46787f35213.png)
+### 비문 사진으로 등록되어있는 캣카드 조회
+![image](https://user-images.githubusercontent.com/97463172/205543920-b3997366-11cd-4334-865c-daaa88162fc6.png)
+![image](https://user-images.githubusercontent.com/97463172/205544039-ddb292d7-0370-470b-86df-b1ac0d405c5c.png)
+![image](https://user-images.githubusercontent.com/97463172/205544059-78ea1833-ecbe-4641-a638-8488801a074b.png)
 
 
-## 7 제작 일정
-![image](https://user-images.githubusercontent.com/102156535/170403486-28959505-7773-4fd3-aa0f-04d78c9fee42.png)
+### 묘주들의 커뮤니티
+![image](https://user-images.githubusercontent.com/97463172/205544085-20e6ac86-2a14-42fc-93d9-76ce7d5ae6c9.png)
+
+### 펫케어 서비스 추천
+![image](https://user-images.githubusercontent.com/97463172/205544131-416412b5-aa9f-4a4d-acc2-2bc3141e9155.png)
+
+### 고양터(야생묘 관리구역) 등록 및 조회
+![image](https://user-images.githubusercontent.com/97463172/205544157-985fbeec-1071-4131-816c-4c9fe72be8d2.png)
+
+
+
+## 7 데이터 처리과정
+![image](https://user-images.githubusercontent.com/97463172/205544287-886c5cc2-b3b9-48f2-bd8f-675a0304d85d.png)
+![image](https://user-images.githubusercontent.com/97463172/205544297-bd919ff1-7023-4387-8d19-47199d2babfa.png)
+![image](https://user-images.githubusercontent.com/97463172/205544313-0e1f60e9-2485-44be-b5ee-ba169153b88e.png)
+![image](https://user-images.githubusercontent.com/97463172/205544327-741a0c29-d46d-4748-9e3f-9cc6c8a5ea95.png)
+
 
 
 ## 8 팀원 단위 업무 분장 및 결과표
